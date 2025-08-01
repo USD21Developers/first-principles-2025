@@ -16,6 +16,7 @@ body {
 }
 
 header {
+  background-color: #251c17;
   background-image: url(img/masthead-seeking-god.avif);
   background-repeat: no-repeat;
   background-size: cover;
