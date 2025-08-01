@@ -1,0 +1,21 @@
+body {
+  background-color: #060000;
+}
+
+.master-container {
+  display: flex;
+}
+
+.cover {
+  height: auto;
+  width: 100%;
+}
+
+@media (min-width: 467px) {
+  .cover {
+    height: 100vh;
+    max-width: 792px;
+    margin: 0 auto;
+    width: auto;
+  }
+}
