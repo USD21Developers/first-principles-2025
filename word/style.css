@@ -16,11 +16,11 @@ body {
 }
 
 header {
-  background-color: #dccbb4;
+  background-color: #251c17;
   background-image: url(img/masthead-word.avif);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 25vh;
+  height: 18vh;
   overflow-y: hidden;
   width: 100%;
   position: relative;
@@ -51,38 +51,37 @@ h1.threethings {
 }
 
 @media (min-width: 344px) and (max-width: 575px) {
-  header {
-    height: 25vw;
-  }
-
   header div.col-12 h1 {
     bottom: 1.5rem;
+    font-size: 1.4rem;
     left: 1.5rem;
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
-  header {
-    height: 35vh;
-  }
-
+@media (min-width: 576px) and (max-width: 991px) {
   header div.col-12 h1 {
     left: 5vw;
   }
 }
 
 @media (min-width: 768px) {
-  header {
-    height: 37vh;
-  }
-
   header div.col-12 h1 {
     left: 5vw;
   }
 }
 
 @media (min-width: 992px) {
+  header {
+    height: 25vh;
+  }
+
   header div.col-12 h1 {
     left: 2.3vw;
+  }
+}
+
+@media (orientation: landscape) {
+  header {
+    height: 25vh;
   }
 }
