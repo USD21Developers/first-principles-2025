@@ -1,0 +1,82 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+.master-container {
+  background-color: #ffffff;
+  margin: auto;
+  max-width: 768px;
+  width: 100%;
+}
+
+header {
+  background-color: #251c17;
+  background-image: url(img/masthead-word.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25vh;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+}
+
+header div.col-12 h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1.threethings {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+
+@media (min-width: 344px) and (max-width: 575px) {
+  header {
+    height: 25vw;
+  }
+
+  header div.col-12 h1 {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  header {
+    height: 35vh;
+  }
+
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    height: 37vh;
+  }
+
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
