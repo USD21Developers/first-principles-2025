@@ -80,3 +80,9 @@ h1.threethings {
     left: 5vw;
   }
 }
+
+@media (min-width: 992px) {
+  header div.col-12 h1 {
+    left: 2.3vw;
+  }
+}
