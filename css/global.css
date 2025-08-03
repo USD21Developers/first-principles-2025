@@ -13,3 +13,7 @@ img {
 .v100 {
   height: 100%;
 }
+
+tbody.numerals td {
+  font-variant-numeric: lining-nums tabular-nums;
+}
