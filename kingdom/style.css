@@ -80,7 +80,7 @@ section h2 {
   }
 }
 
-.container-fluid {
+.mountain-bg {
   background-attachment: fixed;
   background-image: url("img/mountain-bg-transparent.webp");
   background-position: bottom center;
@@ -89,7 +89,7 @@ section h2 {
 }
 
 @media (max-width: 992px) {
-  .container-fluid {
+  .mountain-bg {
     background-size: contain;
   }
 }
