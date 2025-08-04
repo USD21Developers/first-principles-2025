@@ -80,6 +80,20 @@ section h2 {
   }
 }
 
+.container-fluid {
+  background-attachment: fixed;
+  background-image: url("img/mountain-bg-transparent.webp");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 991px 375px;
+}
+
+@media (max-width: 992px) {
+  .container-fluid {
+    background-size: contain;
+  }
+}
+
 @media (orientation: landscape) {
   header {
     height: 25vh;
@@ -139,4 +153,10 @@ h3 {
 .question6 {
   color: var(--bs-green);
   white-space: nowrap;
+}
+
+.kingdomChurchComparisonImage {
+  height: auto;
+  max-width: 370px;
+  width: 100%;
 }
