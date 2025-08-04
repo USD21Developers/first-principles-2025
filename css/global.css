@@ -17,3 +17,7 @@ img {
 tbody.numerals td {
   font-variant-numeric: lining-nums tabular-nums;
 }
+
+.balance {
+  text-wrap: balanced;
+}
