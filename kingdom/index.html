@@ -61,19 +61,27 @@
             <div class="col-12">
               <p>
                 <strong>
-                  Purpose: To discover the purpose for God’s kingdom on earth.
+                  Purpose: To discover the purpose for God's kingdom on earth.
                 </strong>
               </p>
 
               <section class="my-5">
                 <h2>SIX QUESTIONS:</h2>
                 <ol>
-                  <li>What is the kingdom of God?</li>
-                  <li>When did the kingdom of God come — if it did?</li>
-                  <li>How does one enter the kingdom?</li>
-                  <li>Do the Old Testament and New Testament fit together?</li>
-                  <li>Is it important if I go to church?</li>
-                  <li>Is it important where I go to church?</li>
+                  <li class="question1Txt">What is the kingdom of God?</li>
+                  <li class="question2Txt">
+                    When did the kingdom of God come — if it did?
+                  </li>
+                  <li class="question3Txt">How does one enter the kingdom?</li>
+                  <li class="question4Txt">
+                    Do the Old Testament and New Testament fit together?
+                  </li>
+                  <li class="question5Txt">
+                    Is it important if I go to church?
+                  </li>
+                  <li class="question6Txt">
+                    Is it important where I go to church?
+                  </li>
                 </ol>
               </section>
 
@@ -198,7 +206,17 @@
                   <li>
                     This confirms the Old Testament prophecy about the kingdom
                     coming during the Roman reign. Old and New Testament
-                    prophecy are united! (Answer to Question #4)
+                    prophecy are united! (Answer to
+                    <a
+                      href="#"
+                      class="question4"
+                      data-bs-toggle="popover"
+                      data-bs-custom-class="custom-popover"
+                      data-bs-trigger="focus"
+                      tabindex="1"
+                    >
+                      Question #4</a
+                    >)
                   </li>
                 </ul>
               </section>
@@ -263,7 +281,16 @@
                 <ul>
                   <li>
                     To enter the kingdom, we must be "born of water and the
-                    Spirit." (Answer to Question #3)
+                    Spirit." (Answer to
+                    <a
+                      href="#"
+                      class="question3"
+                      data-bs-toggle="popover"
+                      data-bs-custom-class="custom-popover"
+                      data-bs-trigger="focus"
+                      tabindex="2"
+                      >Question #3</a
+                    >)
                   </li>
                   <li>What does "born again" mean?</li>
                   <li>Has the kingdom come yet?</li>
@@ -392,7 +419,15 @@
                   </li>
                   <li>
                     Is it important where we go to church? Yes! (Answer to
-                    Question #5)
+                    <a
+                      href="#"
+                      class="question6"
+                      data-bs-toggle="popover"
+                      data-bs-custom-class="custom-popover"
+                      data-bs-trigger="focus"
+                      tabindex="3"
+                      >Question #6</a
+                    >)
                   </li>
                 </ul>
               </section>
@@ -402,7 +437,16 @@
                 <ul>
                   <li>
                     We must seek first the kingdom. Is it important if we go to
-                    church? Yes! (Answer to Question #6)
+                    church? Yes! (Answer to
+                    <a
+                      href="#"
+                      class="question5"
+                      data-bs-toggle="popover"
+                      data-bs-custom-class="custom-popover"
+                      data-bs-trigger="focus"
+                      tabindex="4"
+                      >Question #5</a
+                    >)
                   </li>
                   <li>
                     Our schedules must reflect that the meetings of the body are
@@ -426,5 +470,84 @@
         </div>
       </main>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      function enableQuestionPopovers() {
+        const q1 = {
+          title: "Question 1",
+          text: document.querySelector(".question1Txt").innerText,
+        };
+        const q2 = {
+          title: "Question 2",
+          text: document.querySelector(".question2Txt").innerText,
+        };
+        const q3 = {
+          title: "Question 3",
+          text: document.querySelector(".question3Txt").innerText,
+        };
+        const q4 = {
+          title: "Question 4",
+          text: document.querySelector(".question4Txt").innerText,
+        };
+        const q5 = {
+          title: "Question 5",
+          text: document.querySelector(".question5Txt").innerText,
+        };
+        const q6 = {
+          title: "Question 6",
+          text: document.querySelector(".question6Txt").innerText,
+        };
+
+        document.querySelectorAll(".question1").forEach((item) => {
+          item.setAttribute("data-bs-title", q1.title);
+          item.setAttribute("data-bs-content", q1.text);
+        });
+        document.querySelectorAll(".question2").forEach((item) => {
+          item.setAttribute("data-bs-title", q2.title);
+          item.setAttribute("data-bs-content", q2.text);
+        });
+        document.querySelectorAll(".question3").forEach((item) => {
+          item.setAttribute("data-bs-title", q3.title);
+          item.setAttribute("data-bs-content", q3.text);
+        });
+        document.querySelectorAll(".question4").forEach((item) => {
+          item.setAttribute("data-bs-title", q4.title);
+          item.setAttribute("data-bs-content", q4.text);
+        });
+        document.querySelectorAll(".question5").forEach((item) => {
+          item.setAttribute("data-bs-title", q5.title);
+          item.setAttribute("data-bs-content", q5.text);
+        });
+        document.querySelectorAll(".question6").forEach((item) => {
+          item.setAttribute("data-bs-title", q6.title);
+          item.setAttribute("data-bs-content", q6.text);
+        });
+
+        const popoverTriggerList = document.querySelectorAll(
+          '[data-bs-toggle="popover"]'
+        );
+        const popoverList = [...popoverTriggerList].map((popoverTriggerEl) => {
+          new bootstrap.Popover(popoverTriggerEl);
+        });
+
+        document
+          .querySelectorAll('[data-bs-toggle="popover"]')
+          .forEach((item) => {
+            item.addEventListener("click", (evt) => evt.preventDefault());
+          });
+      }
+
+      enableQuestionPopovers();
+    </script>
   </body>
 </html>

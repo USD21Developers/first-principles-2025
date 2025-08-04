@@ -120,3 +120,23 @@ h3 {
     margin-top: -11px;
   }
 }
+
+.custom-popover {
+  --bs-popover-max-width: 200px;
+  --bs-popover-border-color: var(--bs-green);
+  --bs-popover-header-bg: var(--bs-green);
+  --bs-popover-header-color: var(--bs-white);
+  --bs-popover-body-padding-x: 1rem;
+  --bs-popover-body-padding-y: 0.5rem;
+  box-shadow: var(--bs-box-shadow) !important;
+}
+
+.question1,
+.question2,
+.question3,
+.question4,
+.question5,
+.question6 {
+  color: var(--bs-green);
+  white-space: nowrap;
+}
