@@ -96,8 +96,27 @@ h3 {
 
 .timelineImage {
   max-width: 100%;
+  position: relative;
+  z-index: 20;
 }
 
 .timelineContainer {
   max-width: 415px;
+}
+
+.statueImage {
+  max-width: 609px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.statueContainer {
+  margin-top: -10px;
+}
+
+@media (min-width: 415px) {
+  .statueContainer {
+    margin-top: -11px;
+  }
 }
