@@ -22,6 +22,11 @@ tbody.numerals td {
   text-wrap: balanced;
 }
 
+footer .container {
+  background-color: unset;
+  height: unset;
+}
+
 footer a {
   text-decoration: none;
 }
