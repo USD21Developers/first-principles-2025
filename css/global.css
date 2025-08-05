@@ -19,7 +19,11 @@ tbody.numerals td {
 }
 
 .balance {
-  text-wrap: balanced;
+  text-wrap: balance;
+}
+
+.notbold {
+  font-weight: normal;
 }
 
 footer .container {
