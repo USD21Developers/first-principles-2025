@@ -94,3 +94,13 @@ section h2 {
 .bg-light {
   background-color: var(--bs-gray-300) !important;
 }
+
+.buriedInBaptism {
+  max-width: 100%;
+  width: 445px;
+}
+
+.buriedInBaptism img {
+  height: auto;
+  width: 100%;
+}
