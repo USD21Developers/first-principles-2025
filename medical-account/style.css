@@ -86,21 +86,3 @@ section h2 {
     height: 25vh;
   }
 }
-
-dl {
-  margin-left: 2rem;
-}
-
-dt::after {
-  content: " - ";
-}
-
-dl div {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-dt,
-dd {
-  display: inline;
-}
