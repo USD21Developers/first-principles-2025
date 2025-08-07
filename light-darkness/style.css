@@ -19,7 +19,7 @@ body {
 header {
   background-color: #251c17;
   background-image: url(img/masthead-lightdarkness.avif);
-  background-position: right;
+  background-position: bottom right;
   background-repeat: no-repeat;
   background-size: cover;
   height: 18vh;
@@ -47,10 +47,6 @@ section h2 {
 }
 
 @media (min-width: 344px) and (max-width: 575px) {
-  header {
-    background-position-x: calc(100% + 110px);
-  }
-
   header div.col-12 h1 {
     bottom: 1.5rem;
     font-size: 1.4rem;
