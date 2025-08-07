@@ -78,7 +78,8 @@ section h2 {
 
 @media (orientation: landscape) {
   header {
-    height: 25vh;
+    height: 45vh;
+    max-height: 250px;
   }
 }
 
