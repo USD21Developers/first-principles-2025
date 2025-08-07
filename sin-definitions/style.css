@@ -104,3 +104,13 @@ dt,
 dd {
   display: inline;
 }
+
+.greekterm {
+  font-weight: normal;
+}
+
+i[lang="grc-Latn"] {
+  color: darkslategrey;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
