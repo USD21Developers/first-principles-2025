@@ -66,6 +66,10 @@ h1.threethings {
 }
 
 @media (min-width: 768px) {
+  header {
+    background-position-y: -55px;
+  }
+
   header div.col-12 h1 {
     left: 5vw;
   }
