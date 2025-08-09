@@ -77,3 +77,7 @@ table.verses tr:last-child {
   font-weight: 200;
   margin-left: 0.4rem;
 }
+
+.modal-footer {
+  display: none;
+}

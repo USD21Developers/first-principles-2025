@@ -127,6 +127,23 @@ function showScripture(slug, title) {
     modalBody = `<table class="table verses">${modalBody}</table>`;
   }
 
+  const book = verseArray[0].book;
+  const chapter = verseArray[0].chapter;
+  const searchTerm = `${book} ${chapter}`;
+  const href = `https://www.biblegateway.com/passage/?search=${searchTerm}&version=NIV`;
+
+  const expandButton = `
+    <div class="text-end">
+      <hr>
+      <a class="btn btn-light border border-dark my-3" href="${href}" target="_blank" rel="noopener noreferrer">
+        <i>Expand</i>
+        <img src="../_assets/img/icons/chevron-right.svg" />
+      </a>
+    </div>
+  `;
+
+  modalBody = modalBody + expandButton;
+
   document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
 
   const scriptureModal = new bootstrap.Modal(
