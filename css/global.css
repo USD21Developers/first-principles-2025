@@ -49,3 +49,7 @@ footer h4 {
 footer ul {
   list-style-type: none;
 }
+
+.scriptureLink {
+  border-bottom: 1px dotted blue;
+}

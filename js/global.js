@@ -2,8 +2,12 @@ function scripture(book, chapter, verseFrom, verseTo) {
   return new Promise((resolve, reject) => {
     const endpoint = "https://api.usd21.org/services/scripture";
     const slug = verseTo
-      ? `scripture-${book}-${chapter}-${verseFrom}-${verseTo}`.toLowerCase()
-      : `scripture-${book}-${chapter}-${verseFrom}`.toLowerCase();
+      ? `scripture-${book}-${chapter}-${verseFrom}-${verseTo}`
+          .toLowerCase()
+          .replaceAll(" ", "-")
+      : `scripture-${book}-${chapter}-${verseFrom}`
+          .toLowerCase()
+          .replaceAll(" ", "-");
     const stored = localStorage.getItem(slug);
 
     if (stored && stored.length) {
@@ -42,3 +46,63 @@ function scripture(book, chapter, verseFrom, verseTo) {
       });
   });
 }
+
+function syncScriptures() {
+  const promises = [];
+
+  document.querySelectorAll("[data-scripture]").forEach((item) => {
+    const data = item.getAttribute("data-scripture")?.split(",") || [];
+    const book = data[0];
+    const chapter = data[1];
+    const verseFrom = data[2];
+    const verseTo = data[3] ? data[3] : null;
+    const promise = verseTo
+      ? scripture(book, chapter, verseFrom, verseTo)
+      : scripture(book, chapter, verseFrom);
+    promises.push(promise);
+  });
+
+  Promise.all(promises).then(() => {
+    linkifyScriptures();
+  });
+}
+
+function linkifyScriptures() {
+  document.querySelectorAll("[data-scripture]").forEach((item) => {
+    const data = item.getAttribute("data-scripture")?.split(",") || [];
+    const book = data[0];
+    const chapter = data[1];
+    const verseFrom = data[2];
+    const verseTo = data[3] ? data[3] : null;
+    const slug = verseTo
+      ? `${book}-${chapter}-${verseFrom}-${verseTo}`.toLowerCase()
+      : `${book}-${chapter}-${verseFrom}`.toLowerCase();
+    const scriptureReference = item.getAttribute("data-scripture-title") || "";
+
+    item.addEventListener("click", () =>
+      showScripture(slug, scriptureReference)
+    );
+    item.classList.add("scriptureLink");
+  });
+}
+
+function showScripture(slug, title) {
+  slug = slug.replaceAll(" ", "-");
+  slug = `scripture-${slug}`;
+
+  const verseArray = localStorage.getItem(slug);
+
+  if (!verseArray) return;
+
+  console.log(title, verseArray);
+
+  // TODO: Add hidden scripture modal into all pages containing scriptures
+
+  // TODO: Populate modal by looping through array
+
+  // TODO: Populate title of modal with scripture reference
+
+  // TODO: Show modal
+}
+
+syncScriptures();
