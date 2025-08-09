@@ -90,19 +90,27 @@ function showScripture(slug, title) {
   slug = slug.replaceAll(" ", "-");
   slug = `scripture-${slug}`;
 
-  const verseArray = localStorage.getItem(slug);
+  const verseStored = localStorage.getItem(slug);
 
-  if (!verseArray) return;
+  if (!verseStored) return;
 
-  console.log(title, verseArray);
+  const verseArray = JSON.parse(verseStored);
 
-  // TODO: Add hidden scripture modal into all pages containing scriptures
+  document.querySelector("#scriptureModal .modal-title").innerHTML = title;
 
-  // TODO: Populate modal by looping through array
+  let modalBody = "";
 
-  // TODO: Populate title of modal with scripture reference
+  verseArray.forEach((verse) => {
+    modalBody = modalBody + `<div>${verse}</div>`;
+  });
 
-  // TODO: Show modal
+  document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
+
+  const scriptureModal = new bootstrap.Modal(
+    document.getElementById("scriptureModal")
+  );
+
+  scriptureModal.show();
 }
 
 syncScriptures();

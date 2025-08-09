@@ -51,5 +51,7 @@ footer ul {
 }
 
 .scriptureLink {
-  border-bottom: 1px dotted blue;
+  cursor: pointer;
+  display: inline;
+  text-decoration: underline;
 }
