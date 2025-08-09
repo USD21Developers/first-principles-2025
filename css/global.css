@@ -63,3 +63,8 @@ table.verses .verseNum {
   font-weight: 600;
   padding: 0.3rem;
 }
+
+.copyrightNotice cite {
+  font-family: system-ui;
+  font-size: small;
+}
