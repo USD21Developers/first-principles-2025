@@ -72,3 +72,8 @@ table.verses tr:last-child {
   font-family: system-ui;
   font-size: small;
 }
+
+.bibleVersion {
+  font-weight: 100;
+  margin-left: 0.4rem;
+}

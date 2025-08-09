@@ -94,13 +94,16 @@ function showScripture(slug, title) {
   slug = slug.replaceAll(" ", "-");
   slug = `scripture-${slug}`;
 
+  const bibleVersion = " (NIV)";
   const verseStored = localStorage.getItem(slug);
 
   if (!verseStored) return;
 
   const verseArray = JSON.parse(verseStored);
 
-  document.querySelector("#scriptureModal .modal-title").innerHTML = title;
+  document.querySelector(
+    "#scriptureModal .modal-title"
+  ).innerHTML = `${title} <span class="bibleVersion">${bibleVersion}</span>`;
 
   let modalBody = "";
 
