@@ -64,6 +64,10 @@ table.verses .verseNum {
   padding: 0.3rem;
 }
 
+table.verses tr:last-child {
+  border-bottom: 0px solid white;
+}
+
 .copyrightNotice cite {
   font-family: system-ui;
   font-size: small;
