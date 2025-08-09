@@ -63,8 +63,3 @@ table.verses .verseNum {
   font-weight: 600;
   padding: 0.3rem;
 }
-
-table.verses tr:last-child {
-  border-bottom: none;
-  border-bottom-color: white;
-}

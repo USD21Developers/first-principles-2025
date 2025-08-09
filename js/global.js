@@ -90,7 +90,7 @@ function linkifyScriptures() {
   });
 }
 
-function showScripture(slug, title) {
+async function showScripture(slug, title) {
   slug = slug.replaceAll(" ", "-");
   slug = `scripture-${slug}`;
 
@@ -123,6 +123,12 @@ function showScripture(slug, title) {
     });
     modalBody = `<table class="table verses">${modalBody}</table>`;
   }
+
+  const copyrightNotice = await fetch("../biblica-copyright-notice.html").then(
+    (res) => res.text()
+  );
+
+  modalBody = modalBody + copyrightNotice;
 
   document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
 
