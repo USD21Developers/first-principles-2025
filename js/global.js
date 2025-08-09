@@ -1,3 +1,4 @@
+// @ts-nocheck
 function scripture(book, chapter, verseFrom, verseTo) {
   return new Promise((resolve, reject) => {
     const endpoint = "https://api.usd21.org/services/scripture";
@@ -38,11 +39,14 @@ function scripture(book, chapter, verseFrom, verseTo) {
           return resolve([]);
         }
 
-        const textArray = data.scripture.map((item) => item.text);
+        // const textArray = data.scripture.map((item) => item.text);
 
-        localStorage.setItem(slug.toLowerCase(), JSON.stringify(textArray));
+        localStorage.setItem(
+          slug.toLowerCase(),
+          JSON.stringify(data.scripture)
+        );
 
-        return resolve(textArray);
+        return resolve(data.scripture);
       });
   });
 }
@@ -100,9 +104,25 @@ function showScripture(slug, title) {
 
   let modalBody = "";
 
-  verseArray.forEach((verse) => {
-    modalBody = modalBody + `<div>${verse}</div>`;
-  });
+  if (verseArray.length === 1) {
+    modalBody = verseArray[0].text;
+  } else {
+    verseArray.forEach((item) => {
+      modalBody =
+        modalBody +
+        `
+      <tr>
+        <td valign="top">
+          ${item.text}
+        </div>
+        <td valign="top">
+          <span class="verseNum" inert>${item.verse}</span>
+        </td>
+      </tr>
+    `;
+    });
+    modalBody = `<table class="table verses">${modalBody}</table>`;
+  }
 
   document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
 

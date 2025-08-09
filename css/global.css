@@ -54,3 +54,17 @@ footer ul {
   cursor: pointer;
   text-decoration: underline;
 }
+
+table.verses .verseNum {
+  border: 1px solid #bbb;
+  border-radius: 25%;
+  font-size: small;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  padding: 0.3rem;
+}
+
+table.verses tr:last-child {
+  border-bottom: none;
+  border-bottom-color: white;
+}
