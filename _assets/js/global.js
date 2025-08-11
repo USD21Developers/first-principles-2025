@@ -153,35 +153,51 @@ function showScripture(slug, title) {
   scriptureModal.show();
 }
 
-function shareLink() {
+async function shareLink() {
   const shareLinkContainerEl = document.querySelector("#shareLinkContainer");
   const shareLinkEl = document.querySelector("#shareLink");
 
-  if (!shareLinkContainerEl) return;
-  if (!shareLinkEl) return;
-  if (!navigator.share) return;
+  if (!shareLinkContainerEl || !shareLinkEl) {
+    console.warn("Share link elements not found");
+    return;
+  }
 
+  // Start with current page URL
+  const shareUrl = new URL(location.href);
+
+  // Go one directory up
+  shareUrl.pathname = shareUrl.pathname.replace(/\/[^/]*\/?$/, "/");
+
+  if (
+    !navigator.canShare ||
+    !navigator.canShare({ url: shareUrl.toString() })
+  ) {
+    console.warn("Web Share API not supported or cannot share this URL");
+    return;
+  }
+
+  // Show share link only if supported
   shareLinkContainerEl.classList.remove("d-none");
 
-  shareLinkEl.addEventListener("click", (event) => {
-    event.preventDefault();
+  shareLinkEl.addEventListener(
+    "click",
+    async (event) => {
+      event.preventDefault();
 
-    let shareTitle = "First Principles";
-    let shareText = "Use this app to study the Bible with someone!";
-    let shareUrl = location.href
-      .replaceAll("index.html", "")
-      .replace(/\/[^\/]*\/?$/, "/");
+      const shareData = {
+        title: "First Principles",
+        text: "Use this app to study the Bible with someone!",
+        url: shareUrl.toString(),
+      };
 
-    navigator
-      .share({
-        title: shareTitle,
-        text: shareText,
-        url: shareUrl,
-      })
-      .catch((err) => {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
         console.error("Share failed:", err);
-      });
-  });
+      }
+    },
+    { once: true } // Prevent duplicate listeners
+  );
 }
 
 syncScriptures();
