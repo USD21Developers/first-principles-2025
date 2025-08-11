@@ -153,4 +153,36 @@ function showScripture(slug, title) {
   scriptureModal.show();
 }
 
+function shareLink() {
+  const shareLinkContainerEl = document.querySelector("#shareLinkContainer");
+  const shareLinkEl = document.querySelector("#shareLink");
+
+  if (!shareLinkContainerEl) return;
+  if (!shareLinkEl) return;
+  if (!navigator.share) return;
+
+  shareLinkContainerEl.classList.remove("d-none");
+
+  shareLinkEl.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    let shareTitle = "First Principles";
+    let shareText = "Use this app to study the Bible with someone!";
+    let shareUrl = location.href
+      .replaceAll("index.html", "")
+      .replace(/\/[^\/]*\/?$/, "/");
+
+    navigator
+      .share({
+        title: shareTitle,
+        text: shareText,
+        url: shareUrl,
+      })
+      .catch((err) => {
+        console.error("Share failed:", err);
+      });
+  });
+}
+
 syncScriptures();
+shareLink();
