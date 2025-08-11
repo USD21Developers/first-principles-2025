@@ -37,3 +37,9 @@ body {
     width: auto;
   }
 }
+
+@media (orientation: portrait) and (max-width: 767px) {
+  .row {
+    margin-top: -3vh;
+  }
+}
