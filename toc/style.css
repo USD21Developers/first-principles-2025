@@ -126,3 +126,7 @@ a.toc-link {
     margin-top: 0.3rem;
   }
 }
+
+#shareLink {
+  text-decoration: underline;
+}
