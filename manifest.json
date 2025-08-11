@@ -4,7 +4,7 @@
   "theme_color": "#212529",
   "background_color": "#666666",
   "display": "standalone",
-  "start_url": "./",
+  "start_url": "./?utm_source=homescreen",
   "icons": [
     {
       "src": "img/icons/launch/launch-512-maskable.png",
