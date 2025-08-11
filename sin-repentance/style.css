@@ -12,12 +12,13 @@ body {
   background-color: #f4f4f4;
   margin: auto;
   max-width: 991px;
+  min-height: 100vh;
   width: 100%;
 }
 
 header {
   background-color: #251c17;
-  background-image: url(img/masthead-seeking-god.avif);
+  background-image: url(img/masthead-sin-repentance.avif);
   background-position: top right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,7 +37,7 @@ header div.col-12 h1 {
   position: absolute;
   bottom: 1.5rem;
   left: 1.5rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 section h2 {
@@ -46,6 +47,10 @@ section h2 {
 }
 
 @media (min-width: 344px) and (max-width: 575px) {
+  header {
+    background-position-x: calc(100% + 110px);
+  }
+
   header div.col-12 h1 {
     bottom: 1.5rem;
     font-size: 1.4rem;
@@ -53,37 +58,26 @@ section h2 {
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 991px) {
   header div.col-12 h1 {
     left: 5vw;
   }
 }
 
-@media (orientation: landscape) {
-  header {
-    height: 45vh;
-    max-height: 250px;
+@media (min-width: 768px) {
+  header div.col-12 h1 {
+    left: 5vw;
   }
 }
 
-.wall {
-  background-image: url(img/brick-pattern.webp);
-  min-height: 5rem;
-  width: 60px;
-}
+@media (min-width: 992px) {
+  header {
+    height: 25vh;
+  }
 
-.wall.transparent {
-  background-image: url(img/brick-pattern-transparent.webp);
-  min-height: 5rem;
-  width: 60px;
-}
-
-.box {
-  background-color: #ccc;
-}
-
-.box .rotate {
-  transform: rotate(90deg);
+  header div.col-12 h1 {
+    left: 2.3vw;
+  }
 }
 
 .darknessLight {
