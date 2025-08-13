@@ -17,8 +17,8 @@ body {
 
 a.icclink {
   border-bottom: 1px solid #84481a;
-  color: unset;
-  text-decoration: none;
+  color: var(--bs-light);
+  text-decoration: none !important;
 }
 
 a.icclink:hover {
