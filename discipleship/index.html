@@ -327,7 +327,7 @@
                     <tr>
                       <td>33</td>
                       <td>12045</td>
-                      <td style="font-variant-numeric: normal">8 Billion+</td>
+                      <td class="text-normal-numeric">8 Billion+</td>
                     </tr>
                   </tbody>
                 </table>
@@ -483,6 +483,10 @@
           .querySelector("tbody.numerals")
           .querySelectorAll("td")
           .forEach((el) => {
+            if (el.classList.contains("text-normal-numeric")) {
+              return;
+            }
+
             const num = parseFloat(el.innerText);
             const formatted = new Intl.NumberFormat(userLocale).format(num);
             el.textContent = formatted;
