@@ -483,7 +483,7 @@
           .querySelector("tbody.numerals")
           .querySelectorAll("td")
           .forEach((el) => {
-            if (el.classList.contains("text-normal-numeric")) {
+            if (isNaN(el.innerText)) {
               return;
             }
 
