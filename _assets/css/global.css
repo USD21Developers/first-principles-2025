@@ -18,6 +18,10 @@ tbody.numerals td {
   font-variant-numeric: lining-nums tabular-nums;
 }
 
+tbody.numerals td.notNumeric {
+  font-variant-numeric: normal;
+}
+
 .balance {
   text-wrap: balance;
 }
