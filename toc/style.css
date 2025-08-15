@@ -55,7 +55,7 @@ main {
 .txt-toc {
   font-size: 24px;
   letter-spacing: 0.2rem;
-  padding-top: 1.4rem;
+  padding: 1.4rem 0 0 0 !important;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
