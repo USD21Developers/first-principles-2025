@@ -208,25 +208,17 @@ function translate() {
     switch (window.location.host) {
       case "127.0.0.1:5500":
         root = `${window.location.origin}${window.location.pathname}`.replace(
-          "/index.html",
-          ""
+          "index.html",
+          "/"
         );
-        globalRoot = "http://127.0.0.1:5500";
+        globalRoot = "http://127.0.0.1:5500/";
         break;
       case "usd21developers.github.io":
-        root =
-          `https://${window.location.host}${window.location.pathname}`.replace(
-            "/index.html",
-            ""
-          );
-        globalRoot = `https://${window.location.host}`;
+        root = window.location.href;
+        globalRoot = "https://usd21developers.github.io/first-principles/";
         break;
       default:
-        root =
-          `https://${window.location.host}${window.location.pathname}`.replace(
-            "/index.html",
-            ""
-          );
+        root = `https://${window.location.host}${window.location.pathname}`;
         globalRoot = `https://${window.location.host}`;
     }
 
@@ -236,7 +228,7 @@ function translate() {
     let phrasesGlobal;
 
     try {
-      phrases = await fetch(`${root}/i18n/${lang}.json`).then((res) =>
+      phrases = await fetch(`${root}i18n/${lang}.json`).then((res) =>
         res.json()
       );
     } catch (err) {
@@ -245,9 +237,9 @@ function translate() {
     }
 
     try {
-      phrasesGlobal = await fetch(
-        `${globalRoot}/i18n-global/${lang}.json`
-      ).then((res) => res.json());
+      phrasesGlobal = await fetch(`${globalRoot}i18n-global/${lang}.json`).then(
+        (res) => res.json()
+      );
     } catch (err) {
       console.log(err);
       return;
