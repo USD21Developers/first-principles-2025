@@ -230,8 +230,6 @@ function translate() {
         globalRoot = `https://${window.location.host}`;
     }
 
-    debugger;
-
     const defaultLang = document.querySelector("html").getAttribute("lang");
     const lang = navigator.languages[0].substr(0, 2) || defaultLang;
     let phrases;
