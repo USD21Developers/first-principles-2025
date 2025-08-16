@@ -200,5 +200,53 @@ async function shareLink() {
   );
 }
 
+function translate() {
+  return new Promise(async (resolve, reject) => {
+    const defaultLang = document.querySelector("html").getAttribute("lang");
+    const lang = navigator.languages[0].substr(0, 2) || defaultLang;
+    let phrases;
+    let phrasesGlobal;
+
+    try {
+      phrases = await fetch(`./i18n/${lang}.json`).then((res) => res.json());
+    } catch (err) {
+      phrases = await fetch(`./i18n/${defaultLang}.json`).then((res) =>
+        res.json()
+      );
+    }
+
+    try {
+      phrasesGlobal = await fetch(`../../i18n-global/${lang}.json`).then(
+        (res) => res.json()
+      );
+    } catch (err) {
+      phrasesGlobal = await fetch(`../../i18n-global/${defaultLang}.json`).then(
+        (res) => res.json()
+      );
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((item) => {
+      const key = item.getAttribute("data-i18n");
+      const phrase = phrases[key];
+
+      if (phrase) {
+        item.innerHTML = phrase;
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-global]").forEach((item) => {
+      const key = item.getAttribute("data-i18n-global");
+      const phraseGlobal = phrasesGlobal[key];
+
+      if (phraseGlobal) {
+        item.innerHTML = phraseGlobal;
+      }
+    });
+
+    return resolve();
+  });
+}
+
 syncScriptures();
 shareLink();
+translate();
