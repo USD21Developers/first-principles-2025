@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table of Contents</title>
+    <title data-i18n="title"></title>
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#555555" />
     <meta property="og:title" content="First Principles" />
@@ -73,9 +73,9 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12 bg-light">
-              <div class="txt-icc">INTERNATIONAL CHRISTIAN CHURCHES</div>
-              <div class="txt-fp">FIRST PRINCIPLES</div>
-              <div class="txt-toc">Table of Contents</div>
+              <div class="txt-icc" data-i18n="iccHeader"></div>
+              <div class="txt-fp" data-i18n="fpHeader"></div>
+              <div class="txt-toc" data-i18n="tocHeader"></div>
             </div>
           </div>
           <div class="row mb-4">
@@ -88,12 +88,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">Seeking God</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="seekingGod"></h5>
                     </div>
-                    <p class="mb-1">
-                      Discovering what it means to seek a relationship with God
-                      with all our hearts.
-                    </p>
+                    <p class="mb-1" data-i18n="seekingGodDescription"></p>
                   </a>
                   <a
                     href="../word/"
@@ -101,12 +98,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">The Word of God</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="word"></h5>
                     </div>
-                    <p class="mb-1">
-                      Examining why the Bible is from God and why it should be
-                      the absolute standard for our lives.
-                    </p>
+                    <p class="mb-1" data-i18n="wordDescription"></p>
                   </a>
                   <a
                     href="../discipleship/"
@@ -114,12 +108,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">Discipleship</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="discipleship"></h5>
                     </div>
-                    <p class="mb-1">
-                      Biblically defining what a true Christian is and how one
-                      is made through the instruction of Jesus Christ.
-                    </p>
+                    <p class="mb-1" data-i18n="discipleshipDescription"></p>
                   </a>
                   <a
                     href="../kingdom/"
@@ -127,11 +118,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">The Coming of the Kingdom</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="kingdom"></h5>
                     </div>
-                    <p class="mb-1">
-                      Understanding what the kingdom of God is and when it came.
-                    </p>
+                    <p class="mb-1" data-i18n="kingdomDescription"></p>
                   </a>
                   <a
                     href="../sin-repentance/"
@@ -139,12 +128,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">Sin & Repentance</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="sinRepentance"></h5>
                     </div>
-                    <p class="mb-1">
-                      Examining what sin is, how it hurts God, and how to
-                      develop the godly sorrow to repent of it completely.
-                    </p>
+                    <p class="mb-1" data-i18n="sinRepentanceDescription"></p>
                   </a>
                   <a
                     href="../light-darkness/"
@@ -152,13 +138,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">Light & Darkness</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="lightDarkness"></h5>
                     </div>
-                    <p class="mb-1">
-                      A thorough study of what it means to go from the darkness
-                      of sin into the light of salvation through the grace of
-                      God.
-                    </p>
+                    <p class="mb-1" data-i18n="lightDarknessDescription"></p>
                   </a>
                   <a
                     href="../cross/"
@@ -166,12 +148,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">The Cross</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="cross"></h5>
                     </div>
-                    <p class="mb-1">
-                      Appreciating Jesus' death on the Cross and understanding
-                      why we need to hate sin and love righteousness.
-                    </p>
+                    <p class="mb-1" data-i18n="crossDescription"></p>
                   </a>
                   <a
                     href="../church/"
@@ -179,13 +158,9 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark">The Church</h5>
+                      <h5 class="mb-1 text-dark" data-i18n="church"></h5>
                     </div>
-                    <p class="mb-1">
-                      An informative study of church history by examining the
-                      development of various denominations since the
-                      first-century
-                    </p>
+                    <p class="mb-1" data-i18n="churchDescription"></p>
                   </a>
                   <a
                     href="../sin-definitions/"
@@ -193,7 +168,10 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark py-3">Sin Definitions</h5>
+                      <h5
+                        class="mb-1 text-dark py-3"
+                        data-i18n="sinDefinitions"
+                      ></h5>
                     </div>
                   </a>
                   <a
@@ -202,9 +180,10 @@
                     aria-current="true"
                   >
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1 text-dark py-3">
-                        Medical Account of the Crucifixion of Christ
-                      </h5>
+                      <h5
+                        class="mb-1 text-dark py-3"
+                        data-i18n="medicalAccount"
+                      ></h5>
                     </div>
                   </a>
                 </div>
@@ -218,13 +197,20 @@
           <div class="row">
             <div class="col-12 text-center">
               <div class="mb-3">
-                <a href="../about/" class="link-light">
-                  About First Principles
+                <a
+                  href="../about/"
+                  class="link-light"
+                  data-i18n-global="footerAboutFP"
+                >
                 </a>
               </div>
               <div class="mt-3 mb-2 d-none" id="shareLinkContainer">
-                <a href="#" id="shareLink" class="link-light">
-                  Share this app with a friend
+                <a
+                  href="#"
+                  id="shareLink"
+                  class="link-light"
+                  data-i18n-global="footerShare"
+                >
                 </a>
               </div>
             </div>
