@@ -245,9 +245,9 @@ function translate() {
     }
 
     try {
-      phrasesGlobal = await fetch(`${root}/i18n-global/${lang}.json`).then(
-        (res) => res.json()
-      );
+      phrasesGlobal = await fetch(
+        `${globalRoot}/i18n-global/${lang}.json`
+      ).then((res) => res.json());
     } catch (err) {
       console.log(err);
       return;
