@@ -202,14 +202,21 @@ async function shareLink() {
 
 function translate() {
   return new Promise(async (resolve, reject) => {
-    let root = "http://127.0.0.1:5500";
+    let root;
+    let globalRoot;
 
-    if ((document.location.hostname = "usd21developers.github.io")) {
-      root = "https://usd21developers.github.io/first-principles-2025";
-    } else if (document.location.hostname === "app.usd21.org") {
-      root = "https://app.usd21.org";
-    } else {
-      root = "https://usd21.app";
+    switch (window.location.host) {
+      case "127.0.0.1:5500":
+        root = `http://127.0.0.1:5500/${window.location.pathname}`;
+        globalRoot = "http://127.0.0.1:5500";
+        break;
+      case "usd21developers.github.io":
+        root = `https://${window.location.host}/${window.location.pathname}`;
+        globalRoot = `https://${window.location.host}`;
+        break;
+      default:
+        root = `https://${window.location.host}/${window.location.pathname}`;
+        globalRoot = `https://${window.location.host}`;
     }
 
     const defaultLang = document.querySelector("html").getAttribute("lang");
@@ -222,9 +229,8 @@ function translate() {
         res.json()
       );
     } catch (err) {
-      phrases = await fetch(`${root}/i18n/${defaultLang}.json`).then((res) =>
-        res.json()
-      );
+      console.log(err);
+      return;
     }
 
     try {
@@ -232,9 +238,8 @@ function translate() {
         (res) => res.json()
       );
     } catch (err) {
-      phrasesGlobal = await fetch(
-        `${root}/i18n-global/${defaultLang}.json`
-      ).then((res) => res.json());
+      console.log(err);
+      return;
     }
 
     document.querySelectorAll("[data-i18n]").forEach((item) => {
