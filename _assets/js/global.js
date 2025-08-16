@@ -209,7 +209,7 @@ function translate() {
       case "127.0.0.1:5500":
         root = `${window.location.origin}${window.location.pathname}`.replace(
           "index.html",
-          "/"
+          ""
         );
         globalRoot = "http://127.0.0.1:5500/";
         break;
