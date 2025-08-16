@@ -207,11 +207,8 @@ function translate() {
 
     switch (window.location.host) {
       case "127.0.0.1:5500":
-        root = `${window.location.origin}${window.location.pathname}`.replace(
-          "index.html",
-          ""
-        );
-        globalRoot = "http://127.0.0.1:5500/";
+        root = window.location.href.replace("index.html", "");
+        globalRoot = `${window.location.origin}/`;
         break;
       case "usd21developers.github.io":
         root = window.location.href;
