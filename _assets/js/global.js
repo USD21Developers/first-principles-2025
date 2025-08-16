@@ -207,17 +207,30 @@ function translate() {
 
     switch (window.location.host) {
       case "127.0.0.1:5500":
-        root = `http://127.0.0.1:5500/${window.location.pathname}`;
+        root = `${window.location.origin}${window.location.pathname}`.replace(
+          "/index.html",
+          ""
+        );
         globalRoot = "http://127.0.0.1:5500";
         break;
       case "usd21developers.github.io":
-        root = `https://${window.location.host}/${window.location.pathname}`;
+        root =
+          `https://${window.location.host}${window.location.pathname}`.replace(
+            "/index.html",
+            ""
+          );
         globalRoot = `https://${window.location.host}`;
         break;
       default:
-        root = `https://${window.location.host}/${window.location.pathname}`;
+        root =
+          `https://${window.location.host}${window.location.pathname}`.replace(
+            "/index.html",
+            ""
+          );
         globalRoot = `https://${window.location.host}`;
     }
+
+    debugger;
 
     const defaultLang = document.querySelector("html").getAttribute("lang");
     const lang = navigator.languages[0].substr(0, 2) || defaultLang;
