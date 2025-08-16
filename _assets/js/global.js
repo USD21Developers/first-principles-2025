@@ -202,27 +202,32 @@ async function shareLink() {
 
 function translate() {
   return new Promise(async (resolve, reject) => {
+    const root = (document.location.hostname = "usd21developers.github.io"
+      ? "https://usd21developers.github.io/first-principles-2025/"
+      : "/");
     const defaultLang = document.querySelector("html").getAttribute("lang");
     const lang = navigator.languages[0].substr(0, 2) || defaultLang;
     let phrases;
     let phrasesGlobal;
 
     try {
-      phrases = await fetch(`./i18n/${lang}.json`).then((res) => res.json());
+      phrases = await fetch(`${root}/i18n/${lang}.json`).then((res) =>
+        res.json()
+      );
     } catch (err) {
-      phrases = await fetch(`./i18n/${defaultLang}.json`).then((res) =>
+      phrases = await fetch(`${root}/i18n/${defaultLang}.json`).then((res) =>
         res.json()
       );
     }
 
     try {
-      phrasesGlobal = await fetch(`../../i18n-global/${lang}.json`).then(
+      phrasesGlobal = await fetch(`${root}/i18n-global/${lang}.json`).then(
         (res) => res.json()
       );
     } catch (err) {
-      phrasesGlobal = await fetch(`../../i18n-global/${defaultLang}.json`).then(
-        (res) => res.json()
-      );
+      phrasesGlobal = await fetch(
+        `${root}/i18n-global/${defaultLang}.json`
+      ).then((res) => res.json());
     }
 
     document.querySelectorAll("[data-i18n]").forEach((item) => {
