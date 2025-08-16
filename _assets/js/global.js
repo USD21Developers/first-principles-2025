@@ -215,7 +215,7 @@ function translate() {
         break;
       case "usd21developers.github.io":
         root = window.location.href;
-        globalRoot = "https://usd21developers.github.io/first-principles/";
+        globalRoot = "https://usd21developers.github.io/first-principles-2025/";
         break;
       default:
         root = `https://${window.location.host}${window.location.pathname}`;
