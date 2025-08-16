@@ -202,9 +202,16 @@ async function shareLink() {
 
 function translate() {
   return new Promise(async (resolve, reject) => {
-    const root = (document.location.hostname = "usd21developers.github.io"
-      ? "https://usd21developers.github.io/first-principles-2025/"
-      : "/");
+    let root = "http://127.0.0.1:5500";
+
+    if ((document.location.hostname = "usd21developers.github.io")) {
+      root = "https://usd21developers.github.io/first-principles-2025";
+    } else if (document.location.hostname === "app.usd21.org") {
+      root = "https://app.usd21.org";
+    } else {
+      root = "https://usd21.app";
+    }
+
     const defaultLang = document.querySelector("html").getAttribute("lang");
     const lang = navigator.languages[0].substr(0, 2) || defaultLang;
     let phrases;
