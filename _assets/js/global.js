@@ -264,6 +264,7 @@ function translate() {
   });
 }
 
-syncScriptures();
-shareLink();
-translate();
+translate().then(() => {
+  syncScriptures();
+  shareLink();
+});
