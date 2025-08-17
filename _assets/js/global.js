@@ -186,7 +186,7 @@ async function shareLink() {
 
       const shareData = {
         title: "First Principles",
-        text: "Use the First Principles app to study the Bible with someone!",
+        text: "Use the First Principles app to study the Bible with someone",
         url: shareUrl.toString(),
       };
 
