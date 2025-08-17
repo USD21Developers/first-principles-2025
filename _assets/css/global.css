@@ -85,3 +85,8 @@ table.verses tr:last-child {
 .modal-footer {
   display: none;
 }
+
+.smallCaps {
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
