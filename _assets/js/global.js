@@ -229,7 +229,6 @@ function translate() {
       );
     } catch (err) {
       console.log(err);
-      return;
     }
 
     try {
@@ -238,7 +237,6 @@ function translate() {
       );
     } catch (err) {
       console.log(err);
-      return;
     }
 
     document.querySelectorAll("[data-i18n]").forEach((item) => {
