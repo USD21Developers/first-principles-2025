@@ -1,3 +1,14 @@
+let phrases;
+let phrasesGlobal;
+
+function getPhrase(key) {
+  return phrases[key];
+}
+
+function getGlobalPhrase(key) {
+  return phrasesGlobal[key];
+}
+
 // @ts-nocheck
 function scripture(book, chapter, verseFrom, verseTo) {
   return new Promise((resolve, reject) => {
@@ -185,8 +196,8 @@ async function shareLink() {
       event.preventDefault();
 
       const shareData = {
-        title: "First Principles",
-        text: "Use the First Principles app to study the Bible with someone",
+        title: getGlobalPhrase("shareTitle"),
+        text: getGlobalPhrase("shareText"),
         url: shareUrl.toString(),
       };
 
@@ -220,8 +231,6 @@ function translate() {
     }
 
     const lang = document.querySelector("html").getAttribute("lang");
-    let phrases;
-    let phrasesGlobal;
 
     try {
       phrases = await fetch(`${root}i18n/${lang}.json`).then((res) =>
