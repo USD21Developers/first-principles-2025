@@ -11,6 +11,7 @@ function getGlobalPhrase(key) {
 
 // @ts-nocheck
 function scripture(book, chapter, verseFrom, verseTo) {
+  // @ts-ignore
   return new Promise((resolve, reject) => {
     const endpoint = "https://api.usd21.org/services/scripture";
     const slug = verseTo
@@ -112,6 +113,7 @@ function showScripture(slug, title) {
 
   const verseArray = JSON.parse(verseStored);
 
+  // @ts-ignore
   document.querySelector(
     "#scriptureModal .modal-title"
   ).innerHTML = `${title} <span class="bibleVersion">${bibleVersion}</span>`;
@@ -147,7 +149,7 @@ function showScripture(slug, title) {
     <div class="text-end">
       <hr>
       <a class="btn btn-light border border-dark my-3" href="${href}" target="_blank" rel="noopener noreferrer">
-        <i>Expand</i>
+        <i>${getGlobalPhrase("expand")}</i>
         <img src="../_assets/img/icons/chevron-right.svg" />
       </a>
     </div>
@@ -155,8 +157,10 @@ function showScripture(slug, title) {
 
   modalBody = modalBody + expandButton;
 
+  // @ts-ignore
   document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
 
+  // @ts-ignore
   const scriptureModal = new bootstrap.Modal(
     document.getElementById("scriptureModal")
   );
@@ -212,6 +216,7 @@ async function shareLink() {
 }
 
 function translate() {
+  // @ts-ignore
   return new Promise(async (resolve, reject) => {
     let root;
     let globalRoot;
@@ -230,6 +235,7 @@ function translate() {
         globalRoot = `https://${window.location.host}`;
     }
 
+    // @ts-ignore
     const lang = document.querySelector("html").getAttribute("lang");
 
     try {
@@ -250,6 +256,7 @@ function translate() {
 
     document.querySelectorAll("[data-i18n]").forEach((item) => {
       const key = item.getAttribute("data-i18n");
+      // @ts-ignore
       const phrase = phrases[key];
 
       if (phrase) {
@@ -259,6 +266,7 @@ function translate() {
 
     document.querySelectorAll("[data-i18n-global]").forEach((item) => {
       const key = item.getAttribute("data-i18n-global");
+      // @ts-ignore
       const phraseGlobal = phrasesGlobal[key];
 
       if (phraseGlobal) {
@@ -266,6 +274,7 @@ function translate() {
       }
     });
 
+    // @ts-ignore
     return resolve();
   });
 }
