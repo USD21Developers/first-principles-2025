@@ -17,21 +17,21 @@ function decorate() {
           let decorated = el.innerHTML;
 
           if (item.styles.bold) {
-            decorated = decorated.replaceAll(
+            decorated = decorated.replace(
               item.text.translated,
               `<strong>${item.text.translated}</strong>`
             );
           }
 
           if (item.styles.italic) {
-            decorated = decorated.replaceAll(
+            decorated = decorated.replace(
               item.text.translated,
               `<em>${item.text.translated}</em>`
             );
           }
 
           if (item.styles.underline) {
-            decorated = decorated.replaceAll(
+            decorated = decorated.replace(
               item.text.translated,
               `<u>${item.text.translated}</u>`
             );
@@ -39,7 +39,7 @@ function decorate() {
 
           if (item.styles.link) {
             const { href, attributes } = item.styles.link;
-            decorated = decorated.replaceAll(
+            decorated = decorated.replace(
               item.text.translated,
               `<a href="${href}" ${attributes}>${item.text.translated}</a>`
             );
