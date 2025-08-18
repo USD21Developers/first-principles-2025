@@ -406,9 +406,12 @@
           </div>
           <div class="modal-body"></div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
-              Close
-            </button>
+            <button
+              type="button"
+              class="btn btn-dark"
+              data-bs-dismiss="modal"
+              data-i18n-global="close"
+            ></button>
           </div>
         </div>
       </div>
@@ -421,25 +424,6 @@
     ></script>
 
     <script type="text/javascript" src="../_assets/js/global.js"></script>
-
-    <script type="text/javascript">
-      function localizeNumbers() {
-        const userLocale = navigator.language || "en-US";
-        document
-          .querySelector("tbody.numerals")
-          .querySelectorAll("td")
-          .forEach((el) => {
-            if (isNaN(el.innerText)) {
-              return;
-            }
-
-            const num = parseFloat(el.innerText);
-            const formatted = new Intl.NumberFormat(userLocale).format(num);
-            el.textContent = formatted;
-          });
-      }
-
-      localizeNumbers();
-    </script>
+    <script type="text/javascript" src="logic.js"></script>
   </body>
 </html>
