@@ -13,6 +13,7 @@ function enableSpeech() {
   let paused = false;
 
   const btnToggle = document.getElementById("toggle");
+  const toggleContainer = document.getElementById("toggleContainer");
   const btnStop = document.getElementById("stop");
   const container = document.getElementById("content");
 
@@ -95,13 +96,13 @@ function enableSpeech() {
     speakQueue();
 
     if (isAndroid) {
-      btnToggle.classList.add("d-none");
+      toggleContainer.classList.add("d-none");
       btnStop.classList.remove("d-none");
     } else {
       btnToggle
         .querySelector("img")
         .setAttribute("src", "../_assets/img/icons/pause-circle.svg");
-      btnToggle.classList.remove("d-none");
+      toggleContainer.classList.remove("d-none");
     }
   }
 
@@ -111,7 +112,7 @@ function enableSpeech() {
     btnToggle
       .querySelector("img")
       .setAttribute("src", "../_assets/img/icons/play-circle.svg");
-    btnToggle.classList.remove("d-none");
+    toggleContainer.classList.remove("d-none");
     btnStop.classList.add("d-none");
   }
 
