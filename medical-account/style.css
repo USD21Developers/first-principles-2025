@@ -89,6 +89,7 @@ section h2 {
 }
 
 .speechSynthesisButton {
+  background-color: unset;
   border: none;
   cursor: pointer;
 }
