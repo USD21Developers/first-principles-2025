@@ -74,16 +74,6 @@
       </header>
       <main class="mb-4">
         <div class="container-fluid v100 px-4 py-3">
-          <div class="row">
-            <div class="col-12">
-              <div class="text-center">
-                <div class="player d-inline-block my-2">
-                  <button id="toggle">▶️</button>
-                  <button id="stop">⏹</button>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="row" id="content">
             <div class="col-12">
               <section class="mt-2 mb-4">
@@ -93,6 +83,21 @@
                 ></h2>
                 <span class="d-none">.</span>
               </section>
+
+              <div class="ms-3 mb-3 float-end">
+                <div class="speechSynthesisPlayer d-inline-block my-0">
+                  <div class="mb-2">
+                    <button class="speechSynthesisButton" id="toggle">
+                      <img src="../_assets/img/icons/play-circle.svg" />
+                    </button>
+                  </div>
+                  <div>
+                    <button class="speechSynthesisButton d-none" id="stop">
+                      <img src="../_assets/img/icons/stop-circle.svg" />
+                    </button>
+                  </div>
+                </div>
+              </div>
 
               <section class="my-3">
                 <p data-i18n="p1"></p>

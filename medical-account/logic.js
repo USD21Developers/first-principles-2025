@@ -1,13 +1,15 @@
 function enableSpeech() {
   if ("speechSynthesis" in window) {
-    speechSynthesis.cancel(); // kills anything still speaking or queued
+    speechSynthesis.cancel();
+    document
+      .querySelector(".speechSynthesisPlayer")
+      ?.classList.remove("d-none");
   }
 
   const synth = window.speechSynthesis;
   let queue = [];
   let speaking = false;
   let paused = false;
-  let currentUtterance = null;
 
   const btnToggle = document.getElementById("toggle");
   const btnStop = document.getElementById("stop");
@@ -90,26 +92,38 @@ function enableSpeech() {
     queue = chunkText(text);
     if (!queue.length) return;
     speakQueue();
-    btnToggle.textContent = "⏸";
+    btnToggle
+      .querySelector("img")
+      .setAttribute("src", "../_assets/img/icons/pause-circle.svg");
+    btnStop.classList.remove("d-none");
   }
 
   function resetUI() {
     speaking = false;
     paused = false;
-    btnToggle.textContent = "▶️";
+    btnToggle
+      .querySelector("img")
+      .setAttribute("src", "../_assets/img/icons/play-circle.svg");
+    btnStop.classList.add("d-none");
   }
 
   btnToggle.addEventListener("click", () => {
     if (!speaking && !paused) {
       startReading();
+      btnStop.classList.remove("d-none");
     } else if (speaking && !paused) {
       synth.pause();
       paused = true;
-      btnToggle.textContent = "▶️";
+      btnToggle
+        .querySelector("img")
+        .setAttribute("src", "../_assets/img/icons/play-circle.svg");
+      btnStop.classList.remove("d-none");
     } else if (paused) {
       synth.resume();
       paused = false;
-      btnToggle.textContent = "⏸";
+      btnToggle
+        .querySelector("img")
+        .setAttribute("src", "../_assets/img/icons/pause-circle.svg");
     }
   });
 
