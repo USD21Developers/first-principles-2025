@@ -85,6 +85,12 @@
           window.location.assign("toc/");
         }, 3000);
       });
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./sw.js").catch((error) => {
+          console.error("Error in registering service worker:", error);
+        });
+      }
     </script>
   </body>
 </html>
