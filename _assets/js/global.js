@@ -262,8 +262,20 @@ function translate() {
         globalRoot = `https://${window.location.host}`;
     }
 
+    const htmlEl = document.querySelector("html");
+    const langsSupported = htmlEl
+      .getAttribute("data-supported-langs")
+      .split(",");
+    const langDetected = navigator.languages[0];
+
+    if (langsSupported.includes(langDetected)) {
+      htmlEl.setAttribute(langDetected);
+    } else {
+      htmlEl.setAttribute("en");
+    }
+
     // @ts-ignore
-    const lang = document.querySelector("html").getAttribute("lang");
+    const lang = htmlEl.getAttribute("lang");
 
     try {
       phrases = await fetch(`${root}/i18n/${lang}.json`).then((res) =>
