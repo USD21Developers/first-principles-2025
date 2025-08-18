@@ -232,11 +232,11 @@ function translate() {
     switch (window.location.host) {
       case "127.0.0.1:5500":
         root = window.location.href.replace("index.html", "");
-        globalRoot = `${window.location.origin}/`;
+        globalRoot = `${window.location.origin}`;
         break;
       case "usd21developers.github.io":
         root = window.location.href;
-        globalRoot = "https://usd21developers.github.io/first-principles-2025/";
+        globalRoot = "https://usd21developers.github.io/first-principles-2025";
         break;
       default:
         root = `https://${window.location.host}/${window.location.pathname}`;
@@ -247,7 +247,7 @@ function translate() {
     const lang = document.querySelector("html").getAttribute("lang");
 
     try {
-      phrases = await fetch(`${root}i18n/${lang}.json`).then((res) =>
+      phrases = await fetch(`${root}/i18n/${lang}.json`).then((res) =>
         res.json()
       );
     } catch (err) {
@@ -256,9 +256,9 @@ function translate() {
     }
 
     try {
-      phrasesGlobal = await fetch(`${globalRoot}i18n-global/${lang}.json`).then(
-        (res) => res.json()
-      );
+      phrasesGlobal = await fetch(
+        `${globalRoot}/i18n-global/${lang}.json`
+      ).then((res) => res.json());
     } catch (err) {
       console.log(err);
       return resolve(err);
