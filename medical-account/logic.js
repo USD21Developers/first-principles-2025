@@ -10,6 +10,9 @@ function enableSpeech() {
   let queue = [];
   let speaking = false;
   let paused = false;
+  let fullText = "";
+  let currentIndex = 0;
+  let currentUtterance = null;
 
   const btnToggle = document.getElementById("toggle");
   const btnStop = document.getElementById("stop");
@@ -22,7 +25,6 @@ function enableSpeech() {
       NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
       {
         acceptNode(node) {
-          // skip elements with "inert"
           if (
             node.nodeType === Node.ELEMENT_NODE &&
             node.hasAttribute("inert")
@@ -75,11 +77,19 @@ function enableSpeech() {
     const text = queue.shift();
     const u = new SpeechSynthesisUtterance(text);
     currentUtterance = u;
+
+    // track how far we’ve read
+    u.onboundary = (event) => {
+      if (event.name === "word") {
+        currentIndex += event.charIndex;
+      }
+    };
+
     u.onend = () => {
       speaking = false;
-      if (queue.length) {
+      if (queue.length && !paused) {
         setTimeout(speakQueue, 0);
-      } else {
+      } else if (!paused) {
         resetUI();
       }
     };
@@ -88,8 +98,9 @@ function enableSpeech() {
 
   function startReading() {
     synth.cancel();
-    const text = collectText(container);
-    queue = chunkText(text);
+    fullText = collectText(container);
+    currentIndex = 0;
+    queue = chunkText(fullText);
     if (!queue.length) return;
     speakQueue();
     btnToggle
@@ -109,18 +120,22 @@ function enableSpeech() {
 
   btnToggle.addEventListener("click", () => {
     if (!speaking && !paused) {
+      // fresh start
       startReading();
       btnStop.classList.remove("d-none");
     } else if (speaking && !paused) {
-      synth.pause();
+      // simulate pause by canceling
+      synth.cancel();
       paused = true;
       btnToggle
         .querySelector("img")
         .setAttribute("src", "../_assets/img/icons/play-circle.svg");
-      btnStop.classList.remove("d-none");
     } else if (paused) {
-      synth.resume();
+      // resume by restarting at currentIndex
+      const remainingText = fullText.slice(currentIndex);
+      queue = chunkText(remainingText);
       paused = false;
+      speakQueue();
       btnToggle
         .querySelector("img")
         .setAttribute("src", "../_assets/img/icons/pause-circle.svg");
