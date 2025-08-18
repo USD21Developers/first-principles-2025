@@ -6,6 +6,7 @@ function enableSpeech() {
       ?.classList.remove("d-none");
   }
 
+  const isAndroid = /Android/i.test(navigator.userAgent);
   const synth = window.speechSynthesis;
   let queue = [];
   let speaking = false;
@@ -92,10 +93,16 @@ function enableSpeech() {
     queue = chunkText(text);
     if (!queue.length) return;
     speakQueue();
-    btnToggle
-      .querySelector("img")
-      .setAttribute("src", "../_assets/img/icons/pause-circle.svg");
-    btnStop.classList.remove("d-none");
+
+    if (isAndroid) {
+      btnToggle.classList.add("d-none");
+      btnStop.classList.remove("d-none");
+    } else {
+      btnToggle
+        .querySelector("img")
+        .setAttribute("src", "../_assets/img/icons/pause-circle.svg");
+      btnToggle.classList.remove("d-none");
+    }
   }
 
   function resetUI() {
@@ -104,6 +111,7 @@ function enableSpeech() {
     btnToggle
       .querySelector("img")
       .setAttribute("src", "../_assets/img/icons/play-circle.svg");
+    btnToggle.classList.remove("d-none");
     btnStop.classList.add("d-none");
   }
 
