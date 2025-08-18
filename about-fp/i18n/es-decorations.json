@@ -1,0 +1,110 @@
+[
+  {
+    "key": "p1",
+    "text": {
+      "original": "First Principles",
+      "translated": "Primeros Principios"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-seeking-god",
+    "text": { "original": "Seeking God", "translated": "Buscando a Dios" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-word",
+    "text": {
+      "original": "The Word of God",
+      "translated": "La Palabra de Dios"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": { "original": "Discipleship", "translated": "Discipulado" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": { "original": "disciples", "translated": "discípulos" },
+    "styles": {
+      "italic": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-kingdom",
+    "text": {
+      "original": "The Coming of the Kingdom",
+      "translated": "La Venida del Reino"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-sin-repentance",
+    "text": {
+      "original": "Sin & Repentance",
+      "translated": "Pecado y Arrepentimiento"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-light-darkness",
+    "text": {
+      "original": "Light & Darkness",
+      "translated": "Luz y Oscuridad"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-cross",
+    "text": { "original": "The Cross", "translated": "La Cruz" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-1",
+    "text": {
+      "original": "Sin Definitions",
+      "translated": "Definiciones de Pecado"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-2",
+    "text": {
+      "original": "Medical Account of the Crucifixion",
+      "translated": "Relato Médico de la Crucifixión"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "styles": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": { "href": "", "attributes": "" }
+    }
+  }
+]

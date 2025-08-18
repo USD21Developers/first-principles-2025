@@ -1,0 +1,104 @@
+[
+  {
+    "key": "p1",
+    "text": {
+      "original": "First Principles",
+      "translated": "First Principles"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-seeking-god",
+    "text": { "original": "Seeking God", "translated": "Seeking God" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-word",
+    "text": { "original": "The Word of God", "translated": "The Word of God" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": { "original": "Discipleship", "translated": "Discipleship" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": { "original": "disciples", "translated": "disciples" },
+    "styles": {
+      "italic": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-kingdom",
+    "text": {
+      "original": "The Coming of the Kingdom",
+      "translated": "The Coming of the Kingdom"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-sin-repentance",
+    "text": {
+      "original": "Sin & Repentance",
+      "translated": "Sin & Repentance"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-light-darkness",
+    "text": {
+      "original": "Light & Darkness",
+      "translated": "Light & Darkness"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-cross",
+    "text": { "original": "The Cross", "translated": "The Cross" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-1",
+    "text": { "original": "Sin Definitions", "translated": "Sin Definitions" },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-2",
+    "text": {
+      "original": "Medical Account of the Crucifixion",
+      "translated": "Medical Account of the Crucifixion"
+    },
+    "styles": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "styles": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": { "href": "", "attributes": "" }
+    }
+  }
+]
