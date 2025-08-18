@@ -1,6 +1,10 @@
 let phrases;
 let phrasesGlobal;
 
+if ("speechSynthesis" in window) {
+  speechSynthesis.cancel();
+}
+
 function hideSpinner() {
   const main = document.querySelector(".master-container");
   const spinner = document.querySelector("#spinner");
