@@ -239,7 +239,7 @@ function translate() {
         globalRoot = "https://usd21developers.github.io/first-principles-2025/";
         break;
       default:
-        root = `https://${window.location.host}${window.location.pathname}`;
+        root = `https://${window.location.host}/${window.location.pathname}`;
         globalRoot = `https://${window.location.host}`;
     }
 
