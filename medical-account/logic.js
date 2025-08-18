@@ -12,8 +12,8 @@ function enableSpeech() {
   let speaking = false;
   let paused = false;
 
-  const btnToggle = document.getElementById("toggle");
   const toggleContainer = document.getElementById("toggleContainer");
+  const btnToggle = document.getElementById("toggle");
   const btnStop = document.getElementById("stop");
   const container = document.getElementById("content");
 
