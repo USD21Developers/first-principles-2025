@@ -1,9 +1,24 @@
 let phrases;
 let phrasesGlobal;
 
-if ("speechSynthesis" in window) {
-  speechSynthesis.cancel();
-}
+(function stopSpeechOnNav() {
+  function stopSpeech() {
+    if ("speechSynthesis" in window) {
+      speechSynthesis.cancel();
+    }
+  }
+
+  // Normal page unload
+  window.addEventListener("beforeunload", stopSpeech);
+
+  // Page restored from bfcache
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) stopSpeech();
+  });
+
+  // On every fresh page load
+  document.addEventListener("DOMContentLoaded", stopSpeech);
+})();
 
 function hideSpinner() {
   const main = document.querySelector(".master-container");
