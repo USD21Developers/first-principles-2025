@@ -1,6 +1,58 @@
 let phrases;
 let phrasesGlobal;
 
+function decorate() {
+  return new Promise((resolve, reject) => {
+    const lang = document.querySelector("html").getAttribute("lang");
+
+    fetch(`./i18n/${lang}-decorations.json`)
+      .then((res) => res.json())
+      .then((decorations) => {
+        for (let i = 0; i < decorations.length; i++) {
+          const item = decorations[i];
+          const el = document.querySelector(`[data-i18n="${item.key}"]`);
+
+          if (!el) continue;
+
+          let decorated = el.innerHTML;
+
+          if (item.styles.bold) {
+            decorated = decorated.replaceAll(
+              item.text.translated,
+              `<strong>${item.text.translated}</strong>`
+            );
+          }
+
+          if (item.styles.italic) {
+            decorated = decorated.replaceAll(
+              item.text.translated,
+              `<em>${item.text.translated}</em>`
+            );
+          }
+
+          if (item.styles.underline) {
+            decorated = decorated.replaceAll(
+              item.text.translated,
+              `<u>${item.text.translated}</u>`
+            );
+          }
+
+          if (item.styles.link) {
+            const { href, attributes } = item.styles.link;
+            decorated = decorated.replaceAll(
+              item.text.translated,
+              `<a href="${href}" ${attributes}>${item.text.translated}</a>`
+            );
+          }
+
+          el.innerHTML = decorated;
+        }
+
+        return resolve();
+      });
+  });
+}
+
 function hideSpinner() {
   const main = document.querySelector(".master-container");
   const spinner = document.querySelector("#spinner");
@@ -108,6 +160,18 @@ function linkifyScriptures() {
     );
     item.classList.add("scriptureLink");
   });
+}
+
+function setLanguage() {
+  const htmlEl = document.querySelector("html");
+  const langsSupported = htmlEl.getAttribute("data-supported-langs").split(",");
+  const langDetected = navigator.languages[0];
+
+  if (langsSupported.includes(langDetected)) {
+    htmlEl.setAttribute("lang", langDetected);
+  } else {
+    htmlEl.setAttribute("lang", "en");
+  }
 }
 
 function showScripture(slug, title) {
@@ -243,20 +307,10 @@ function translate() {
         globalRoot = `https://${window.location.host}`;
     }
 
-    const htmlEl = document.querySelector("html");
-    const langsSupported = htmlEl
-      .getAttribute("data-supported-langs")
-      .split(",");
-    const langDetected = navigator.languages[0];
-
-    if (langsSupported.includes(langDetected)) {
-      htmlEl.setAttribute(langDetected);
-    } else {
-      htmlEl.setAttribute("en");
-    }
+    setLanguage();
 
     // @ts-ignore
-    const lang = htmlEl.getAttribute("lang");
+    const lang = document.querySelector("html").getAttribute("lang");
 
     try {
       phrases = await fetch(`${root}/i18n/${lang}.json`).then((res) =>
