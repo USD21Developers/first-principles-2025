@@ -1,6 +1,14 @@
 let phrases;
 let phrasesGlobal;
 
+function hideSpinner() {
+  const main = document.querySelector(".master-container");
+  const spinner = document.querySelector("#spinner");
+
+  spinner?.classList.add("d-none");
+  main?.classList.remove("d-none");
+}
+
 function getPhrase(key) {
   return phrases[key];
 }

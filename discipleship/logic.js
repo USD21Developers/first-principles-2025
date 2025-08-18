@@ -19,6 +19,7 @@ async function init() {
   await syncScriptures();
   shareLink();
   localizeNumbers();
+  hideSpinner();
 }
 
 init();

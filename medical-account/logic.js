@@ -139,6 +139,7 @@ async function init() {
   await syncScriptures();
   shareLink();
   enableSpeech();
+  hideSpinner();
 }
 
 init();
