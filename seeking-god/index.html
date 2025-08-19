@@ -20,6 +20,7 @@
       property="og:image:alt"
       content="First Principles Bible Study Series"
     />
+    <script src="../_assets/js/pwa-install.js"></script>
     <link rel="manifest" href="../manifest.json" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
@@ -299,6 +300,14 @@
                     data-i18n-global="footerAboutFP"
                   >
                   </a>
+                </li>
+                <li class="my-2 d-none" id="installContainer">
+                  <a
+                    href="javascript: triggerPwaInstall()"
+                    id="installBtn"
+                    class="link-light"
+                    data-i18n-global="footerInstall"
+                  ></a>
                 </li>
                 <li class="my-2 d-none" id="shareLinkContainer">
                   <a

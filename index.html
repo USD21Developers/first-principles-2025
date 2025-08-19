@@ -20,13 +20,7 @@
       property="og:image:alt"
       content="First Principles Bible Study Series"
     />
-    <script>
-      let deferredPrompt;
-      window.addEventListener("beforeinstallprompt", (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-      });
-    </script>
+    <script src="_assets/js/pwa-install.js"></script>
     <link rel="manifest" href="manifest.json" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
