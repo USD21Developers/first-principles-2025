@@ -50,8 +50,8 @@
   {
     "key": "studiesAtGlance-sin-repentance",
     "text": {
-      "original": "Sin & Repentance",
-      "translated": "Sin & Repentance"
+      "original": "Sin &amp; Repentance",
+      "translated": "Sin &amp; Repentance"
     },
     "styles": {
       "bold": true
@@ -60,8 +60,8 @@
   {
     "key": "studiesAtGlance-light-darkness",
     "text": {
-      "original": "Light & Darkness",
-      "translated": "Light & Darkness"
+      "original": "Light &amp; Darkness",
+      "translated": "Light &amp; Darkness"
     },
     "styles": {
       "bold": true
