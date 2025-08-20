@@ -75,7 +75,7 @@ observer.observe(document.querySelector("title"), {
 
 async function init() {
   await translate();
-  await syncScriptures();
+  syncScriptures();
   shareLink();
   hideSpinner();
 }
