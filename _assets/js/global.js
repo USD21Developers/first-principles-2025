@@ -91,22 +91,25 @@ function scripture(book, chapter, verseFrom, verseTo) {
 }
 
 function syncScriptures() {
-  const promises = [];
+  return new Promise((resolve, reject) => {
+    const promises = [];
 
-  document.querySelectorAll("[data-scripture]").forEach((item) => {
-    const data = item.getAttribute("data-scripture")?.split(",") || [];
-    const book = data[0];
-    const chapter = data[1];
-    const verseFrom = data[2];
-    const verseTo = data[3] ? data[3] : null;
-    const promise = verseTo
-      ? scripture(book, chapter, verseFrom, verseTo)
-      : scripture(book, chapter, verseFrom);
-    promises.push(promise);
-  });
+    document.querySelectorAll("[data-scripture]").forEach((item) => {
+      const data = item.getAttribute("data-scripture")?.split(",") || [];
+      const book = data[0];
+      const chapter = data[1];
+      const verseFrom = data[2];
+      const verseTo = data[3] ? data[3] : null;
+      const promise = verseTo
+        ? scripture(book, chapter, verseFrom, verseTo)
+        : scripture(book, chapter, verseFrom);
+      promises.push(promise);
+    });
 
-  Promise.all(promises).then(() => {
-    linkifyScriptures();
+    Promise.all(promises).then(() => {
+      linkifyScriptures();
+      return resolve();
+    });
   });
 }
 
@@ -247,28 +250,28 @@ function translate() {
   return new Promise(async (resolve, reject) => {
     let root;
     let globalRoot;
+    let endpoint;
+    const lang = document.querySelector("html").getAttribute("lang");
 
     switch (window.location.host) {
       case "127.0.0.1:5500":
         root = window.location.href.replace("index.html", "");
         globalRoot = `${window.location.origin}`;
+        endpoint = `${root}i18n/${lang}.json`;
         break;
       case "usd21developers.github.io":
         root = window.location.href;
         globalRoot = "https://usd21developers.github.io/first-principles-2025";
+        endpoint = `${root}/i18n/${lang}.json`;
         break;
       default:
         root = `https://${window.location.host}/${window.location.pathname}`;
         globalRoot = `https://${window.location.host}`;
+        endpoint = `${root}/i18n/${lang}.json`;
     }
 
-    // @ts-ignore
-    const lang = document.querySelector("html").getAttribute("lang");
-
     try {
-      phrases = await fetch(`${root}/i18n/${lang}.json`).then((res) =>
-        res.json()
-      );
+      phrases = await fetch(endpoint).then((res) => res.json());
     } catch (err) {
       console.log(err);
       return resolve(err);
