@@ -1,6 +1,8 @@
 {
-  "name": "First Principles: An app to equip every disciple of Jesus with tools and teachings for making disciples of all nations!",
+  "name": "First Principles",
   "short_name": "First Principles",
+  "description": "This app provides disciples of Jesus with a guided series of Bible studies for making disciples of all nations.  These studies are intended to build the core convictions necessary for someone to make informed decisions about their faith, discipleship, and baptism.",
+  "id": "98b6bb7a-125f-4b03-aa0f-f41927b60c16",
   "theme_color": "#212529",
   "background_color": "#1e0801",
   "display": "standalone",
@@ -33,198 +35,196 @@
   ],
   "screenshots": [
     {
-      "src": "_assets/img/screenshots/home_portrait.png",
+      "src": "_assets/img/screenshots/home_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/home_landscape.png",
+      "src": "_assets/img/screenshots/home_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/toc_portrait.png",
+      "src": "_assets/img/screenshots/toc_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/toc_landscape.png",
+      "src": "_assets/img/screenshots/toc_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/seeking_god_portrait.png",
+      "src": "_assets/img/screenshots/seeking_god_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/seeking_god_landscape.png",
+      "src": "_assets/img/screenshots/seeking_god_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/scripture_portrait.png",
+      "src": "_assets/img/screenshots/scripture_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/scripture_landscape.png",
+      "src": "_assets/img/screenshots/scripture_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/scripture_portrait.png",
+      "src": "_assets/img/screenshots/scripture_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/scripture_landscape.png",
+      "src": "_assets/img/screenshots/scripture_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/word_portrait.png",
+      "src": "_assets/img/screenshots/word_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/word_landscape.png",
+      "src": "_assets/img/screenshots/word_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/discipleship_portrait.png",
+      "src": "_assets/img/screenshots/discipleship_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/discipleship_landscape.png",
+      "src": "_assets/img/screenshots/discipleship_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/kingdom_portrait.png",
+      "src": "_assets/img/screenshots/kingdom_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/kingdom_landscape.png",
+      "src": "_assets/img/screenshots/kingdom_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/sin_repentance_portrait.png",
+      "src": "_assets/img/screenshots/sin_repentance_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/sin_repentance_landscape.png",
+      "src": "_assets/img/screenshots/sin_repentance_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/light_darkness_portrait.png",
+      "src": "_assets/img/screenshots/light_darkness_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/light_darkness_landscape.png",
+      "src": "_assets/img/screenshots/light_darkness_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/cross_portrait.png",
+      "src": "_assets/img/screenshots/cross_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/cross_landscape.png",
+      "src": "_assets/img/screenshots/cross_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/church_portrait.png",
+      "src": "_assets/img/screenshots/church_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/church_landscape.png",
+      "src": "_assets/img/screenshots/church_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/sin_definitions_portrait.png",
+      "src": "_assets/img/screenshots/sin_definitions_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/sin_definitions_landscape.png",
+      "src": "_assets/img/screenshots/sin_definitions_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/medical_account_portrait.png",
+      "src": "_assets/img/screenshots/medical_account_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/medical_account_landscape.png",
+      "src": "_assets/img/screenshots/medical_account_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/about_us_portrait.png",
+      "src": "_assets/img/screenshots/about_us_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/about_us_landscape.png",
+      "src": "_assets/img/screenshots/about_us_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "_assets/img/screenshots/about_fp_portrait.png",
+      "src": "_assets/img/screenshots/about_fp_portrait.webp",
       "sizes": "768x1024",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "narrow"
     },
     {
-      "src": "_assets/img/screenshots/about_fp_landscape.png",
+      "src": "_assets/img/screenshots/about_fp_landscape.webp",
       "sizes": "1024x768",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide"
     }
-  ],
-  "description": "This app provides disciples of Jesus with a guided series of Bible studies for making disciples of all nations.  These studies are intended to build the core convictions necessary for someone to make informed decisions about their faith, discipleship, and baptism.",
-  "id": "98b6bb7a-125f-4b03-aa0f-f41927b60c16"
+  ]
 }
