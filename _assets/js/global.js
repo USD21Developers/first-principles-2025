@@ -262,12 +262,12 @@ function translate() {
       case "usd21developers.github.io":
         root = window.location.href;
         globalRoot = "https://usd21developers.github.io/first-principles-2025";
-        endpoint = `${root}/i18n/${lang}.json`;
+        endpoint = `${root}i18n/${lang}.json`;
         break;
       default:
         root = `https://${window.location.host}/${window.location.pathname}`;
         globalRoot = `https://${window.location.host}`;
-        endpoint = `${root}/i18n/${lang}.json`;
+        endpoint = `${root}i18n/${lang}.json`;
     }
 
     try {
