@@ -265,7 +265,7 @@ function translate() {
         endpoint = `${root}i18n/${lang}.json`;
         break;
       default:
-        root = `https://${window.location.host}/${window.location.pathname}`;
+        root = `https://${window.location.host}${window.location.pathname}`;
         globalRoot = `https://${window.location.host}`;
         endpoint = `${root}i18n/${lang}.json`;
     }
