@@ -3,6 +3,8 @@
   "short_name": "First Principles",
   "description": "This app provides disciples of Jesus with a guided series of Bible studies for making disciples of all nations.  These studies are intended to build the core convictions necessary for someone to make informed decisions about their faith, discipleship, and baptism.",
   "categories": ["books", "education", "reference", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
   "id": "98b6bb7a-125f-4b03-aa0f-f41927b60c16",
   "theme_color": "#212529",
   "background_color": "#1e0801",
