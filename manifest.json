@@ -39,8 +39,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/home_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/home_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -51,8 +51,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/toc_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/toc_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -63,8 +63,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/seeking_god_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/seeking_god_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -75,8 +75,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/scripture_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/scripture_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -87,8 +87,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/scripture_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/scripture_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -99,8 +99,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/word_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/word_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -111,8 +111,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/discipleship_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/discipleship_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -123,8 +123,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/kingdom_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/kingdom_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -135,8 +135,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/sin_repentance_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/sin_repentance_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -147,8 +147,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/light_darkness_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/light_darkness_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -159,8 +159,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/cross_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/cross_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -171,8 +171,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/church_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/church_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -183,8 +183,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/sin_definitions_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/sin_definitions_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -195,8 +195,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/medical_account_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/medical_account_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -207,8 +207,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/about_us_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/about_us_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     },
@@ -219,8 +219,8 @@
       "form_factor": "narrow"
     },
     {
-      "src": "/screenshots/about_fp_landscape.png",
-      "sizes": "768x1024",
+      "src": "_assets/img/screenshots/about_fp_landscape.png",
+      "sizes": "1024x768",
       "type": "image/png",
       "form_factor": "wide"
     }
