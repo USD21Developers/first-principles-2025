@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-supported-langs="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="title"></title>
+    <meta name="view-transition" content="same-origin" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#555555" />
     <meta property="og:title" content="First Principles" />
     <meta property="og:description" content="Bible Study Series" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://usd21developers.github.io/first-principles-2025/"
-    />
+    <meta property="og:url" content="https://usd21.app/" />
     <meta
       property="og:image"
-      content="https://usd21developers.github.io/first-principles-2025/_assets/img/opengraph.jpg"
+      content="https://usd21.app/_assets/img/opengraph.jpg"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -23,40 +21,40 @@
       property="og:image:alt"
       content="First Principles Bible Study Series"
     />
+    <script src="../_assets/js/pwa-install.js"></script>
     <link rel="manifest" href="../manifest.json" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../_assets/img/icons/launch/apple-icon-180.png"
+      href="../_assets/img/icons/launch/logo-usd21-180.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="167x167"
-      href="../_assets/img/icons/launch/apple-icon-167.png"
+      href="../_assets/img/icons/launch/logo-usd21-167.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="152x152"
-      href="../_assets/img/icons/launch/apple-icon-152.png"
+      href="../_assets/img/icons/launch/logo-usd21-152.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="120x120"
-      href="../_assets/img/icons/launch/apple-icon-120.png"
+      href="../_assets/img/icons/launch/logo-usd21-120.png"
     />
     <link
       rel="icon"
-      type="image/jpeg"
+      type="image/png"
       sizes="192x192"
-      href="../_assets/img/icons/launch/launch-192.jpg"
+      href="../_assets/img/icons/launch/logo-usd21-192.png"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
+      type="text/css"
+      href="../_assets/js/bootstrap-5.3.7-dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" type="text/css" href="../_assets/css/global.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -543,6 +541,14 @@
                   >
                   </a>
                 </li>
+                <li class="my-2 d-none" id="installContainer">
+                  <a
+                    href="javascript: triggerPwaInstall()"
+                    id="installBtn"
+                    class="link-light"
+                    data-i18n-global="footerInstall"
+                  ></a>
+                </li>
                 <li class="my-2 d-none" id="shareLinkContainer">
                   <a
                     href="#"
@@ -600,11 +606,9 @@
     </div>
 
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
+      type="text/javascript"
+      src="../_assets/js/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"
     ></script>
-
     <script type="text/javascript" src="../_assets/js/global.js"></script>
     <script type="text/javascript" src="logic.js"></script>
   </body>

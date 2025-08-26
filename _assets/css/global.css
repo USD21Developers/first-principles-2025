@@ -90,3 +90,9 @@ table.verses tr:last-child {
   font-variant: small-caps;
   text-transform: lowercase;
 }
+
+@media all and (display-mode: standalone) {
+  #installContainer {
+    display: none !important;
+  }
+}

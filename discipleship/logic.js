@@ -16,7 +16,7 @@ function localizeNumbers() {
 
 async function init() {
   await translate();
-  await syncScriptures();
+  syncScriptures();
   shareLink();
   localizeNumbers();
   hideSpinner();

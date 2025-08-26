@@ -1,2 +1,424 @@
-if(!self.define){let e,i={};const s=(s,c)=>(s=new URL(s+".js",c).href,i[s]||new Promise(i=>{if("document"in self){const e=document.createElement("script");e.src=s,e.onload=i,document.head.appendChild(e)}else e=s,importScripts(s),i()}).then(()=>{let e=i[s];if(!e)throw new Error(`Module ${s} didn’t register its module`);return e}));self.define=(c,a)=>{const n=e||("document"in self?document.currentScript.src:"")||location.href;if(i[n])return;let r={};const d=e=>s(e,n),o={module:{uri:n},exports:r,require:d};i[n]=Promise.all(c.map(e=>o[e]||d(e))).then(e=>(a(...e),r))}}define(["./workbox-c9c1d482"],function(e){"use strict";self.addEventListener("message",e=>{e.data&&"SKIP_WAITING"===e.data.type&&self.skipWaiting()}),e.precacheAndRoute([{url:"_assets/css/cover.css",revision:"6fa777c358d7b6ce5adc1e5236dcb4ef"},{url:"_assets/css/global.css",revision:"702a529751d14fc1df5ebbd5241e5a55"},{url:"_assets/img/cover/cover.jpg",revision:"53e1bd7d9b796d4d004ecb018bb0f3f2"},{url:"_assets/img/icons/chevron-right.svg",revision:"4fb4c6c40fab312bfc464711f21457a7"},{url:"_assets/img/icons/launch/apple-icon-120.png",revision:"dd802e00faa30ab368ba982ba0875835"},{url:"_assets/img/icons/launch/apple-icon-152.png",revision:"93a22669d46fa5edbb5b89e7632ac84e"},{url:"_assets/img/icons/launch/apple-icon-167.png",revision:"8e638e50e558843b1fa1d5e1fecc9bcf"},{url:"_assets/img/icons/launch/apple-icon-180.png",revision:"06affcfe4be8d9a252eb7f4061cfb406"},{url:"_assets/img/icons/launch/launch-192-maskable.png",revision:"4f80ee3ee72a86434985c59b03bfe987"},{url:"_assets/img/icons/launch/launch-192.jpg",revision:"90699c8bf6cfdeaa278be7ce8b663f74"},{url:"_assets/img/icons/launch/launch-512-maskable.png",revision:"f5b1e2570f4aed45d36a9f4bd71f7c1c"},{url:"_assets/img/icons/launch/launch-512.jpg",revision:"d0d9188da74bead66476f8aae52b392f"},{url:"_assets/img/icons/pause-circle.svg",revision:"63c13c1a4d77f0af7cb30cdd06e64326"},{url:"_assets/img/icons/play-circle.svg",revision:"2787c6788a1f513e572aaab5c4e2d28b"},{url:"_assets/img/icons/stop-circle.svg",revision:"6a39e13ae497a7b1adc172dd9dea1461"},{url:"_assets/img/opengraph.jpg",revision:"f10a983f87fd7ae348e545e64450acd3"},{url:"_assets/js/global.js",revision:"934f3829c0b4f0eef77dd4fa2ebbf7e1"},{url:"about-fp/i18n/en-decorations.json",revision:"7130a6221dcdd70e565a3e407be0e229"},{url:"about-fp/i18n/en.json",revision:"8a7c92bc9a19dfcb74ecf582c18a7a3e"},{url:"about-fp/i18n/es-decorations.json",revision:"b0f8adbd3511ac7886c479aa145c7c8d"},{url:"about-fp/i18n/es.json",revision:"5627c25356a819035430917c3e85779c"},{url:"about-fp/img/masthead-about-fp.avif",revision:"5ac49a318501d76c7cd7ab0bc2358497"},{url:"about-fp/index.html",revision:"5ae32bdf295b1669b435401971af97bf"},{url:"about-fp/logic.js",revision:"f81bb17491265c930e14b882e1e7e8c8"},{url:"about-fp/style.css",revision:"61c441989568c1e7f8e983b3430a0a8f"},{url:"about-us/i18n/en-decorations.json",revision:"24990359754cc3a7b9ce94757b45a240"},{url:"about-us/i18n/en.json",revision:"ebb7a4ca4e6a7442cb3411ccb75b65d4"},{url:"about-us/i18n/es-decorations.json",revision:"81a31da6bd2603413ca6142086c058ac"},{url:"about-us/i18n/es.json",revision:"9b07908f7c27274c33d2e595cc8e8654"},{url:"about-us/img/masthead-about-fp.avif",revision:"5ac49a318501d76c7cd7ab0bc2358497"},{url:"about-us/index.html",revision:"c8967891a652cccbafd7d714c75180f8"},{url:"about-us/logic.js",revision:"f81bb17491265c930e14b882e1e7e8c8"},{url:"about-us/style.css",revision:"61c441989568c1e7f8e983b3430a0a8f"},{url:"church/i18n/en.json",revision:"520550b1a86a504da91b0fe7bbf27bdd"},{url:"church/img/church-history.avif",revision:"5d0eddb0053214b8bb8f087b06bd6e8c"},{url:"church/img/family-triangle.svg",revision:"74557e95962a57fde1f424657e4c20b7"},{url:"church/img/head-body-diagram.svg",revision:"c2f0e1b98203f74ec22feb47582c8814"},{url:"church/img/masthead-church.avif",revision:"5f561b19ce41cf8edbea8e94a49cf9d1"},{url:"church/index.html",revision:"981330aa178dcd5456af353d53134aca"},{url:"church/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"church/style.css",revision:"7821eeeb31a72c3b6e3e84327e761872"},{url:"cross/i18n/en.json",revision:"bd62b2a6ff4f2b32b206028469fb093a"},{url:"cross/img/head-body-diagram.svg",revision:"c2f0e1b98203f74ec22feb47582c8814"},{url:"cross/img/masthead-cross.avif",revision:"a7ce22ba73a14bd62f3b247de285b395"},{url:"cross/index.html",revision:"c903301999d7c3ee42a88ca1651eab36"},{url:"cross/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"cross/style.css",revision:"f99002dd71b04b99460e070ff663e808"},{url:"discipleship/i18n/en.json",revision:"0932accd3e5b274f9a3b7077862896de"},{url:"discipleship/img/masthead-discipleship.avif",revision:"00cea4cfd37c9279c7b289c5d2e72411"},{url:"discipleship/index.html",revision:"350cb6f9f55a100df4b4968fadac915a"},{url:"discipleship/logic.js",revision:"36c38989ecc52598d2912a0b761757c1"},{url:"discipleship/style.css",revision:"121700d599e606558f3543e3c2b526a9"},{url:"favicon.ico",revision:"ad4c186031ff559655cddce21483b5bc"},{url:"i18n-global/en.json",revision:"e8dff23a46520045d31ae83eabce6899"},{url:"i18n-global/es.json",revision:"eeb67f07ad2442c3c8f33c6fa1b09720"},{url:"index.html",revision:"b48b459d4b99fd70369b14d8004e28df"},{url:"kingdom/i18n/en.json",revision:"25f4161c619414213de9e175d980d5bc"},{url:"kingdom/i18n/es.json",revision:"a1e4e5dee1ccf5589a571d3f09f9aa98"},{url:"kingdom/img/kingdom-church-comparison.avif",revision:"d9041a069c3cb2f6087efaf062f199b7"},{url:"kingdom/img/masthead-kingdom.avif",revision:"349c27764cb33a4f3abe1f57fb55ec91"},{url:"kingdom/img/mountain-bg-transparent.webp",revision:"1f0bd85ae3f72483caeb47ac190c7aa5"},{url:"kingdom/img/statue.avif",revision:"b40fcc4a2fbd689564aa7f5f391ec7c9"},{url:"kingdom/img/timeline.svg",revision:"047b71b6d625168f0fb47167a00183df"},{url:"kingdom/index.html",revision:"88a0c7461b70710ee280307ca85e4599"},{url:"kingdom/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"kingdom/style.css",revision:"ca0158716e7c7db60f1f6ad7d132773c"},{url:"light-darkness/i18n/en.json",revision:"8300bb9b6bd632f53354dca48f8ecb0c"},{url:"light-darkness/img/buried-in-baptism.avif",revision:"502e954fcdfeb049db00578f94834e38"},{url:"light-darkness/img/masthead-lightdarkness.avif",revision:"89a2a6596f542b59adf00991ec1ae9f1"},{url:"light-darkness/img/timeline-dots.svg",revision:"3d058fe39a2d885f0565702c1a0bd7fe"},{url:"light-darkness/index.html",revision:"9fa58aa21aceb871103e0eec43ebb7ad"},{url:"light-darkness/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"light-darkness/style.css",revision:"5e78e03fdcc2b9864812ee533fea725c"},{url:"manifest.json",revision:"f0cb3c4bb27550cb93c9aa23749d4c9f"},{url:"medical-account/i18n/en.json",revision:"00e1650f70d90adc15de6db777b49d6e"},{url:"medical-account/index.html",revision:"d817262a2d7f3c2ab5954ba6a9cebbcc"},{url:"medical-account/logic.js",revision:"559ca4d93569e7132b3c1de6083d479f"},{url:"medical-account/style.css",revision:"f4dd82be90caa67c06eef083ea728ae0"},{url:"package.json",revision:"771993b1fd8f0542dcf86a7a8204c04d"},{url:"README.md",revision:"bcc3a7aeebbe412c8994acbffd543944"},{url:"seeking-god/i18n/en.json",revision:"2bf709f809e6c6f25d382cf319277982"},{url:"seeking-god/img/masthead-seeking-god.avif",revision:"6e53d75213f3f4ddbd8ac169083a2200"},{url:"seeking-god/index.html",revision:"c1058864b719d409315f0414d5d9ee96"},{url:"seeking-god/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"seeking-god/style.css",revision:"582fd139a283f348a47b36b5e0de4e37"},{url:"sin-definitions/i18n/en.json",revision:"acf20403e2a9c0caa5ca7d9ff6a00b59"},{url:"sin-definitions/index.html",revision:"f1c7b0a01c612c6b6199fea0d891613f"},{url:"sin-definitions/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"sin-definitions/style.css",revision:"2be35f4d5a197ba4d1887db9cf0d39c0"},{url:"sin-repentance/i18n/en.json",revision:"e0136301cad85e4938c98b1a865ac1af"},{url:"sin-repentance/img/darkness-light.svg",revision:"b80e62b42a38655bd2e030fafafd2f2f"},{url:"sin-repentance/img/masthead-sin-repentance.avif",revision:"d437f01be95ec7bd47213eb0a7be7136"},{url:"sin-repentance/img/sin-piles.svg",revision:"8212f1a5d56efd86dab11a6a449dab04"},{url:"sin-repentance/img/wages-gift.svg",revision:"4d73e2036d17b2ab638f83f95709d25c"},{url:"sin-repentance/index.html",revision:"a0898aeb530739e04eb6cd21291fc695"},{url:"sin-repentance/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"sin-repentance/style.css",revision:"19442861cc1c82393d62a15110947d70"},{url:"toc/i18n/en.json",revision:"7785c5217c6d41366ba177669300d7ec"},{url:"toc/img/background.jpg",revision:"e4388082074a056208cb28aae87bc71a"},{url:"toc/index.html",revision:"9171b495d66174a758303ee6b32d00c2"},{url:"toc/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"toc/style.css",revision:"0b43aabcbd11029939ebc719e2f1153d"},{url:"word/i18n/en.json",revision:"bfecf1395004f3f1249e0d3c93c14863"},{url:"word/img/masthead-word.avif",revision:"7600c7dd0aff5d474c7e78eedd4c4d1a"},{url:"word/index.html",revision:"dba696b96866281fdb9e6a54a8301beb"},{url:"word/logic.js",revision:"d80e8d274b51288f104fb530372177c5"},{url:"word/style.css",revision:"d909cad1558b004b398ec45030a81897"}],{ignoreURLParametersMatching:[/^utm_/,/^fbclid$/]})});
+if (!self.define) {
+  let e,
+    i = {};
+  const s = (s, c) => (
+    (s = new URL(s + ".js", c).href),
+    i[s] ||
+      new Promise((i) => {
+        if ("document" in self) {
+          const e = document.createElement("script");
+          (e.src = s), (e.onload = i), document.head.appendChild(e);
+        } else (e = s), importScripts(s), i();
+      }).then(() => {
+        let e = i[s];
+        if (!e) throw new Error(`Module ${s} didn’t register its module`);
+        return e;
+      })
+  );
+  self.define = (c, a) => {
+    const d =
+      e ||
+      ("document" in self ? document.currentScript.src : "") ||
+      location.href;
+    if (i[d]) return;
+    let n = {};
+    const r = (e) => s(e, d),
+      o = { module: { uri: d }, exports: n, require: r };
+    i[d] = Promise.all(c.map((e) => o[e] || r(e))).then((e) => (a(...e), n));
+  };
+}
+define(["./workbox-c9c1d482"], function (e) {
+  "use strict";
+  self.addEventListener("message", (e) => {
+    e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting();
+  }),
+    e.precacheAndRoute(
+      [
+        {
+          url: "_assets/css/cover.css",
+          revision: "6fa777c358d7b6ce5adc1e5236dcb4ef",
+        },
+        {
+          url: "_assets/css/global.css",
+          revision: "4cfe435f4ae06db4bd8c0730cbd28e3f",
+        },
+        {
+          url: "_assets/img/cover/cover.jpg",
+          revision: "53e1bd7d9b796d4d004ecb018bb0f3f2",
+        },
+        {
+          url: "_assets/img/icons/chevron-right.svg",
+          revision: "4fb4c6c40fab312bfc464711f21457a7",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-120.png",
+          revision: "275004447ad3c5c53e4bfe941a52cbc0",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-152.png",
+          revision: "3233391197c74241d6ae518563712589",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-167.png",
+          revision: "db37bef9613280336d47ef2436d2f193",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-180.png",
+          revision: "e6077a09f6d1e0d67be8b3bbc4b55e06",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-192-maskable.png",
+          revision: "72f19f70df7f5b60cec930734f98c691",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-192.png",
+          revision: "3935eca84c9d1d3f2623fdf0fc5425e5",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-512-maskable.png",
+          revision: "820e77dd7d5327c9cbde80fa5fce25a2",
+        },
+        {
+          url: "_assets/img/icons/launch/logo-usd21-512.png",
+          revision: "e9ef99eba8d81f384d4784cd2ee29c68",
+        },
+        {
+          url: "_assets/img/icons/pause-circle.svg",
+          revision: "63c13c1a4d77f0af7cb30cdd06e64326",
+        },
+        {
+          url: "_assets/img/icons/play-circle.svg",
+          revision: "2787c6788a1f513e572aaab5c4e2d28b",
+        },
+        {
+          url: "_assets/img/icons/stop-circle.svg",
+          revision: "6a39e13ae497a7b1adc172dd9dea1461",
+        },
+        {
+          url: "_assets/img/opengraph.jpg",
+          revision: "f10a983f87fd7ae348e545e64450acd3",
+        },
+        {
+          url: "_assets/js/bootstrap-5.3.7-dist/css/bootstrap.min.css",
+          revision: "50c95aae1a6c1e089c11681d1e1906f8",
+        },
+        {
+          url: "_assets/js/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js",
+          revision: "21d4551af5cc4ed4d818bdbdfea8c358",
+        },
+        {
+          url: "_assets/js/global.js",
+          revision: "30efdde62fda9bacf4315e67a1a54985",
+        },
+        {
+          url: "_assets/js/popper.min.js",
+          revision: "31032b08bd8e72220462d3f54f8bd69a",
+        },
+        {
+          url: "_assets/js/pwa-install.js",
+          revision: "f226a3159f0bc9f84bcb07d49cc842ac",
+        },
+        {
+          url: "about-fp/i18n/en.json",
+          revision: "4aa5f37e34a38ec1680804028b40b521",
+        },
+        {
+          url: "about-fp/img/masthead-about-fp.avif",
+          revision: "5ac49a318501d76c7cd7ab0bc2358497",
+        },
+        {
+          url: "about-fp/index.html",
+          revision: "8498be5a017055cc04baf7478199e38b",
+        },
+        {
+          url: "about-fp/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "about-fp/style.css",
+          revision: "61c441989568c1e7f8e983b3430a0a8f",
+        },
+        {
+          url: "about-us/i18n/en.json",
+          revision: "ebb7a4ca4e6a7442cb3411ccb75b65d4",
+        },
+        {
+          url: "about-us/img/masthead-about-fp.avif",
+          revision: "5ac49a318501d76c7cd7ab0bc2358497",
+        },
+        {
+          url: "about-us/index.html",
+          revision: "5094870af1c09234c140e3cd79e3d0bb",
+        },
+        {
+          url: "about-us/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "about-us/style.css",
+          revision: "61c441989568c1e7f8e983b3430a0a8f",
+        },
+        {
+          url: "church/i18n/en.json",
+          revision: "b19bfb8af5818bb0d0b142af599c6685",
+        },
+        {
+          url: "church/img/church-history.avif",
+          revision: "5d0eddb0053214b8bb8f087b06bd6e8c",
+        },
+        {
+          url: "church/img/family-triangle.svg",
+          revision: "74557e95962a57fde1f424657e4c20b7",
+        },
+        {
+          url: "church/img/head-body-diagram.svg",
+          revision: "c2f0e1b98203f74ec22feb47582c8814",
+        },
+        {
+          url: "church/img/masthead-church.avif",
+          revision: "5f561b19ce41cf8edbea8e94a49cf9d1",
+        },
+        {
+          url: "church/index.html",
+          revision: "0c6af41aae6753c398f46dfa06c76506",
+        },
+        {
+          url: "church/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "church/style.css",
+          revision: "24d31932b34afe07fe2f14d3c2177fa2",
+        },
+        {
+          url: "cross/i18n/en.json",
+          revision: "36df8f7a997266579bdbda3931325afa",
+        },
+        {
+          url: "cross/img/head-body-diagram.svg",
+          revision: "c2f0e1b98203f74ec22feb47582c8814",
+        },
+        {
+          url: "cross/img/masthead-cross.avif",
+          revision: "a7ce22ba73a14bd62f3b247de285b395",
+        },
+        {
+          url: "cross/index.html",
+          revision: "c923708973042416dfb0ab2ba67980cd",
+        },
+        { url: "cross/logic.js", revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63" },
+        {
+          url: "cross/style.css",
+          revision: "f99002dd71b04b99460e070ff663e808",
+        },
+        {
+          url: "discipleship/i18n/en.json",
+          revision: "0932accd3e5b274f9a3b7077862896de",
+        },
+        {
+          url: "discipleship/img/masthead-discipleship.avif",
+          revision: "00cea4cfd37c9279c7b289c5d2e72411",
+        },
+        {
+          url: "discipleship/index.html",
+          revision: "e4f6f2a0f356927e23d843f382c7740d",
+        },
+        {
+          url: "discipleship/logic.js",
+          revision: "35db56b62eec15cc3964caf183736537",
+        },
+        {
+          url: "discipleship/style.css",
+          revision: "121700d599e606558f3543e3c2b526a9",
+        },
+        { url: "favicon.ico", revision: "d92ab77e514b9fb4634dc77fc7bd93cb" },
+        {
+          url: "i18n-global/en.json",
+          revision: "ed062f7d2ecf4dd42e5f629a6a9ce1b4",
+        },
+        { url: "index.html", revision: "4224448f6c66c83a6d75097df669d6a7" },
+        {
+          url: "kingdom/i18n/en.json",
+          revision: "25f4161c619414213de9e175d980d5bc",
+        },
+        {
+          url: "kingdom/i18n/es.json",
+          revision: "a1e4e5dee1ccf5589a571d3f09f9aa98",
+        },
+        {
+          url: "kingdom/img/kingdom-church-comparison.avif",
+          revision: "d9041a069c3cb2f6087efaf062f199b7",
+        },
+        {
+          url: "kingdom/img/masthead-kingdom.avif",
+          revision: "349c27764cb33a4f3abe1f57fb55ec91",
+        },
+        {
+          url: "kingdom/img/mountain-bg-transparent.webp",
+          revision: "1f0bd85ae3f72483caeb47ac190c7aa5",
+        },
+        {
+          url: "kingdom/img/statue.avif",
+          revision: "b40fcc4a2fbd689564aa7f5f391ec7c9",
+        },
+        {
+          url: "kingdom/img/timeline.svg",
+          revision: "047b71b6d625168f0fb47167a00183df",
+        },
+        {
+          url: "kingdom/index.html",
+          revision: "a97ed037d9f724caa0087864992574b6",
+        },
+        {
+          url: "kingdom/logic.js",
+          revision: "ee43263fc345fe0bb16532d3efc51480",
+        },
+        {
+          url: "kingdom/style.css",
+          revision: "ca0158716e7c7db60f1f6ad7d132773c",
+        },
+        {
+          url: "light-darkness/i18n/en.json",
+          revision: "8300bb9b6bd632f53354dca48f8ecb0c",
+        },
+        {
+          url: "light-darkness/img/buried-in-baptism.avif",
+          revision: "502e954fcdfeb049db00578f94834e38",
+        },
+        {
+          url: "light-darkness/img/masthead-lightdarkness.avif",
+          revision: "89a2a6596f542b59adf00991ec1ae9f1",
+        },
+        {
+          url: "light-darkness/img/timeline-dots.svg",
+          revision: "3d058fe39a2d885f0565702c1a0bd7fe",
+        },
+        {
+          url: "light-darkness/index.html",
+          revision: "2401764b3ded46075c34cfbf95024bc2",
+        },
+        {
+          url: "light-darkness/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "light-darkness/style.css",
+          revision: "5e78e03fdcc2b9864812ee533fea725c",
+        },
+        { url: "manifest.json", revision: "69d1eb0bdcc5d0778b642587a078a2dc" },
+        {
+          url: "medical-account/i18n/en.json",
+          revision: "00e1650f70d90adc15de6db777b49d6e",
+        },
+        {
+          url: "medical-account/index.html",
+          revision: "8f95fb8901af7e6751f3daa5741d6b9c",
+        },
+        {
+          url: "medical-account/logic.js",
+          revision: "f3e569b1e20a92e7dbe12fdb4224c62c",
+        },
+        {
+          url: "medical-account/style.css",
+          revision: "f4dd82be90caa67c06eef083ea728ae0",
+        },
+        { url: "package.json", revision: "771993b1fd8f0542dcf86a7a8204c04d" },
+        { url: "README.md", revision: "bcc3a7aeebbe412c8994acbffd543944" },
+        {
+          url: "seeking-god/i18n/en.json",
+          revision: "2bf709f809e6c6f25d382cf319277982",
+        },
+        {
+          url: "seeking-god/img/masthead-seeking-god.avif",
+          revision: "6e53d75213f3f4ddbd8ac169083a2200",
+        },
+        {
+          url: "seeking-god/index.html",
+          revision: "a9b582c2c62c48f511ff4d14b967c4ef",
+        },
+        {
+          url: "seeking-god/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "seeking-god/style.css",
+          revision: "582fd139a283f348a47b36b5e0de4e37",
+        },
+        {
+          url: "sin-definitions/i18n/en.json",
+          revision: "acf20403e2a9c0caa5ca7d9ff6a00b59",
+        },
+        {
+          url: "sin-definitions/index.html",
+          revision: "0d65ee92a09b4fd4889419fd3e659adc",
+        },
+        {
+          url: "sin-definitions/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "sin-definitions/style.css",
+          revision: "2be35f4d5a197ba4d1887db9cf0d39c0",
+        },
+        {
+          url: "sin-repentance/i18n/en.json",
+          revision: "e0136301cad85e4938c98b1a865ac1af",
+        },
+        {
+          url: "sin-repentance/img/darkness-light.svg",
+          revision: "b80e62b42a38655bd2e030fafafd2f2f",
+        },
+        {
+          url: "sin-repentance/img/masthead-sin-repentance.avif",
+          revision: "d437f01be95ec7bd47213eb0a7be7136",
+        },
+        {
+          url: "sin-repentance/img/sin-piles.svg",
+          revision: "8212f1a5d56efd86dab11a6a449dab04",
+        },
+        {
+          url: "sin-repentance/img/wages-gift.svg",
+          revision: "4d73e2036d17b2ab638f83f95709d25c",
+        },
+        {
+          url: "sin-repentance/index.html",
+          revision: "7d11bea5d6f54e671795fb5ac318d949",
+        },
+        {
+          url: "sin-repentance/logic.js",
+          revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63",
+        },
+        {
+          url: "sin-repentance/style.css",
+          revision: "19442861cc1c82393d62a15110947d70",
+        },
+        {
+          url: "toc/i18n/en.json",
+          revision: "7785c5217c6d41366ba177669300d7ec",
+        },
+        {
+          url: "toc/img/background.jpg",
+          revision: "e4388082074a056208cb28aae87bc71a",
+        },
+        { url: "toc/index.html", revision: "dddac3995cb7b5c77439d4ad4dc71d3c" },
+        { url: "toc/logic.js", revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63" },
+        { url: "toc/style.css", revision: "0b43aabcbd11029939ebc719e2f1153d" },
+        {
+          url: "word/i18n/en.json",
+          revision: "bfecf1395004f3f1249e0d3c93c14863",
+        },
+        {
+          url: "word/img/masthead-word.avif",
+          revision: "7600c7dd0aff5d474c7e78eedd4c4d1a",
+        },
+        {
+          url: "word/index.html",
+          revision: "034d5bb620292ba4aa875524bd6fea65",
+        },
+        { url: "word/logic.js", revision: "c2da88d0ece2f8dcba61e1a3b5dd0f63" },
+        { url: "word/style.css", revision: "d909cad1558b004b398ec45030a81897" },
+      ],
+      { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
+    );
+});
 //# sourceMappingURL=sw.js.map
