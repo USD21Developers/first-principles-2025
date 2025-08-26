@@ -1,58 +1,6 @@
 let phrases;
 let phrasesGlobal;
 
-function decorate() {
-  return new Promise((resolve, reject) => {
-    const lang = document.querySelector("html").getAttribute("lang");
-
-    fetch(`./i18n/${lang}-decorations.json`)
-      .then((res) => res.json())
-      .then((decorations) => {
-        for (let i = 0; i < decorations.length; i++) {
-          const item = decorations[i];
-          const el = document.querySelector(`[data-i18n="${item.key}"]`);
-
-          if (!el) continue;
-
-          let decorated = el.innerHTML;
-
-          if (item.styles.bold) {
-            decorated = decorated.replace(
-              item.text.translated,
-              `<strong>${item.text.translated}</strong>`
-            );
-          }
-
-          if (item.styles.italic) {
-            decorated = decorated.replace(
-              item.text.translated,
-              `<em>${item.text.translated}</em>`
-            );
-          }
-
-          if (item.styles.underline) {
-            decorated = decorated.replace(
-              item.text.translated,
-              `<u>${item.text.translated}</u>`
-            );
-          }
-
-          if (item.styles.link) {
-            const { href, attributes } = item.styles.link;
-            decorated = decorated.replace(
-              item.text.translated,
-              `<a href="${href}" ${attributes}>${item.text.translated}</a>`
-            );
-          }
-
-          el.innerHTML = decorated;
-        }
-
-        return resolve();
-      });
-  });
-}
-
 function hideSpinner() {
   const main = document.querySelector(".master-container");
   const spinner = document.querySelector("#spinner");
@@ -365,6 +313,12 @@ function translate() {
 
           if (item.decorations.link) {
             decorated = `<a href="${item.decorations.link.href}" ${item.decorations.link.attributes}>${decorated}</a>`;
+          }
+
+          if (item.decorations.tags) {
+            item.decorations.tags.forEach((tag) => {
+              decorated = `<${tag.name} ${tag.attributes}>${decorated}</${tag.name}>`;
+            });
           }
 
           if (item.decorations.bold) {
