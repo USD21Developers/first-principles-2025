@@ -104,7 +104,13 @@
       "bold": false,
       "italic": false,
       "underline": false,
-      "link": { "href": "", "attributes": "" }
+      "link": { "href": "", "attributes": "" },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
     }
   }
 ]
