@@ -69,9 +69,7 @@ function getGlobalPhrase(key) {
   return phrasesGlobal[key];
 }
 
-// @ts-nocheck
 function scripture(book, chapter, verseFrom, verseTo) {
-  // @ts-ignore
   return new Promise((resolve, reject) => {
     const endpoint = "https://api.usd21.org/services/scripture";
     const slug = verseTo
@@ -110,8 +108,6 @@ function scripture(book, chapter, verseFrom, verseTo) {
           console.error(data.msg);
           return resolve([]);
         }
-
-        // const textArray = data.scripture.map((item) => item.text);
 
         localStorage.setItem(
           slug.toLowerCase(),
@@ -167,13 +163,23 @@ function linkifyScriptures() {
 
 function setLanguage() {
   const htmlEl = document.querySelector("html");
-  const langsSupported = htmlEl.getAttribute("data-supported-langs").split(",");
+  const supportsLangs = htmlEl.hasAttribute("data-langs-supported");
+  const useDefaultLang = () => htmlEl.setAttribute("lang", "en");
+
+  if (!supportsLangs) {
+    useDefaultLang();
+    return;
+  }
+
+  const langsSupported = htmlEl
+    .getAttribute("data-langs-supported")
+    ?.split(",");
   const langDetected = navigator.languages[0];
 
   if (langsSupported.includes(langDetected)) {
     htmlEl.setAttribute("lang", langDetected);
   } else {
-    htmlEl.setAttribute("lang", "en");
+    useDefaultLang();
   }
 }
 
@@ -188,7 +194,6 @@ function showScripture(slug, title) {
 
   const verseArray = JSON.parse(verseStored);
 
-  // @ts-ignore
   document.querySelector(
     "#scriptureModal .modal-title"
   ).innerHTML = `${title} <span class="bibleVersion">${bibleVersion}</span>`;
@@ -232,10 +237,8 @@ function showScripture(slug, title) {
 
   modalBody = modalBody + expandButton;
 
-  // @ts-ignore
   document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
 
-  // @ts-ignore
   const scriptureModal = new bootstrap.Modal(
     document.getElementById("scriptureModal")
   );
@@ -291,12 +294,14 @@ async function shareLink() {
 }
 
 function translate() {
-  // @ts-ignore
   return new Promise(async (resolve, reject) => {
     let root;
     let globalRoot;
     let endpoint;
-    const lang = document.querySelector("html").getAttribute("lang");
+
+    setLanguage();
+
+    let lang = document.querySelector("html").getAttribute("lang");
 
     switch (window.location.host) {
       case "127.0.0.1:5500":
@@ -333,7 +338,6 @@ function translate() {
 
     document.querySelectorAll("[data-i18n]").forEach((item) => {
       const key = item.getAttribute("data-i18n");
-      // @ts-ignore
       const phrase = phrases[key];
 
       if (phrase) {
@@ -343,7 +347,6 @@ function translate() {
 
     document.querySelectorAll("[data-i18n-global]").forEach((item) => {
       const key = item.getAttribute("data-i18n-global");
-      // @ts-ignore
       const phraseGlobal = phrasesGlobal[key];
 
       if (phraseGlobal) {
@@ -351,7 +354,6 @@ function translate() {
       }
     });
 
-    // @ts-ignore
     return resolve();
   });
 }

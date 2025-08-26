@@ -5,14 +5,14 @@
       "original": "First Principles",
       "translated": "Primeros Principios"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
   {
     "key": "studiesAtGlance-seeking-god",
     "text": { "original": "Seeking God", "translated": "Buscando a Dios" },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -22,21 +22,21 @@
       "original": "The Word of God",
       "translated": "La Palabra de Dios"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
   {
     "key": "studiesAtGlance-discipleship",
     "text": { "original": "Discipleship", "translated": "Discipulado" },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
   {
     "key": "studiesAtGlance-discipleship",
     "text": { "original": "disciples", "translated": "discípulos" },
-    "styles": {
+    "decorations": {
       "italic": true
     }
   },
@@ -46,7 +46,7 @@
       "original": "The Coming of the Kingdom",
       "translated": "La Venida del Reino"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -56,7 +56,7 @@
       "original": "Sin & Repentance",
       "translated": "Pecado y Arrepentimiento"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -66,14 +66,14 @@
       "original": "Light & Darkness",
       "translated": "Luz y Oscuridad"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
   {
     "key": "studiesAtGlance-cross",
     "text": { "original": "The Cross", "translated": "La Cruz" },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -83,7 +83,7 @@
       "original": "Sin Definitions",
       "translated": "Definiciones de Pecado"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -93,14 +93,14 @@
       "original": "Medical Account of the Crucifixion",
       "translated": "Relato Médico de la Crucifixión"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
   {
     "key": "SAMPLE",
     "text": { "original": "", "translated": "" },
-    "styles": {
+    "decorations": {
       "bold": false,
       "italic": false,
       "underline": false,
