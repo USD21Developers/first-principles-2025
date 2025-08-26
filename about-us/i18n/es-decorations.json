@@ -5,7 +5,7 @@
       "original": "International Christian Church",
       "translated": "Iglesia Cristiana Internacional"
     },
-    "styles": {
+    "decorations": {
       "bold": true,
       "link": {
         "href": "https://usd21.org/",
@@ -19,7 +19,7 @@
       "original": "(The SoldOut Movement)",
       "translated": "(El Movimiento SoldOut)"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -29,7 +29,7 @@
       "original": "all of Scripture",
       "translated": "toda la Escritura"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -39,7 +39,7 @@
       "original": "Be silent where the Bible speaks, and speak where the Bible is silent.",
       "translated": "Calla donde la Biblia habla, y habla donde la Biblia calla."
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -49,7 +49,7 @@
       "original": "discipleship is not optional",
       "translated": "el discipulado no es opcional"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -59,7 +59,7 @@
       "original": "Matthew 28:18-20",
       "translated": "Mateo 28:18-20"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -69,7 +69,7 @@
       "original": "central leadership with a central leader",
       "translated": "liderazgo central con un líder central"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -79,7 +79,7 @@
       "original": "non-denominational, Bible-based movement",
       "translated": "movimiento no denominacional y basado en la Biblia"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -89,7 +89,7 @@
       "original": "Bible-Centered",
       "translated": "Centrado en la Biblia"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -99,7 +99,7 @@
       "original": "Great Commission Focused",
       "translated": "Enfocado en la Gran Comisión"
     },
-    "styles": {
+    "decorations": {
       "bold": true
     }
   },
@@ -109,7 +109,7 @@
       "original": "",
       "translated": ""
     },
-    "styles": {
+    "decorations": {
       "bold": false,
       "italic": false,
       "underline": false,

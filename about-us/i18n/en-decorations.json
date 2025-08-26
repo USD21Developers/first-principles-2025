@@ -5,7 +5,7 @@
       "original": "International Christian Church",
       "translated": "International Christian Church"
     },
-    "styles": {
+    "decorations": {
       "bold": true,
       "link": {
         "href": "https://usd21.org/",
@@ -19,7 +19,7 @@
       "original": "(The SoldOut Movement)",
       "translated": "(The SoldOut Movement)"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "ourFoundation-description-1",
@@ -27,7 +27,7 @@
       "original": "all of Scripture",
       "translated": "all of Scripture"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "distinctiveApproach-description-1",
@@ -35,7 +35,7 @@
       "original": "Be silent where the Bible speaks, and speak where the Bible is silent.",
       "translated": "Be silent where the Bible speaks, and speak where the Bible is silent."
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "missionThruDiscipleship-description-1",
@@ -43,7 +43,7 @@
       "original": "discipleship is not optional",
       "translated": "discipleship is not optional"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "missionThruDiscipleship-description-1",
@@ -51,7 +51,7 @@
       "original": "Matthew 28:18-20",
       "translated": "Matthew 28:18-20"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "leadershipStructure-description-1",
@@ -59,7 +59,7 @@
       "original": "central leadership with a central leader",
       "translated": "central leadership with a central leader"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "ourIDHeartbeat-description-1",
@@ -67,12 +67,12 @@
       "original": "non-denominational, Bible-based movement",
       "translated": "non-denominational, Bible-based movement"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "summary-description-1",
     "text": { "original": "Bible-Centered", "translated": "Bible-Centered" },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "summary-description-2",
@@ -80,12 +80,12 @@
       "original": "Great Commission Focused",
       "translated": "Great Commission Focused"
     },
-    "styles": { "bold": true }
+    "decorations": { "bold": true }
   },
   {
     "key": "SAMPLE",
     "text": { "original": "", "translated": "" },
-    "styles": {
+    "decorations": {
       "bold": false,
       "italic": false,
       "underline": false,

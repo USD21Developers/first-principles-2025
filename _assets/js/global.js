@@ -354,7 +354,47 @@ function translate() {
       }
     });
 
-    return resolve();
+    const decorationsEndpoint = `./i18n/${lang}-decorations.json`;
+
+    fetch(decorationsEndpoint)
+      .then((res) => res.json())
+      .then((decorations) => {
+        for (let i = 0; i < decorations.length; i++) {
+          const item = decorations[i];
+          let decorated = item.text.translated;
+
+          if (item.decorations.link) {
+            decorated = `<a href="${item.decorations.link.href}" ${item.decorations.link.attributes}>${decorated}</a>`;
+          }
+
+          if (item.decorations.bold) {
+            decorated = `<strong>${decorated}</strong>`;
+          }
+
+          if (item.decorations.italic) {
+            decorated = `<em>${decorated}</em>`;
+          }
+
+          if (item.decorations.underline) {
+            decorated = `<u>${decorated}</u>`;
+          }
+
+          const el = document.querySelector(`[data-i18n="${item.key}"]`);
+
+          if (!el) continue;
+
+          let newContent = el.innerHTML;
+
+          newContent = newContent.replace(item.text.translated, decorated);
+
+          el.innerHTML = newContent;
+        }
+
+        return resolve();
+      })
+      .catch((err) => {
+        return resolve();
+      });
   });
 }
 
