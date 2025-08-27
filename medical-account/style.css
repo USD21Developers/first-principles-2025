@@ -98,3 +98,7 @@ section h2 {
   width: 2rem;
   height: auto;
 }
+
+.pause {
+  display: none;
+}

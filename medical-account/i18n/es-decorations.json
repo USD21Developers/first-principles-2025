@@ -1,36 +1,5 @@
 [
   {
-    "key": "p1",
-    "text": {
-      "original": "A Physician Analyzes the Crucifixion",
-      "translated": "Un médico analiza la crucifixión"
-    },
-    "decorations": {
-      "bold": true,
-      "tags": [
-        {
-          "name": "div",
-          "attributes": ""
-        }
-      ]
-    }
-  },
-  {
-    "key": "p1",
-    "text": {
-      "original": "by Doctor C Truman Davis",
-      "translated": "por el Doctor C Truman Davis"
-    },
-    "decorations": {
-      "tags": [
-        {
-          "name": "div",
-          "attributes": ""
-        }
-      ]
-    }
-  },
-  {
     "key": "p2",
     "text": {
       "original": "The Day Christ Died",
