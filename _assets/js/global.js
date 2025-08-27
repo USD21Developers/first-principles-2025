@@ -1,5 +1,9 @@
 let phrases;
 let phrasesGlobal;
+let bibles = {
+  en: "NIV",
+  es: "NVI",
+};
 
 function hideSpinner() {
   const main = document.querySelector(".master-container");
@@ -91,20 +95,54 @@ function syncScriptures() {
 }
 
 function linkifyScriptures() {
-  const langsSupported = ["en"];
   const htmlEl = document.querySelector("html");
 
-  if (!htmlEl.hasAttribute("lang")) {
-    return;
-  }
+  if (!htmlEl.hasAttribute("lang")) return;
 
   const lang = htmlEl.getAttribute("lang");
 
-  if (!langsSupported.includes(lang)) {
-    return;
+  if (!bibles[lang]) return;
+
+  if (lang !== "en") {
+    const script = document.createElement("script");
+    script.src =
+      "https://www.biblegateway.com/public/link-to-us/tooltips/bglinks-es.js";
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      if (lang !== "en") {
+        if (bibles[lang]) {
+          BGLinks.version = bibles[lang];
+          BGLinks.linkVerses();
+          document.querySelectorAll(".bibleref").forEach((link) => {
+            link.addEventListener("click", (event) => {
+              event.preventDefault();
+
+              const mouseOverEvent = new MouseEvent("mouseover", {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+              });
+
+              event.target.dispatchEvent(mouseOverEvent);
+            });
+          });
+          return;
+        }
+      }
+    };
+
+    script.onerror = () => {};
   }
 
   document.querySelectorAll("[data-scripture]").forEach((item) => {
+    if (lang !== "en") {
+      if (bibles[lang]) {
+        item.classList.add("bibleref");
+        return;
+      }
+    }
+
     const data = item.getAttribute("data-scripture")?.split(",") || [];
     const book = data[0];
     const chapter = data[1];

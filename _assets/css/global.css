@@ -96,3 +96,13 @@ table.verses tr:last-child {
     display: none !important;
   }
 }
+
+#bg_popup-container .bg_popup.bg_popup-outer {
+  left: unset !important;
+}
+
+.bibleref {
+  color: var(--bs-dark);
+  cursor: pointer;
+  text-decoration: underline;
+}
