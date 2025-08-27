@@ -4,9 +4,9 @@
   "language": "en",
   "version": "NIV",
   "book": "",
-  "chapter": 0,
+  "chapter": ,
   "verses": [
-    [0, ""],
-    [0, ""]
+    [, ""],
+    [, ""]
   ]
 }

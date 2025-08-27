@@ -4,9 +4,9 @@
   "language": "es",
   "version": "NVI",
   "book": "",
-  "chapter": 0,
+  "chapter": ,
   "verses": [
-    [0, ""],
-    [0, ""]
+    [, ""],
+    [, ""]
   ]
 }
