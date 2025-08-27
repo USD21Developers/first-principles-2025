@@ -61,21 +61,11 @@ function enableQuestionPopovers() {
   });
 }
 
-const observer = new MutationObserver(() => {
-  if (document.title.length) {
-    enableQuestionPopovers();
-    observer.disconnect();
-  }
-});
-
-observer.observe(document.querySelector("title"), {
-  childList: true,
-  subtree: true,
-});
-
 async function init() {
   await translate();
+  enableQuestionPopovers();
   syncScriptures();
+
   shareLink();
   hideSpinner();
 }
