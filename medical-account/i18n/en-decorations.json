@@ -1,0 +1,69 @@
+[
+  {
+    "key": "p1",
+    "text": {
+      "original": "A Physician Analyzes the Crucifixion",
+      "translated": "A Physician Analyzes the Crucifixion"
+    },
+    "decorations": {
+      "bold": true,
+      "tags": [
+        {
+          "name": "div",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p1",
+    "text": {
+      "original": "by Doctor C Truman Davis",
+      "translated": "by Doctor C Truman Davis"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "div",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p2",
+    "text": {
+      "original": "The Day Christ Died",
+      "translated": "The Day Christ Died"
+    },
+    "italic": true
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": { "href": "", "attributes": "" },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]
