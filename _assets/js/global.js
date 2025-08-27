@@ -91,6 +91,19 @@ function syncScriptures() {
 }
 
 function linkifyScriptures() {
+  const langsSupported = ["en"];
+  const htmlEl = document.querySelector("html");
+
+  if (!htmlEl.hasAttribute("lang")) {
+    return;
+  }
+
+  const lang = htmlEl.getAttribute("lang");
+
+  if (!langsSupported.includes(lang)) {
+    return;
+  }
+
   document.querySelectorAll("[data-scripture]").forEach((item) => {
     const data = item.getAttribute("data-scripture")?.split(",") || [];
     const book = data[0];
