@@ -127,12 +127,12 @@ h3 {
 }
 
 .statueContainer {
-  margin-top: -10px;
+  margin-top: -12px;
 }
 
 @media (min-width: 415px) {
   .statueContainer {
-    margin-top: -11px;
+    margin-top: -18px;
   }
 }
 
