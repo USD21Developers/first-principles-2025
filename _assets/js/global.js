@@ -87,7 +87,7 @@ function showLocalScripture(slug) {
       .then((data) => {
         document.querySelector(
           "#scriptureModal .modal-title"
-        ).innerHTML = `${data.display} <span class="bibleVersion">${data.version}</span>`;
+        ).innerHTML = `${data.display} <span class="bibleVersion">(${data.version})</span>`;
 
         let modalBody = "";
 
@@ -116,7 +116,7 @@ function showLocalScripture(slug) {
         modalBody = `<table class="table verses">${modalBody}</table>`;
 
         const searchTerm = `${data.book} ${data.chapter}`;
-        const href = `https://www.biblegateway.com/passage/?search=${searchTerm}&version=NIV`;
+        const href = `https://www.biblegateway.com/passage/?search=${searchTerm}&version=${data.version}`;
 
         const expandButton = `
             <div class="text-end">
