@@ -65,7 +65,7 @@ function enableQuestionPopovers() {
 async function init() {
   await translate();
   enableQuestionPopovers();
-  syncScriptures();
+  linkifyScriptures();
 
   shareLink();
   hideSpinner();

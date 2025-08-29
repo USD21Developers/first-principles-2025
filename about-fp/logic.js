@@ -1,6 +1,6 @@
 async function init() {
   await translate();
-  syncScriptures();
+  linkifyScriptures();
   shareLink();
   hideSpinner();
 }

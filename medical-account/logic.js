@@ -163,7 +163,7 @@ function enableSpeech() {
 
 async function init() {
   await translate();
-  syncScriptures();
+  linkifyScriptures();
   shareLink();
   enableSpeech();
   hideSpinner();
