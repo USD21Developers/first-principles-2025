@@ -1,26 +1,27 @@
 function enableQuestionPopovers() {
+  const question = getGlobalPhrase("question");
   const q1 = {
-    title: "Question 1",
+    title: `${question} 1`,
     text: document.querySelector(".question1Txt").innerText,
   };
   const q2 = {
-    title: "Question 2",
+    title: `${question} 2`,
     text: document.querySelector(".question2Txt").innerText,
   };
   const q3 = {
-    title: "Question 3",
+    title: `${question} 3`,
     text: document.querySelector(".question3Txt").innerText,
   };
   const q4 = {
-    title: "Question 4",
+    title: `${question} 4`,
     text: document.querySelector(".question4Txt").innerText,
   };
   const q5 = {
-    title: "Question 5",
+    title: `${question} 5`,
     text: document.querySelector(".question5Txt").innerText,
   };
   const q6 = {
-    title: "Question 6",
+    title: `${question} 6`,
     text: document.querySelector(".question6Txt").innerText,
   };
 
@@ -61,21 +62,11 @@ function enableQuestionPopovers() {
   });
 }
 
-const observer = new MutationObserver(() => {
-  if (document.title.length) {
-    enableQuestionPopovers();
-    observer.disconnect();
-  }
-});
-
-observer.observe(document.querySelector("title"), {
-  childList: true,
-  subtree: true,
-});
-
 async function init() {
   await translate();
-  syncScriptures();
+  enableQuestionPopovers();
+  linkifyScriptures();
+
   shareLink();
   hideSpinner();
 }

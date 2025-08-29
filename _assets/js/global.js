@@ -1,24 +1,9 @@
 let phrases;
 let phrasesGlobal;
-
-(function stopSpeechOnNav() {
-  function stopSpeech() {
-    if ("speechSynthesis" in window) {
-      speechSynthesis.cancel();
-    }
-  }
-
-  // Normal page unload
-  window.addEventListener("beforeunload", stopSpeech);
-
-  // Page restored from bfcache
-  window.addEventListener("pageshow", (event) => {
-    if (event.persisted) stopSpeech();
-  });
-
-  // On every fresh page load
-  document.addEventListener("DOMContentLoaded", stopSpeech);
-})();
+let bibles = {
+  en: "NIV",
+  es: "NVI",
+};
 
 function hideSpinner() {
   const main = document.querySelector(".master-container");
@@ -36,166 +21,125 @@ function getGlobalPhrase(key) {
   return phrasesGlobal[key];
 }
 
-// @ts-nocheck
-function scripture(book, chapter, verseFrom, verseTo) {
-  // @ts-ignore
-  return new Promise((resolve, reject) => {
-    const endpoint = "https://api.usd21.org/services/scripture";
-    const slug = verseTo
-      ? `scripture-${book}-${chapter}-${verseFrom}-${verseTo}`
-          .toLowerCase()
-          .replaceAll(" ", "-")
-      : `scripture-${book}-${chapter}-${verseFrom}`
-          .toLowerCase()
-          .replaceAll(" ", "-");
-    const stored = localStorage.getItem(slug);
-
-    if (stored && stored.length) {
-      return resolve(JSON.parse(stored));
-    }
-
-    if (!verseTo) verseTo = verseFrom;
-
-    if (!navigator.onLine) return resolve([]);
-
-    fetch(endpoint, {
-      mode: "cors",
-      method: "POST",
-      body: JSON.stringify({
-        book: book,
-        chapter: chapter,
-        verseFrom: verseFrom,
-        verseTo: verseTo,
-      }),
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.msgType !== "success") {
-          console.error(data.msg);
-          return resolve([]);
-        }
-
-        // const textArray = data.scripture.map((item) => item.text);
-
-        localStorage.setItem(
-          slug.toLowerCase(),
-          JSON.stringify(data.scripture)
-        );
-
-        return resolve(data.scripture);
-      });
-  });
-}
-
-function syncScriptures() {
-  return new Promise((resolve, reject) => {
-    const promises = [];
-
-    document.querySelectorAll("[data-scripture]").forEach((item) => {
-      const data = item.getAttribute("data-scripture")?.split(",") || [];
-      const book = data[0];
-      const chapter = data[1];
-      const verseFrom = data[2];
-      const verseTo = data[3] ? data[3] : null;
-      const promise = verseTo
-        ? scripture(book, chapter, verseFrom, verseTo)
-        : scripture(book, chapter, verseFrom);
-      promises.push(promise);
-    });
-
-    Promise.all(promises).then(() => {
-      linkifyScriptures();
-      return resolve();
-    });
-  });
-}
-
 function linkifyScriptures() {
+  const htmlEl = document.querySelector("html");
+
+  if (!htmlEl.hasAttribute("lang")) return;
+
+  let lang = htmlEl.getAttribute("lang");
+
   document.querySelectorAll("[data-scripture]").forEach((item) => {
+    if (!bibles[lang]) lang = "en";
+
     const data = item.getAttribute("data-scripture")?.split(",") || [];
     const book = data[0];
     const chapter = data[1];
     const verseFrom = data[2];
     const verseTo = data[3] ? data[3] : null;
     const slug = verseTo
-      ? `${book}-${chapter}-${verseFrom}-${verseTo}`.toLowerCase()
-      : `${book}-${chapter}-${verseFrom}`.toLowerCase();
-    const scriptureReference = item.getAttribute("data-scripture-title") || "";
+      ? `${book}-${chapter}-${verseFrom}-${verseTo}`
+          .toLowerCase()
+          .replaceAll(" ", "-")
+      : `${book}-${chapter}-${verseFrom}`.toLowerCase().replaceAll(" ", "-");
 
-    item.addEventListener("click", () =>
-      showScripture(slug, scriptureReference)
-    );
+    item.addEventListener("click", () => showLocalScripture(slug));
     item.classList.add("scriptureLink");
   });
 }
 
-function showScripture(slug, title) {
-  slug = slug.replaceAll(" ", "-");
-  slug = `scripture-${slug}`;
+function setLanguage() {
+  const htmlEl = document.querySelector("html");
+  const supportsLangs = htmlEl.hasAttribute("data-langs-supported");
+  const useDefaultLang = () => htmlEl.setAttribute("lang", "en");
 
-  const bibleVersion = " (NIV)";
-  const verseStored = localStorage.getItem(slug);
-
-  if (!verseStored) return;
-
-  const verseArray = JSON.parse(verseStored);
-
-  // @ts-ignore
-  document.querySelector(
-    "#scriptureModal .modal-title"
-  ).innerHTML = `${title} <span class="bibleVersion">${bibleVersion}</span>`;
-
-  let modalBody = "";
-
-  if (verseArray.length === 1) {
-    modalBody = verseArray[0].text;
-  } else {
-    verseArray.forEach((item) => {
-      modalBody =
-        modalBody +
-        `
-      <tr>
-        <td valign="top">
-          ${item.text}
-        </div>
-        <td valign="top">
-          <span class="verseNum" inert>${item.verse}</span>
-        </td>
-      </tr>
-    `;
-    });
-    modalBody = `<table class="table verses">${modalBody}</table>`;
+  if (!supportsLangs) {
+    useDefaultLang();
+    return;
   }
 
-  const book = verseArray[0].book;
-  const chapter = verseArray[0].chapter;
-  const searchTerm = `${book} ${chapter}`;
-  const href = `https://www.biblegateway.com/passage/?search=${searchTerm}&version=NIV`;
+  const langsSupported = htmlEl
+    .getAttribute("data-langs-supported")
+    ?.split(",");
+  const langDetected = navigator.languages[0];
 
-  const expandButton = `
-    <div class="text-end">
-      <hr>
-      <a class="btn btn-light border border-dark my-3" href="${href}" target="_blank" rel="noopener noreferrer">
-        <i>${getGlobalPhrase("expand")}</i>
-        <img src="../_assets/img/icons/chevron-right.svg" />
-      </a>
-    </div>
-  `;
+  if (langsSupported.includes(langDetected)) {
+    htmlEl.setAttribute("lang", langDetected);
+  } else {
+    useDefaultLang();
+  }
+}
 
-  modalBody = modalBody + expandButton;
+function showLocalScripture(slug) {
+  return new Promise((resolve, reject) => {
+    const htmlEl = document.querySelector("html");
+    const langsSupported = htmlEl
+      .getAttribute("data-langs-supported")
+      .split(",");
+    let lang = htmlEl.getAttribute("lang");
 
-  // @ts-ignore
-  document.querySelector("#scriptureModal .modal-body").innerHTML = modalBody;
+    if (!langsSupported.includes(lang)) lang = "en";
+    if (!bibles[lang]) lang = "en";
 
-  // @ts-ignore
-  const scriptureModal = new bootstrap.Modal(
-    document.getElementById("scriptureModal")
-  );
+    const endpoint = `../_assets/scriptures/${lang}/${slug}.json`;
 
-  scriptureModal.show();
+    fetch(endpoint)
+      .then((res) => res.json())
+      .then((data) => {
+        document.querySelector(
+          "#scriptureModal .modal-title"
+        ).innerHTML = `${data.display} <span class="bibleVersion">(${data.version})</span>`;
+
+        let modalBody = "";
+
+        if (data.verses.length === 1) {
+          const verseText = data.verses[0][1];
+          modalBody = verseText;
+        } else {
+          data.verses.forEach((verse) => {
+            const verseNum = verse[0];
+            const verseText = verse[1];
+            modalBody =
+              modalBody +
+              `
+                <tr>
+                  <td valign="top">
+                    ${verseText}
+                  </div>
+                  <td valign="top">
+                    <span class="verseNum" inert>${verseNum}</span>
+                  </td>
+                </tr>
+              `;
+          });
+        }
+
+        modalBody = `<table class="table verses">${modalBody}</table>`;
+
+        const searchTerm = `${data.book} ${data.chapter}`;
+        const href = `https://www.biblegateway.com/passage/?search=${searchTerm}&version=${data.version}`;
+
+        const expandButton = `
+            <div class="text-end">
+              <hr>
+              <a class="btn btn-light border border-dark my-3" href="${href}" target="_blank" rel="noopener noreferrer">
+                <i>${getGlobalPhrase("expand")}</i>
+                <img src="../_assets/img/icons/chevron-right.svg" />
+              </a>
+            </div>
+          `;
+
+        modalBody = modalBody + expandButton;
+
+        document.querySelector("#scriptureModal .modal-body").innerHTML =
+          modalBody;
+
+        const scriptureModal = new bootstrap.Modal(
+          document.getElementById("scriptureModal")
+        );
+
+        scriptureModal.show();
+      });
+  });
 }
 
 async function shareLink() {
@@ -246,12 +190,14 @@ async function shareLink() {
 }
 
 function translate() {
-  // @ts-ignore
   return new Promise(async (resolve, reject) => {
     let root;
     let globalRoot;
     let endpoint;
-    const lang = document.querySelector("html").getAttribute("lang");
+
+    setLanguage();
+
+    let lang = document.querySelector("html").getAttribute("lang");
 
     switch (window.location.host) {
       case "127.0.0.1:5500":
@@ -288,7 +234,6 @@ function translate() {
 
     document.querySelectorAll("[data-i18n]").forEach((item) => {
       const key = item.getAttribute("data-i18n");
-      // @ts-ignore
       const phrase = phrases[key];
 
       if (phrase) {
@@ -298,7 +243,6 @@ function translate() {
 
     document.querySelectorAll("[data-i18n-global]").forEach((item) => {
       const key = item.getAttribute("data-i18n-global");
-      // @ts-ignore
       const phraseGlobal = phrasesGlobal[key];
 
       if (phraseGlobal) {
@@ -306,7 +250,71 @@ function translate() {
       }
     });
 
-    // @ts-ignore
-    return resolve();
+    const decorationsEndpoint = `./i18n/${lang}-decorations.json`;
+
+    fetch(decorationsEndpoint)
+      .then((res) => res.json())
+      .then((decorations) => {
+        for (let i = 0; i < decorations.length; i++) {
+          const item = decorations[i];
+          let decorated = item.text.translated;
+
+          if (item.decorations.link) {
+            decorated = `<a href="${item.decorations.link.href}" ${item.decorations.link.attributes}>${decorated}</a>`;
+          }
+
+          if (item.decorations.tags) {
+            item.decorations.tags.forEach((tag) => {
+              decorated = `<${tag.name} ${tag.attributes}>${decorated}</${tag.name}>`;
+            });
+          }
+
+          if (item.decorations.bold) {
+            decorated = `<strong>${decorated}</strong>`;
+          }
+
+          if (item.decorations.italic) {
+            decorated = `<em>${decorated}</em>`;
+          }
+
+          if (item.decorations.underline) {
+            decorated = `<u>${decorated}</u>`;
+          }
+
+          const el = document.querySelector(`[data-i18n="${item.key}"]`);
+
+          if (!el) continue;
+
+          let newContent = el.innerHTML;
+
+          newContent = newContent.replace(item.text.translated, decorated);
+
+          el.innerHTML = newContent;
+        }
+
+        return resolve();
+      })
+      .catch((err) => {
+        return resolve();
+      });
   });
 }
+
+(function stopSpeechOnNav() {
+  function stopSpeech() {
+    if ("speechSynthesis" in window) {
+      speechSynthesis.cancel();
+    }
+  }
+
+  // Normal page unload
+  window.addEventListener("beforeunload", stopSpeech);
+
+  // Page restored from bfcache
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) stopSpeech();
+  });
+
+  // On every fresh page load
+  document.addEventListener("DOMContentLoaded", stopSpeech);
+})();
