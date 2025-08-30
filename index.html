@@ -1,93 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-langs-supported="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First Principles</title>
-    <meta name="view-transition" content="same-origin" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="#555555" />
-    <meta property="og:title" content="First Principles" />
-    <meta property="og:description" content="Bible Study Series" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://usd21.app/" />
-    <meta
-      property="og:image"
-      content="https://usd21.app/_assets/img/opengraph.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="First Principles Bible Study Series"
-    />
-    <script src="_assets/js/pwa-install.js"></script>
-    <link rel="manifest" href="manifest.json" />
+    <title>USD21</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="_assets/img/icons/launch/logo-usd21-180.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="167x167"
-      href="_assets/img/icons/launch/logo-usd21-167.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="_assets/img/icons/launch/logo-usd21-152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="_assets/img/icons/launch/logo-usd21-120.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="_assets/img/icons/launch/logo-usd21-192.png"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="_assets/js/bootstrap-5.3.7-dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="_assets/css/global.css" />
-    <link rel="stylesheet" type="text/css" href="_assets/css/cover.css" />
-    <script
-      type="text/javascript"
-      src="_assets/js/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"
-    ></script>
-  </head>
-  <body id="pg_cover">
-    <div class="master-container">
-      <main class="h100">
-        <div class="container">
-          <div class="row v100">
-            <div class="col-12 text-center align-self-center">
-              <img src="_assets/img/cover/cover.jpg" class="cover" />
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-          window.location.assign("toc/");
-        }, 3000);
-      });
-
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("./sw.js").catch((error) => {
-          console.error("Error in registering service worker:", error);
-        });
-      }
+    <meta http-equiv="refresh" content="0; url=fp/" />
+    <script type="text/javascript">
+      // Redirect, since FP is our only app so far:
+      (() => {
+        window.location.replace("fp/");
+      })();
     </script>
-  </body>
+  </head>
+  <body></body>
 </html>
