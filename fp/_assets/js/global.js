@@ -302,6 +302,18 @@ function translate() {
             img.setAttribute("alt", getPhrase(alt));
           });
 
+        const ogTitleEl = document.querySelector("meta[property='og:title']");
+        const ogDescriptionEl = document.querySelector(
+          "meta[property='og:description']"
+        );
+        const ogImageAltEl = document.querySelector(
+          "meta[property='og:image:alt']"
+        );
+
+        ogTitleEl?.setAttribute("content", getGlobalPhrase("shareTitle"));
+        ogDescriptionEl?.setAttribute("content", getGlobalPhrase("shareText"));
+        ogImageAltEl?.setAttribute("content", getGlobalPhrase("ogImageAlt"));
+
         return resolve();
       })
       .catch((err) => {
