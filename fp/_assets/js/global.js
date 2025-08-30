@@ -152,10 +152,7 @@ async function shareLink() {
   }
 
   // Start with current page URL
-  const shareUrl = new URL(location.href);
-
-  // Go one directory up
-  shareUrl.pathname = shareUrl.pathname.replace(/\/[^/]*\/?$/, "/");
+  const shareUrl = "https://usd21.app/";
 
   if (
     !navigator.canShare ||
