@@ -199,17 +199,18 @@ function translate() {
     switch (window.location.host) {
       case "127.0.0.1:5500":
         root = window.location.href.replace("index.html", "");
-        globalRoot = `${window.location.origin}`;
+        globalRoot = `${window.location.origin}/fp`;
         endpoint = `${root}i18n/${lang}.json`;
         break;
       case "usd21developers.github.io":
         root = window.location.href;
-        globalRoot = "https://usd21developers.github.io/first-principles-2025";
+        globalRoot =
+          "https://usd21developers.github.io/first-principles-2025/fp";
         endpoint = `${root}i18n/${lang}.json`;
         break;
       default:
         root = `https://${window.location.host}${window.location.pathname}`;
-        globalRoot = `https://${window.location.host}`;
+        globalRoot = `https://${window.location.host}/fp`;
         endpoint = `${root}i18n/${lang}.json`;
     }
 
