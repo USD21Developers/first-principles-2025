@@ -7,7 +7,7 @@
     "build": "workbox generateSW workbox-config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ssh:prod": "ssh usd21.org",
-    "deploy:prod": "ssh usd21.org ./pull-fp.sh"
+    "deploy:prod": "ssh usd21.org ./pull-usd21.sh"
   },
   "repository": {
     "type": "git",
