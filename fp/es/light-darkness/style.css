@@ -1,0 +1,103 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+.master-container {
+  background-color: #f4f4f4;
+  margin: auto;
+  max-width: 991px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+header {
+  background-color: #000000;
+  background-image: url(img/masthead-lightdarkness.avif);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18vh;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+}
+
+header div.col-12 h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 344px) and (max-width: 575px) {
+  header div.col-12 h1 {
+    bottom: 1.5rem;
+    font-size: 1.4rem;
+    left: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 768px) {
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 992px) {
+  header {
+    height: 25vh;
+  }
+
+  header div.col-12 h1 {
+    left: 2.3vw;
+  }
+}
+
+@media (orientation: landscape) {
+  header {
+    height: 45vh;
+    max-height: 250px;
+  }
+}
+
+.quadrant {
+  height: 180px;
+  min-width: 100px;
+}
+
+.bg-light {
+  background-color: var(--bs-gray-300) !important;
+}
+
+.buriedInBaptism {
+  max-width: 100%;
+  width: 445px;
+}
+
+.buriedInBaptism img {
+  height: auto;
+  width: 100%;
+}
