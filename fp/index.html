@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First Principles</title>
+    <title>Select Language - First Principles</title>
     <meta name="google" content="notranslate" />
     <meta name="view-transition" content="same-origin" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -22,73 +22,65 @@
       property="og:image:alt"
       content="First Principles Bible Study Series"
     />
-    <script src="_assets/js/pwa-install.js"></script>
-    <link rel="manifest" href="manifest.json" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="en/manifest.json" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="_assets/img/icons/launch/logo-usd21-180.png"
+      href="en/_assets/img/icons/launch/logo-usd21-180.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="167x167"
-      href="_assets/img/icons/launch/logo-usd21-167.png"
+      href="en/_assets/img/icons/launch/logo-usd21-167.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="152x152"
-      href="_assets/img/icons/launch/logo-usd21-152.png"
+      href="en/_assets/img/icons/launch/logo-usd21-152.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="120x120"
-      href="_assets/img/icons/launch/logo-usd21-120.png"
+      href="en/_assets/img/icons/launch/logo-usd21-120.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="_assets/img/icons/launch/logo-usd21-192.png"
+      href="en/_assets/img/icons/launch/logo-usd21-192.png"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="_assets/js/bootstrap-5.3.7-dist/css/bootstrap.min.css"
+      href="en/_assets/js/bootstrap-5.3.7-dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="_assets/css/global.css" />
-    <link rel="stylesheet" type="text/css" href="_assets/css/cover.css" />
-    <script
-      type="text/javascript"
-      src="_assets/js/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"
-    ></script>
+    <link rel="stylesheet" type="text/css" href="en/_assets/css/global.css" />
+    <style type="text/css">
+      .master-container {
+        background-image: url(./bible.avif);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: cover;
+      }
+    </style>
   </head>
-  <body id="pg_cover">
+  <body id="pg_selectlang" class="bg-dark">
     <div class="master-container">
       <main class="h100">
         <div class="container">
           <div class="row v100">
-            <div class="col-12 text-center align-self-center">
-              <img src="_assets/img/cover/cover.jpg" class="cover" />
+            <div class="col-12 col-md-4 offset-md-4 text-center align-self-center">
+              <h2 class="mb-0 py-2 text-center bg-dark text-light">Select Language</h2>
+              <div class="list-group list-group-flush border border-dark shadow">
+                <a href="en/" class="list-group-item list-group-item-action">English</a>
+                <a href="es/" class="list-group-item list-group-item-action">Español</a>
+              </div>
             </div>
           </div>
         </div>
       </main>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-          window.location.assign("toc/");
-        }, 3000);
-      });
-
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("./sw.js").catch((error) => {
-          console.error("Error in registering service worker:", error);
-        });
-      }
-    </script>
   </body>
 </html>
