@@ -1,9 +1,9 @@
 {
   "name": "USD21",
   "short_name": "USD21",
-  "description": "This app provides disciples of Jesus with a guided series of Bible studies for making disciples of all nations.  These studies are intended to build the core convictions necessary for someone to make informed decisions about their faith, discipleship, and baptism.",
+  "description": "Esta aplicación provee a los discípulos de Jesús con una serie guiada de estudios bíblicos para hacer discípulos a todas las naciones. Estos estudios tienen la intención de formar las convicciones centrales necesarias para que alguien tome decisiones informadas sobre su fe, discipulado y bautismo.",
   "categories": ["books", "education", "reference", "lifestyle"],
-  "lang": "en",
+  "lang": "es",
   "dir": "ltr",
   "id": "34659770-5cc7-4f7c-abf3-1c595571dfc7",
   "theme_color": "#212529",
