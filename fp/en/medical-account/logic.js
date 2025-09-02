@@ -78,20 +78,15 @@ function enableSpeech() {
     const u = new SpeechSynthesisUtterance(text);
     const htmlEl = document.querySelector("html");
     const lang = htmlEl.getAttribute("lang");
-    const langsSupported = htmlEl
-      .getAttribute("data-langs-supported")
-      .split(",");
 
-    if (langsSupported.includes(lang)) {
-      const voices = speechSynthesis
-        .getVoices()
-        .filter((item) => item.lang.substr(0, 2) === lang);
+    const voices = speechSynthesis
+      .getVoices()
+      .filter((item) => item.lang.substr(0, 2) === lang);
 
-      u.lang = lang;
+    u.lang = lang;
 
-      if (voices.length > 1) {
-        u.voice = voices[1];
-      }
+    if (voices.length > 1) {
+      u.voice = voices[1];
     }
 
     currentUtterance = u;
