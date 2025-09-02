@@ -7,30 +7,30 @@
   "dir": "ltr",
   "id": "7515359c-7c14-4f27-82b0-013ee229552b",
   "theme_color": "#212529",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "display": "standalone",
   "start_url": "./?utm_source=homescreen",
   "icons": [
     {
-      "src": "_assets/img/icons/launch/logo-usd21-512.png",
+      "src": "_assets/img/icons/launch/fp/logo-fp-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "_assets/img/icons/launch/logo-usd21-192.png",
+      "src": "_assets/img/icons/launch/fp/logo-fp-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "_assets/img/icons/launch/logo-usd21-512-maskable.png",
+      "src": "_assets/img/icons/launch/fp/logo-fp-512-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "_assets/img/icons/launch/logo-usd21-192-maskable.png",
+      "src": "_assets/img/icons/launch/fp/logo-fp-192-maskable.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
