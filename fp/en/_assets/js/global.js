@@ -50,13 +50,7 @@ function linkifyScriptures() {
 function showLocalScripture(slug) {
   return new Promise((resolve, reject) => {
     const htmlEl = document.querySelector("html");
-    const langsSupported = htmlEl
-      .getAttribute("data-langs-supported")
-      .split(",");
-    let lang = htmlEl.getAttribute("lang");
-
-    if (!langsSupported.includes(lang)) lang = "en";
-    if (!bibles[lang]) lang = "en";
+    const lang = htmlEl.getAttribute("lang");
 
     const endpoint = `../_assets/scriptures/${lang}/${slug}.json`;
 
