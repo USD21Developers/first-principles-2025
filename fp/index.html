@@ -22,6 +22,15 @@
       property="og:image:alt"
       content="First Principles Bible Study Series"
     />
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
     <meta http-equiv="refresh" content="0; url=en/" />
     <script type="text/javascript">
       // Redirect, since English is our only vetted translation so far:
@@ -30,8 +39,16 @@
       })();
     </script>
     <link rel="manifest" href="en/manifest.json" />
-    <link rel="shortcut icon" href="en/_assets/img/icons/launch/fp/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="en/_assets/img/icons/launch/fp/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="en/_assets/img/icons/launch/fp/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="en/_assets/img/icons/launch/fp/favicon.ico"
+      type="image/x-icon"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -85,11 +102,22 @@
       <main class="h100">
         <div class="container">
           <div class="row v100">
-            <div class="col-12 col-md-4 offset-md-4 text-center align-self-center" style="margin-top: -4rem">
-              <h2 class="mb-0 py-2 text-center bg-dark text-light">Select Language</h2>
-              <div class="list-group list-group-flush border border-dark shadow">
-                <a href="en/" class="list-group-item list-group-item-action">English</a>
-                <a href="es/" class="list-group-item list-group-item-action">Español</a>
+            <div
+              class="col-12 col-md-4 offset-md-4 text-center align-self-center"
+              style="margin-top: -4rem"
+            >
+              <h2 class="mb-0 py-2 text-center bg-dark text-light">
+                Select Language
+              </h2>
+              <div
+                class="list-group list-group-flush border border-dark shadow"
+              >
+                <a href="en/" class="list-group-item list-group-item-action"
+                  >English</a
+                >
+                <a href="es/" class="list-group-item list-group-item-action"
+                  >Español</a
+                >
               </div>
             </div>
           </div>
