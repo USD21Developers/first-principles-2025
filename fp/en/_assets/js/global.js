@@ -174,8 +174,7 @@ function translate() {
         break;
       case "usd21developers.github.io":
         root = window.location.href;
-        globalRoot =
-          `https://usd21developers.github.io/first-principles-2025/fp/${lang}`;
+        globalRoot = `https://usd21developers.github.io/first-principles-2025/fp/${lang}`;
         endpoint = `${root}i18n/${lang}.json`;
         break;
       default:
@@ -260,17 +259,10 @@ function translate() {
           el.innerHTML = newContent;
         }
 
-        document
-          .querySelectorAll("[data-alt-i18n][data-img-path][data-img-ext]")
-          .forEach((img) => {
-            const alt = img.getAttribute("data-alt-i18n");
-            const path = img.getAttribute("data-img-path");
-            const ext = img.getAttribute("data-img-ext");
-            const src = `${path}-${lang}.${ext}`;
-
-            img.setAttribute("src", src);
-            img.setAttribute("alt", getPhrase(alt));
-          });
+        document.querySelectorAll("[data-alt-i18n]").forEach((img) => {
+          const alt = img.getAttribute("data-alt-i18n");
+          img.setAttribute("alt", getPhrase(alt));
+        });
 
         const ogTitleEl = document.querySelector("meta[property='og:title']");
         const ogDescriptionEl = document.querySelector(
