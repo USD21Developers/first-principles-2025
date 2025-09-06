@@ -124,7 +124,8 @@ async function shareLink() {
   }
 
   // Start with current page URL
-  const shareUrl = "https://usd21.app/fp/en/";
+  const lang = document.querySelector("html").getAttribute("lang");
+  const shareUrl = `https://usd21.app/fp/${lang}/`;
 
   if (
     !navigator.canShare ||
