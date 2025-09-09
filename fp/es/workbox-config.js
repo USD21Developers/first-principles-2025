@@ -9,4 +9,6 @@ module.exports = {
   ],
   swDest: "sw.js",
   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
+  skipWaiting: true,
+  clientsClaim: true,
 };
