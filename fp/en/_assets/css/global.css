@@ -72,7 +72,8 @@ table.verses tr:last-child {
   border-bottom: 0px solid white;
 }
 
-.copyrightNotice cite {
+.copyrightNotice cite,
+a[data-i18n-global="fpLicense"] {
   font-family: system-ui;
   font-size: small;
 }
@@ -104,5 +105,9 @@ table.verses tr:last-child {
 .bibleref {
   color: var(--bs-dark);
   cursor: pointer;
+  text-decoration: underline;
+}
+
+a[data-i18n-global="fpLicense"] {
   text-decoration: underline;
 }
