@@ -15,6 +15,19 @@
     }
   },
   {
+    "key": "sec1p1",
+    "text": {
+      "original": "in this repository",
+      "translated": "en este repositorio"
+    },
+    "decorations": {
+      "link": {
+        "href": "https://github.com/USD21Developers/first-principles-2025",
+        "attributes": "target=\"_blank\" rel=\"noopener nofollow\""
+      }
+    }
+  },
+  {
     "key": "sec1p3",
     "text": {
       "original": "https://www.gnu.org/licenses/gpl-3.0.html",
