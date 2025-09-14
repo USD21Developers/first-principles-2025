@@ -1,3 +1,22 @@
 {
-  "": ""
+  "summary": "Aviso de Licencia para la Aplicación Web First Principles 2025",
+  "author": "Autor de la Aplicación:",
+  "year": "Año:",
+  "sec1": "1. Licencia de Software (Código)",
+  "sec1p1": "Todo el código HTML, CSS y JavaScript en este repositorio, a menos que se indique lo contrario, es propiedad intelectual &copy; 2025 de Jason McNeill.",
+  "sec1p2": "Este código tiene la licencia pública general de GNU, versión 3 (GPLv3).",
+  "sec1p3": "Puede redistribuir y/o modificar el código bajo los términos de la GPLv3, disponible en: https://www.gnu.org/licenses/gpl-3.0.html",
+  "sec2": "2. Licencia de Contenido (Materiales que no son código)",
+  "sec2p1": "El contenido textual de esta aplicación (excluyendo gráficos, diagramas o esquemas que no sean autoría de las Iglesias Cristianas Internacionales) es propiedad intelectual de las Iglesias Cristianas Internacionales (ICI), sitio web: https://usd21.org",
+  "sec2p2": "Este contenido fue proporcionado por ICI en un archivo PDF por separado y se utiliza aquí con permiso.",
+  "sec2p3": "No se puede reproducir, modificar o redistribuir el contenido de ICI a menos que ICI lo permita. Los gráficos, diagramas o esquemas que no sean autoría de ICI están sujetos a sus respectivos derechos de autor.",
+  "sec3": "3. Derechos del Desarrollador (Técnicas y Estilo de Codificación)",
+  "sec3p1": "Las técnicas de codificación, los enfoques estructurales, los patrones de experiencia de usuario y los estilos estéticos desarrollados por Jason McNeill al crear esta aplicación web no están restringidos a este proyecto.",
+  "sec3p2": "Jason McNeill conserva el derecho de usar, adaptar y aplicar estas técnicas y estilos en otros trabajos, incluso si resultan en aplicaciones con una apariencia, sensación o funcionalidad similar, siempre que el contenido con derechos de autor de ICI no se reproduzca sin permiso.",
+  "sec4": "4. Resumen",
+  "sec4p1": "Código (HTML/CSS/JS): GPLv3, propiedad intelectual de Jason McNeill.",
+  "sec4p2": "Contenido: Propiedad de las Iglesias Cristianas Internacionales, salvo que se indique lo contrario.",
+  "sec4p3": "Técnicas y Estilo: Jason McNeill se reserva todos los derechos para reutilizarlos en otros proyectos.",
+  "sec5": "5. Texto completo de la licencia (GPLv3)",
+  "sec5p1": "El texto completo de la Licencia Pública General de GNU versión 3 se proporciona a continuación."
 }
