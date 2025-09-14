@@ -74,11 +74,11 @@ function showLocalScripture(slug) {
               modalBody +
               `
                 <tr>
-                  <td valign="top">
+                  <td valign="top" class="ps-0">
                     ${verseText}
                   </div>
-                  <td valign="top">
-                    <span class="verseNum" inert>${verseNum}</span>
+                  <td valign="top" class="pe-0 text-nowrap text-end">
+                    <span class="verseNum d-inline-block p-1 ms-2 mb-2 bg-light border border-dark" inert>${verseNum}</span>
                   </td>
                 </tr>
               `;
