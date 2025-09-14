@@ -1,1 +1,127 @@
-[]
+[
+  {
+    "key": "sec1",
+    "text": {
+      "original": "(Code)",
+      "translated": "(Code)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec1p3",
+    "text": {
+      "original": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "translated": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    "decorations": {
+      "link": {
+        "href": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "attributes": "class=\"d-block\" target=\"_blank\" rel=\"noopener nofollow\""
+      }
+    }
+  },
+  {
+    "key": "sec2",
+    "text": {
+      "original": "(Non-Code Materials)",
+      "translated": "(Non-Code Materials)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec2",
+    "text": {
+      "original": "(Non-Code Materials)",
+      "translated": "(Non-Code Materials)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec2p1",
+    "text": {
+      "original": "https://usd21.org",
+      "translated": "https://usd21.org"
+    },
+    "decorations": {
+      "link": {
+        "href": "https://usd21.org/",
+        "attributes": "target=\"_blank\" rel=\"noopener nofollow\""
+      }
+    }
+  },
+  {
+    "key": "sec3",
+    "text": {
+      "original": "(Coding Techniques and Style)",
+      "translated": "(Coding Techniques and Style)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec4p1",
+    "text": { "original": "Code", "translated": "Code" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "sec4p2",
+    "text": { "original": "Content:", "translated": "Content:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "sec4p3",
+    "text": {
+      "original": "Techniques and Style:",
+      "translated": "Techniques and Style:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "sec5",
+    "text": {
+      "original": "(GPLv3)",
+      "translated": "(GPLv3)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  }
+]
