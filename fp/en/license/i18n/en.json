@@ -12,11 +12,11 @@
   "sec2p3": "You may not reproduce, modify, or redistribute ICC's content except as allowed by ICC. Charts, graphs, or diagrams not authored by ICC are subject to their respective copyrights.",
   "sec3": "3. Developer's Rights (Coding Techniques and Style)",
   "sec3p1": "The coding techniques, structural approaches, user experience patterns, and aesthetic styles developed by Jason McNeill in creating this Web app are not restricted to this project.",
-  "sec3p2": "Jason McNeill retains the right to use, adapt, and apply these techniques and styles in other works, even if they result in apps with a similar look, feel, or functionality, provided that ICC's copyrighted content is not reproduced without permission.",
+  "sec3p2": "Anyone may use, adapt, and apply these techniques and styles in other works, even if they result in apps with a similar look, feel, or functionality, provided that ICC's copyrighted content is not reproduced without permission.",
   "sec4": "4. Summary",
   "sec4p1": "Code (HTML/CSS/JS): GPLv3, copyright Jason McNeill.",
   "sec4p2": "Content: Property of the International Christian Churches, except where otherwise noted.",
-  "sec4p3": "Techniques and Style: Jason McNeill reserves full rights to reuse in other projects.",
+  "sec4p3": "Techniques and Style: Developers have full rights to reuse in other projects.",
   "sec5": "5. Full License Text (GPLv3)",
   "sec5p1": "The full text of the GNU General Public License version 3 is provided below."
 }
