@@ -60,12 +60,12 @@ footer ul {
 }
 
 table.verses .verseNum {
-  border: 1px solid #bbb;
   border-radius: 25%;
   font-size: small;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
-  padding: 0.3rem;
+  min-width: 1.5rem;
+  text-align: center;
 }
 
 table.verses tr:last-child {
