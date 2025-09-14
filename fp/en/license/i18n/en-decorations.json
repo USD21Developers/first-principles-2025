@@ -71,21 +71,6 @@
     }
   },
   {
-    "key": "sec3",
-    "text": {
-      "original": "(Coding Techniques and Style)",
-      "translated": "(Coding Techniques and Style)"
-    },
-    "decorations": {
-      "tags": [
-        {
-          "name": "span",
-          "attributes": "class=\"notbold\""
-        }
-      ]
-    }
-  },
-  {
     "key": "sec4p1",
     "text": { "original": "Code", "translated": "Code" },
     "decorations": {
@@ -102,8 +87,8 @@
   {
     "key": "sec4p3",
     "text": {
-      "original": "Techniques and Style:",
-      "translated": "Techniques and Style:"
+      "original": "Code, Techniques and Style:",
+      "translated": "Code, Techniques and Style:"
     },
     "decorations": {
       "bold": true
