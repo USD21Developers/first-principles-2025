@@ -22,22 +22,6 @@
       property="og:image:alt"
       content="First Principles Bible Study Series"
     />
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.getRegistrations().then((registrations) => {
-          for (let registration of registrations) {
-            registration.unregister();
-          }
-        });
-      }
-    </script>
-    <meta http-equiv="refresh" content="0; url=en/" />
-    <script type="text/javascript">
-      // Redirect, since English is our only vetted translation so far:
-      (() => {
-        window.location.replace("en/");
-      })();
-    </script>
     <link rel="manifest" href="en/manifest.json" />
     <link
       rel="shortcut icon"
@@ -112,12 +96,12 @@
               <div
                 class="list-group list-group-flush border border-dark shadow"
               >
-                <a href="en/" class="list-group-item list-group-item-action"
-                  >English</a
-                >
-                <a href="es/" class="list-group-item list-group-item-action"
-                  >Español</a
-                >
+                <a href="en/" class="list-group-item list-group-item-action">
+                  English
+                </a>
+                <a href="es/" class="list-group-item list-group-item-action">
+                  Español
+                </a>
               </div>
             </div>
           </div>
