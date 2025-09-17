@@ -1,32 +1,35 @@
 {
-  "display": "Ephesians 5:1-7",
+  "display": "Éphésiens 5:1-7",
   "slug": "ephesians-5-1-7",
   "language": "fr",
   "version": "SG21",
   "book": "Ephesians",
   "chapter": 5,
   "verses": [
-    [1, "Follow God's example, therefore, as dearly loved children"],
+    [
+      1,
+      "Soyez donc les imitateurs de Dieu, puisque vous êtes ses enfants bien-aimés,"
+    ],
     [
       2,
-      "and walk in the way of love, just as Christ loved us and gave himself up for us as a fragrant offering and sacrifice to God."
+      "et vivez dans l'amour en suivant l'exemple de Christ, qui nous a aimés et qui s'est donné lui-même pour nous comme une offrande et un sacrifice dont l'odeur est agréable à Dieu."
     ],
     [
       3,
-      "But among you there must not be even a hint of sexual immorality, or of any kind of impurity, or of greed, because these are improper for God's holy people."
+      "Que l'immoralité sexuelle, l'impureté sous toutes ses formes ou la soif de posséder ne soient même pas mentionnées parmi vous, comme il convient à des saints."
     ],
     [
       4,
-      "Nor should there be obscenity, foolish talk or coarse joking, which are out of place, but rather thanksgiving."
+      "Qu'on n'entende pas de paroles grossières, de propos stupides ou équivoques – c'est inconvenant – mais plutôt des paroles de reconnaissance."
     ],
     [
       5,
-      "For of this you can be sure: No immoral, impure or greedy person—such a person is an idolater—has any inheritance in the kingdom of Christ and of God."
+      " Vous le savez bien en effet, aucun être immoral, impur ou toujours désireux de posséder plus – c'est-à-dire idolâtre – n'a d'héritage dans le royaume de Christ et de Dieu."
     ],
     [
       6,
-      "Let no one deceive you with empty words, for because of such things God's wrath comes on those who are disobedient."
+      "Que personne ne vous trompe par des paroles sans fondement, car c'est pour cela que la colère de Dieu vient sur les hommes rebelles."
     ],
-    [7, "Therefore do not be partners with them."]
+    [7, "N'ayez donc aucune part avec eux,"]
   ]
 }
