@@ -1,0 +1,22 @@
+{
+  "summary": "Avis de Licence pour l'Application Web Principes Fondamentaux 2025",
+  "author": "Auteur de l'application :",
+  "year": "Année :",
+  "sec1": "1. Licence du Logiciel (Code)",
+  "sec1p1": "Tout le code HTML, CSS et JavaScript de ce dépôt, sauf indication contraire, est la propriété de &copy; 2025 Jason McNeill.",
+  "sec1p2": "Ce code est sous licence GNU General Public License, version 3 (GPLv3).",
+  "sec1p3": "Vous pouvez redistribuer et/ou modifier le code selon les termes de la GPLv3, disponible à l'adresse : https://www.gnu.org/licenses/gpl-3.0.html",
+  "sec2": "2. Licence du Contenu (Matériels non-Code)",
+  "sec2p1": "Le contenu textuel de cette application (à l'exclusion des tableaux, graphiques ou diagrammes non créés par l'International Christian Churches), est la propriété intellectuelle de l'International Christian Churches (ICC), site web : https://usd21.org",
+  "sec2p2": "Ce contenu a été fourni par ICC sous la forme d'un fichier PDF séparé et est utilisé ici avec permission.",
+  "sec2p3": "Vous ne pouvez pas reproduire, modifier ou redistribuer le contenu d'ICC sauf si cela est autorisé par ICC. Les tableaux, graphiques ou diagrammes non créés par l'ICC sont soumis à leurs droits d'auteur respectifs.",
+  "sec3": "3. Droits des Développeurs",
+  "sec3p1": "Les techniques de codage, les approches structurelles, les modèles d'expérience utilisateur, les styles esthétiques et le code lui-même, développés par Jason McNeill pour créer cette application Web, ne sont pas restreints à ce projet.",
+  "sec3p2": "Toute personne peut utiliser, adapter et appliquer le code et/ou ses techniques et styles dans d'autres œuvres, même si elles aboutissent à des applications avec une apparence, une convivialité ou des fonctionnalités similaires, à condition que le contenu protégé par le droit d'auteur d'ICC ne soit pas reproduit sans autorisation.",
+  "sec4": "4. Résumé",
+  "sec4p1": "Code (HTML/CSS/JS) : GPLv3, copyright Jason McNeill.",
+  "sec4p2": "Contenu : Propriété de l'International Christian Churches, sauf indication contraire.",
+  "sec4p3": "Code, Techniques et Style : Les développeurs ont tous les droits de réutilisation dans d'autres projets.",
+  "sec5": "5. Texte de la Licence Complète (GPLv3)",
+  "sec5p1": "Le texte intégral de la licence GNU General Public License version 3 est fourni ci-dessous."
+}

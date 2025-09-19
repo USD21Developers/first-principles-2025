@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="title"></title>
+    <title data-i18n-global="fpLicense"></title>
     <meta name="google" content="notranslate" />
     <meta name="view-transition" content="same-origin" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -84,7 +84,7 @@
         <div class="container-fluid px-4">
           <div class="row">
             <div class="col-12">
-              <h1 data-i18n="headerAboutFP" inert></h1>
+              <h1 data-i18n-global="fpLicense" inert></h1>
             </div>
           </div>
         </div>
@@ -93,53 +93,59 @@
         <div class="container-fluid px-4 v100 py-3">
           <div class="row">
             <div class="col-12">
-              <section>
-                <p data-i18n="p1"></p>
+              <div data-i18n="summary"></div>
+
+              <hr />
+
+              <div>
+                <strong data-i18n="author"></strong>
+                <a href="mailto:jason.mcneill@usd21.org">Jason McNeill</a><br />
+                <strong data-i18n="year"></strong> 2025
+              </div>
+
+              <hr />
+
+              <section class="bg-light border border-dark p-2 my-4">
+                <h2 data-i18n="sec1"></h2>
+                <p data-i18n="sec1p1"></p>
+                <p data-i18n="sec1p2"></p>
+                <p data-i18n="sec1p3"></p>
               </section>
 
-              <section class="my-5">
-                <h2 data-i18n="whoItsFor"></h2>
+              <section class="bg-light border border-dark p-2 my-4">
+                <h2 data-i18n="sec2"></h2>
+                <p data-i18n="sec2p1"></p>
+                <p data-i18n="sec2p2"></p>
+                <p data-i18n="sec2p3"></p>
+              </section>
+
+              <section class="bg-light border border-dark p-2 my-4">
+                <h2 data-i18n="sec3"></h2>
+                <p data-i18n="sec3p1"></p>
+                <p data-i18n="sec3p2"></p>
+              </section>
+
+              <section class="bg-light border border-dark p-2 my-4">
+                <h2 data-i18n="sec4"></h2>
                 <ul>
-                  <li data-i18n="whoItsFor-description-1"></li>
-                  <li data-i18n="whoItsFor-description-2"></li>
+                  <li data-i18n="sec4p1"></li>
+                  <li data-i18n="sec4p2"></li>
+                  <li data-i18n="sec4p3"></li>
                 </ul>
               </section>
 
-              <section class="my-5">
-                <h2 data-i18n="howItsStructured" class="mb-3"></h2>
-                <p data-i18n="howItsStructured-description-1"></p>
+              <section class="bg-light border border-dark p-2 my-4">
+                <h2 data-i18n="sec5"></h2>
+                <p class="m-2" data-i18n="sec5p1"></p>
               </section>
 
-              <section class="my-5">
-                <h2 data-i18n="studiesAtGlance"></h2>
-                <ul>
-                  <li data-i18n="studiesAtGlance-seeking-god"></li>
-                  <li data-i18n="studiesAtGlance-word"></li>
-                  <li data-i18n="studiesAtGlance-discipleship"></li>
-                  <li data-i18n="studiesAtGlance-kingdom"></li>
-                  <li data-i18n="studiesAtGlance-sin-repentance"></li>
-                  <li data-i18n="studiesAtGlance-light-darkness"></li>
-                  <li data-i18n="studiesAtGlance-cross"></li>
-                </ul>
-              </section>
-
-              <section class="my-5">
-                <h2 data-i18n="headingLifeInChurch" class="mb-3"></h2>
-                <p data-i18n="headingLifeInChurch-description-1"></p>
-              </section>
-
-              <section class="my-5">
-                <h2 data-i18n="headingAppendices"></h2>
-                <ul>
-                  <li data-i18n="appendices-description-1"></li>
-                  <li data-i18n="appendices-description-2"></li>
-                </ul>
-              </section>
-
-              <section class="my-5">
-                <h2 data-i18n="headingHowToUse" class="mb-3"></h2>
-                <p data-i18n="howToUse-description-1"></p>
-              </section>
+              <table class="table table-responsive">
+                <tr>
+                  <td class="bg-light border border-dark p-2 my-4">
+                    <pre></pre>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
