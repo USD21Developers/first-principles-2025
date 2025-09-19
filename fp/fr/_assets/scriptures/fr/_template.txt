@@ -1,0 +1,12 @@
+{
+  "display": "",
+  "slug": "",
+  "language": "fr",
+  "version": "SG21",
+  "book": "",
+  "chapter": ,
+  "verses": [
+    [, ""],
+    [, ""]
+  ]
+}
