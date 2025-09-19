@@ -1,0 +1,134 @@
+[
+  {
+    "key": "p1",
+    "text": {
+      "original": "First Principles",
+      "translated": "Principes Fondamentaux"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-seeking-god",
+    "text": {
+      "original": "Seeking God",
+      "translated": "Chercher Dieu"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-word",
+    "text": {
+      "original": "The Word of God",
+      "translated": "La Parole de Dieu"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": {
+      "original": "Discipleship",
+      "translated": "Disciple"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": {
+      "original": "disciples",
+      "translated": "disciples"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-kingdom",
+    "text": {
+      "original": "The Coming of the Kingdom",
+      "translated": "L'avènement du Royaume de Dieu"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-sin-repentance",
+    "text": {
+      "original": "Sin & Repentance",
+      "translated": "Péché et Repentance"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-light-darkness",
+    "text": {
+      "original": "Light & Darkness",
+      "translated": "Lumière et Ténèbres"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-cross",
+    "text": {
+      "original": "The Cross",
+      "translated": "La Croix"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-1",
+    "text": {
+      "original": "Sin Definitions",
+      "translated": "Définitions du Péché"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-2",
+    "text": {
+      "original": "Medical Account of the Crucifixion",
+      "translated": "Rapport Médical de la Crucifixion"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

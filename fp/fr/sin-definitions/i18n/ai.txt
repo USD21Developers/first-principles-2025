@@ -1,7 +1,7 @@
 FOR SIMPLE TRANSLATION (en.json):
 
-In the JSON below, translate the values from English to Spanish. Leave the keys unchanged.
+In the JSON below, translate the values from English to French. Leave the keys unchanged.
 
 FOR DECORATIONS (en-decorations.json):
 
-In the JSON below, for the entire array, translate the value of "text.translated" from English to Spanish and replace it, but only if "text.skipTranslation" is NOT true.
+In the JSON below, for the entire array, translate the value of "text.translated" from English to French and replace it.
