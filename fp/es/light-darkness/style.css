@@ -88,10 +88,6 @@ section h2 {
   min-width: 100px;
 }
 
-.bg-light {
-  background-color: var(--bs-gray-300) !important;
-}
-
 .buriedInBaptism {
   max-width: 100%;
   width: 445px;
