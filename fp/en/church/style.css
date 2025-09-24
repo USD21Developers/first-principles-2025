@@ -30,7 +30,7 @@ header {
       rgba(0, 0, 0, 0.5)
     ),
     url("img/masthead-church.avif");
-  background-position: bottom right;
+  background-position: top right;
   background-repeat: no-repeat;
   background-size: cover;
   height: 18vh;
