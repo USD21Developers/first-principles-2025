@@ -1,0 +1,149 @@
+[
+  {
+    "key": "jesusFromGod",
+    "text": {
+      "original": "v. 22",
+      "translated": "v. 22"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,22\" data-scripture-title=\"Acts 2:22\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "physicallyRaised",
+    "text": {
+      "original": "v. 24",
+      "translated": "v. 24"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,24\" data-scripture-title=\"Acts 2:24\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "everyoneResponsible",
+    "text": {
+      "original": "v. 23",
+      "translated": "v. 23"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,23\" data-scripture-title=\"Acts 2:23\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "falseDoctrineInfantBaptism",
+    "text": {
+      "original": "Infant baptism",
+      "translated": "Batismo infantil"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "falseDoctrineInfantBaptism",
+    "text": {
+      "original": "Ezekiel 18:20",
+      "translated": "Ezequiel 18:20"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Ezekiel,18,20\" data-scripture-title=\"Ezekiel 18:20\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "falseDoctrineInfantBaptism",
+    "text": {
+      "original": "28:15",
+      "translated": "28:15"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Ezekiel,28,15\" data-scripture-title=\"Ezekiel 28:15\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "misinterpretationOfRev320",
+    "text": {
+      "original": "Revelation 3:20",
+      "translated": "Apocalipse 3:20"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Revelation,3,20\" data-scripture-title=\"Revelation 3:20\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "1-peter-3-18-22-description-4",
+    "text": {
+      "original": "REVIEW YOUR TIMELINE",
+      "translated": "REVEJA SUA LINHA DO TEMPO"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

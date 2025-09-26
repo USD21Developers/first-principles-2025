@@ -1,0 +1,30 @@
+{
+  "name": "first-principles-2025",
+  "version": "1.0.0",
+  "description": "Princípios Básicos Série de Estudo Bíblico",
+  "main": "workbox-config.js",
+  "scripts": {
+    "build": "workbox generateSW workbox-config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ssh:prod": "ssh usd21.org",
+    "deploy:prod": "ssh usd21.org ./pull-usd21.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/USD21Developers/first-principles-2025.git"
+  },
+  "keywords": [
+    "first",
+    "principles"
+  ],
+  "author": "International Christian Churches",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/USD21Developers/first-principles-2025/issues"
+  },
+  "homepage": "https://github.com/USD21Developers/first-principles-2025#readme",
+  "devDependencies": {
+    "workbox-cli": "^7.3.0"
+  }
+}

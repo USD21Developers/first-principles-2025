@@ -1,0 +1,47 @@
+[
+  {
+    "key": "p2",
+    "text": {
+      "original": "The Day Christ Died",
+      "translated": "O Dia em Que Cristo Morreu"
+    },
+    "italic": true
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "summary": "Aviso de Licença para o Aplicativo Web Princípios Básicos 2025",
+  "author": "Autor do Aplicativo:",
+  "year": "Ano:",
+  "sec1": "1. Licença de Software (Código)",
+  "sec1p1": "Todo o código HTML, CSS e JavaScript neste repositório, a menos que indicado de outra forma, é copyright &copy; 2025 Jason McNeill.",
+  "sec1p2": "Este código é licenciado sob a Licença Pública Geral GNU, versão 3 (GPLv3).",
+  "sec1p3": "Você pode redistribuir e/ou modificar o código sob os termos da GPLv3, disponível em: https://www.gnu.org/licenses/gpl-3.0.html",
+  "sec2": "2. Licença de Conteúdo (Materiais Não-Código)",
+  "sec2p1": "O conteúdo textual desta aplicação (excluindo tabelas, gráficos ou diagramas não criados pelas International Christian Churches), é propriedade intelectual das International Christian Churches (ICC), website: https://usd21.org",
+  "sec2p2": "Este conteúdo foi fornecido pela ICC na forma de um arquivo PDF separado e é usado aqui com permissão.",
+  "sec2p3": "Você não pode reproduzir, modificar ou redistribuir o conteúdo da ICC, exceto conforme permitido pela ICC. Tabelas, gráficos ou diagramas não criados pela ICC estão sujeitos aos seus respectivos direitos autorais.",
+  "sec3": "3. Direitos dos Desenvolvedores",
+  "sec3p1": "As técnicas de codificação, abordagens estruturais, padrões de experiência do usuário, estilos estéticos e o próprio código, desenvolvidos por Jason McNeill na criação deste Aplicativo Web, não estão restritos a este projeto.",
+  "sec3p2": "Qualquer pessoa pode usar, adaptar e aplicar o código e/ou suas técnicas e estilos em outros trabalhos, mesmo que resultem em aplicativos com aparência, sensação ou funcionalidade semelhantes, desde que o conteúdo protegido por direitos autorais da ICC não seja reproduzido sem permissão.",
+  "sec4": "4. Resumo",
+  "sec4p1": "Código (HTML/CSS/JS): GPLv3, copyright Jason McNeill.",
+  "sec4p2": "Conteúdo: Propriedade das International Christian Churches, exceto onde indicado de outra forma.",
+  "sec4p3": "Código, Técnicas e Estilo: Os desenvolvedores têm plenos direitos de reutilização em outros projetos.",
+  "sec5": "5. Texto Completo da Licença (GPLv3)",
+  "sec5p1": "O texto completo da Licença Pública Geral GNU versão 3 é fornecido abaixo."
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "key": "acts-11-25-26-description-3",
+    "text": {
+      "original": "Acts 26:28",
+      "translated": "Atos 26:28"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,26,28\" data-scripture-title=\"Acts 26:28\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "luke-9-23-26-description-2",
+    "text": {
+      "original": "Matthew 26:36-39",
+      "translated": "Mateus 26:36-39"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Matthew,26,36,39\" data-scripture-title=\"Matthew 26:36-39\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "luke-14-25-33-description-3",
+    "text": {
+      "original": "verses 28-30",
+      "translated": "versículos 28-30"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,14,28,30\" data-scripture-title=\"Luke 14:28-30\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "luke-14-25-33-description-4",
+    "text": {
+      "original": "verses 31-33",
+      "translated": "versículos 31-33"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,14,31,33\" data-scripture-title=\"Luke 14:31-33\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-22-34-40-description-3",
+    "text": {
+      "original": "John 13:34-35",
+      "translated": "João 13:34-35"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"John,13,34,35\" data-scripture-title=\"John 13:34-35\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]
