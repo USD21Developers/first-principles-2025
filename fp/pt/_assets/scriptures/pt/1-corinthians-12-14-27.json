@@ -1,54 +1,57 @@
 {
-  "display": "1 Corinthians 12:14-27",
+  "display": "1 Coríntios 12:14-27",
   "slug": "1-corinthians-12-14-27",
   "language": "pt",
   "version": "NVI-PT",
   "book": "1 Corinthians",
   "chapter": 12,
   "verses": [
-    [14, "Even so the body is not made up of one part but of many."],
+    [14, "O corpo não é feito de um só membro, mas de muitos."],
     [
       15,
-      "Now if the foot should say, “Because I am not a hand, I do not belong to the body,” it would not for that reason stop being part of the body."
+      "Se o pé disser: “Porque não sou mão, não pertenço ao corpo”, nem por isso deixa de fazer parte do corpo."
     ],
     [
       16,
-      "And if the ear should say, “Because I am not an eye, I do not belong to the body,” it would not for that reason stop being part of the body."
+      "E se o ouvido disser: “Porque não sou olho, não pertenço ao corpo”, nem por isso deixa de fazer parte do corpo."
     ],
     [
       17,
-      "If the whole body were an eye, where would the sense of hearing be? If the whole body were an ear, where would the sense of smell be?"
+      "Se todo o corpo fosse olho, onde estaria a audição? Se todo o corpo fosse ouvido, onde estaria o olfato?"
     ],
     [
       18,
-      "But in fact God has placed the parts in the body, every one of them, just as he wanted them to be."
+      "De fato, Deus dispôs cada um dos membros no corpo, segundo a sua vontade."
     ],
-    [19, "If they were all one part, where would the body be?"],
-    [20, "As it is, there are many parts, but one body."],
+    [19, "Se todos fossem um só membro, onde estaria o corpo?"],
+    [20, "Assim, há muitos membros, mas um só corpo."],
     [
       21,
-      "The eye cannot say to the hand, “I don't need you!” And the head cannot say to the feet, “I don't need you!”"
+      "O olho não pode dizer à mão: “Não preciso de você!” Nem a cabeça pode dizer aos pés: “Não preciso de vocês!”"
     ],
     [
       22,
-      "On the contrary, those parts of the body that seem to be weaker are indispensable,"
+      "Ao contrário, os membros do corpo que parecem mais fracos são indispensáveis,"
     ],
     [
       23,
-      "and the parts that we think are less honorable we treat with special honor. And the parts that are unpresentable are treated with special modesty,"
+      "e os membros que pensamos serem menos honrosos, tratamos com especial honra. E os membros que em nós são indecorosos são tratados com decoro especial,"
     ],
     [
       24,
-      "while our presentable parts need no special treatment. But God has put the body together, giving greater honor to the parts that lacked it,"
+      "enquanto os que em nós são decorosos não precisam ser tratados de maneira especial. Mas Deus estruturou o corpo dando maior honra aos membros que dela tinham falta,"
     ],
     [
       25,
-      "so that there should be no division in the body, but that its parts should have equal concern for each other."
+      "a fim de que não haja divisão no corpo, mas, sim, que todos os membros tenham igual cuidado uns pelos outros."
     ],
     [
       26,
-      "If one part suffers, every part suffers with it; if one part is honored, every part rejoices with it."
+      "Quando um membro sofre, todos os outros sofrem com ele; quando um membro é honrado, todos os outros se alegram com ele."
     ],
-    [27, "Now you are the body of Christ, and each one of you is a part of it."]
+    [
+      27,
+      "Ora, vocês são o corpo de Cristo, e cada um de vocês, individualmente, é membro desse corpo."
+    ]
   ]
 }

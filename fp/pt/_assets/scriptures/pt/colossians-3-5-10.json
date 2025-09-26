@@ -1,5 +1,5 @@
 {
-  "display": "Colossians 3:5-10",
+  "display": "Colossenses 3:5-10",
   "slug": "colossians-3-5-10",
   "language": "pt",
   "version": "NVI-PT",
@@ -8,21 +8,24 @@
   "verses": [
     [
       5,
-      "Put to death, therefore, whatever belongs to your earthly nature: sexual immorality, impurity, lust, evil desires and greed, which is idolatry."
+      "Assim, façam morrer tudo o que pertence à natureza terrena de vocês: imoralidade sexual, impureza, paixão, desejos maus e a ganância, que é idolatria."
     ],
-    [6, "Because of these, the wrath of God is coming."],
-    [7, "You used to walk in these ways, in the life you once lived."],
+    [
+      6,
+      "É por causa dessas coisas que vem a ira de Deus sobre os que vivem na desobediência,"
+    ],
+    [7, "as quais vocês praticaram no passado, quando costumavam viver nelas."],
     [
       8,
-      "But now you must also rid yourselves of all such things as these: anger, rage, malice, slander, and filthy language from your lips."
+      "Mas agora, abandonem todas estas coisas: ira, indignação, maldade, maledicência e linguagem indecente no falar."
     ],
     [
       9,
-      "Do not lie to each other, since you have taken off your old self with its practices"
+      "Não mintam uns aos outros, visto que vocês já se despiram do velho homem com suas práticas"
     ],
     [
       10,
-      "and have put on the new self, which is being renewed in knowledge in the image of its Creator."
+      "e se revestiram do novo, o qual está sendo renovado em conhecimento, à imagem do seu Criador."
     ]
   ]
 }
