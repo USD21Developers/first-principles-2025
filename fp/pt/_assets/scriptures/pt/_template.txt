@@ -1,8 +1,8 @@
 {
   "display": "",
   "slug": "",
-  "language": "en",
-  "version": "NIV",
+  "language": "pt",
+  "version": "NVI-PT",
   "book": "",
   "chapter": ,
   "verses": [
