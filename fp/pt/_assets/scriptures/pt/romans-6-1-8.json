@@ -1,39 +1,33 @@
 {
-  "display": "Romans 6:1-8",
+  "display": "Romanos 6:1-8",
   "slug": "romans-6-1-8",
   "language": "pt",
   "version": "NVI-PT",
   "book": "Romans",
   "chapter": 6,
   "verses": [
-    [
-      1,
-      "What shall we say, then? Shall we go on sinning so that grace may increase?"
-    ],
+    [1, "Que diremos então? Continuaremos pecando para que a graça aumente?"],
     [
       2,
-      "By no means! We are those who have died to sin; how can we live in it any longer?"
+      "De maneira nenhuma! Nós, os que morremos para o pecado, como podemos continuar vivendo nele?"
     ],
     [
       3,
-      "Or don't you know that all of us who were baptized into Christ Jesus were baptized into his death?"
+      "Ou vocês não sabem que todos nós, que fomos batizados em Cristo Jesus, fomos batizados em sua morte?"
     ],
     [
       4,
-      "We were therefore buried with him through baptism into death in order that, just as Christ was raised from the dead through the glory of the Father, we too may live a new life."
+      "Portanto, fomos sepultados com ele na morte por meio do batismo, a fim de que, assim como Cristo foi ressuscitado dos mortos mediante a glória do Pai, também nós vivamos uma vida nova."
     ],
     [
       5,
-      "For if we have been united with him in a death like his, we will certainly also be united with him in a resurrection like his."
+      "Se dessa forma fomos unidos a ele na semelhança da sua morte, certamente o seremos também na semelhança da sua ressurreição."
     ],
     [
       6,
-      "For we know that our old self was crucified with him so that the body ruled by sin might be done away with, that we should no longer be slaves to sin—"
+      "Pois sabemos que o nosso velho homem foi crucificado com ele, para que o corpo do pecado seja destruído, e não mais sejamos escravos do pecado;"
     ],
-    [7, "because anyone who has died has been set free from sin."],
-    [
-      8,
-      "Now if we died with Christ, we believe that we will also live with him."
-    ]
+    [7, "pois quem morreu, foi justificado do pecado."],
+    [8, "Ora, se morremos com Cristo, cremos que também com ele viveremos."]
   ]
 }

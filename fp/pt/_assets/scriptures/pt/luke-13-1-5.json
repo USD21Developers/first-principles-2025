@@ -1,5 +1,5 @@
 {
-  "display": "Luke 13:1-5",
+  "display": "Lucas 13:1-5",
   "slug": "luke-13-1-5",
   "language": "pt",
   "version": "NVI-PT",
@@ -8,17 +8,23 @@
   "verses": [
     [
       1,
-      "Now there were some present at that time who told Jesus about the Galileans whose blood Pilate had mixed with their sacrifices."
+      "Naquela ocasião, alguns dos que estavam presentes contaram a Jesus que Pilatos misturara o sangue de alguns galileus com os sacrifícios deles."
     ],
     [
       2,
-      "Jesus answered, “Do you think that these Galileans were worse sinners than all the other Galileans because they suffered this way?"
+      "Jesus respondeu: “Vocês pensam que esses galileus eram mais pecadores que todos os outros, por terem sofrido dessa maneira?"
     ],
-    [3, "I tell you, no! But unless you repent, you too will all perish."],
+    [
+      3,
+      "Eu lhes digo que não! Mas se não se arrependerem, todos vocês também perecerão."
+    ],
     [
       4,
-      "Or those eighteen who died when the tower in Siloam fell on them—do you think they were more guilty than all the others living in Jerusalem?"
+      "Ou vocês pensam que aqueles dezoito que morreram, quando caiu sobre eles a torre de Siloé, eram mais culpados do que todos os outros habitantes de Jerusalém?"
     ],
-    [5, "I tell you, no! But unless you repent, you too will all perish.”"]
+    [
+      5,
+      "Eu lhes digo que não! Mas se não se arrependerem, todos vocês também perecerão”."
+    ]
   ]
 }

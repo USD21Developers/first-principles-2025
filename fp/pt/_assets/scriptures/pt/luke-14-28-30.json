@@ -1,5 +1,5 @@
 {
-  "display": "Luke 14:28-30",
+  "display": "Lucas 14:28-30",
   "slug": "luke-14-28-30",
   "language": "pt",
   "version": "NVI-PT",
@@ -8,12 +8,15 @@
   "verses": [
     [
       28,
-      "“Suppose one of you wants to build a tower. Won't you first sit down and estimate the cost to see if you have enough money to complete it?"
+      "“Qual de vocês, se quiser construir uma torre, primeiro não se assenta e calcula o preço, para ver se tem dinheiro suficiente para completá-la?"
     ],
     [
       29,
-      "For if you lay the foundation and are not able to finish it, everyone who sees it will ridicule you,"
+      "Pois, se lançar o alicerce e não for capaz de terminá-la, todos os que a virem rirão dele,"
     ],
-    [30, "saying, 'This person began to build and wasn't able to finish.'"]
+    [
+      30,
+      "dizendo: ‘Este homem começou a construir e não foi capaz de terminar’."
+    ]
   ]
 }

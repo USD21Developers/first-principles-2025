@@ -1,15 +1,12 @@
 {
-  "display": "Matthew 3:1-2",
+  "display": "Mateus 3:1-2",
   "slug": "matthew-3-1-2",
   "language": "pt",
   "version": "NVI-PT",
   "book": "Matthew",
   "chapter": 3,
   "verses": [
-    [
-      1,
-      "In those days John the Baptist came, preaching in the wilderness of Judea"
-    ],
-    [2, "and saying, “Repent, for the kingdom of heaven has come near.”"]
+    [1, "Naqueles dias surgiu João Batista, pregando no deserto da Judéia."],
+    [2, "Ele dizia: “Arrependam-se, pois o Reino dos céus está próximo”."]
   ]
 }

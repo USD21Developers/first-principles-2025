@@ -1,23 +1,26 @@
 {
-  "display": "Isaiah 2:1-4",
+  "display": "Isaías 2:1-4",
   "slug": "isaiah-2-1-4",
   "language": "pt",
   "version": "NVI-PT",
   "book": "Isaiah",
   "chapter": 2,
   "verses": [
-    [1, "This is what Isaiah son of Amoz saw concerning Judah and Jerusalem:"],
+    [
+      1,
+      "Foi isto que Isaías, filho de Amoz, viu a respeito de Judá e de Jerusalém:"
+    ],
     [
       2,
-      "In the last days the mountain of the Lord's temple will be established as the highest of the mountains; it will be exalted above the hills, and all nations will stream to it."
+      "Nos últimos dias o monte do templo do Senhor será estabelecido como o principal; será elevado acima das colinas, e todas as nações correrão para ele."
     ],
     [
       3,
-      "Many peoples will come and say, “Come, let us go up to the mountain of the Lord, to the temple of the God of Jacob. He will teach us his ways, so that we may walk in his paths.” The law will go out from Zion, the word of the Lord from Jerusalem."
+      "Virão muitos povos e dirão: “Venham, subamos ao monte do Senhor, ao templo do Deus de Jacó, para que ele nos ensine os seus caminhos, e assim andemos em suas veredas”. Pois a lei sairá de Sião, de Jerusalém virá a palavra do Senhor."
     ],
     [
       4,
-      "He will judge between the nations and will settle disputes for many peoples. They will beat their swords into plowshares and their spears into pruning hooks. Nation will not take up sword against nation, nor will they train for war anymore."
+      "Ele julgará entre as nações e resolverá contendas de muitos povos. Eles farão de suas espadas arados, e de suas lanças, foices. Uma nação não mais pegará em armas para atacar outra nação, elas jamais tornarão a preparar-se para a guerra."
     ]
   ]
 }

@@ -1,32 +1,35 @@
 {
-  "display": "John 3:1-7",
+  "display": "João 3:1-7",
   "slug": "john-3-1-7",
   "language": "pt",
   "version": "NVI-PT",
   "book": "John",
   "chapter": 3,
   "verses": [
-    [
-      1,
-      "Now there was a Pharisee, a man named Nicodemus who was a member of the Jewish ruling council."
-    ],
+    [1, "Havia um fariseu chamado Nicodemos, uma autoridade entre os judeus."],
     [
       2,
-      "He came to Jesus at night and said, “Rabbi, we know that you are a teacher who has come from God. For no one could perform the signs you are doing if God were not with him.”"
+      "Ele veio a Jesus, à noite, e disse: “Mestre, sabemos que ensinas da parte de Deus, pois ninguém pode realizar os sinais miraculosos que estás fazendo, se Deus não estiver com ele”."
     ],
     [
       3,
-      "Jesus replied, “Very truly I tell you, no one can see the kingdom of God unless they are born again.”"
+      "Em resposta, Jesus declarou: “Digo-lhe a verdade: Ninguém pode ver o Reino de Deus, se não nascer de novo”."
     ],
     [
       4,
-      "“How can someone be born when they are old?” Nicodemus asked. “Surely they cannot enter a second time into their mother's womb to be born!”"
+      "Perguntou Nicodemos: “Como alguém pode nascer, sendo velho? É claro que não pode entrar pela segunda vez no ventre de sua mãe e renascer!”"
     ],
     [
       5,
-      "Jesus answered, “Very truly I tell you, no one can enter the kingdom of God unless they are born of water and the Spirit."
+      "Respondeu Jesus: “Digo-lhe a verdade: Ninguém pode entrar no Reino de Deus, se não nascer da água e do Espírito."
     ],
-    [6, "Flesh gives birth to flesh, but the Spirit gives birth to spirit."],
-    [7, "You should not be surprised at my saying, 'You must be born again.'”"]
+    [
+      6,
+      "O que nasce da carne é carne, mas o que nasce do Espírito é espírito."
+    ],
+    [
+      7,
+      "Não se surpreenda pelo fato de eu ter dito: É necessário que vocês nasçam de novo."
+    ]
   ]
 }

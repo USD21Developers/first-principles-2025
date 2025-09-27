@@ -1,5 +1,5 @@
 {
-  "display": "Luke 24:44-49",
+  "display": "Lucas 24:44-49",
   "slug": "luke-24-44-49",
   "language": "pt",
   "version": "NVI-PT",
@@ -8,21 +8,24 @@
   "verses": [
     [
       44,
-      "He said to them, “This is what I told you while I was still with you: Everything must be fulfilled that is written about me in the Law of Moses, the Prophets and the Psalms.”"
+      "E disse-lhes: “Foi isso que eu lhes falei enquanto ainda estava com vocês: Era necessário que se cumprisse tudo o que a meu respeito está escrito na Lei de Moisés, nos Profetas e nos Salmos”."
     ],
-    [45, "Then he opened their minds so they could understand the Scriptures."],
+    [
+      45,
+      "Então lhes abriu o entendimento, para que pudessem compreender as Escrituras."
+    ],
     [
       46,
-      "He told them, “This is what is written: The Messiah will suffer and rise from the dead on the third day,"
+      "E lhes disse: “Está escrito que o Cristo haveria de sofrer e ressuscitar dos mortos no terceiro dia,"
     ],
     [
       47,
-      "and repentance for the forgiveness of sins will be preached in his name to all nations, beginning at Jerusalem."
+      "e que em seu nome seria pregado o arrependimento para perdão de pecados a todas as nações, começando por Jerusalém."
     ],
-    [48, "You are witnesses of these things."],
+    [48, "Vocês são testemunhas destas coisas."],
     [
       49,
-      "I am going to send you what my Father has promised; but stay in the city until you have been clothed with power from on high.”"
+      "Eu lhes envio a promessa de meu Pai; mas fiquem na cidade até serem revestidos do poder do alto”."
     ]
   ]
 }

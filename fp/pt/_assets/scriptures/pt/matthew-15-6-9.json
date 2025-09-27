@@ -1,5 +1,5 @@
 {
-  "display": "Matthew 15:6-9",
+  "display": "Mateus 15:6-9",
   "slug": "matthew-15-6-9",
   "language": "pt",
   "version": "NVI-PT",
@@ -8,13 +8,16 @@
   "verses": [
     [
       6,
-      "they are not to 'honor their father or mother' with it. Thus you nullify the word of God for the sake of your tradition."
+      "ele não está mais obrigado a ‘honrar seu pai’ dessa forma. Assim, por causa da sua tradição, vocês anulam a palavra de Deus."
     ],
-    [7, "You hypocrites! Isaiah was right when he prophesied about you:"],
+    [7, "Hipócritas! Bem profetizou Isaías acerca de vocês, dizendo:"],
     [
       8,
-      "“'These people honor me with their lips, but their hearts are far from me."
+      "“‘Este povo me honra com os lábios, mas o seu coração está longe de mim."
     ],
-    [9, "They worship me in vain; their teachings are merely human rules.'”"]
+    [
+      9,
+      "Em vão me adoram; seus ensinamentos não passam de regras ensinadas por homens’”."
+    ]
   ]
 }
