@@ -1,5 +1,55 @@
 [
   {
+    "key": "purpose",
+    "text": {
+      "original": "Propósito:",
+      "translated": "Propósito:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "question",
+    "text": {
+      "original": "Pergunta:",
+      "translated": "Pergunta:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "question",
+    "text": {
+      "original": "Um aprendiz e um seguidor.",
+      "translated": "Um aprendiz e um seguidor."
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "acts-11-25-26-description-1",
+    "text": {
+      "original": "discípulo",
+      "translated": "discípulo"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-11-25-26-description-1",
+    "text": {
+      "original": "cristão?",
+      "translated": "cristão?"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "acts-11-25-26-description-3",
     "text": {
       "original": "Acts 26:28",
@@ -12,6 +62,26 @@
           "attributes": "data-scripture=\"Acts,26,28\" data-scripture-title=\"Acts 26:28\""
         }
       ]
+    }
+  },
+  {
+    "key": "acts-11-25-26-description-4",
+    "text": {
+      "original": "270 vezes",
+      "translated": "270 vezes"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-9-23-26-description-2",
+    "text": {
+      "original": "nega a si mesmo",
+      "translated": "nega a si mesmo"
+    },
+    "decorations": {
+      "bold": true
     }
   },
   {
@@ -30,10 +100,55 @@
     }
   },
   {
+    "key": "luke-11-1-4-description-1",
+    "text": {
+      "original": "Adoração, Confissão, Gratidão e Petição.",
+      "translated": "Adoração, Confissão, Gratidão e Petição."
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-11-1-4-description-2",
+    "text": {
+      "original": "aprender a orar",
+      "translated": "aprender a orar"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-11-1-4-description-3",
+    "text": {
+      "original": "v. 3",
+      "translated": "v. 3"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,11,3\" data-i18n=\"luke-11-3\""
+        }
+      ]
+    }
+  },
+  {
     "key": "luke-14-25-33-description-3",
     "text": {
-      "original": "verses 28-30",
-      "translated": "versículos 28-30"
+      "original": "ser um discípulo",
+      "translated": "ser um discípulo"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-14-25-33-description-3",
+    "text": {
+      "original": "v. 28-30",
+      "translated": "v. 28-30"
     },
     "decorations": {
       "tags": [
@@ -47,8 +162,18 @@
   {
     "key": "luke-14-25-33-description-4",
     "text": {
-      "original": "verses 31-33",
-      "translated": "versículos 31-33"
+      "original": "não ser um discípulo?",
+      "translated": "não ser um discípulo?"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-14-25-33-description-4",
+    "text": {
+      "original": "v. 31-33",
+      "translated": "v. 31-33"
     },
     "decorations": {
       "tags": [
@@ -81,12 +206,7 @@
       "translated": ""
     },
     "decorations": {
-      "tags": [
-        {
-          "name": "span",
-          "attributes": ""
-        }
-      ]
+      "bold": true
     }
   },
   {
