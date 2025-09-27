@@ -1,5 +1,80 @@
 [
   {
+    "key": "purpose",
+    "text": { "original": "Objetivo:", "translated": "Objetivo:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "question",
+    "text": { "original": "Pergunta:", "translated": "Pergunta:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-1",
+    "text": { "original": "66 livros", "translated": "66 livros" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-1",
+    "text": {
+      "original": "40 autores diferentes",
+      "translated": "40 autores diferentes"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-1",
+    "text": { "original": "três idiomas:", "translated": "três idiomas:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-1",
+    "text": {
+      "original": "três continentes:",
+      "translated": "três continentes:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-1",
+    "text": { "original": "1.500 anos.", "translated": "1.500 anos." },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-2",
+    "text": {
+      "original": "400 profecias sobre Jesus",
+      "translated": "400 profecias sobre Jesus"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "facts-4",
+    "text": {
+      "original": "40.000 cópias antigas",
+      "translated": "40.000 cópias antigas"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "facts-5",
     "text": { "original": "Isaiah 40:22", "translated": "Isaías 40:22" },
     "decorations": {
@@ -36,6 +111,34 @@
     }
   },
   {
+    "key": "q-1",
+    "text": { "original": "Ilustração:", "translated": "Ilustração:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "q-2",
+    "text": { "original": "Pergunta:", "translated": "Pergunta:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "2-timothy-3-16-17-description-5",
+    "text": { "original": "absoluto", "translated": "absoluto" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "hebrews-4-12-13-question",
+    "text": { "original": "Pergunta:", "translated": "Pergunta:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "thing1",
     "text": { "original": "2 PETER 1:19-21", "translated": "2 PEDRO 1:19-21" },
     "decorations": {
@@ -45,6 +148,16 @@
           "attributes": "data-scripture=\"2 Peter,1,19,21\" data-scripture-title=\"2 Peter 1:19-21\""
         }
       ]
+    }
+  },
+  {
+    "key": "thing1-description-1",
+    "text": {
+      "original": "(Exemplo: Um médico prescreve uma receita, mas um farmacêutico decide alterá-la.)",
+      "translated": "(Exemplo: Um médico prescreve uma receita, mas um farmacêutico decide alterá-la.)"
+    },
+    "decorations": {
+      "italic": true
     }
   },
   {
@@ -60,6 +173,16 @@
     }
   },
   {
+    "key": "thing2-description-1",
+    "text": {
+      "original": "(Exemplo: Ser parado por excesso de velocidade, mas não \"sente\" que estava correndo. Isso não o torna inocente.)",
+      "translated": "(Exemplo: Ser parado por excesso de velocidade, mas não \"sente\" que estava correndo. Isso não o torna inocente.)"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
     "key": "thing3",
     "text": { "original": "MARK 7:1-13", "translated": "MARCOS 7:1-13" },
     "decorations": {
@@ -72,15 +195,24 @@
     }
   },
   {
+    "key": "james-1-22-25-question",
+    "text": { "original": "Pergunta:", "translated": "Pergunta:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "john-12-48-description-2",
+    "text": { "original": "padrão de Deus", "translated": "padrão de Deus" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "SAMPLE",
     "text": { "original": "", "translated": "" },
     "decorations": {
-      "tags": [
-        {
-          "name": "span",
-          "attributes": ""
-        }
-      ]
+      "bold": true
     }
   },
   {
