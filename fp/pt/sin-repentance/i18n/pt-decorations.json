@@ -1,5 +1,12 @@
 [
   {
+    "key": "purpose",
+    "text": { "original": "Propósito:", "translated": "Propósito:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "galatians-5-19-21-description-1",
     "text": {
       "original": "Sin Definitions",
@@ -30,15 +37,24 @@
     }
   },
   {
+    "key": "romans-6-23-description-1",
+    "text": { "original": "morte eterna.", "translated": "morte eterna." },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "romans-6-23-description-2",
+    "text": { "original": "vida eterna!", "translated": "vida eterna!" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "SAMPLE",
     "text": { "original": "", "translated": "" },
     "decorations": {
-      "tags": [
-        {
-          "name": "span",
-          "attributes": ""
-        }
-      ]
+      "bold": true
     }
   },
   {
