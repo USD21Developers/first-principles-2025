@@ -1,5 +1,15 @@
 [
   {
+    "key": "purpose",
+    "text": {
+      "original": "Propósito:",
+      "translated": "Propósito:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "jesusFromGod",
     "text": {
       "original": "v. 22",
@@ -116,12 +126,7 @@
       "translated": ""
     },
     "decorations": {
-      "tags": [
-        {
-          "name": "span",
-          "attributes": ""
-        }
-      ]
+      "bold": true
     }
   },
   {
