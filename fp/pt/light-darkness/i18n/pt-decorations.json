@@ -112,8 +112,18 @@
   {
     "key": "1-peter-3-18-22-description-4",
     "text": {
-      "original": "REVIEW YOUR TIMELINE",
-      "translated": "REVEJA SUA LINHA DO TEMPO"
+      "original": "REVISE SUA LINHA DO TEMPO",
+      "translated": "REVISE SUA LINHA DO TEMPO"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
     },
     "decorations": {
       "bold": true
