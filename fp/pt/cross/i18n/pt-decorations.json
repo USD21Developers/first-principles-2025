@@ -1,5 +1,45 @@
 [
   {
+    "key": "purpose",
+    "text": {
+      "original": "Propósito:",
+      "translated": "Propósito:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "question",
+    "text": {
+      "original": "Pergunta:",
+      "translated": "Pergunta:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-26-36-46-description-1",
+    "text": {
+      "original": "não queria",
+      "translated": "não queria"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-26-36-46-description-1",
+    "text": {
+      "original": "escolheu",
+      "translated": "escolheu"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "matthew-26-57-68-description-3",
     "text": {
       "original": "John 2:18-21",
@@ -100,20 +140,10 @@
     }
   },
   {
-    "key": "challenge",
-    "text": {
-      "original": "Take time for confession and develop a plan for repentance. Read Appendix B — The Medical Account of Jesus' crucifixion or watch the Cross Video.",
-      "translated": "Reserve um tempo para a confissão e desenvolva um plano de arrependimento. Leia o Apêndice B — O Relato Médico da crucificação de Jesus ou assista ao Vídeo da Cruz."
-    },
-    "decorations": {
-      "bold": true
-    }
-  },
-  {
-    "key": "challenge",
+    "key": "challengeText",
     "text": {
       "original": "The Medical Account of Jesus' crucifixion",
-      "translated": "O Relato Médico da crucificação de Jesus"
+      "translated": "O Relato Médico da Crucificação de Jesus"
     },
     "decorations": {
       "link": {
@@ -129,12 +159,7 @@
       "translated": ""
     },
     "decorations": {
-      "tags": [
-        {
-          "name": "span",
-          "attributes": ""
-        }
-      ]
+      "bold": true
     }
   },
   {
