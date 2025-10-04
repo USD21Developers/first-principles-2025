@@ -12,11 +12,16 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-  max-width: 991px;
   position: relative;
   overflow: hidden;
   margin: auto;
   padding: 4rem;
+}
+
+@media (min-width: 991px) {
+  .master-container {
+    width: clamp(991px, 80vw, 1536px);
+  }
 }
 
 .container {

@@ -8,18 +8,24 @@ body {
   padding: 0;
 }
 
+
 .master-container {
   background-color: #f4f4f4;
   margin: auto;
-  max-width: 991px;
-  min-height: 100vh;
   width: 100%;
 }
+
+@media (min-width: 991px) {
+  .master-container {
+    width: clamp(991px, 80vw, 1536px);
+  }
+}
+
 
 header {
   background-color: #000000;
   background-image: url(img/masthead-lightdarkness.avif);
-  background-position: bottom right;
+  background-position: top right;
   background-repeat: no-repeat;
   background-size: cover;
   height: 18vh;
