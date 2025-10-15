@@ -111,3 +111,44 @@ a[data-i18n-global="fpLicense"] {
 a[data-i18n-global="fpLicense"] {
   text-decoration: underline;
 }
+
+.home_icon {
+  color: var(--bs-white);
+  display: inline-block;
+  height: auto;
+  left: 25px;
+  position: absolute;
+  top: 15px;
+  width: 24px;
+}
+
+.home_icon svg {
+  opacity: 30%;
+}
+
+.home_icon:hover svg,
+.home_icon:active svg {
+  opacity: 100%;
+  z-index: 100;
+}
+
+@media (max-width: 575px) {
+  .home_icon {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .home_icon {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home_icon {
+    height: 48px;
+    width: 48px;
+  }
+}
