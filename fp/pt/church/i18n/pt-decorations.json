@@ -1,5 +1,15 @@
 [
   {
+    "key": "purpose",
+    "text": {
+      "original": "Objetivo:",
+      "translated": "Objetivo:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "ephesians-2-19-22-description-1",
     "text": {
       "original": "1 Timothy 3:15",

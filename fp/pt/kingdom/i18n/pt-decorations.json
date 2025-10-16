@@ -303,7 +303,7 @@
     "key": "acts-2-1-17-description-1",
     "text": {
       "original": "Luke 24:44-49",
-      "translated": "Lucas 24"
+      "translated": "Lucas 24:44-49"
     },
     "decorations": {
       "tags": [
@@ -318,7 +318,7 @@
     "key": "acts-2-1-17-description-1a",
     "text": {
       "original": "Poder de alto",
-      "translated": "Poder de alto"
+      "translated": "Poder do alto"
     },
     "decorations": {
       "bold": true
@@ -491,6 +491,16 @@
       "translated": "Mateus 16:13-19"
     },
     "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-22-24-description-1",
+    "text": {
+      "original": "Mateus 16:13-19",
+      "translated": "Mateus 16:13-19"
+    },
+    "decorations": {
       "tags": [
         {
           "name": "span",
@@ -541,6 +551,7 @@
       "translated": "Lucas 24:44-49"
     },
     "decorations": {
+      "bold": true,
       "tags": [
         {
           "name": "span",
@@ -566,6 +577,7 @@
       "translated": "João 3:5"
     },
     "decorations": {
+      "bold": true,
       "tags": [
         {
           "name": "span",
@@ -667,8 +679,8 @@
   {
     "key": "matthew-6-33-description-1",
     "text": {
-      "original": "ir",
-      "translated": "ir"
+      "original": " ir ",
+      "translated": " ir "
     },
     "decorations": {
       "bold": true
