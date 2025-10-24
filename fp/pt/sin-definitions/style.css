@@ -93,7 +93,7 @@ dl {
 }
 
 dt::after {
-  content: " - ";
+  content: ": ";
 }
 
 dl div {
@@ -104,6 +104,10 @@ dl div {
 dt,
 dd {
   display: inline;
+}
+
+dd {
+  margin-left: 0.75rem;
 }
 
 .greekterm {
