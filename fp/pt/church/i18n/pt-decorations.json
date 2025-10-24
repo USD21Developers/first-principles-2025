@@ -55,6 +55,16 @@
     }
   },
   {
+    "key": "ephesians-4-4-6-description-4",
+    "text": {
+      "original": "ekklesia",
+      "translated": "ekklesia"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
     "key": "fiveConvictions-description-1",
     "text": {
       "original": "(Acts 13:47)",
@@ -247,6 +257,16 @@
           "attributes": "data-scripture=\"2 Corinthians,6,14,18\" data-scripture-title=\"2 Corinthians 6:14-18\""
         }
       ]
+    }
+  },
+  {
+    "key": "hebrews-10-23-25-description-3",
+    "text": {
+      "original": "todas",
+      "translated": "todas"
+    },
+    "decorations": {
+      "bold": true
     }
   },
   {
