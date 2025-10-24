@@ -182,6 +182,32 @@
     }
   },
   {
+    "key": "p34",
+    "text": {
+      "original": "sétima",
+      "translated": "sétima"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p34",
+    "text": {
+      "original": "“Pai, nas tuas mãos entrego o meu espírito”",
+      "translated": "“Pai, nas tuas mãos entrego o meu espírito”"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
     "key": "SAMPLE",
     "text": {
       "original": "",
