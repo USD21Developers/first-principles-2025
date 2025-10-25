@@ -1,0 +1,12 @@
+{
+  "display": "",
+  "slug": "",
+  "language": "zh",
+  "version": "CNVS",
+  "book": "",
+  "chapter": ,
+  "verses": [
+    [, ""],
+    [, ""]
+  ]
+}
