@@ -86,7 +86,7 @@ function enableSpeech() {
     u.lang = lang;
 
     if (voices.length) {
-      u.voice = voices[0];
+      u.voice = voices[0]; // TODO:  Let the user select their preferred voice
     }
 
     currentUtterance = u;
