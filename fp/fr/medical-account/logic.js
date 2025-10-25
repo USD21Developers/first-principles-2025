@@ -85,8 +85,8 @@ function enableSpeech() {
 
     u.lang = lang;
 
-    if (voices.length > 1) {
-      u.voice = voices[1];
+    if (voices.length) {
+      u.voice = voices[0];
     }
 
     currentUtterance = u;
