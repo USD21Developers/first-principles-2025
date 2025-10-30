@@ -1,23 +1,26 @@
 {
-  "display": "Acts 2:1-4",
+  "display": "使徒行传 2:1-4",
   "slug": "acts-2-1-4",
   "language": "zh",
   "version": "CNVS",
   "book": "Acts",
   "chapter": 2,
   "verses": [
-    [1, "When the day of Pentecost came, they were all together in one place."],
+    [
+      1,
+      "五旬节到了，他们都聚集在一起。"
+    ],
     [
       2,
-      "Suddenly a sound like the blowing of a violent wind came from heaven and filled the whole house where they were sitting."
+      "忽然有一阵好象强风吹过的响声，从天而来，充满了他们坐在里面的整间屋子。"
     ],
     [
       3,
-      "They saw what seemed to be tongues of fire that separated and came to rest on each of them."
+      "又有火焰般的舌头显现出来，分别落在他们各人身上。"
     ],
     [
       4,
-      "All of them were filled with the Holy Spirit and began to speak in other tongues as the Spirit enabled them."
+      "他们都被圣灵充满，就照着圣灵所赐给他们的口才，用别种语言说出话来。"
     ]
   ]
 }

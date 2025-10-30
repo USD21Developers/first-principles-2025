@@ -1,15 +1,18 @@
 {
-  "display": "Acts 11:25-26",
+  "display": "使徒行传 11:25-26",
   "slug": "acts-11-25-26",
   "language": "zh",
   "version": "CNVS",
   "book": "Acts",
   "chapter": 11,
   "verses": [
-    [25, "Then Barnabas went to Tarsus to look for Saul,"],
+    [
+      25,
+      "后来他到大数去找扫罗，"
+    ],
     [
       26,
-      "and when he found him, he brought him to Antioch. So for a whole year Barnabas and Saul met with the church and taught great numbers of people. The disciples were called Christians first at Antioch."
+      "找到了，就带他来安提阿。足足有一年，他们一同在教会聚集，教导了许多人。门徒称为基督徒，是从安提阿开始的。"
     ]
   ]
 }

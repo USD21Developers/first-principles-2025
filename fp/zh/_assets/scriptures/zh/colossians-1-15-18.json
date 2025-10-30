@@ -1,5 +1,5 @@
 {
-  "display": "Colossians 1:15-18",
+  "display": "歌罗西书 1:15-18",
   "slug": "colossians-1-15-18",
   "language": "zh",
   "version": "CNVS",
@@ -8,16 +8,19 @@
   "verses": [
     [
       15,
-      "The Son is the image of the invisible God, the firstborn over all creation."
+      "这爱子是那看不见的　神的形象，是首先的，在一切被造的之上。"
     ],
     [
       16,
-      "For in him all things were created: things in heaven and on earth, visible and invisible, whether thrones or powers or rulers or authorities; all things have been created through him and for him."
+      "因为天上地上的万有：看得见的和看不见的，无论是坐王位的，或是作主的，或是执政的，或是掌权的，都是本着他造的；万有都是借着他，又是为着他而造的。"
     ],
-    [17, "He is before all things, and in him all things hold together."],
+    [
+      17,
+      "他在万有之先；万有也一同靠着他而存在。"
+    ],
     [
       18,
-      "And he is the head of the body, the church; he is the beginning and the firstborn from among the dead, so that in everything he might have the supremacy."
+      "他是身体的头，这身体就是教会。他是元始，是死人中首先复生的，好让他在凡事上居首位；"
     ]
   ]
 }

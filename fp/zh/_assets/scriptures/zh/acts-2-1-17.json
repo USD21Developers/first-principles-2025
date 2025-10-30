@@ -1,69 +1,78 @@
 {
-  "display": "Acts 2:1-17",
+  "display": "使徒行传 2:1-17",
   "slug": "acts-2-1-17",
   "language": "zh",
   "version": "CNVS",
   "book": "Acts",
   "chapter": 2,
   "verses": [
-    [1, "When the day of Pentecost came, they were all together in one place."],
+    [
+      1,
+      "五旬节到了，他们都聚集在一起。"
+    ],
     [
       2,
-      "Suddenly a sound like the blowing of a violent wind came from heaven and filled the whole house where they were sitting."
+      "忽然有一阵好象强风吹过的响声，从天而来，充满了他们坐在里面的整间屋子。"
     ],
     [
       3,
-      "They saw what seemed to be tongues of fire that separated and came to rest on each of them."
+      "又有火焰般的舌头显现出来，分别落在他们各人身上。"
     ],
     [
       4,
-      "All of them were filled with the Holy Spirit and began to speak in other tongues as the Spirit enabled them."
+      "他们都被圣灵充满，就照着圣灵所赐给他们的口才，用别种语言说出话来。"
     ],
     [
       5,
-      "Now there were staying in Jerusalem God-fearing Jews from every nation under heaven."
+      "那时住在耶路撒冷的，有从天下各国来的虔诚的犹太人。"
     ],
     [
       6,
-      "When they heard this sound, a crowd came together in bewilderment, because each one heard their own language being spoken."
+      "这声音一响，许多人都聚了来，人人都听见门徒讲出听众各人本乡的话，就莫名其妙。"
     ],
     [
       7,
-      "Utterly amazed, they asked: “Aren't all these who are speaking Galileans?"
+      "他们又惊讶、又惊奇，说：“你看，这些说话的，不都是加利利人吗？"
     ],
-    [8, "Then how is it that each of us hears them in our native language?"],
+    [
+      8,
+      "我们各人怎么听见他们讲我们从小所用的本乡话呢？"
+    ],
     [
       9,
-      "Parthians, Medes and Elamites; residents of Mesopotamia, Judea and Cappadocia, Pontus and Asia,"
+      "我们帕提亚人、玛代人、以拦人和住在美索不达米亚、犹太、加帕多家、本都、亚西亚、"
     ],
     [
       10,
-      "Phrygia and Pamphylia, Egypt and the parts of Libya near Cyrene; visitors from Rome"
+      "弗吕家、旁非利亚、埃及，并靠近古利奈的利比亚一带地方的人，客居罗马的犹太人和归信犹太教的人，"
     ],
     [
       11,
-      "(both Jews and converts to Judaism); Cretans and Arabs—we hear them declaring the wonders of God in our own tongues!”"
+      "克里特人以及阿拉伯人，都听见他们用我们的语言，讲说　神的大作为。”"
     ],
     [
       12,
-      "Amazed and perplexed, they asked one another, “What does this mean?”"
+      "众人还在惊讶迷惘的时候，彼此说：“这是甚么意思？”"
     ],
     [
       13,
-      "Some, however, made fun of them and said, “They have had too much wine.”"
+      "另有些人讥笑说：“他们是给新酒灌醉了。”"
     ],
     [
       14,
-      "Then Peter stood up with the Eleven, raised his voice and addressed the crowd: “Fellow Jews and all of you who live in Jerusalem, let me explain this to you; listen carefully to what I say."
+      "彼得和十一使徒站起来，他高声对众人说：“犹太人和所有住在耶路撒冷的人哪，你们应当明白这件事，也应该留心听我的话。"
     ],
     [
       15,
-      "These people are not drunk, as you suppose. It's only nine in the morning!"
+      "这些人并不是照你们所想的喝醉了，现在不过是上午九点钟罢了。"
     ],
-    [16, "No, this is what was spoken by the prophet Joel:"],
+    [
+      16,
+      "这正是约珥先知所说的："
+    ],
     [
       17,
-      "“'In the last days, God says, I will pour out my Spirit on all people. Your sons and daughters will prophesy, your young men will see visions, your old men will dream dreams.”"
+      "‘　神说：在末后的日子，我要把我的灵浇灌所有的人，你们的儿女要说预言，你们的青年人要见异象，你们的老年人要作异梦。"
     ]
   ]
 }

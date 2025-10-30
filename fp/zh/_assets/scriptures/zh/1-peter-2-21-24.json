@@ -1,5 +1,5 @@
 {
-  "display": "1 Peter 2:21-24",
+  "display": "彼得前书 2:21-24",
   "slug": "1-peter-2-21-24",
   "language": "zh",
   "version": "CNVS",
@@ -8,16 +8,19 @@
   "verses": [
     [
       21,
-      "To this you were called, because Christ suffered for you, leaving you an example, that you should follow in his steps."
+      "你们就是为此蒙召，因基督也为你们受过苦，给你们留下榜样，叫你们跟随他的脚踪行。"
     ],
-    [22, "“He committed no sin, and no deceit was found in his mouth.”"],
+    [
+      22,
+      "“他从来没有犯过罪，口里也找不到诡诈。”"
+    ],
     [
       23,
-      "When they hurled their insults at him, he did not retaliate; when he suffered, he made no threats. Instead, he entrusted himself to him who judges justly."
+      "他被骂的时候不还嘴，受苦的时候也不说恐吓的话；只把自己交托给那公义的审判者。"
     ],
     [
       24,
-      "“He himself bore our sins” in his body on the cross, so that we might die to sins and live for righteousness; “by his wounds you have been healed.”"
+      "他在木头上亲身担当了我们的罪，使我们既然不活在罪中，就可以为义而活。因他受的鞭伤，你们就得了医治。"
     ]
   ]
 }
