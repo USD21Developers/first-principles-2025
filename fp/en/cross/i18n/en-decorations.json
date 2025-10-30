@@ -84,8 +84,8 @@
   {
     "key": "challenge",
     "text": {
-      "original": "Take time for confession and develop a plan for repentance. Read Appendix B — The Medical Account of Jesus' crucifixion or watch the Cross Video.",
-      "translated": "Take time for confession and develop a plan for repentance. Read Appendix B — The Medical Account of Jesus' crucifixion or watch the Cross Video."
+      "original": "Take time for confession and develop a plan for repentance. Read Appendix B — The Medical Account of Jesus' Crucifixion or watch the Cross Video.",
+      "translated": "Take time for confession and develop a plan for repentance. Read Appendix B — The Medical Account of Jesus' Crucifixion or watch the Cross Video."
     },
     "decorations": {
       "bold": true
@@ -94,8 +94,8 @@
   {
     "key": "challenge",
     "text": {
-      "original": "The Medical Account of Jesus' crucifixion",
-      "translated": "The Medical Account of Jesus' crucifixion"
+      "original": "The Medical Account of Jesus' Crucifixion",
+      "translated": "The Medical Account of Jesus' Crucifixion"
     },
     "decorations": {
       "link": { "href": "../medical-account/", "attributes": "" }
