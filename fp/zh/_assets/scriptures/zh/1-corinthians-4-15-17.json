@@ -1,5 +1,5 @@
 {
-  "display": "1 Corinthians 4:15-17",
+  "display": "哥林多前书 4:15-17",
   "slug": "1-corinthians-4-15-17",
   "language": "zh",
   "version": "CNVS",
@@ -8,12 +8,15 @@
   "verses": [
     [
       15,
-      "Even if you had ten thousand guardians in Christ, you do not have many fathers, for in Christ Jesus I became your father through the gospel."
+      "纵然你们在基督里有上万的启蒙教师，可是父亲却不多，因为是我在基督耶稣里借着福音生了你们。"
     ],
-    [16, "Therefore I urge you to imitate me."],
+    [
+      16,
+      "所以我劝你们要效法我。"
+    ],
     [
       17,
-      "For this reason I have sent to you Timothy, my son whom I love, who is faithful in the Lord. He will remind you of my way of life in Christ Jesus, which agrees with what I teach everywhere in every church."
+      "因此，我打发提摩太到你们那里去。他是我在主里亲爱又忠心的儿子，他要提醒你们我在基督里是怎样行事为人，正如我在各处教会中所教导的一样。"
     ]
   ]
 }

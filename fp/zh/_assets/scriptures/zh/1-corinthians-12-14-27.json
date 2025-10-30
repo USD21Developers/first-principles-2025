@@ -1,54 +1,66 @@
 {
-  "display": "1 Corinthians 12:14-27",
+  "display": "哥林多前书 12:14-27",
   "slug": "1-corinthians-12-14-27",
   "language": "zh",
   "version": "CNVS",
   "book": "1 Corinthians",
   "chapter": 12,
   "verses": [
-    [14, "Even so the body is not made up of one part but of many."],
+    [
+      14,
+      "原来身体有许多肢体，并不是只有一个肢体。"
+    ],
     [
       15,
-      "Now if the foot should say, “Because I am not a hand, I do not belong to the body,” it would not for that reason stop being part of the body."
+      "假如脚说：“我不是手，所以我不属于身体。”它不能因此就不属于身体。"
     ],
     [
       16,
-      "And if the ear should say, “Because I am not an eye, I do not belong to the body,” it would not for that reason stop being part of the body."
+      "假如耳朵说：“我不是眼睛，所以我不属于身体。”它也不能因此就不属于身体。"
     ],
     [
       17,
-      "If the whole body were an eye, where would the sense of hearing be? If the whole body were an ear, where would the sense of smell be?"
+      "假如整个身体只是眼睛，怎样听呢？假如整个身体只是耳朵，怎样闻味呢？"
     ],
     [
       18,
-      "But in fact God has placed the parts in the body, every one of them, just as he wanted them to be."
+      "但现在　神按照自己的意思，把肢体一一放在身体上。"
     ],
-    [19, "If they were all one part, where would the body be?"],
-    [20, "As it is, there are many parts, but one body."],
+    [
+      19,
+      "假如所有的只是一个肢体，怎能算是身体呢？"
+    ],
+    [
+      20,
+      "但现在肢体虽然很多，身体却只是一个。"
+    ],
     [
       21,
-      "The eye cannot say to the hand, “I don't need you!” And the head cannot say to the feet, “I don't need you!”"
+      " 眼睛不能对手说：“我不需要你。”头也不能对脚说：“我不需要你们。”"
     ],
     [
       22,
-      "On the contrary, those parts of the body that seem to be weaker are indispensable,"
+      "相反地，身体上那些似乎比较软弱的肢体，更是不可缺少的。"
     ],
     [
       23,
-      "and the parts that we think are less honorable we treat with special honor. And the parts that are unpresentable are treated with special modesty,"
+      "我们认为身体上不大体面的部分，就更加要把它装饰得体面；不大美观的部分，就更加要使它美观。"
     ],
     [
       24,
-      "while our presentable parts need no special treatment. But God has put the body together, giving greater honor to the parts that lacked it,"
+      " 我们身体上美观的部分，就不需要这样了。但　神却这样把身体组成了：格外地把体面加给比较有缺欠的肢体，"
     ],
     [
       25,
-      "so that there should be no division in the body, but that its parts should have equal concern for each other."
+      "好使肢体能够互相照顾，免得身体上有了分裂。"
     ],
     [
       26,
-      "If one part suffers, every part suffers with it; if one part is honored, every part rejoices with it."
+      "如果一个肢体受苦，所有的肢体就一同受苦；如果一个肢体得荣耀，所有的肢体就一同快乐。"
     ],
-    [27, "Now you are the body of Christ, and each one of you is a part of it."]
+    [
+      27,
+      "你们就是基督的身体，并且每一个人都是作肢体的。"
+    ]
   ]
 }
