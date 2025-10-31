@@ -1,19 +1,22 @@
 {
-  "display": "Mark 7:20-22",
+  "display": "马可福音 7:20-22",
   "slug": "mark-7-20-22",
   "language": "zh",
   "version": "CNVS",
   "book": "Mark",
   "chapter": 7,
   "verses": [
-    [20, "He went on: \"What comes out of a person is what defiles them."],
+    [
+      20,
+      "接着他又说：“从人里面出来的，才会使人污秽。 "
+    ],
     [
       21,
-      "For it is from within, out of a person's heart, that evil thoughts come — sexual immorality, theft, murder,"
+      "因为从里面，就是从人的心里，发出恶念、淫乱、偷盗、凶杀、"
     ],
     [
       22,
-      "adultery, greed, malice, deceit, lewdness, envy, slander, arrogance and folly.\""
+      "奸淫、贪心、邪恶、诡诈、放荡、嫉妒、毁谤、骄傲、愚妄；"
     ]
   ]
 }

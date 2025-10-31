@@ -1,23 +1,26 @@
 {
-  "display": "Matthew 5:27-30",
+  "display": "马太福音 5:27-30",
   "slug": "matthew-5-27-30",
   "language": "zh",
   "version": "CNVS",
   "book": "Matthew",
   "chapter": 5,
   "verses": [
-    [27, "“You have heard that it was said, 'You shall not commit adultery.'"],
+    [
+      27,
+      "“你们听过有这样的吩咐：‘不可奸淫。’ "
+    ],
     [
       28,
-      "But I tell you that anyone who looks at a woman lustfully has already committed adultery with her in his heart."
+      "可是我告诉你们，凡是看见妇女就动淫念的，心里已经犯了奸淫。"
     ],
     [
       29,
-      "If your right eye causes you to stumble, gouge it out and throw it away. It is better for you to lose one part of your body than for your whole body to be thrown into hell."
+      "如果你的右眼使你犯罪，就把它挖出来丢掉；宁可失去身体的一部分，胜过全身被丢进地狱里。"
     ],
     [
       30,
-      "And if your right hand causes you to stumble, cut it off and throw it away. It is better for you to lose one part of your body than for your whole body to go into hell.”"
+      "如果你的右手使你犯罪，就把它砍下来丢掉；宁可失去身体的一部分，胜过全身进到地狱里去。"
     ]
   ]
 }

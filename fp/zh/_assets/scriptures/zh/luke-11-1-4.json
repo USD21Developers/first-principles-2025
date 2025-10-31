@@ -1,5 +1,5 @@
 {
-  "display": "Luke 11:1-4",
+  "display": "路加福音 11:1-4",
   "slug": "luke-11-1-4",
   "language": "zh",
   "version": "CNVS",
@@ -8,16 +8,19 @@
   "verses": [
     [
       1,
-      "One day Jesus was praying in a certain place. When he finished, one of his disciples said to him, “Lord, teach us to pray, just as John taught his disciples.”"
+      "有一天，耶稣在一个地方祈祷，祈祷完了，有一个门徒对他说：“主啊，求你教导我们祷告，像约翰教导他的门徒一样。”"
     ],
     [
       2,
-      "He said to them, “When you pray, say: “‘Father, hallowed be your name, your kingdom come."
+      "耶稣说：“你们祷告的时候，要说：‘父啊，愿你的名被尊为圣，愿你的国降临（有些抄本在此有“愿你的旨意行在地上，如同行在天上”一句）；"
     ],
-    [3, "Give us each day our daily bread."],
+    [
+      3,
+      "我们需用的食物，求你每天赐给我们；"
+    ],
     [
       4,
-      "Forgive us our sins, for we also forgive everyone who sins against us. And lead us not into temptation.’”"
+      "赦免我们的罪，因为我们也饶恕所有亏负我们的人；不要让我们陷入试探（有些抄本在此有“救我们脱离那恶者”一句）。’”"
     ]
   ]
 }

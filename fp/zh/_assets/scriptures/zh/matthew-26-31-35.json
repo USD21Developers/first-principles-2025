@@ -1,5 +1,5 @@
 {
-  "display": "Matthew 26:31-35",
+  "display": "马太福音 26:31-35",
   "slug": "matthew-26-31-35",
   "language": "zh",
   "version": "CNVS",
@@ -8,20 +8,23 @@
   "verses": [
     [
       31,
-      "Then Jesus told them, “This very night you will all fall away on account of me, for it is written: “'I will strike the shepherd, and the sheep of the flock will be scattered.'"
+      "那时，耶稣对他们说：“今天晚上，你们因我的缘故都要后退，因为经上记着：‘我要击打牧人，羊群就分散了。’"
     ],
-    [32, "But after I have risen, I will go ahead of you into Galilee.”"],
+    [
+      32,
+      "我复活以后，要比你们先到加利利去。”"
+    ],
     [
       33,
-      "Peter replied, “Even if all fall away on account of you, I never will.”"
+      "彼得对他说：“就算所有的人都因你的缘故后退，我却永不后退。”"
     ],
     [
       34,
-      "“Truly I tell you,” Jesus answered, “this very night, before the rooster crows, you will disown me three times.”"
+      "耶稣对他说：“我实在告诉你，今天晚上鸡叫以前，你会三次不认我。” "
     ],
     [
       35,
-      "But Peter declared, “Even if I have to die with you, I will never disown you.” And all the other disciples said the same."
+      "彼得对他说：“就算必须与你一同死，我也决不会不认你。”门徒也都这样说。"
     ]
   ]
 }

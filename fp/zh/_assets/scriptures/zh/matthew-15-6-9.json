@@ -1,5 +1,5 @@
 {
-  "display": "Matthew 15:6-9",
+  "display": "马太福音 15:6-9",
   "slug": "matthew-15-6-9",
   "language": "zh",
   "version": "CNVS",
@@ -8,13 +8,19 @@
   "verses": [
     [
       6,
-      "they are not to 'honor their father or mother' with it. Thus you nullify the word of God for the sake of your tradition."
+      "他就可以不孝敬父母了。’你们因为你们的传统，就废弃了　神的话。"
     ],
-    [7, "You hypocrites! Isaiah was right when he prophesied about you:"],
+    [
+      7,
+      "伪君子啊，以赛亚指着你们说的预言说得好："
+    ],
     [
       8,
-      "“'These people honor me with their lips, but their hearts are far from me."
+      "‘这人民用嘴唇尊敬我，心却远离我；"
     ],
-    [9, "They worship me in vain; their teachings are merely human rules.'”"]
+    [
+      9,
+      "他们把人的规条当作道理去教导人，所以拜我也是徒然。’”"
+    ]
   ]
 }

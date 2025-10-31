@@ -1,5 +1,5 @@
 {
-  "display": "Matthew 3:1-2",
+  "display": "马太福音 3:1-2",
   "slug": "matthew-3-1-2",
   "language": "zh",
   "version": "CNVS",
@@ -8,8 +8,11 @@
   "verses": [
     [
       1,
-      "In those days John the Baptist came, preaching in the wilderness of Judea"
+      "那时，施洗的约翰出来，在犹太的旷野传道，"
     ],
-    [2, "and saying, “Repent, for the kingdom of heaven has come near.”"]
+    [
+      2,
+      "说：“天国近了，你们应当悔改。”"
+    ]
   ]
 }

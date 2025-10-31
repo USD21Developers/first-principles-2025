@@ -1,5 +1,5 @@
 {
-  "display": "Luke 14:25-33",
+  "display": "路加福音 14:25-33",
   "slug": "luke-14-25-33",
   "language": "zh",
   "version": "CNVS",
@@ -8,36 +8,39 @@
   "verses": [
     [
       25,
-      "Large crowds were traveling with Jesus, and turning to them he said:"
+      "有许多人与耶稣同行，他转身对他们说："
     ],
     [
       26,
-      "“If anyone comes to me and does not hate father and mother, wife and children, brothers and sisters—yes, even their own life—such a person cannot be my disciple."
+      "“如果有人到我这里来，爱我不超过爱（“爱我不超过爱”原文作“不恨”）自己的父母、妻子、儿女、兄弟、姊妹，甚至自己的性命，就不能作我的门徒。"
     ],
     [
       27,
-      "And whoever does not carry their cross and follow me cannot be my disciple."
+      "凡不背着自己的十字架跟随我的，也不能作我的门徒。"
     ],
     [
       28,
-      "“Suppose one of you wants to build a tower. Won't you first sit down and estimate the cost to see if you have enough money to complete it?"
+      "你们当中有谁要盖一座楼，不先坐下计算费用，能不能盖成呢？"
     ],
     [
       29,
-      "For if you lay the foundation and are not able to finish it, everyone who sees it will ridicule you,"
+      "恐怕安了地基，而不能完成，所有看见的人都讥笑他，"
     ],
-    [30, "saying, 'This person began to build and wasn't able to finish.'"],
+    [
+      30,
+      "说：‘这个人开了工，却不能完工。’"
+    ],
     [
       31,
-      "“Or suppose a king is about to go to war against another king. Won’t he first sit down and consider whether he is able with ten thousand men to oppose the one coming against him with twenty thousand?"
+      "或者一个王去和别的王打仗，哪有不先坐下想想，能否用一万兵去抵抗那领两万来攻打他的呢？"
     ],
     [
       32,
-      "If he is not able, he will send a delegation while the other is still a long way off and will ask for terms of peace."
+      "如果不能，就该趁对方还远的时候，派使者去谈判和平的条件。"
     ],
     [
       33,
-      "In the same way, those of you who do not give up everything you have cannot be my disciples."
+      "这样，你们中间不论谁，如果不撇下一切所有的，就不能作我的门徒。"
     ]
   ]
 }

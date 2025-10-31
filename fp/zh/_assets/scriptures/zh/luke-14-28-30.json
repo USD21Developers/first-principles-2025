@@ -1,5 +1,5 @@
 {
-  "display": "Luke 14:28-30",
+  "display": "路加福音 14:28-30",
   "slug": "luke-14-28-30",
   "language": "zh",
   "version": "CNVS",
@@ -8,12 +8,15 @@
   "verses": [
     [
       28,
-      "“Suppose one of you wants to build a tower. Won't you first sit down and estimate the cost to see if you have enough money to complete it?"
+      "你们当中有谁要盖一座楼，不先坐下计算费用，能不能盖成呢？"
     ],
     [
       29,
-      "For if you lay the foundation and are not able to finish it, everyone who sees it will ridicule you,"
+      "恐怕安了地基，而不能完成，所有看见的人都讥笑他，"
     ],
-    [30, "saying, 'This person began to build and wasn't able to finish.'"]
+    [
+      30,
+      "说：‘这个人开了工，却不能完工。’"
+    ]
   ]
 }

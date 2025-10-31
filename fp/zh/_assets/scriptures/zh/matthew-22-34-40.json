@@ -1,5 +1,5 @@
 {
-  "display": "Matthew 22:34-40",
+  "display": "马太福音 22:34-40",
   "slug": "matthew-22-34-40",
   "language": "zh",
   "version": "CNVS",
@@ -8,16 +8,31 @@
   "verses": [
     [
       34,
-      "Hearing that Jesus had silenced the Sadducees, the Pharisees got together."
+      "法利赛人听见耶稣使撒都该人无话可说，就聚集在一起。"
     ],
-    [35, "One of them, an expert in the law, tested him with this question:"],
-    [36, "“Teacher, which is the greatest commandment in the Law?”"],
+    [
+      35,
+      "他们中间有一个律法家，试探耶稣说："
+    ],
+    [
+      36,
+      "“老师，律法中哪一条诫命是最重要的呢？”"
+    ],
     [
       37,
-      "Jesus replied: “'Love the Lord your God with all your heart and with all your soul and with all your mind.'"
+      "他回答：“你要全心、全性、全意爱主你的　神。"
     ],
-    [38, "This is the first and greatest commandment."],
-    [39, "And the second is like it: 'Love your neighbor as yourself.'"],
-    [40, "All the Law and the Prophets hang on these two commandments.”"]
+    [
+      38,
+      "这是最重要的第一条诫命。"
+    ],
+    [
+      39,
+      "第二条也和它相似，就是要爱人如己。"
+    ],
+    [
+      40,
+      "全部律法和先知书，都以这两条诫命作为根据。”"
+    ]
   ]
 }

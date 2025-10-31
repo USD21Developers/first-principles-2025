@@ -1,5 +1,5 @@
 {
-  "display": "Matthew 27:57-61",
+  "display": "马太福音 27:57-61",
   "slug": "matthew-27-57-61",
   "language": "zh",
   "version": "CNVS",
@@ -8,20 +8,23 @@
   "verses": [
     [
       57,
-      "As evening approached, there came a rich man from Arimathea, named Joseph, who had himself become a disciple of Jesus."
+      "到了晚上，有一个亚利马太的富翁来到，他名叫约瑟，是耶稣的门徒。"
     ],
     [
       58,
-      "Going to Pilate, he asked for Jesus' body, and Pilate ordered that it be given to him."
+      "这个人去见彼拉多，请求领取耶稣的身体，彼拉多就吩咐给他。"
     ],
-    [59, "Joseph took the body, wrapped it in a clean linen cloth,"],
+    [
+      59,
+      "约瑟领了耶稣的身体，用干净的细麻布裹好，"
+    ],
     [
       60,
-      "and placed it in his own new tomb that he had cut out of the rock. He rolled a big stone in front of the entrance to the tomb and went away."
+      "放在自己的新坟墓里，就是在盘石里凿出来的。他辊了一块大石头来挡住墓门，然后才离开。"
     ],
     [
       61,
-      "Mary Magdalene and the other Mary were sitting there opposite the tomb."
+      "抹大拉的马利亚和另一个马利亚都在那里，对着坟墓坐着。"
     ]
   ]
 }

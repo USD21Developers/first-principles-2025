@@ -1,5 +1,5 @@
 {
-  "display": "Romans 6:1-8",
+  "display": "罗马书 6:1-8",
   "slug": "romans-6-1-8",
   "language": "zh",
   "version": "CNVS",
@@ -8,32 +8,35 @@
   "verses": [
     [
       1,
-      "What shall we say, then? Shall we go on sinning so that grace may increase?"
+      "这样，我们可以说甚么呢？我们可以常在罪中，叫恩典增多吗？"
     ],
     [
       2,
-      "By no means! We are those who have died to sin; how can we live in it any longer?"
+      "绝对不可！我们向罪死了的人，怎么可以仍然活在罪中呢？"
     ],
     [
       3,
-      "Or don't you know that all of us who were baptized into Christ Jesus were baptized into his death?"
+      "难道你们不晓得我们这受洗归入基督耶稣的人，是受洗归入他的死吗？"
     ],
     [
       4,
-      "We were therefore buried with him through baptism into death in order that, just as Christ was raised from the dead through the glory of the Father, we too may live a new life."
+      "所以我们借着洗礼归入死，与他同葬，为的是要我们过新生命的生活，像基督借着父的荣耀从死人中复活一样。"
     ],
     [
       5,
-      "For if we have been united with him in a death like his, we will certainly also be united with him in a resurrection like his."
+      "我们若在他死的样式上与他联合，也要在他复活的样式上与他联合。"
     ],
     [
       6,
-      "For we know that our old self was crucified with him so that the body ruled by sin might be done away with, that we should no longer be slaves to sin—"
+      "我们知道，我们的旧人已经与基督同钉十字架，使罪身丧失机能，使我们不再作罪的奴仆，"
     ],
-    [7, "because anyone who has died has been set free from sin."],
+    [
+      7,
+      "因为死了的人已经脱离罪了。"
+    ],
     [
       8,
-      "Now if we died with Christ, we believe that we will also live with him."
+      "我们既然与基督同死，就信也必与他同活。"
     ]
   ]
 }

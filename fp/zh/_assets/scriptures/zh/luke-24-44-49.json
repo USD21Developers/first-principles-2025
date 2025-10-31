@@ -1,5 +1,5 @@
 {
-  "display": "Luke 24:44-49",
+  "display": "路加福音 24:44-49",
   "slug": "luke-24-44-49",
   "language": "zh",
   "version": "CNVS",
@@ -8,21 +8,27 @@
   "verses": [
     [
       44,
-      "He said to them, “This is what I told you while I was still with you: Everything must be fulfilled that is written about me in the Law of Moses, the Prophets and the Psalms.”"
+      "主对他们说：“这就是我从前与你们同在的时候，对你们说过的话：摩西的律法、先知书和诗篇上所记关于我的一切事，都必定应验。” "
     ],
-    [45, "Then he opened their minds so they could understand the Scriptures."],
+    [
+      45,
+      "于是他开他们的心窍，使他们明白圣经；"
+    ],
     [
       46,
-      "He told them, “This is what is written: The Messiah will suffer and rise from the dead on the third day,"
+      "又说：“经上这样记着：基督必须受害，第三天从死人中复活。"
     ],
     [
       47,
-      "and repentance for the forgiveness of sins will be preached in his name to all nations, beginning at Jerusalem."
+      "人要奉他的名，传讲悔改与赦罪的道，从耶路撒冷起，直传到万国。"
     ],
-    [48, "You are witnesses of these things."],
+    [
+      48,
+      "你们就是这些事的见证。"
+    ],
     [
       49,
-      "I am going to send you what my Father has promised; but stay in the city until you have been clothed with power from on high.”"
+      "我要使我父的应许临到你们身上，你们当在城里等候，直到得着从上面来的能力。”"
     ]
   ]
 }
