@@ -1,5 +1,5 @@
 {
-  "display": "Ephesians 4:4-6",
+  "display": "以弗所书 4:4-6",
   "slug": "ephesians-4-4-6",
   "language": "zh",
   "version": "CNVS",
@@ -8,12 +8,15 @@
   "verses": [
     [
       4,
-      "There is one body and one Spirit, just as you were called to one hope when you were called;"
+      "身体只有一个，圣灵只有一位，就像你们蒙召只是借着一个盼望。"
     ],
-    [5, "one Lord, one faith, one baptism;"],
+    [
+      5,
+      "主只有一位，信仰只有一个，洗礼只有一种；"
+    ],
     [
       6,
-      "one God and Father of all, who is over all and through all and in all."
+      "神只有一位，就是万有的父。他超越万有，贯彻万有，并且在万有之中。"
     ]
   ]
 }

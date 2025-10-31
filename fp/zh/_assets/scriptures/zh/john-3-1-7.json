@@ -1,5 +1,5 @@
 {
-  "display": "John 3:1-7",
+  "display": "约翰福音 3:1-7",
   "slug": "john-3-1-7",
   "language": "zh",
   "version": "CNVS",
@@ -8,25 +8,31 @@
   "verses": [
     [
       1,
-      "Now there was a Pharisee, a man named Nicodemus who was a member of the Jewish ruling council."
+      "有一个法利赛人，名叫尼哥德慕，是犹太人的官长。"
     ],
     [
       2,
-      "He came to Jesus at night and said, “Rabbi, we know that you are a teacher who has come from God. For no one could perform the signs you are doing if God were not with him.”"
+      "他夜间来到耶稣那里，对他说：“拉比，我们知道你是从　神那里来的教师，因为如果没有　神同在，你所行的这些神迹，就没有人能行。”"
     ],
     [
       3,
-      "Jesus replied, “Very truly I tell you, no one can see the kingdom of God unless they are born again.”"
+      "耶稣回答：“我实实在在告诉你，人若不重生，就不能见　神的国。”"
     ],
     [
       4,
-      "“How can someone be born when they are old?” Nicodemus asked. “Surely they cannot enter a second time into their mother's womb to be born!”"
+      "尼哥德慕说：“人老了，怎能重生呢？难道他能再进母腹生出来吗？” "
     ],
     [
       5,
-      "Jesus answered, “Very truly I tell you, no one can enter the kingdom of God unless they are born of water and the Spirit."
+      "耶稣回答：“我实实在在告诉你，人若不是从水和圣灵生的，就不能进　神的国。"
     ],
-    [6, "Flesh gives birth to flesh, but the Spirit gives birth to spirit."],
-    [7, "You should not be surprised at my saying, 'You must be born again.'”"]
+    [
+      6,
+      "从肉身生的就是肉身，从灵生的就是灵。"
+    ],
+    [
+      7,
+      "你不要因为我对你说‘你们必须重生’而感到希奇。"
+    ]
   ]
 }

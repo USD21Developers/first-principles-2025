@@ -1,23 +1,26 @@
 {
-  "display": "Isaiah 2:1-4",
+  "display": "以赛亚书 2:1-4",
   "slug": "isaiah-2-1-4",
   "language": "zh",
   "version": "CNVS",
   "book": "Isaiah",
   "chapter": 2,
   "verses": [
-    [1, "This is what Isaiah son of Amoz saw concerning Judah and Jerusalem:"],
+    [
+      1,
+      "亚摩斯的儿子以赛亚得到默示，有关犹大和耶路撒冷："
+    ],
     [
       2,
-      "In the last days the mountain of the Lord's temple will be established as the highest of the mountains; it will be exalted above the hills, and all nations will stream to it."
+      "在末后的日子，耶和华殿的山，必被坚立，超乎众山，必被高举，过于万岭；万国都要流归这山。"
     ],
     [
       3,
-      "Many peoples will come and say, “Come, let us go up to the mountain of the Lord, to the temple of the God of Jacob. He will teach us his ways, so that we may walk in his paths.” The law will go out from Zion, the word of the Lord from Jerusalem."
+      "必有多国的人前来，说：“来吧！我们上耶和华的山，登雅各　神的殿；他必把他的道指教我们，我们也必遵行他的路。” 因为训诲必出于锡安，耶和华的话必来自耶路撒冷。"
     ],
     [
       4,
-      "He will judge between the nations and will settle disputes for many peoples. They will beat their swords into plowshares and their spears into pruning hooks. Nation will not take up sword against nation, nor will they train for war anymore."
+      "他要在列国施行审判，为多国的人断定是非。他们必把刀打成犁头，把矛枪打成镰刀。这国不举刀攻击那国，他们也不再学习战争。"
     ]
   ]
 }

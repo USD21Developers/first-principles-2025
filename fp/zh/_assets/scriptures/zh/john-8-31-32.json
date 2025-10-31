@@ -1,5 +1,5 @@
 {
-  "display": "John 8:31-32",
+  "display": "约翰福音 8:31-32",
   "slug": "john-8-31-32",
   "language": "zh",
   "version": "CNVS",
@@ -8,8 +8,11 @@
   "verses": [
     [
       31,
-      "To the Jews who had believed him, Jesus said, “If you hold to my teaching, you are really my disciples."
+      "于是耶稣对信了他的犹太人说：“你们若持守我的道，就真是我的门徒了；"
     ],
-    [32, "Then you will know the truth, and the truth will set you free.”"]
+    [
+      32,
+      "你们必定认识真理，真理必定使你们自由。”"
+    ]
   ]
 }

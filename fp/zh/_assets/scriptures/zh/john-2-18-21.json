@@ -1,5 +1,5 @@
 {
-  "display": "John 2:18-21",
+  "display": "约翰福音 2:18-21",
   "slug": "john-2-18-21",
   "language": "zh",
   "version": "CNVS",
@@ -8,16 +8,19 @@
   "verses": [
     [
       18,
-      "The Jews then responded to him, “What sign can you show us to prove your authority to do all this?”"
+      "犹太人就问他：“你可以显甚么神迹给我们看，证明你有权作这些事呢？” "
     ],
     [
       19,
-      "Jesus answered them, “Destroy this temple, and I will raise it again in three days.”"
+      "耶稣回答：“你们拆毁这殿，我三天之内要把它建造起来。”"
     ],
     [
       20,
-      "They replied, “It has taken forty-six years to build this temple, and you are going to raise it in three days?”"
+      "犹太人说：“这殿建了四十六年，你三天之内就能把它建造起来吗？”"
     ],
-    [21, "But the temple he had spoken of was his body."]
+    [
+      21,
+      "但耶稣所说的殿，就是他的身体。"
+    ]
   ]
 }

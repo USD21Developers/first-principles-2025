@@ -1,32 +1,38 @@
 {
-  "display": "Ephesians 5:1-7",
+  "display": "以弗所书 5:1-7",
   "slug": "ephesians-5-1-7",
   "language": "zh",
   "version": "CNVS",
   "book": "Ephesians",
   "chapter": 5,
   "verses": [
-    [1, "Follow God's example, therefore, as dearly loved children"],
+    [
+      1,
+      "因此，你们既然是蒙爱的儿女，就应当效法　神。"
+    ],
     [
       2,
-      "and walk in the way of love, just as Christ loved us and gave himself up for us as a fragrant offering and sacrifice to God."
+      "要凭着爱心行事，好象基督爱我们，为我们舍己，当作馨香的供品和祭物献给　神。"
     ],
     [
       3,
-      "But among you there must not be even a hint of sexual immorality, or of any kind of impurity, or of greed, because these are improper for God's holy people."
+      "至于淫乱和任何污秽或贪心的事，在你们中间连提都不可提，才合圣徒的体统。"
     ],
     [
       4,
-      "Nor should there be obscenity, foolish talk or coarse joking, which are out of place, but rather thanksgiving."
+      "更不要讲淫秽和愚妄的话，或下流的笑话，这些都与你们不相称；却要说感谢的话。"
     ],
     [
       5,
-      "For of this you can be sure: No immoral, impure or greedy person—such a person is an idolater—has any inheritance in the kingdom of Christ and of God."
+      "因为你们确实知道，无论是淫乱的、污秽的或贪心的（贪心就是拜偶像），都得不到在基督和　神的国里的基业。"
     ],
     [
       6,
-      "Let no one deceive you with empty words, for because of such things God's wrath comes on those who are disobedient."
+      "不要给别人用空言欺骗了你们，正因为这些事，　神的震怒必定临到那些悖逆的人。"
     ],
-    [7, "Therefore do not be partners with them."]
+    [
+      7,
+      "所以，不要与他们同流合污。"
+    ]
   ]
 }
