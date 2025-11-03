@@ -5,11 +5,16 @@
       "original": "The Day Christ Died",
       "translated": "The Day Christ Died"
     },
-    "italic": true
+    "decorations": {
+      "italic": true
+    }
   },
   {
     "key": "SAMPLE",
-    "text": { "original": "", "translated": "" },
+    "text": {
+      "original": "",
+      "translated": ""
+    },
     "decorations": {
       "tags": [
         {
@@ -21,12 +26,18 @@
   },
   {
     "key": "SAMPLE (full)",
-    "text": { "original": "", "translated": "" },
+    "text": {
+      "original": "",
+      "translated": ""
+    },
     "decorations": {
       "bold": false,
       "italic": false,
       "underline": false,
-      "link": { "href": "", "attributes": "" },
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
       "tags": [
         {
           "name": "",
