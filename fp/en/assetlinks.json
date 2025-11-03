@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "en.fp.app.usd21.twa",
+        "sha256_cert_fingerprints": ["8C:C0:56:48:F4:D6:06:26:27:29:45:B3:C1:F0:BE:E5:53:09:EC:34:81:9C:8B:2F:FE:2A:00:1D:56:9D:24:0B"]
+      }
+    }]
