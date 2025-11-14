@@ -38,8 +38,8 @@ function linkifyScriptures() {
     const verseTo = data[3] ? data[3] : null;
     const slug = verseTo
       ? `${book}-${chapter}-${verseFrom}-${verseTo}`
-          .toLowerCase()
-          .replaceAll(" ", "-")
+        .toLowerCase()
+        .replaceAll(" ", "-")
       : `${book}-${chapter}-${verseFrom}`.toLowerCase().replaceAll(" ", "-");
 
     item.addEventListener("click", () => showLocalScripture(slug));
@@ -90,15 +90,28 @@ function showLocalScripture(slug) {
         const searchTerm = `${data.book} ${data.chapter}`;
         const href = `https://www.biblegateway.com/passage/?search=${searchTerm}&version=${data.version}`;
 
-        const expandButton = `
+        let expandButton = `
+          <div class="text-end">
+            <hr>
+            <a class="btn btn-light border border-dark my-3" href="${href}" target="_blank" rel="noopener noreferrer">
+              <i>${getGlobalPhrase("expand")}</i>
+              <img src="../_assets/img/icons/chevron-right.svg" />
+            </a>
+          </div>
+        `;
+
+        const platform = localStorage.getItem("platform");
+        if (platform && platform === "ios") {
+          expandButton = `
             <div class="text-end">
               <hr>
-              <a class="btn btn-light border border-dark my-3" href="${href}" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn-light border border-dark my-3" href="${href}" rel="noopener noreferrer">
                 <i>${getGlobalPhrase("expand")}</i>
                 <img src="../_assets/img/icons/chevron-right.svg" />
               </a>
             </div>
           `;
+        }
 
         modalBody = modalBody + expandButton;
 
