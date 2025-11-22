@@ -104,29 +104,26 @@
       return isAppleDevice || isIpadOS;
     }
 
-    function pointLinksToAppStores() {
-      document.addEventListener('DOMContentLoaded', () => {
-        const userAgentElement = document.getElementById('user-agent');
-        const isIOS = isIOS();
-        const isAndroid = isAndroid();
+    document.addEventListener('DOMContentLoaded', () => {
+      const userAgentElement = document.getElementById('user-agent');
+      const isIOS = isIOS();
+      const isAndroid = isAndroid();
 
-        if (!isIOS && !isAndroid) {
-          return;
-        }
+      if (!isIOS && !isAndroid) {
+        return;
+      }
 
-        if (isIOS) {
-          document.querySelectorAll("[data-apple]").forEach((item) => {
-            item.setAttribute("href", item.getAttribute("data-apple"));
-          });
-        } else if (isAndroid) {
-          document.querySelectorAll("[data-android]").forEach((item) => {
-            item.setAttribute("href", item.getAttribute("data-android"));
-          });
-        };
-      });
-    }
+      if (isIOS) {
+        document.querySelectorAll("[data-apple]").forEach((item) => {
+          item.setAttribute("href", item.getAttribute("data-apple"));
+        });
+      } else if (isAndroid) {
+        document.querySelectorAll("[data-android]").forEach((item) => {
+          item.setAttribute("href", item.getAttribute("data-android"));
+        });
+      };
+    });
 
-    pointLinksToAppStores();
   </script>
 </body>
 
