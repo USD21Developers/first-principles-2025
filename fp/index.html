@@ -89,25 +89,23 @@
       });
     }
 
-    function isAndroid() {
-      const userAgent = window.navigator.userAgent.toLowerCase();
 
-      return userAgent.includes('android');
-    }
-
-    function isIOS() {
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      const isAppleDevice = /iphone|ipad|ipod/.test(userAgent);
-      const isMac = /(macintosh|macintel|mac os x)/.test(userAgent);
-      const isIpadOS = isMac && (window.navigator.maxTouchPoints > 0) && !window.MSStream;
-
-      return isAppleDevice || isIpadOS;
-    }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const userAgentElement = document.getElementById('user-agent');
-      const isIOS = isIOS();
-      const isAndroid = isAndroid();
+      const isAndroid = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+
+        return userAgent.includes('android');
+      }
+
+      const isIOS = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        const isAppleDevice = /iphone|ipad|ipod/.test(userAgent);
+        const isMac = /(macintosh|macintel|mac os x)/.test(userAgent);
+        const isIpadOS = isMac && (window.navigator.maxTouchPoints > 0) && !window.MSStream;
+
+        return isAppleDevice || isIpadOS;
+      }
 
       if (!isIOS && !isAndroid) {
         return;
