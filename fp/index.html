@@ -97,10 +97,11 @@
       }
 
       const checkIOS = () => {
-        const userAgent = window.navigator.userAgent.toLowerCase();
-        const isAppleDevice = /iphone|ipad|ipod/.test(userAgent);
-        const isMac = /(macintosh|macintel|mac os x)/.test(userAgent);
-        const isIpadOS = isMac && (window.navigator.maxTouchPoints > 0) && !window.MSStream;
+        const userAgent = window.navigator.userAgent;
+        const maxTouchPoints = window.navigator.maxTouchPoints || 0;
+        const isAppleDevice = /iPhone|iPod|iPad/i.test(userAgent);
+        const isMacintosh = /Macintosh/i.test(userAgent);
+        const isIpadOS = isMacintosh && (maxTouchPoints > 1) && !window.MSStream;
 
         return isAppleDevice || isIpadOS;
       }
