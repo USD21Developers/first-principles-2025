@@ -90,13 +90,13 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const isAndroid = () => {
+      const checkAndroid = () => {
         const userAgent = window.navigator.userAgent.toLowerCase();
 
         return userAgent.includes('android');
       }
 
-      const isIOS = () => {
+      const checkIOS = () => {
         const userAgent = window.navigator.userAgent.toLowerCase();
         const isAppleDevice = /iphone|ipad|ipod/.test(userAgent);
         const isMac = /(macintosh|macintel|mac os x)/.test(userAgent);
@@ -104,6 +104,9 @@
 
         return isAppleDevice || isIpadOS;
       }
+
+      const isIOS = checkIOS();
+      const isAndroid = checkAndroid();
 
       if (!isIOS && !isAndroid) {
         return;
