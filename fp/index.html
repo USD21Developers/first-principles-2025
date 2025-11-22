@@ -111,13 +111,14 @@
         return;
       }
 
-      if (isIOS) {
-        document.querySelectorAll("[data-apple]").forEach((item) => {
-          item.setAttribute("href", item.getAttribute("data-apple"));
-        });
-      } else if (isAndroid) {
+
+      if (isAndroid) {
         document.querySelectorAll("[data-android]").forEach((item) => {
           item.setAttribute("href", item.getAttribute("data-android"));
+        });
+      } else if (isIOS) {
+        document.querySelectorAll("[data-apple]").forEach((item) => {
+          item.setAttribute("href", item.getAttribute("data-apple"));
         });
       };
     });
