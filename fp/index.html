@@ -116,11 +116,11 @@
 
         if (isIOS) {
           document.querySelectorAll("[data-apple]").forEach((item) => {
-            item.href = item.getAttribute("data-apple");
+            item.setAttribute("href", item.getAttribute("data-apple"));
           });
         } else if (isAndroid) {
           document.querySelectorAll("[data-android]").forEach((item) => {
-            item.href = item.getAttribute("data-android");
+            item.setAttribute("href", item.getAttribute("data-android"));
           });
         };
       });
