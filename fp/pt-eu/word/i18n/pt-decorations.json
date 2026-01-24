@@ -125,6 +125,13 @@
     }
   },
   {
+    "key": "q-2",
+    "text": { "original": "Pergunta:", "translated": "Pergunta:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "2-timothy-3-16-17-description-5",
     "text": { "original": "absoluto", "translated": "absoluto" },
     "decorations": {
@@ -153,8 +160,8 @@
   {
     "key": "thing1-description-1",
     "text": {
-      "original": "(Exemplo: Um médico prescreve uma receita, mas um farmacêutico decide alterá-la.)",
-      "translated": "(Exemplo: Um médico prescreve uma receita, mas um farmacêutico decide alterá-la.)"
+      "original": "Um médico prescreve uma receita, mas um farmacêutico decide alterá-la.",
+      "translated": "Um médico prescreve uma receita, mas um farmacêutico decide alterá-la."
     },
     "decorations": {
       "italic": true
