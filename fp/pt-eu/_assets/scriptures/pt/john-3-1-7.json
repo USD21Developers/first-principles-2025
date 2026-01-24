@@ -1,0 +1,35 @@
+{
+  "display": "João 3:1-7",
+  "slug": "john-3-1-7",
+  "language": "pt",
+  "version": "NVI-PT",
+  "book": "John",
+  "chapter": 3,
+  "verses": [
+    [1, "Havia um fariseu chamado Nicodemos, uma autoridade entre os judeus."],
+    [
+      2,
+      "Ele veio a Jesus, à noite, e disse: “Mestre, sabemos que ensinas da parte de Deus, pois ninguém pode realizar os sinais miraculosos que estás fazendo, se Deus não estiver com ele”."
+    ],
+    [
+      3,
+      "Em resposta, Jesus declarou: “Digo-lhe a verdade: Ninguém pode ver o Reino de Deus, se não nascer de novo”."
+    ],
+    [
+      4,
+      "Perguntou Nicodemos: “Como alguém pode nascer, sendo velho? É claro que não pode entrar pela segunda vez no ventre de sua mãe e renascer!”"
+    ],
+    [
+      5,
+      "Respondeu Jesus: “Digo-lhe a verdade: Ninguém pode entrar no Reino de Deus, se não nascer da água e do Espírito."
+    ],
+    [
+      6,
+      "O que nasce da carne é carne, mas o que nasce do Espírito é espírito."
+    ],
+    [
+      7,
+      "Não se surpreenda pelo fato de eu ter dito: É necessário que vocês nasçam de novo."
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "key": "purpose",
+    "text": {
+      "original": "Purpose:",
+      "translated": "Objetivo:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "question",
+    "text": {
+      "original": "Question:",
+      "translated": "Pergunta:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "psalm-119-1-2-description-1",
+    "text": {
+      "original": "Ser muito feliz!",
+      "translated": "Ser muito feliz!"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "psalm-119-1-2-description-2",
+    "text": {
+      "original": "Estar livre de qualquer acusação e fazer o que é certo.",
+      "translated": "Estar livre de qualquer acusação e fazer o que é certo."
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "psalm-119-1-2-description-5",
+    "text": {
+      "original": "Obedecendo Seus estatutos",
+      "translated": "Obedecendo Seus estatutos"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "acts-8-26-39-description-2",
+    "text": {
+      "original": "Sacrifício:",
+      "translated": "Sacrifício:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-8-26-39-description-3",
+    "text": {
+      "original": "Humildade:",
+      "translated": "Humildade:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-8-26-39-description-4",
+    "text": {
+      "original": "Obediência:",
+      "translated": "Obediência:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]
