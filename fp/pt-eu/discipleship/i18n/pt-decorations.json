@@ -50,6 +50,16 @@
     }
   },
   {
+    "key": "acts-11-25-26-description-2",
+    "text": {
+      "original": "Discípulo De Jesus = Cristão = Salvo",
+      "translated": "Discípulo De Jesus = Cristão = Salvo"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "acts-11-25-26-description-3",
     "text": {
       "original": "Acts 26:28",
