@@ -77,8 +77,18 @@
   {
     "key": "matthew-3-1-2-description-3",
     "text": {
-      "original": "Question #4",
-      "translated": "pergunta #4"
+      "original": "(Resposta à pergunta nº4)",
+      "translated": "(Resposta à pergunta nº4)"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "matthew-3-1-2-description-3",
+    "text": {
+      "original": "pergunta nº4",
+      "translated": "pergunta nº4"
     },
     "decorations": {
       "tags": [
@@ -112,8 +122,8 @@
   {
     "key": "matthew-16-13-19-description-3",
     "text": {
-      "original": "petros",
-      "translated": "petros"
+      "original": "petra",
+      "translated": "petra"
     },
     "decorations": {
       "italic": true
@@ -135,20 +145,10 @@
     }
   },
   {
-    "key": "matthew-16-13-19-description-6",
+    "key": "matthew-16-13-19-description-5",
     "text": {
-      "original": "A igreja é o reino de Deus na terra!",
-      "translated": "A igreja é o reino de Deus na terra!"
-    },
-    "decorations": {
-      "bold": true
-    }
-  },
-  {
-    "key": "matthew-16-13-19-description-6",
-    "text": {
-      "original": "(Resposta à pergunta #1)",
-      "translated": "(Resposta à pergunta #1)"
+      "original": "ekklesia",
+      "translated": "ekklesia"
     },
     "decorations": {
       "italic": true
@@ -157,8 +157,18 @@
   {
     "key": "matthew-16-13-19-description-6",
     "text": {
-      "original": "pergunta #1",
-      "translated": "pergunta #1"
+      "original": "(Resposta à pergunta nº1)",
+      "translated": "(Resposta à pergunta nº1)"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-6",
+    "text": {
+      "original": "pergunta nº1",
+      "translated": "pergunta nº1"
     },
     "decorations": {
       "tags": [
@@ -202,8 +212,18 @@
   {
     "key": "john-3-1-7-description-1",
     "text": {
-      "original": "Pergunta #3",
-      "translated": "Pergunta #3"
+      "original": "(Resposta à pergunta nº3)",
+      "translated": "(Resposta à pergunta nº3)"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "john-3-1-7-description-1",
+    "text": {
+      "original": "Pergunta nº3",
+      "translated": "Pergunta nº3"
     },
     "decorations": {
       "tags": [
@@ -267,8 +287,8 @@
   {
     "key": "luke-24-44-49-description-2d",
     "text": {
-      "original": "Poder do alto.",
-      "translated": "Poder do alto."
+      "original": "Poder",
+      "translated": "Poder"
     },
     "decorations": {
       "bold": true
@@ -317,8 +337,8 @@
   {
     "key": "acts-2-1-17-description-1a",
     "text": {
-      "original": "Poder de alto",
-      "translated": "Poder do alto"
+      "original": "Poder vindo do Céu",
+      "translated": "Poder vindo do Céu"
     },
     "decorations": {
       "bold": true
@@ -437,8 +457,8 @@
   {
     "key": "acts-2-1-17-description-2",
     "text": {
-      "original": "últimos dias",
-      "translated": "últimos dias"
+      "original": "Nos últimos dias",
+      "translated": "Nos últimos dias"
     },
     "decorations": {
       "bold": true
@@ -477,8 +497,8 @@
   {
     "key": "acts-2-22-24-description-1",
     "text": {
-      "original": "\"chaves\" do Reino",
-      "translated": "\"chaves\" do Reino"
+      "original": "\"chaves\" essenciais do Reino",
+      "translated": "\"chaves\" essenciais do Reino"
     },
     "decorations": {
       "bold": true
@@ -589,8 +609,8 @@
   {
     "key": "acts-2-36-41-description-2",
     "text": {
-      "original": "pergunta #2",
-      "translated": "pergunta #2"
+      "original": "pergunta nº2",
+      "translated": "pergunta nº2"
     },
     "decorations": {
       "tags": [
@@ -665,7 +685,7 @@
     "key": "acts-2-42-47-description-4",
     "text": {
       "original": "Question #6",
-      "translated": "Pergunta #6"
+      "translated": "pergunta nº6"
     },
     "decorations": {
       "tags": [
@@ -699,8 +719,18 @@
   {
     "key": "matthew-6-33-description-1",
     "text": {
+      "original": "(Resposta à pergunta nº5)",
+      "translated": "(Resposta à pergunta nº5)"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "matthew-6-33-description-1",
+    "text": {
       "original": "Question #5",
-      "translated": "pergunta #5"
+      "translated": "pergunta nº5"
     },
     "decorations": {
       "tags": [
@@ -712,10 +742,10 @@
     }
   },
   {
-    "key": "matthew-6-33-description-3",
+    "key": "matthew-6-33-description-2",
     "text": {
-      "original": "sacrificar",
-      "translated": "sacrificar"
+      "original": "prioridade",
+      "translated": "prioridade"
     },
     "decorations": {
       "bold": true
@@ -724,8 +754,8 @@
   {
     "key": "matthew-6-33-description-3",
     "text": {
-      "original": "o Reino de Deus na terra",
-      "translated": "o Reino de Deus na terra"
+      "original": "“Movimento de Discípulos Totalmente Comprometidos”!",
+      "translated": "“Movimento de Discípulos Totalmente Comprometidos”!"
     },
     "decorations": {
       "bold": true
