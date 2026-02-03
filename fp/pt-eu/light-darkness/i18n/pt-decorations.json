@@ -55,6 +55,51 @@
     }
   },
   {
+    "key": "cutToTheHeart",
+    "text": {
+      "original": "κατανύσσομαι",
+      "translated": "κατανύσσομαι"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "em",
+          "attributes": "class='greekterm' lang='grc-Latn'"
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-38-42-description-2",
+    "text": {
+      "original": "με τανοέω",
+      "translated": "με τανοέω"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "em",
+          "attributes": "class='greekterm' lang='grc-Latn'"
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-38-42-description-3",
+    "text": {
+      "original": "β απτ ίζω",
+      "translated": "β απτ ίζω"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "em",
+          "attributes": "class='greekterm' lang='grc-Latn'"
+        }
+      ]
+    }
+  },
+  {
     "key": "falseDoctrineInfantBaptism",
     "text": {
       "original": "Infant baptism",
@@ -95,6 +140,16 @@
     }
   },
   {
+    "key": "prayingJesusIntoHeart",
+    "text": {
+      "original": "Aceitar Jesus",
+      "translated": "Aceitar Jesus"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
     "key": "misinterpretationOfRev320",
     "text": {
       "original": "Revelation 3:20",
@@ -112,8 +167,8 @@
   {
     "key": "1-peter-3-18-22-description-4",
     "text": {
-      "original": "REVISE SUA LINHA DO TEMPO",
-      "translated": "REVISE SUA LINHA DO TEMPO"
+      "original": "RELÊ A TUA LINHA DO TEMPO",
+      "translated": "RELÊ A TUA LINHA DO TEMPO"
     },
     "decorations": {
       "bold": true
