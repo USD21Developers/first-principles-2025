@@ -146,6 +146,7 @@
       "translated": "O Relato Médico da Crucificação de Jesus"
     },
     "decorations": {
+      "bold": true,
       "link": {
         "href": "../medical-account/",
         "attributes": ""
