@@ -10,7 +10,7 @@
     }
   },
   {
-    "key": "p24",
+    "key": "p26",
     "text": {
       "original": "primeira",
       "translated": "primeira"
@@ -20,10 +20,10 @@
     }
   },
   {
-    "key": "p24",
+    "key": "p26",
     "text": {
-      "original": "“Pai, perdoa-lhes, pois não sabem o que estão fazendo”",
-      "translated": "“Pai, perdoa-lhes, pois não sabem o que estão fazendo”"
+      "original": "«Pai, perdoa-lhes, porque não sabem o que fazem.»",
+      "translated": "«Pai, perdoa-lhes, porque não sabem o que fazem.»"
     },
     "decorations": {
       "italic": true,
@@ -36,7 +36,7 @@
     }
   },
   {
-    "key": "p25",
+    "key": "p27",
     "text": {
       "original": "segunda",
       "translated": "segunda"
@@ -46,10 +46,10 @@
     }
   },
   {
-    "key": "p25",
+    "key": "p27",
     "text": {
-      "original": "\"Eu lhe garanto: Hoje você estará comigo no paraíso\"",
-      "translated": "\"Eu lhe garanto: Hoje você estará comigo no paraíso\""
+      "original": "«Digo-te hoje: estarás comigo no paraíso.»",
+      "translated": "«Digo-te hoje: estarás comigo no paraíso.»"
     },
     "decorations": {
       "italic": true,
@@ -62,7 +62,7 @@
     }
   },
   {
-    "key": "p26",
+    "key": "p28",
     "text": {
       "original": "terceira",
       "translated": "terceira"
@@ -72,10 +72,10 @@
     }
   },
   {
-    "key": "p26",
+    "key": "p28",
     "text": {
-      "original": "“aí está sua mãe”",
-      "translated": "“aí está sua mãe”"
+      "original": "«Mulher, eis o teu filho.»",
+      "translated": "«Mulher, eis o teu filho.»"
     },
     "decorations": {
       "italic": true,
@@ -88,10 +88,10 @@
     }
   },
   {
-    "key": "p26",
+    "key": "p28",
     "text": {
-      "original": "“Aí está o seu filho”",
-      "translated": "“Aí está o seu filho”"
+      "original": "«Eis a tua mãe.»",
+      "translated": "«Eis a tua mãe.»"
     },
     "decorations": {
       "italic": true,
@@ -104,20 +104,20 @@
     }
   },
   {
-    "key": "p27",
+    "key": "p29",
     "text": {
-      "original": "quarto",
-      "translated": "quarto"
+      "original": "quarta",
+      "translated": "quarta"
     },
     "decorations": {
       "bold": true
     }
   },
   {
-    "key": "p27",
+    "key": "p29",
     "text": {
-      "original": "“Meu Deus! Meu Deus! Por que me abandonaste?”",
-      "translated": "“Meu Deus! Meu Deus! Por que me abandonaste?”"
+      "original": "«Meu Deus, meu Deus, porque me abandonaste?»",
+      "translated": "«Meu Deus, meu Deus, porque me abandonaste?»"
     },
     "decorations": {
       "italic": true,
@@ -130,20 +130,20 @@
     }
   },
   {
-    "key": "p31",
+    "key": "p32",
     "text": {
-      "original": "quinto",
-      "translated": "quinto"
+      "original": "quinta",
+      "translated": "quinta"
     },
     "decorations": {
       "bold": true
     }
   },
   {
-    "key": "p31",
+    "key": "p32",
     "text": {
-      "original": "“Tenho sede!”",
-      "translated": "“Tenho sede!”"
+      "original": "«Tenho sede.»",
+      "translated": "«Tenho sede.»"
     },
     "decorations": {
       "italic": true,
@@ -156,7 +156,7 @@
     }
   },
   {
-    "key": "p33",
+    "key": "p34",
     "text": {
       "original": "sexta",
       "translated": "sexta"
@@ -166,10 +166,10 @@
     }
   },
   {
-    "key": "p33",
+    "key": "p34",
     "text": {
-      "original": "“está consumado!”",
-      "translated": "“está consumado!”"
+      "original": "«Tudo está consumado.»",
+      "translated": "«Tudo está consumado.»"
     },
     "decorations": {
       "italic": true,
@@ -182,7 +182,7 @@
     }
   },
   {
-    "key": "p34",
+    "key": "p35",
     "text": {
       "original": "sétima",
       "translated": "sétima"
@@ -192,10 +192,10 @@
     }
   },
   {
-    "key": "p34",
+    "key": "p35",
     "text": {
-      "original": "“Pai, nas tuas mãos entrego o meu espírito”",
-      "translated": "“Pai, nas tuas mãos entrego o meu espírito”"
+      "original": "«Pai, nas tuas mãos entrego o meu espírito.»",
+      "translated": "«Pai, nas tuas mãos entrego o meu espírito.»"
     },
     "decorations": {
       "italic": true,

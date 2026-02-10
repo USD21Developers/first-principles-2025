@@ -102,3 +102,10 @@ section h2 {
 .pause {
   display: none;
 }
+
+.finalParagraph {
+  display: inline-block;
+  max-width: 32ch;
+  text-wrap: pretty;
+  text-wrap-style: balance;
+}
