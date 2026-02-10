@@ -33,7 +33,7 @@ function enableSpeech() {
           }
           return NodeFilter.FILTER_ACCEPT;
         },
-      }
+      },
     );
     let text = "";
     while (walker.nextNode()) {
