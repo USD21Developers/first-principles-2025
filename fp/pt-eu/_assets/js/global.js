@@ -57,9 +57,8 @@ function showLocalScripture(slug) {
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
-        document.querySelector(
-          "#scriptureModal .modal-title"
-        ).innerHTML = `${data.display} <span class="bibleVersion">(${data.version})</span>`;
+        document.querySelector("#scriptureModal .modal-title").innerHTML =
+          `${data.display} <span class="bibleVersion">(${data.version})</span>`;
 
         let modalBody = "";
 
@@ -106,7 +105,7 @@ function showLocalScripture(slug) {
           modalBody;
 
         const scriptureModal = new bootstrap.Modal(
-          document.getElementById("scriptureModal")
+          document.getElementById("scriptureModal"),
         );
 
         scriptureModal.show();
@@ -155,7 +154,7 @@ async function shareLink() {
         console.error("Share failed:", err);
       }
     },
-    { once: true } // Prevent duplicate listeners
+    { once: true }, // Prevent duplicate listeners
   );
 }
 
@@ -167,20 +166,29 @@ function translate() {
 
     let lang = document.querySelector("html").getAttribute("lang");
 
+    let langAlt =
+      document.querySelector("html").getAttribute("lang-alt") || null;
+
     switch (window.location.host) {
       case "127.0.0.1:5500":
         root = window.location.href.replace("index.html", "");
-        globalRoot = `${window.location.origin}/fp/${lang}`;
+        globalRoot = langAlt
+          ? `${window.location.origin}/fp/${langAlt}`
+          : `${window.location.origin}/fp/${lang}`;
         endpoint = `${root}i18n/${lang}.json`;
         break;
       case "usd21developers.github.io":
         root = window.location.href;
-        globalRoot = `https://usd21developers.github.io/first-principles-2025/fp/${lang}`;
+        globalRoot = langAlt
+          ? `https://usd21developers.github.io/first-principles-2025/fp/${langAlt}`
+          : `https://usd21developers.github.io/first-principles-2025/fp/${lang}`;
         endpoint = `${root}i18n/${lang}.json`;
         break;
       default:
         root = `https://${window.location.host}${window.location.pathname}`;
-        globalRoot = `https://${window.location.host}/fp/${lang}`;
+        globalRoot = langAlt
+          ? `https://${window.location.host}/fp/${langAlt}`
+          : `https://${window.location.host}/fp/${lang}`;
         endpoint = `${root}i18n/${lang}.json`;
     }
 
@@ -193,7 +201,7 @@ function translate() {
 
     try {
       phrasesGlobal = await fetch(
-        `${globalRoot}/i18n-global/${lang}.json`
+        `${globalRoot}/i18n-global/${lang}.json`,
       ).then((res) => res.json());
     } catch (err) {
       console.log(err);
@@ -267,10 +275,10 @@ function translate() {
 
         const ogTitleEl = document.querySelector("meta[property='og:title']");
         const ogDescriptionEl = document.querySelector(
-          "meta[property='og:description']"
+          "meta[property='og:description']",
         );
         const ogImageAltEl = document.querySelector(
-          "meta[property='og:image:alt']"
+          "meta[property='og:image:alt']",
         );
 
         ogTitleEl?.setAttribute("content", getGlobalPhrase("shareTitle"));
