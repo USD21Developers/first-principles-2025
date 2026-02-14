@@ -123,7 +123,13 @@ async function shareLink() {
   }
 
   // Start with current page URL
-  const lang = document.querySelector("html").getAttribute("lang");
+  const htmlEl = document.querySelector("html");
+  let lang = htmlEl.getAttribute("lang");
+
+  if (htmlEl.hasAttribute("lang-alt")) {
+    lang = htmlEl.getAttribute("lang-alt");
+  }
+
   const shareUrl = `https://usd21.app/fp/${lang}/`;
 
   if (
