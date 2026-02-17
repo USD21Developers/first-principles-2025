@@ -13,7 +13,7 @@
     "key": "studiesAtGlance-seeking-god",
     "text": {
       "original": "Seeking God",
-      "translated": "Buscando a Deus"
+      "translated": "Buscar a Deus"
     },
     "decorations": {
       "bold": true
@@ -63,7 +63,7 @@
     "key": "studiesAtGlance-sin-repentance",
     "text": {
       "original": "Sin &amp; Repentance",
-      "translated": "Pecado e Arrependimento"
+      "translated": "Pecado &amp; Arrependimento"
     },
     "decorations": {
       "bold": true
@@ -73,7 +73,7 @@
     "key": "studiesAtGlance-light-darkness",
     "text": {
       "original": "Light &amp; Darkness",
-      "translated": "Luz e Trevas"
+      "translated": "Luz &amp; Trevas"
     },
     "decorations": {
       "bold": true
