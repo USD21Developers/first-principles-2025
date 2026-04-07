@@ -38,8 +38,8 @@ function linkifyScriptures() {
     const verseTo = data[3] ? data[3] : null;
     const slug = verseTo
       ? `${book}-${chapter}-${verseFrom}-${verseTo}`
-        .toLowerCase()
-        .replaceAll(" ", "-")
+          .toLowerCase()
+          .replaceAll(" ", "-")
       : `${book}-${chapter}-${verseFrom}`.toLowerCase().replaceAll(" ", "-");
 
     item.addEventListener("click", () => showLocalScripture(slug));
@@ -57,9 +57,8 @@ function showLocalScripture(slug) {
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {
-        document.querySelector(
-          "#scriptureModal .modal-title"
-        ).innerHTML = `${data.display} <span class="bibleVersion">(${data.version})</span>`;
+        document.querySelector("#scriptureModal .modal-title").innerHTML =
+          `${data.display} <span class="bibleVersion">(${data.version})</span>`;
 
         let modalBody = "";
 
@@ -119,7 +118,7 @@ function showLocalScripture(slug) {
           modalBody;
 
         const scriptureModal = new bootstrap.Modal(
-          document.getElementById("scriptureModal")
+          document.getElementById("scriptureModal"),
         );
 
         scriptureModal.show();
@@ -137,8 +136,7 @@ async function shareLink() {
   }
 
   // Start with current page URL
-  const lang = document.querySelector("html").getAttribute("lang");
-  const shareUrl = `https://usd21.app/fp/${lang}/`;
+  const shareUrl = `https://usd21.app/fp/`;
 
   if (
     !navigator.canShare ||
@@ -168,7 +166,7 @@ async function shareLink() {
         console.error("Share failed:", err);
       }
     },
-    { once: true } // Prevent duplicate listeners
+    { once: true }, // Prevent duplicate listeners
   );
 }
 
@@ -206,7 +204,7 @@ function translate() {
 
     try {
       phrasesGlobal = await fetch(
-        `${globalRoot}/i18n-global/${lang}.json`
+        `${globalRoot}/i18n-global/${lang}.json`,
       ).then((res) => res.json());
     } catch (err) {
       console.log(err);
@@ -280,10 +278,10 @@ function translate() {
 
         const ogTitleEl = document.querySelector("meta[property='og:title']");
         const ogDescriptionEl = document.querySelector(
-          "meta[property='og:description']"
+          "meta[property='og:description']",
         );
         const ogImageAltEl = document.querySelector(
-          "meta[property='og:image:alt']"
+          "meta[property='og:image:alt']",
         );
 
         ogTitleEl?.setAttribute("content", getGlobalPhrase("shareTitle"));
