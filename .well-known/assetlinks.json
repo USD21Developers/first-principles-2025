@@ -23,9 +23,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.usd21.fp.fr",
+      "package_name": "app.usd21.fp.fr.twa",
       "sha256_cert_fingerprints": [
-        "FE:48:52:0E:EF:94:8B:34:03:F6:43:32:44:57:33:D8:18:84:BA:B3:20:7D:68:42:92:B1:56:2D:62:80:E1:3F"
+        "2F:48:81:34:3B:51:38:82:E0:81:D0:C6:BD:9E:65:0E:58:80:74:53:AA:5A:EE:3A:E0:74:34:2D:A9:13:5B:FF"
       ]
     }
   }
