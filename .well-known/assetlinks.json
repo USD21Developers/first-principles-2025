@@ -18,5 +18,15 @@
         "00:DC:78:A4:CC:2A:8A:D6:C2:45:ED:5A:F0:86:13:C6:A3:19:87:58:05:F9:FD:70:29:69:27:22:10:59:72:CC"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.usd21.fp.fr.twa",
+      "sha256_cert_fingerprints": [
+        "21:91:E7:FD:FB:BB:17:F0:E1:7E:ED:A2:8B:1D:DD:CF:BD:76:47:FF:FB:13:E1:D7:DD:28:6B:DC:B0:45:93:80"
+      ]
+    }
   }
 ]
