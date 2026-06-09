@@ -20,15 +20,15 @@ A multilingual Bible study series web app (USD21 / First Principles 2025), impor
 ## Where things live
 
 - `artifacts/first-principles/public/fp/` — all static site content (HTML, CSS, JS, images, SW)
-- `artifacts/first-principles/index.html` — root redirect to `/fp/`
+- `artifacts/first-principles/public/index.html` — root redirect to `/fp/`
 - `artifacts/first-principles/vite.config.ts` — Vite static file server config
 - `lib/api-spec/openapi.yaml` — API contract (health check only)
 
 ## Architecture decisions
 
 - The site is pure static HTML/CSS/JS — no React or build transpilation needed. Vite is used purely as a dev server and for production `serve`.
-- All static files from the repo live in `public/` so Vite serves them as-is without transformation.
-- Root `index.html` does an instant meta-refresh redirect to `/fp/`, matching the upstream repo's behaviour.
+- Vite is configured with `root: public/`, `publicDir: false`, and `appType: 'mpa'`. This makes Vite serve files directly from `public/` and disables SPA fallback, so `/fp/` correctly serves `public/fp/index.html` instead of the root page.
+- Root `public/index.html` does an instant meta-refresh redirect to `fp/`, matching the upstream repo's behaviour.
 
 ## Product
 

@@ -25,14 +25,12 @@ if (!basePath) {
 
 export default defineConfig({
   base: basePath,
-  root: path.resolve(import.meta.dirname),
-  publicDir: path.resolve(import.meta.dirname, "public"),
+  root: path.resolve(import.meta.dirname, "public"),
+  publicDir: false,
+  appType: "mpa",
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
-    rollupOptions: {
-      input: path.resolve(import.meta.dirname, "index.html"),
-    },
   },
   server: {
     port,
