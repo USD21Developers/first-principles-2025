@@ -24,6 +24,8 @@ if (!basePath) {
   );
 }
 
+const cssVersion = Date.now();
+
 export default defineConfig({
   base: basePath,
   root: path.resolve(import.meta.dirname, "public"),
@@ -33,7 +35,7 @@ export default defineConfig({
     {
       name: "serve-css-as-plain-text",
       configureServer(server) {
-        server.middlewares.use(async (req, res, next) => {
+        server.middlewares.use((req, res, next) => {
           const url = req.url;
           if (!url || !url.match(/\.css(\?|$)/)) {
             return next();
@@ -44,15 +46,20 @@ export default defineConfig({
             "public",
             urlPath,
           );
-          try {
-            const content = await fs.readFile(filePath, "utf-8");
-            res.setHeader("Content-Type", "text/css; charset=utf-8");
-            res.setHeader("Cache-Control", "no-cache");
-            res.end(content);
-          } catch {
-            next();
-          }
+          fs.readFile(filePath, "utf-8")
+            .then((content) => {
+              res.setHeader("Content-Type", "text/css; charset=utf-8");
+              res.setHeader("Cache-Control", "no-store");
+              res.end(content);
+            })
+            .catch(() => next());
         });
+      },
+      transformIndexHtml(html) {
+        return html.replace(
+          /(<link[^>]+href=")([^"]+\.css)(")/g,
+          `$1$2?v=${cssVersion}$3`,
+        );
       },
     },
   ],
