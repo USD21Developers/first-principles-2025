@@ -21,7 +21,8 @@ body {
 }
 
 header {
-  background: linear-gradient(to bottom right, #1a5f4a, #091018);
+  background-color: #091018;
+  background-image: url(img/masthead-best-friends.avif);
   background-position: bottom right;
   background-repeat: no-repeat;
   background-size: cover;
