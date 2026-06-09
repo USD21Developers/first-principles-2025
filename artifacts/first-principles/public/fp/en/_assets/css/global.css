@@ -112,6 +112,24 @@ a[data-i18n-global="fpLicense"] {
   text-decoration: underline;
 }
 
+/* Gradient scrim so h1 text is readable on any masthead photo */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .62));
+  pointer-events: none;
+  z-index: 0;
+}
+
+header div.col-12 h1 {
+  z-index: 1;
+  position: relative;
+}
+
 .home_icon {
   color: var(--bs-white);
   display: inline-block;
@@ -120,10 +138,12 @@ a[data-i18n-global="fpLicense"] {
   position: absolute;
   top: 15px;
   width: 24px;
+  z-index: 2;
 }
 
 .home_icon svg {
-  opacity: 30%;
+  opacity: 65%;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .80));
 }
 
 .home_icon:hover svg,

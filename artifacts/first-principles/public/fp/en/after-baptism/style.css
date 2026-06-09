@@ -21,27 +21,35 @@ body {
 }
 
 header {
-  background-color: #091018;
+  background-color: #f8f5ee;
   background-image: url(img/masthead-after-baptism.avif);
-  background-position: bottom right;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 18vh;
-  overflow-y: hidden;
+  background-size: contain;
+  height: min(75vw, 380px);
+  overflow: hidden;
   width: 100%;
   position: relative;
 }
 
+/* No gradient scrim — full image is the design; use title bar instead */
+header::after {
+  display: none;
+}
+
 header div.col-12 h1 {
+  background: rgba(0, 0, 0, .68);
+  bottom: 0;
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
+  left: 0;
   margin: 0;
-  padding: 0;
+  padding: 0.55rem 1.5rem;
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+  right: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .90);
+  z-index: 1;
 }
 
 section h2 {
@@ -50,43 +58,21 @@ section h2 {
   letter-spacing: 2px;
 }
 
-@media (min-width: 344px) and (max-width: 575px) {
-  header {
-    background-position-x: calc(100% + 110px);
-  }
-
+@media (max-width: 575px) {
   header div.col-12 h1 {
-    bottom: 1.5rem;
-    font-size: 1.4rem;
-    left: 1.5rem;
+    font-size: 1.15rem;
+    padding: 0.5rem 1.25rem;
   }
 }
 
 @media (min-width: 576px) and (max-width: 991px) {
   header div.col-12 h1 {
-    left: 5vw;
-  }
-}
-
-@media (min-width: 768px) {
-  header div.col-12 h1 {
-    left: 5vw;
+    font-size: 1.3rem;
   }
 }
 
 @media (min-width: 992px) {
-  header {
-    height: 25vh;
-  }
-
   header div.col-12 h1 {
-    left: 2.3vw;
-  }
-}
-
-@media (orientation: landscape) {
-  header {
-    height: 45vh;
-    max-height: 250px;
+    font-size: 1.5rem;
   }
 }
