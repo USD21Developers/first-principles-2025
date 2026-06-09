@@ -1,0 +1,54 @@
+We need to standardize the study page hero layout across the PWA so it feels more polished, app-like, and mobile-friendly.
+
+Goal:
+Update all study pages to use one consistent hero image layout similar to the newer “Miraculous Gifts of the Holy Spirit” page, but refined.
+
+Image standard:
+- All study hero images should be treated as 1600x900, 16:9.
+- Use object-fit: cover.
+- Use object-position: center center by default.
+- The layout must handle existing images gracefully even if they are not exactly 1600x900.
+
+Hero layout requirements:
+1. Each study page should have a full-width hero area at the top.
+2. The hero image should fill the hero area using cover behavior.
+3. Add a dark gradient overlay over the image, strongest at the bottom.
+4. Place the study title over the image near the bottom-left.
+5. Do not use a separate hard black title band unless necessary.
+6. Avoid large empty/letterboxed areas.
+7. The title must remain readable on all images.
+8. The beginning of the study content should appear reasonably soon below the hero, especially on mobile.
+
+Recommended CSS behavior:
+- Hero aspect ratio: 16 / 9.
+- Desktop max-height: around 420px.
+- Mobile max-height: around 260px.
+- Mobile min-height: around 190px.
+- Use padding around the title.
+- Use white text with subtle shadow.
+- Use a gradient like:
+  linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.20), rgba(0,0,0,.05))
+
+Typography:
+- Study title should be bold and clear.
+- Slight letter spacing is okay.
+- Avoid overly huge titles on mobile.
+- Use responsive sizing with clamp(), for example:
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+
+Compatibility constraints:
+- Do not add native plugins.
+- Do not change routing.
+- Do not change wrapper assumptions for Apple App Store or Google Play.
+- Do not rely on external layout libraries.
+- Keep this PWA-safe and WebView-safe.
+- Preserve existing study content and URLs.
+
+Acceptance tests:
+1. “Baptism with the Holy Spirit” uses the same hero layout as the newer study pages.
+2. “Miraculous Gifts of the Holy Spirit” still looks good but loses the heavy black band/letterbox feeling.
+3. “The Word of God” uses the same standardized hero system.
+4. On mobile width, the title is readable and the content starts without excessive scrolling.
+5. On desktop width, the hero does not become excessively tall.
+6. Existing navigation/home button still works.
+7. Existing study content remains unchanged below the hero.

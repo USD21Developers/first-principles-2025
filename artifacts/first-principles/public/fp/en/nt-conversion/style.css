@@ -23,70 +23,10 @@ body {
 header {
   background-color: #091018;
   background-image: url(img/masthead-nt-conversion.avif);
-  background-position: bottom right;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 18vh;
-  overflow-y: hidden;
-  width: 100%;
-  position: relative;
-}
-
-header div.col-12 h1 {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, .95), 0 2px 16px rgba(0, 0, 0, .80);
 }
 
 section h2 {
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 2px;
-}
-
-@media (min-width: 344px) and (max-width: 575px) {
-  header {
-    background-position-x: calc(100% + 110px);
-  }
-
-  header div.col-12 h1 {
-    bottom: 1.5rem;
-    font-size: 1.4rem;
-    left: 1.5rem;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 991px) {
-  header div.col-12 h1 {
-    left: 5vw;
-  }
-}
-
-@media (min-width: 768px) {
-  header div.col-12 h1 {
-    left: 5vw;
-  }
-}
-
-@media (min-width: 992px) {
-  header {
-    height: 25vh;
-  }
-
-  header div.col-12 h1 {
-    left: 2.3vw;
-  }
-}
-
-@media (orientation: landscape) {
-  header {
-    height: 45vh;
-    max-height: 250px;
-  }
 }

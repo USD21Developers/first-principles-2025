@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # push-updates.sh
-# Refreshes SW precache hashes for the English locale, then pushes to GitHub.
-# Run from ~/workspace:  bash push-updates.sh
+# Refreshes SW precache hashes, commits all staged+unstaged changes, then pushes.
+# Run from ~/workspace after making content edits:  bash push-updates.sh
 
 set -euo pipefail
 
@@ -24,8 +24,7 @@ if not entries:
     print("ERROR: no precache entries found in sw.js", file=sys.stderr)
     sys.exit(1)
 
-# Any new shared-asset files to add to the precache go here.
-# Already-present URLs are skipped automatically.
+# Add new shared-asset files here if they are not yet in the precache.
 extra_files = [
     "_assets/css/journal.css",
     "_assets/css/comments.css",
@@ -75,12 +74,19 @@ new_content = content[:match.start()] + new_precache + content[match.end():]
 with open(sw_path, "w") as f:
     f.write(new_content)
 
-print("  sw.js written successfully.")
+print("  sw.js written.")
 PY
+
+echo "==> Staging all changes..."
+git add -A
+
+echo "==> Committing..."
+git -c user.email="agent@replit.com" -c user.name="Replit Agent" \
+  commit -m "Update content + refresh precache hashes" || echo "  Nothing new to commit."
 
 echo "==> Pushing to GitHub..."
 git push "$REPO" HEAD:main
 
 echo ""
-echo "✓ Done. GitHub Actions will deploy in ~1 minute."
+echo "Done. GitHub Actions deploys in ~1 minute."
 echo "  https://usd21developers.github.io/first-principles-2025/fp/"

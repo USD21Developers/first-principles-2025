@@ -112,22 +112,43 @@ a[data-i18n-global="fpLicense"] {
   text-decoration: underline;
 }
 
-/* Gradient scrim so h1 text is readable on any masthead photo */
+/* ── Standard hero / masthead ────────────────────────────── */
+header {
+  aspect-ratio: 16 / 9;
+  max-height: 420px;
+  min-height: 190px;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
 header::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .62));
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.20) 55%, rgba(0,0,0,.05) 100%);
   pointer-events: none;
   z-index: 0;
 }
 
 header div.col-12 h1 {
+  bottom: 0;
+  color: #ffffff;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  right: 0;
+  text-shadow: 0 1px 8px rgba(0,0,0,.95), 0 2px 16px rgba(0,0,0,.80);
   z-index: 1;
-  position: relative;
 }
 
 .home_icon {
@@ -149,7 +170,6 @@ header div.col-12 h1 {
 .home_icon:hover svg,
 .home_icon:active svg {
   opacity: 100%;
-  z-index: 100;
 }
 
 @media (max-width: 575px) {
