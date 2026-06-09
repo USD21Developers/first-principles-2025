@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import path from "path";
-import fs from "node:fs/promises";
+import { readFileSync } from "node:fs";
 
 const rawPort = process.env.PORT;
 
@@ -24,7 +24,18 @@ if (!basePath) {
   );
 }
 
-const cssVersion = Date.now();
+const cssCache = new Map<string, string>();
+
+function readCss(filePath: string): string {
+  if (cssCache.has(filePath)) return cssCache.get(filePath)!;
+  try {
+    const content = readFileSync(filePath, "utf-8");
+    cssCache.set(filePath, content);
+    return content;
+  } catch {
+    return "";
+  }
+}
 
 export default defineConfig({
   base: basePath,
@@ -33,32 +44,19 @@ export default defineConfig({
   appType: "mpa",
   plugins: [
     {
-      name: "serve-css-as-plain-text",
-      configureServer(server) {
-        server.middlewares.use((req, res, next) => {
-          const url = req.url;
-          if (!url || !url.match(/\.css(\?|$)/)) {
-            return next();
-          }
-          const urlPath = decodeURIComponent(url.split("?")[0]);
-          const filePath = path.join(
-            import.meta.dirname,
-            "public",
-            urlPath,
-          );
-          fs.readFile(filePath, "utf-8")
-            .then((content) => {
-              res.setHeader("Content-Type", "text/css; charset=utf-8");
-              res.setHeader("Cache-Control", "no-store");
-              res.end(content);
-            })
-            .catch(() => next());
-        });
-      },
-      transformIndexHtml(html) {
+      name: "inline-css-dev",
+      apply: "serve",
+      transformIndexHtml(html, ctx) {
+        const htmlDir = path.dirname(ctx.filename);
         return html.replace(
-          /(<link[^>]+href=")([^"]+\.css)(")/g,
-          `$1$2?v=${cssVersion}$3`,
+          /<link\b[^>]+\brel=["']stylesheet["'][^>]*\bhref=["']([^"']+\.css)["'][^>]*(?:\/)?>[ \t]*\n?/g,
+          (fullTag, href) => {
+            const cssPath = href.startsWith("/")
+              ? path.join(import.meta.dirname, "public", href)
+              : path.resolve(htmlDir, href);
+            const css = readCss(cssPath);
+            return css ? `<style>${css}</style>\n` : fullTag;
+          },
         );
       },
     },
