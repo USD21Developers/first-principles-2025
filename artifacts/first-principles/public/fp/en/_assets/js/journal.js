@@ -26,33 +26,66 @@
 
   var HAS_STORAGE = storageAvailable();
 
-  /* ── CRUD ────────────────────────────────────────────────── */
-  function loadEntry() {
-    if (!HAS_STORAGE) return null;
+  /* ── ID generator ─────────────────────────────────────────── */
+  function genId() {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  }
+
+  /* ── Multi-entry CRUD ────────────────────────────────────── */
+  function loadEntries() {
+    if (!HAS_STORAGE) return [];
     try {
       var raw = localStorage.getItem(storageKey());
-      return raw ? JSON.parse(raw) : null;
-    } catch (e) { return null; }
+      if (!raw) return [];
+      var parsed = JSON.parse(raw);
+      /* Migrate old single-entry format → array */
+      if (!Array.isArray(parsed)) {
+        if (parsed && (parsed.text || '').trim()) {
+          var migrated = [{
+            id: genId(),
+            text: parsed.text,
+            createdAt: parsed.createdAt || new Date().toISOString(),
+            updatedAt: parsed.updatedAt || new Date().toISOString()
+          }];
+          _writeEntries(migrated);
+          return migrated;
+        }
+        return [];
+      }
+      return parsed;
+    } catch (e) { return []; }
   }
 
-  function saveEntry(text) {
+  function _writeEntries(entries) {
+    try { localStorage.setItem(storageKey(), JSON.stringify(entries)); } catch (e) {}
+  }
+
+  function upsertEntry(id, text) {
     if (!HAS_STORAGE) return null;
-    try {
-      var existing = loadEntry();
-      var now = new Date().toISOString();
-      var entry = {
-        text: text,
-        createdAt: (existing && existing.createdAt) ? existing.createdAt : now,
-        updatedAt: now
-      };
-      localStorage.setItem(storageKey(), JSON.stringify(entry));
-      return entry;
-    } catch (e) { return null; }
+    var entries = loadEntries();
+    var now = new Date().toISOString();
+    var idx = -1;
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].id === id) { idx = i; break; }
+    }
+    var entry;
+    if (idx === -1) {
+      entry = { id: id, text: text, createdAt: now, updatedAt: now };
+      entries.unshift(entry);
+    } else {
+      entries[idx].text = text;
+      entries[idx].updatedAt = now;
+      entry = entries.splice(idx, 1)[0];
+      entries.unshift(entry);
+    }
+    _writeEntries(entries);
+    return entry;
   }
 
-  function deleteEntry() {
+  function deleteEntryById(id) {
     if (!HAS_STORAGE) return;
-    try { localStorage.removeItem(storageKey()); } catch (e) {}
+    var entries = loadEntries().filter(function (e) { return e.id !== id; });
+    _writeEntries(entries);
   }
 
   /* ── Formatters ──────────────────────────────────────────── */
@@ -68,17 +101,13 @@
 
   function wordCount(text) {
     var t = (text || '').trim();
-    if (!t) return 0;
-    return t.split(/\s+/).length;
+    return t ? t.split(/\s+/).length : 0;
   }
 
-  function charCount(text) {
-    return (text || '').length;
-  }
+  function charCount(text) { return (text || '').length; }
 
   function countLabel(text) {
-    var w = wordCount(text);
-    var c = charCount(text);
+    var w = wordCount(text), c = charCount(text);
     if (!c) return '';
     return w + (w === 1 ? ' word' : ' words') + ' \u00b7 ' + c + ' chars';
   }
@@ -97,10 +126,14 @@
     return getSlug().replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
   }
 
-  /* ── DOM refs ────────────────────────────────────────────── */
-  var drawer, textarea, statusEl, metaEl, titleEl, countEl, fab, inlineBanner;
-  var saveTimer = null;
+  /* ── State ───────────────────────────────────────────────── */
+  var drawer, fab, inlineBanner;
+  var textarea, statusEl, metaEl, titleEl, countEl;
+  var listPanel, editPanel, entriesListEl;
   var isOpen = false;
+  var currentMode = 'list'; /* 'list' | 'edit' */
+  var currentEntryId = null;
+  var saveTimer = null;
 
   /* ── Inline "Continue" banner ───────────────────────────── */
   function buildInlineBanner() {
@@ -112,7 +145,7 @@
       '<div class="jib-inner">' +
         '<div class="jib-icon" aria-hidden="true">&#128211;</div>' +
         '<div class="jib-content">' +
-          '<div class="jib-heading">Continue your study notes</div>' +
+          '<div class="jib-heading"></div>' +
           '<div class="jib-preview"></div>' +
           '<div class="jib-meta"></div>' +
         '</div>' +
@@ -125,24 +158,25 @@
     } else {
       document.body.appendChild(inlineBanner);
     }
-
     inlineBanner.querySelector('.jib-btn').addEventListener('click', openJournal);
   }
 
   function refreshInlineBanner() {
     if (!inlineBanner) return;
-    var entry = loadEntry();
-    if (!entry || !(entry.text || '').trim()) {
-      inlineBanner.style.display = 'none';
-      return;
-    }
-    inlineBanner.querySelector('.jib-preview').textContent = previewText(entry.text);
+    var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
+    if (!entries.length) { inlineBanner.style.display = 'none'; return; }
+
+    var count = entries.length;
+    var newest = entries[0];
+    inlineBanner.querySelector('.jib-heading').textContent =
+      count === 1 ? 'Continue your study notes' : count + ' saved journal entries';
+    inlineBanner.querySelector('.jib-preview').textContent = previewText(newest.text);
     inlineBanner.querySelector('.jib-meta').textContent =
-      entry.updatedAt ? 'Last edited: ' + formatDate(entry.updatedAt) : '';
+      newest.updatedAt ? 'Last edited: ' + formatDate(newest.updatedAt) : '';
     inlineBanner.style.display = '';
   }
 
-  /* ── Drawer ──────────────────────────────────────────────── */
+  /* ── Build UI ────────────────────────────────────────────── */
   function buildUI() {
     buildInlineBanner();
     refreshInlineBanner();
@@ -178,50 +212,74 @@
 
     drawer.innerHTML =
       '<div id="journal-drag-handle"><span></span></div>' +
+
       '<div id="journal-header">' +
         '<div class="journal-header-left">' +
+          '<button id="journal-back" type="button" aria-label="Back to entries" style="display:none">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>' +
+          '</button>' +
           '<span id="journal-icon" aria-hidden="true">&#128211;</span>' +
           '<span id="journal-heading">Study Journal</span>' +
         '</div>' +
         '<button id="journal-close" aria-label="Close journal" type="button">&times;</button>' +
       '</div>' +
 
-      '<div id="journal-meta">' +
-        '<div id="journal-study-title"></div>' +
-        '<div id="journal-dates"></div>' +
+      /* ── List panel ── */
+      '<div id="journal-list-panel">' +
+        '<div id="journal-list-title"></div>' +
+        '<ul id="journal-entries-list" role="list"></ul>' +
+        '<div id="journal-list-footer">' +
+          '<button id="journal-new-entry" type="button">+ New entry</button>' +
+        '</div>' +
       '</div>' +
 
-      noStorageHTML +
-
-      '<div id="journal-body">' +
-        '<p id="journal-helper">Use this journal to record personal reflections and study notes for this lesson.</p>' +
-        '<textarea id="journal-textarea" placeholder="Write your notes here\u2026"' +
-          (HAS_STORAGE ? '' : ' disabled') + '></textarea>' +
-        '<div id="journal-wordcount"></div>' +
-      '</div>' +
-
-      '<div id="journal-footer">' +
-        '<span id="journal-status"></span>' +
-        '<div id="journal-actions">' +
-          '<button id="journal-copy" class="journal-btn" type="button">Copy</button>' +
-          '<button id="journal-delete" class="journal-btn journal-btn-danger" type="button">Delete</button>' +
+      /* ── Edit panel ── */
+      '<div id="journal-edit-panel" style="display:none;flex-direction:column;flex:1;min-height:0;overflow:hidden;">' +
+        '<div id="journal-meta">' +
+          '<div id="journal-study-title"></div>' +
+          '<div id="journal-dates"></div>' +
+        '</div>' +
+        noStorageHTML +
+        '<div id="journal-body">' +
+          '<p id="journal-helper">Use this journal to record personal reflections and study notes for this lesson.</p>' +
+          '<textarea id="journal-textarea" placeholder="Write your notes here\u2026"' +
+            (HAS_STORAGE ? '' : ' disabled') + '></textarea>' +
+          '<div id="journal-wordcount"></div>' +
+        '</div>' +
+        '<div id="journal-footer">' +
+          '<div id="journal-footer-left">' +
+            '<span id="journal-status"></span>' +
+            '<button id="journal-delete" class="journal-btn journal-btn-danger" type="button">Delete</button>' +
+          '</div>' +
+          '<div id="journal-actions">' +
+            '<button id="journal-copy"         class="journal-btn" type="button">Copy</button>' +
+            '<button id="journal-save"         class="journal-btn journal-btn-primary" type="button">Save</button>' +
+            '<button id="journal-close-entry"  class="journal-btn" type="button">Close</button>' +
+          '</div>' +
         '</div>' +
       '</div>';
 
     document.body.appendChild(drawer);
 
-    titleEl  = document.getElementById('journal-study-title');
-    metaEl   = document.getElementById('journal-dates');
-    textarea = document.getElementById('journal-textarea');
-    statusEl = document.getElementById('journal-status');
-    countEl  = document.getElementById('journal-wordcount');
+    listPanel    = document.getElementById('journal-list-panel');
+    editPanel    = document.getElementById('journal-edit-panel');
+    entriesListEl= document.getElementById('journal-entries-list');
+    titleEl      = document.getElementById('journal-study-title');
+    metaEl       = document.getElementById('journal-dates');
+    textarea     = document.getElementById('journal-textarea');
+    statusEl     = document.getElementById('journal-status');
+    countEl      = document.getElementById('journal-wordcount');
 
     /* Events */
     fab.addEventListener('click', openJournal);
     backdrop.addEventListener('click', closeJournal);
     document.getElementById('journal-close').addEventListener('click', closeJournal);
+    document.getElementById('journal-back').addEventListener('click', showListMode);
+    document.getElementById('journal-new-entry').addEventListener('click', function () { openEditMode(null); });
     textarea.addEventListener('input', onInput);
     document.getElementById('journal-copy').addEventListener('click', copyNotes);
+    document.getElementById('journal-save').addEventListener('click', onSaveClick);
+    document.getElementById('journal-close-entry').addEventListener('click', closeJournal);
     document.getElementById('journal-delete').addEventListener('click', deleteNotes);
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && isOpen) closeJournal();
@@ -230,12 +288,117 @@
     setupDrag();
   }
 
-  /* ── Open / close ────────────────────────────────────────── */
+  /* ── Open / close drawer ────────────────────────────────── */
   function openJournal() {
     isOpen = true;
-    var entry = loadEntry();
+    drawer.classList.add('open');
+    document.getElementById('journal-backdrop').classList.add('visible');
+    document.body.classList.add('journal-open');
+
+    var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
+    if (entries.length > 0) {
+      showListMode();
+    } else {
+      openEditMode(null);
+    }
+  }
+
+  function closeJournal() {
+    isOpen = false;
+    flushPendingSave();
+    drawer.classList.remove('open');
+    document.getElementById('journal-backdrop').classList.remove('visible');
+    document.body.classList.remove('journal-open');
+    refreshInlineBanner();
+  }
+
+  function flushPendingSave() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+      if (currentMode === 'edit' && textarea && textarea.value.trim()) {
+        upsertEntry(currentEntryId || (currentEntryId = genId()), textarea.value);
+      }
+    }
+  }
+
+  /* ── List mode ───────────────────────────────────────────── */
+  function showListMode() {
+    currentMode = 'list';
+    flushPendingSave();
+
+    document.getElementById('journal-back').style.display = 'none';
+    document.getElementById('journal-icon').style.display = '';
+    listPanel.style.display = 'flex';
+    editPanel.style.display = 'none';
+
+    renderEntriesList();
+  }
+
+  function renderEntriesList() {
+    var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
+    var titleDiv = document.getElementById('journal-list-title');
+    titleDiv.textContent = getStudyTitle();
+
+    entriesListEl.innerHTML = '';
+
+    if (!entries.length) {
+      var empty = document.createElement('li');
+      empty.className = 'journal-entry-empty';
+      empty.textContent = 'No entries yet. Tap \u201c+ New entry\u201d to start.';
+      entriesListEl.appendChild(empty);
+      return;
+    }
+
+    entries.forEach(function (entry) {
+      var li = document.createElement('li');
+      li.className = 'journal-entry-item';
+      li.setAttribute('role', 'button');
+      li.setAttribute('tabindex', '0');
+
+      var date = document.createElement('div');
+      date.className = 'journal-entry-date';
+      date.textContent = formatDate(entry.updatedAt || entry.createdAt);
+
+      var preview = document.createElement('div');
+      preview.className = 'journal-entry-preview';
+      preview.textContent = previewText(entry.text, 100);
+
+      li.appendChild(date);
+      li.appendChild(preview);
+
+      function openThis() { openEditMode(entry.id); }
+      li.addEventListener('click', openThis);
+      li.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openThis(); }
+      });
+
+      entriesListEl.appendChild(li);
+    });
+  }
+
+  /* ── Edit mode ───────────────────────────────────────────── */
+  function openEditMode(entryId) {
+    currentMode = 'edit';
+    currentEntryId = entryId || genId();
+
+    var hasMultiple = loadEntries().filter(function (e) { return (e.text || '').trim(); }).length > 0;
+    document.getElementById('journal-back').style.display = hasMultiple ? '' : 'none';
+    document.getElementById('journal-icon').style.display = hasMultiple ? 'none' : '';
+
+    listPanel.style.display = 'none';
+    editPanel.style.display = 'flex';
 
     titleEl.textContent = getStudyTitle();
+    statusEl.textContent = '';
+
+    var entry = null;
+    if (entryId) {
+      var all = loadEntries();
+      for (var i = 0; i < all.length; i++) {
+        if (all[i].id === entryId) { entry = all[i]; break; }
+      }
+    }
 
     if (entry) {
       textarea.value = entry.text || '';
@@ -246,30 +409,19 @@
     }
 
     updateCount();
-    statusEl.textContent = '';
-
-    /* hide helper text if there is already content */
     var helper = document.getElementById('journal-helper');
     if (helper) helper.style.display = textarea.value.trim() ? 'none' : '';
-
-    drawer.classList.add('open');
-    document.getElementById('journal-backdrop').classList.add('visible');
-    document.body.classList.add('journal-open');
 
     setTimeout(function () { textarea.focus(); }, 300);
   }
 
-  function closeJournal() {
-    isOpen = false;
-    if (saveTimer) {
-      clearTimeout(saveTimer);
-      saveTimer = null;
-      doSave(textarea.value);
-    }
-    drawer.classList.remove('open');
-    document.getElementById('journal-backdrop').classList.remove('visible');
-    document.body.classList.remove('journal-open');
-    refreshInlineBanner();
+  /* ── Save button (explicit, confirm + close) ────────────── */
+  function onSaveClick() {
+    if (!window.confirm('Save and close this entry?')) return;
+    if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+    upsertEntry(currentEntryId, textarea.value);
+    statusEl.textContent = '';
+    closeJournal();
   }
 
   /* ── Meta / counts ───────────────────────────────────────── */
@@ -293,22 +445,19 @@
     countEl.style.display = label ? '' : 'none';
   }
 
-  /* ── Input / save ────────────────────────────────────────── */
+  /* ── Auto-save on input ──────────────────────────────────── */
   function onInput() {
     updateCount();
-
-    /* hide helper once user starts typing */
     var helper = document.getElementById('journal-helper');
     if (helper) helper.style.display = textarea.value.trim() ? 'none' : '';
-
     if (saveTimer) clearTimeout(saveTimer);
     statusEl.textContent = 'Saving\u2026';
-    saveTimer = setTimeout(function () { doSave(textarea.value); }, 700);
+    saveTimer = setTimeout(function () { doAutoSave(textarea.value); }, 700);
   }
 
-  function doSave(text) {
+  function doAutoSave(text) {
     saveTimer = null;
-    var entry = saveEntry(text);
+    var entry = upsertEntry(currentEntryId, text);
     if (entry) {
       renderMeta(entry);
       statusEl.textContent = '\u2713 Saved';
@@ -323,16 +472,11 @@
   /* ── Copy ────────────────────────────────────────────────── */
   function copyNotes() {
     var text = textarea.value.trim();
-    if (!text) {
-      flash('Nothing to copy.');
-      return;
-    }
+    if (!text) { flash('Nothing to copy.'); return; }
     var title = (titleEl.textContent || getStudyTitle()).trim();
     var full = title ? (title + '\n\n' + text) : text;
-
-    function ok() { flash('\u2713 Copied!'); }
+    function ok()   { flash('\u2713 Copied!'); }
     function fail() { flash('Copy failed.'); }
-
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(full).then(ok, function () { fallbackCopy(full, ok, fail); });
     } else {
@@ -360,18 +504,16 @@
 
   /* ── Delete ──────────────────────────────────────────────── */
   function deleteNotes() {
-    if (!textarea.value.trim()) {
-      flash('No notes to delete.');
-      return;
+    if (!textarea.value.trim()) { flash('No notes to delete.'); return; }
+    if (!confirm('Delete this entry? This cannot be undone.')) return;
+    if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+    deleteEntryById(currentEntryId);
+    var remaining = loadEntries().filter(function (e) { return (e.text || '').trim(); });
+    if (remaining.length > 0) {
+      showListMode();
+    } else {
+      closeJournal();
     }
-    if (!confirm('Delete all notes for this study? This cannot be undone.')) return;
-    deleteEntry();
-    textarea.value = '';
-    metaEl.textContent = '';
-    updateCount();
-    var helper = document.getElementById('journal-helper');
-    if (helper) helper.style.display = '';
-    flash('\u2713 Deleted');
     refreshInlineBanner();
   }
 
@@ -379,17 +521,14 @@
   function setupDrag() {
     var handle = document.getElementById('journal-drag-handle');
     var startY = null;
-
     handle.addEventListener('touchstart', function (e) {
       startY = e.touches[0].clientY;
     }, { passive: true });
-
     document.addEventListener('touchmove', function (e) {
       if (startY === null || !isOpen) return;
       var dy = e.touches[0].clientY - startY;
       if (dy > 0) drawer.style.transform = 'translateY(' + dy + 'px)';
     }, { passive: true });
-
     document.addEventListener('touchend', function (e) {
       if (startY === null) return;
       var dy = e.changedTouches[0].clientY - startY;
