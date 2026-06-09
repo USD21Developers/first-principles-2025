@@ -79,6 +79,17 @@ main {
   margin-top: 0.4rem;
 }
 
+.txt-section-label {
+  color: #555;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
 a.toc-link {
   color: unset;
   display: block;
