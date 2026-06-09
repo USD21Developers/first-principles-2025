@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import path from "path";
 import { readFileSync } from "node:fs";
+import type { ViteDevServer } from "vite";
 
 const rawPort = process.env.PORT;
 
@@ -24,14 +25,9 @@ if (!basePath) {
   );
 }
 
-const cssCache = new Map<string, string>();
-
 function readCss(filePath: string): string {
-  if (cssCache.has(filePath)) return cssCache.get(filePath)!;
   try {
-    const content = readFileSync(filePath, "utf-8");
-    cssCache.set(filePath, content);
-    return content;
+    return readFileSync(filePath, "utf-8");
   } catch {
     return "";
   }
@@ -46,6 +42,17 @@ export default defineConfig({
     {
       name: "inline-css-dev",
       apply: "serve",
+      configureServer(server: ViteDevServer) {
+        server.middlewares.use((_req, res, next) => {
+          res.setHeader(
+            "Cache-Control",
+            "no-cache, no-store, must-revalidate",
+          );
+          res.setHeader("Pragma", "no-cache");
+          res.setHeader("Expires", "0");
+          next();
+        });
+      },
       transformIndexHtml(html, ctx) {
         const htmlDir = path.dirname(ctx.filename);
         return html.replace(
