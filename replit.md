@@ -1,36 +1,38 @@
-# [Project name]
+# First Principles
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A multilingual Bible study series web app (USD21 / First Principles 2025), imported from [GitHub](https://github.com/USD21Developers/first-principles-2025.git). Served as a static site via Vite.
 
 ## Run & Operate
 
+- `pnpm --filter @workspace/first-principles run dev` — serve the static site (port assigned by Replit)
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: Static HTML/CSS/JS (plain, no framework) served by Vite dev server
+- Service Worker / PWA: Workbox (pre-built in `public/fp/`)
+- API: Express 5 (unused currently)
+- DB: PostgreSQL + Drizzle ORM (unused currently)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/first-principles/public/fp/` — all static site content (HTML, CSS, JS, images, SW)
+- `artifacts/first-principles/index.html` — root redirect to `/fp/`
+- `artifacts/first-principles/vite.config.ts` — Vite static file server config
+- `lib/api-spec/openapi.yaml` — API contract (health check only)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The site is pure static HTML/CSS/JS — no React or build transpilation needed. Vite is used purely as a dev server and for production `serve`.
+- All static files from the repo live in `public/` so Vite serves them as-is without transformation.
+- Root `index.html` does an instant meta-refresh redirect to `/fp/`, matching the upstream repo's behaviour.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+A multilingual (English, Spanish, French, Portuguese, Chinese) Bible study series app. Supports offline use via a service worker / PWA. Available languages are in `public/fp/en`, `es`, `fr`, `pt`, `pt-eu`, `zh`.
 
 ## User preferences
 
@@ -38,7 +40,9 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The service worker scope is `/fp/` — do not move the SW files from `public/fp/`.
+- The `public/fp/` directory is ~86 MB (images, multi-language content). Don't accidentally wipe it.
+- `pnpm --filter @workspace/db run push` requires `DATABASE_URL` — provision a DB first if needed.
 
 ## Pointers
 

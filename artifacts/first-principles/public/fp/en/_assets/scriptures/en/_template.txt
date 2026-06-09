@@ -1,0 +1,12 @@
+{
+  "display": "",
+  "slug": "",
+  "language": "en",
+  "version": "NIV",
+  "book": "",
+  "chapter": ,
+  "verses": [
+    [, ""],
+    [, ""]
+  ]
+}
