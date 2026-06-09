@@ -30,6 +30,7 @@ extra_files = [
     "_assets/css/comments.css",
     "_assets/js/journal.js",
     "_assets/js/comments.js",
+    "_assets/js/study-nav.js",
 ]
 
 existing_urls = {url for url, _ in entries}

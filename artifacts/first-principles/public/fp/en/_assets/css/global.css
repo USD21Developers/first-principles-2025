@@ -112,6 +112,84 @@ a[data-i18n-global="fpLicense"] {
   text-decoration: underline;
 }
 
+/* ── End-of-study navigation (prev / home / next) ────────── */
+.study-nav {
+  display: flex;
+  align-items: stretch;
+  background-color: #1c1c1e;
+  border-top: 2px solid rgba(255,255,255,.10);
+}
+
+.study-nav__btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  color: rgba(255,255,255,.80);
+  text-decoration: none;
+  min-height: 60px;
+  gap: 0.15rem;
+  transition: background 0.15s ease;
+  overflow: hidden;
+}
+
+.study-nav__btn:hover,
+.study-nav__btn:active {
+  background-color: rgba(255,255,255,.07);
+  color: #fff;
+  text-decoration: none;
+}
+
+.study-nav__btn--home {
+  flex: 0 0 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 0.4rem;
+  border-left: 1px solid rgba(255,255,255,.09);
+  border-right: 1px solid rgba(255,255,255,.09);
+}
+
+.study-nav__btn--home svg {
+  width: 22px;
+  height: 22px;
+  opacity: .65;
+  display: block;
+}
+
+.study-nav__btn--home:hover svg,
+.study-nav__btn--home:active svg {
+  opacity: 1;
+}
+
+.study-nav__btn--next {
+  align-items: flex-end;
+}
+
+.study-nav__btn--placeholder {
+  flex: 1;
+  min-height: 60px;
+}
+
+.study-nav__direction {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: .50;
+}
+
+.study-nav__title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  max-width: 18ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
 /* ── Standard hero / masthead ────────────────────────────── */
 header {
   aspect-ratio: 16 / 9;
