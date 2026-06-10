@@ -1,0 +1,210 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+.master-container {
+  background-color: #f4f4f4;
+  margin: auto;
+  width: 100%;
+}
+
+@media (min-width: 991px) {
+  .master-container {
+    width: clamp(991px, 80vw, 1536px);
+  }
+}
+
+header {
+  background-color: #251c17;
+  background-image: url(../church/img/masthead-church.avif);
+}
+
+/* ── Search bar (sticky) ─────────────────────────────────── */
+.search-bar {
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.85rem 1rem 0.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+}
+
+.search-input {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  padding: 0.55rem 0.85rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background: #f8f9fa;
+}
+
+.search-input:focus {
+  background: #fff;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13,110,253,.12);
+}
+
+.filter-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.country-select {
+  border: 1px solid #ced4da;
+  border-radius: 7px;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+  background: #fff;
+  cursor: pointer;
+  flex: 1 1 140px;
+  max-width: 240px;
+}
+
+.result-count {
+  color: #6c757d;
+  font-size: 0.78rem;
+  flex: 1 1 100px;
+  white-space: nowrap;
+}
+
+.ctrl-btns {
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ctrl-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  color: #495057;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.28rem 0.55rem;
+  transition: background 0.12s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.ctrl-btn:hover { background: #e9ecef; }
+.ctrl-btn.active {
+  background: #212529;
+  border-color: #212529;
+  color: #fff;
+}
+
+/* ── Church cards ────────────────────────────────────────── */
+.church-list {
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.church-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,.06);
+  display: flex;
+  overflow: hidden;
+}
+
+.church-photo {
+  flex-shrink: 0;
+  width: 120px;
+  object-fit: cover;
+  display: block;
+  align-self: stretch;
+}
+
+.church-body {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  text-align: center;
+  min-width: 0;
+}
+
+.church-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.church-place {
+  color: #495057;
+  font-size: 0.75rem;
+  margin: 0 0 0.55rem;
+  line-height: 1.4;
+}
+
+.church-detail {
+  color: #495057;
+  font-size: 0.73rem;
+  margin: 0.18rem 0;
+  line-height: 1.4;
+}
+
+.church-detail strong {
+  color: #212529;
+}
+
+.church-website {
+  color: #0d6efd;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.55rem;
+  text-decoration: none;
+}
+
+.church-website:hover { text-decoration: underline; }
+
+.list-message {
+  color: #6c757d;
+  font-size: 0.85rem;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .church-photo { width: 88px; }
+  .church-name  { font-size: 0.8rem; }
+}
+
+@media (min-width: 600px) {
+  .church-photo { width: 160px; }
+  .church-name  { font-size: 1rem; }
+  .church-detail { font-size: 0.8rem; }
+}
+
+@media (min-width: 992px) {
+  .church-list  { padding: 1.2rem 1.5rem; gap: 1rem; }
+  .search-bar   { padding: 1rem 1.5rem 0.9rem; }
+  .church-photo { width: 200px; }
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
