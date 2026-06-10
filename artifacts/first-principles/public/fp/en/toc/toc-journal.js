@@ -485,13 +485,13 @@
     var btn = document.createElement('button');
     btn.className = 'toc-tab';
     btn.style.background = color;
-    var label = study ? study.name : 'General Notes';
+    var displayName = study ? study.name : 'Notes';
     var countText = count > 0 ? count + ' entr' + (count === 1 ? 'y' : 'ies') : '';
-    btn.setAttribute('aria-label', label + (countText ? ' — ' + countText : ''));
-    btn.setAttribute('title', label + (countText ? ' (' + countText + ')' : ''));
+    btn.setAttribute('aria-label', displayName + (countText ? ' \u2014 ' + countText : ''));
+    btn.setAttribute('title',      displayName + (countText ? ' (' + countText + ')' : ''));
 
     if (icon) {
-      /* Notes tab: icon + optional count */
+      /* Notes tab: pencil icon (+ count pill if entries exist) */
       var iconEl = document.createElement('span');
       iconEl.className = 'toc-tab-icon';
       iconEl.setAttribute('aria-hidden', 'true');
@@ -501,20 +501,25 @@
       if (count > 0) {
         var cEl = document.createElement('span');
         cEl.className = 'toc-tab-count';
+        cEl.setAttribute('aria-hidden', 'true');
         cEl.textContent = count;
         btn.appendChild(cEl);
       }
     } else {
-      /* Study tab: count number + dot */
+      /* Study tab: count pill */
       var cEl2 = document.createElement('span');
       cEl2.className = 'toc-tab-count';
+      cEl2.setAttribute('aria-hidden', 'true');
       cEl2.textContent = count;
       btn.appendChild(cEl2);
-
-      var dot = document.createElement('span');
-      dot.className = 'toc-tab-dot';
-      btn.appendChild(dot);
     }
+
+    /* Vertical label — reads bottom-to-top on the right edge */
+    var labelEl = document.createElement('span');
+    labelEl.className = 'toc-tab-label';
+    labelEl.setAttribute('aria-hidden', 'true');
+    labelEl.textContent = displayName;
+    btn.appendChild(labelEl);
 
     btn.addEventListener('click', function () { openPanel(study); });
     return btn;
