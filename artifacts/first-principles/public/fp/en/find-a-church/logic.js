@@ -1,4 +1,19 @@
-(function () {
+async function init() {
+  await translate();
+  shareLink();
+  hideSpinner();
+  loadChurches();
+}
+
+init();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('../sw.js').catch(function (err) {
+    console.error('Error registering service worker:', err);
+  });
+}
+
+function loadChurches() {
   'use strict';
 
   var API_URL = 'https://admin.upsidedown21.org/api/v1/churches?limit=200';
@@ -157,4 +172,4 @@
       listEl.innerHTML = '<p class="list-message">Could not load the church directory.<br>Please check your internet connection and try again.</p>';
       countEl.textContent = '';
     });
-})();
+}
