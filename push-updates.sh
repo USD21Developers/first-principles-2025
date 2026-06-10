@@ -27,14 +27,14 @@ if not entries:
 # Add new shared-asset files here if they are not yet in the precache.
 extra_files = [
     "_assets/css/journal.css",
-    "_assets/css/comments.css",
     "_assets/js/journal.js",
-    "_assets/js/comments.js",
     "_assets/js/study-nav.js",
     "find-a-church/index.html",
     "find-a-church/style.css",
     "find-a-church/logic.js",
     "find-a-church/i18n/en.json",
+    "toc/toc-journal.css",
+    "toc/toc-journal.js",
 ]
 
 existing_urls = {url for url, _ in entries}
