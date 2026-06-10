@@ -58,30 +58,8 @@
     </header>
 
     <main class="mb-0">
-      <div class="container-fluid px-0">
-
-        <!-- Search bar (sticky) -->
-        <div class="search-bar">
-          <input id="churchSearch" type="search" class="search-input"
-            placeholder="Search by church, city, state, country, or leader&hellip;" autocomplete="off" />
-          <div class="filter-row">
-            <select id="churchCountry" class="country-select" aria-label="Filter by country">
-              <option value="">All countries</option>
-            </select>
-            <span id="resultCount" class="result-count"></span>
-            <div class="ctrl-btns" role="group" aria-label="View and sort options">
-              <button class="ctrl-btn active" data-view="images">Images</button>
-              <button class="ctrl-btn" data-view="list">List only</button>
-              <button class="ctrl-btn active" data-sort="az">A&ndash;Z</button>
-              <button class="ctrl-btn" data-sort="za">Z&ndash;A</button>
-              <button class="ctrl-btn" data-sort="country">By Country</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Results -->
-        <div id="churchList" class="church-list" role="list"></div>
-
+      <div class="container-fluid px-3 py-3">
+        <div id="global-church-directory"></div>
       </div>
     </main>
 
@@ -169,6 +147,7 @@
   <script type="text/javascript" src="../_assets/js/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="../_assets/js/global.js"></script>
   <script type="text/javascript" src="logic.js"></script>
+  <script type="text/javascript" src="https://api.usd21.org/directory/churches.js"></script>
 </body>
 
 </html>
