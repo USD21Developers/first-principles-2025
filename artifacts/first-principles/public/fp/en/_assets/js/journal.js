@@ -38,7 +38,6 @@
       var raw = localStorage.getItem(storageKey());
       if (!raw) return [];
       var parsed = JSON.parse(raw);
-      /* Migrate old single-entry format → array */
       if (!Array.isArray(parsed)) {
         if (parsed && (parsed.text || '').trim()) {
           var migrated = [{
@@ -127,11 +126,11 @@
   }
 
   /* ── State ───────────────────────────────────────────────── */
-  var drawer, fab, inlineBanner;
+  var drawer, tabBtn, badge, inlineBanner;
   var textarea, statusEl, metaEl, titleEl, countEl;
   var listPanel, editPanel, entriesListEl;
   var isOpen = false;
-  var currentMode = 'list'; /* 'list' | 'edit' */
+  var currentMode = 'list';
   var currentEntryId = null;
   var saveTimer = null;
 
@@ -176,24 +175,44 @@
     inlineBanner.style.display = '';
   }
 
+  function refreshBadge() {
+    if (!badge) return;
+    var count = loadEntries().filter(function (e) { return (e.text || '').trim(); }).length;
+    if (count > 0) {
+      badge.textContent = count;
+      badge.classList.add('visible');
+    } else {
+      badge.classList.remove('visible');
+    }
+  }
+
   /* ── Build UI ────────────────────────────────────────────── */
   function buildUI() {
     buildInlineBanner();
     refreshInlineBanner();
 
-    /* FAB */
-    fab = document.createElement('button');
-    fab.id = 'journal-fab';
-    fab.setAttribute('aria-label', 'Open Study Journal');
-    fab.title = 'Study Journal';
-    fab.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">' +
+    /* Tab button — injected into <header> */
+    tabBtn = document.createElement('button');
+    tabBtn.id = 'journal-tab-btn';
+    tabBtn.setAttribute('aria-label', 'Open Study Journal');
+    tabBtn.title = 'Study Journal';
+    tabBtn.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">' +
         '<path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>' +
         '<path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>' +
         '<path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>' +
       '</svg>' +
-      '<span class="journal-fab-label">Journal</span>';
-    document.body.appendChild(fab);
+      '<span>Journal</span>' +
+      '<span id="journal-tab-badge"></span>';
+
+    var header = document.querySelector('header');
+    if (header) {
+      header.appendChild(tabBtn);
+    } else {
+      document.body.appendChild(tabBtn);
+    }
+    badge = document.getElementById('journal-tab-badge');
+    refreshBadge();
 
     /* Backdrop */
     var backdrop = document.createElement('div');
@@ -211,6 +230,7 @@
       '<div id="journal-no-storage">&#9888; Notes cannot be saved &mdash; storage is unavailable in this browser.</div>';
 
     drawer.innerHTML =
+      /* Swipe-right grip on left edge */
       '<div id="journal-drag-handle"><span></span></div>' +
 
       '<div id="journal-header">' +
@@ -224,7 +244,7 @@
         '<button id="journal-close" aria-label="Close journal" type="button">&times;</button>' +
       '</div>' +
 
-      /* ── List panel ── */
+      /* List panel */
       '<div id="journal-list-panel">' +
         '<div id="journal-list-title"></div>' +
         '<ul id="journal-entries-list" role="list"></ul>' +
@@ -233,7 +253,7 @@
         '</div>' +
       '</div>' +
 
-      /* ── Edit panel ── */
+      /* Edit panel */
       '<div id="journal-edit-panel" style="display:none;flex-direction:column;flex:1;min-height:0;overflow:hidden;">' +
         '<div id="journal-meta">' +
           '<div id="journal-study-title"></div>' +
@@ -261,17 +281,17 @@
 
     document.body.appendChild(drawer);
 
-    listPanel    = document.getElementById('journal-list-panel');
-    editPanel    = document.getElementById('journal-edit-panel');
-    entriesListEl= document.getElementById('journal-entries-list');
-    titleEl      = document.getElementById('journal-study-title');
-    metaEl       = document.getElementById('journal-dates');
-    textarea     = document.getElementById('journal-textarea');
-    statusEl     = document.getElementById('journal-status');
-    countEl      = document.getElementById('journal-wordcount');
+    listPanel     = document.getElementById('journal-list-panel');
+    editPanel     = document.getElementById('journal-edit-panel');
+    entriesListEl = document.getElementById('journal-entries-list');
+    titleEl       = document.getElementById('journal-study-title');
+    metaEl        = document.getElementById('journal-dates');
+    textarea      = document.getElementById('journal-textarea');
+    statusEl      = document.getElementById('journal-status');
+    countEl       = document.getElementById('journal-wordcount');
 
     /* Events */
-    fab.addEventListener('click', openJournal);
+    tabBtn.addEventListener('click', openJournal);
     backdrop.addEventListener('click', closeJournal);
     document.getElementById('journal-close').addEventListener('click', closeJournal);
     document.getElementById('journal-back').addEventListener('click', showListMode);
@@ -293,7 +313,6 @@
     isOpen = true;
     drawer.classList.add('open');
     document.getElementById('journal-backdrop').classList.add('visible');
-    document.body.classList.add('journal-open');
 
     var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
     if (entries.length > 0) {
@@ -308,8 +327,8 @@
     flushPendingSave();
     drawer.classList.remove('open');
     document.getElementById('journal-backdrop').classList.remove('visible');
-    document.body.classList.remove('journal-open');
     refreshInlineBanner();
+    refreshBadge();
   }
 
   function flushPendingSave() {
@@ -415,7 +434,7 @@
     setTimeout(function () { textarea.focus(); }, 300);
   }
 
-  /* ── Save button (explicit, confirm + close) ────────────── */
+  /* ── Save button ─────────────────────────────────────────── */
   function onSaveClick() {
     if (!window.confirm('Save and close this entry?')) return;
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
@@ -461,6 +480,7 @@
     if (entry) {
       renderMeta(entry);
       statusEl.textContent = '\u2713 Saved';
+      refreshBadge();
       setTimeout(function () {
         if (statusEl.textContent === '\u2713 Saved') statusEl.textContent = '';
       }, 2000);
@@ -515,26 +535,30 @@
       closeJournal();
     }
     refreshInlineBanner();
+    refreshBadge();
   }
 
-  /* ── Touch drag-to-close ─────────────────────────────────── */
+  /* ── Touch swipe-right to close ──────────────────────────── */
   function setupDrag() {
     var handle = document.getElementById('journal-drag-handle');
-    var startY = null;
+    var startX = null;
+
     handle.addEventListener('touchstart', function (e) {
-      startY = e.touches[0].clientY;
+      startX = e.touches[0].clientX;
     }, { passive: true });
+
     document.addEventListener('touchmove', function (e) {
-      if (startY === null || !isOpen) return;
-      var dy = e.touches[0].clientY - startY;
-      if (dy > 0) drawer.style.transform = 'translateY(' + dy + 'px)';
+      if (startX === null || !isOpen) return;
+      var dx = e.touches[0].clientX - startX;
+      if (dx > 0) drawer.style.transform = 'translateX(' + dx + 'px)';
     }, { passive: true });
+
     document.addEventListener('touchend', function (e) {
-      if (startY === null) return;
-      var dy = e.changedTouches[0].clientY - startY;
-      startY = null;
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      startX = null;
       drawer.style.transform = '';
-      if (dy > 80 && isOpen) closeJournal();
+      if (dx > 80 && isOpen) closeJournal();
     });
   }
 
