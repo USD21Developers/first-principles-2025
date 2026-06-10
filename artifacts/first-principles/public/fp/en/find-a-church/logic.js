@@ -155,21 +155,36 @@ function loadChurches() {
   });
 
   /* ── Fetch data ───────────────────────────────────────── */
+  // Fallback proxy used when the API does not send CORS headers for this origin.
+  // Long-term fix: ask the API team to add Access-Control-Allow-Origin: * to the endpoint.
+  var API_PROXY = 'https://corsproxy.io/?' + encodeURIComponent(API_URL);
+
+  function parseChurches(r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }
+
+  function onData(data) {
+    allChurches = (data.data || []).slice();
+    populateCountries(allChurches);
+    countEl.textContent = allChurches.length + ' churches worldwide';
+    render(sortList(allChurches, currentSort));
+  }
+
+  function onError() {
+    listEl.innerHTML = '<p class="list-message">Could not load the church directory.<br>Please check your internet connection and try again.</p>';
+    countEl.textContent = '';
+  }
+
   listEl.innerHTML = '<p class="list-message">Loading churches\u2026</p>';
 
   fetch(API_URL)
-    .then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      allChurches = (data.data || []).slice();
-      populateCountries(allChurches);
-      countEl.textContent = allChurches.length + ' churches worldwide';
-      render(sortList(allChurches, currentSort));
-    })
+    .then(parseChurches)
     .catch(function () {
-      listEl.innerHTML = '<p class="list-message">Could not load the church directory.<br>Please check your internet connection and try again.</p>';
-      countEl.textContent = '';
-    });
+      // Direct fetch failed (likely a CORS block on this origin).
+      // Retry transparently through a CORS proxy.
+      return fetch(API_PROXY).then(parseChurches);
+    })
+    .then(onData)
+    .catch(onError);
 }
