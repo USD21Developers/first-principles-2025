@@ -116,6 +116,7 @@
   var currentEntryId = null;
   var mode = 'list'; /* 'list' | 'edit' */
   var saveTimer = null;
+  var deleteConfirmTimer = null;
 
   /* ── Build panel ─────────────────────────────────────────── */
   function buildPanel() {
@@ -245,6 +246,7 @@
 
   function closePanel() {
     isOpen = false;
+    resetDeleteBtn();
     flushSave();
     panel.classList.remove('open');
     backdrop.classList.remove('visible');
@@ -365,15 +367,31 @@
   }
 
   function onSave() {
-    if (!confirm('Save and close this entry?')) return;
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
     upsertEntry(currentKey, currentEntryId, editTextarea.value);
     closePanel();
   }
 
+  function resetDeleteBtn() {
+    if (deleteConfirmTimer) { clearTimeout(deleteConfirmTimer); deleteConfirmTimer = null; }
+    var btn = document.getElementById('toc-del-btn');
+    if (btn) { btn.textContent = 'Delete'; btn.classList.remove('toc-btn-armed'); }
+  }
+
   function onDelete() {
     if (!editTextarea.value.trim()) { flash('No notes to delete.'); return; }
-    if (!confirm('Delete this entry? This cannot be undone.')) return;
+    var btn = document.getElementById('toc-del-btn');
+    if (!deleteConfirmTimer) {
+      btn.textContent = 'Tap again to delete';
+      btn.classList.add('toc-btn-armed');
+      deleteConfirmTimer = setTimeout(function () {
+        deleteConfirmTimer = null;
+        btn.textContent = 'Delete';
+        btn.classList.remove('toc-btn-armed');
+      }, 3000);
+      return;
+    }
+    resetDeleteBtn();
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
     deleteEntry(currentKey, currentEntryId);
     var remaining = loadEntries(currentKey).filter(function (e) { return (e.text || '').trim(); });

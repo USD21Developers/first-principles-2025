@@ -133,6 +133,7 @@
   var currentMode = 'list';
   var currentEntryId = null;
   var saveTimer = null;
+  var deleteConfirmTimer = null;
 
   /* ── Inline "Continue" banner ───────────────────────────── */
   function buildInlineBanner() {
@@ -324,6 +325,7 @@
 
   function closeJournal() {
     isOpen = false;
+    resetDeleteBtn();
     flushPendingSave();
     drawer.classList.remove('open');
     document.getElementById('journal-backdrop').classList.remove('visible');
@@ -436,7 +438,6 @@
 
   /* ── Save button ─────────────────────────────────────────── */
   function onSaveClick() {
-    if (!window.confirm('Save and close this entry?')) return;
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
     upsertEntry(currentEntryId, textarea.value);
     statusEl.textContent = '';
@@ -523,9 +524,26 @@
   }
 
   /* ── Delete ──────────────────────────────────────────────── */
+  function resetDeleteBtn() {
+    if (deleteConfirmTimer) { clearTimeout(deleteConfirmTimer); deleteConfirmTimer = null; }
+    var btn = document.getElementById('journal-delete');
+    if (btn) { btn.textContent = 'Delete'; btn.classList.remove('journal-btn-armed'); }
+  }
+
   function deleteNotes() {
     if (!textarea.value.trim()) { flash('No notes to delete.'); return; }
-    if (!confirm('Delete this entry? This cannot be undone.')) return;
+    var btn = document.getElementById('journal-delete');
+    if (!deleteConfirmTimer) {
+      btn.textContent = 'Tap again to delete';
+      btn.classList.add('journal-btn-armed');
+      deleteConfirmTimer = setTimeout(function () {
+        deleteConfirmTimer = null;
+        btn.textContent = 'Delete';
+        btn.classList.remove('journal-btn-armed');
+      }, 3000);
+      return;
+    }
+    resetDeleteBtn();
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
     deleteEntryById(currentEntryId);
     var remaining = loadEntries().filter(function (e) { return (e.text || '').trim(); });

@@ -400,6 +400,14 @@
 
 .journal-btn-danger:hover { background: #fee2e2; }
 
+.journal-btn-armed {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+.journal-btn-armed:hover { background: #b91c1c; border-color: #b91c1c; }
+
 /* ── Inline "Continue" banner ─────────────────────────────── */
 #journal-inline-banner {
   margin: 0;

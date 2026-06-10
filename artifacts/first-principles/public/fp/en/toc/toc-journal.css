@@ -441,6 +441,14 @@
 
 .toc-btn-danger:hover { background: #fee2e2; }
 
+.toc-btn-armed {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+.toc-btn-armed:hover { background: #b91c1c; border-color: #b91c1c; }
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 639px) {
   .toc-btn          { padding: 9px 10px; font-size: 0.82rem; }
