@@ -19,37 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Push public/ content to dist branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-
-          CONTENT_DIR="$(pwd)/artifacts/first-principles/public"
-          WORK_DIR="$(mktemp -d)"
-          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          MAIN_SHA="$(git rev-parse --short HEAD)"
-          MAIN_MSG="$(git log -1 --format='%s')"
-
-          cd "$WORK_DIR"
-          git init -b dist
-          git remote add origin "$REPO_URL"
-
-          # Fetch existing dist so we produce a real delta, not a force-push every time
-          if git fetch origin dist --depth=1 2>/dev/null; then
-            git reset --soft FETCH_HEAD
-            git rm -rf . --quiet 2>/dev/null || true
-          fi
-
-          cp -r "$CONTENT_DIR"/. .
-          echo "Built from main@${MAIN_SHA}" > .build-info
-
-          git add -A
-          if git diff --cached --quiet; then
-            echo "dist branch already up to date — nothing to push."
-            exit 0
-          fi
-
-          git commit -m "dist: ${MAIN_MSG}"
-          git push origin HEAD:refs/heads/dist
+      - name: Push public/ to dist branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./artifacts/first-principles/public
+          publish_branch: dist
+          commit_message: "dist: ${{ github.event.head_commit.message }}"
+          force_orphan: true
