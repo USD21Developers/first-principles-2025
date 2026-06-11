@@ -1,50 +1,71 @@
 /* ============================================================
-   Study Journal — Bible-tab trigger + right-side sliding panel
+   Study Journal — bible-style side tabs + right-side drawer
    ============================================================ */
 
-/* ── Tab button (lives inside <header>, bottom-right) ─────── */
-#journal-tab-btn {
-  position: absolute;
-  bottom: 0;
+/* ── Side tab column (fixed, right edge, near study title) ── */
+#journal-tab-col {
+  position: fixed;
   right: 0;
-  z-index: 10;
+  top: 14px;
+  z-index: 1040;
   display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 20px 9px 15px;
-  background: #1a5f4a;
-  color: #fff;
-  border: none;
-  /* Bible-tab shape: rounded top-left, flush on right + bottom */
-  border-radius: 10px 0 0 0;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: -3px -3px 14px rgba(0, 0, 0, .30);
-  transition: background 0.18s;
-  -webkit-tap-highlight-color: transparent;
-  white-space: nowrap;
+  flex-direction: column;
+  gap: 3px;
 }
 
-#journal-tab-btn:hover  { background: #155240; }
-#journal-tab-btn:active { background: #0f3d2f; }
+/* ── Individual side tab ──────────────────────────────────── */
+.journal-side-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30px;
+  min-height: 52px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: inherit;
+  padding: 8px 0 6px;
+  gap: 5px;
+  box-shadow: -3px 1px 8px rgba(0, 0, 0, .28);
+  transition: width 0.15s, box-shadow 0.15s;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.journal-side-tab:hover,
+.journal-side-tab:focus-visible {
+  width: 36px;
+  box-shadow: -5px 2px 16px rgba(0, 0, 0, .38);
+  outline: none;
+}
+
+.journal-side-tab:active { opacity: 0.85; }
 
 /* Entry-count badge */
-#journal-tab-badge {
-  display: none;
-  background: #fbbf24;
-  color: #1a1a1a;
+.journal-side-tab-badge {
   font-size: 0.65rem;
   font-weight: 700;
   line-height: 1;
+  background: rgba(255, 255, 255, .25);
   border-radius: 99px;
-  padding: 2px 6px;
-  margin-left: 1px;
+  padding: 1px 5px;
+  flex-shrink: 0;
 }
 
-#journal-tab-badge.visible { display: inline; }
+/* Vertical label — reads bottom-to-top */
+.journal-side-tab-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 0.92;
+}
 
 /* ── Backdrop ─────────────────────────────────────────────── */
 #journal-backdrop {
@@ -79,7 +100,7 @@
 
 #journal-drawer.open { transform: translateX(0) !important; }
 
-/* ── Left-edge swipe grip (touch cue) ─────────────────────── */
+/* ── Left-edge swipe grip ─────────────────────────────────── */
 #journal-drag-handle {
   position: absolute;
   top: 50%;
@@ -104,7 +125,7 @@
   display: block;
 }
 
-/* ── Header ───────────────────────────────────────────────── */
+/* ── Drawer header ────────────────────────────────────────── */
 #journal-header {
   display: flex;
   align-items: center;
@@ -431,10 +452,7 @@
   line-height: 1;
 }
 
-.jib-content {
-  flex: 1;
-  min-width: 0;
-}
+.jib-content { flex: 1; min-width: 0; }
 
 .jib-heading {
   font-weight: 700;
@@ -453,10 +471,7 @@
   margin-bottom: 3px;
 }
 
-.jib-meta {
-  font-size: 0.7rem;
-  color: #9ca3af;
-}
+.jib-meta { font-size: 0.7rem; color: #9ca3af; }
 
 .jib-btn {
   flex-shrink: 0;
@@ -476,12 +491,7 @@
 .jib-btn:hover  { background: #155240; }
 .jib-btn:active { opacity: 0.85; }
 
-/* ── Keep h1 title text clear of the tab button ──────────── */
-header:has(#journal-tab-btn) div.col-12 h1 {
-  padding-right: 140px;
-}
-
-/* ── Touch targets for iPhone / iPad ─────────────────────── */
+/* ── Touch targets ────────────────────────────────────────── */
 @media (max-width: 639px) {
   .journal-btn      { padding: 9px 12px; font-size: 0.85rem; }
   .jib-btn          { padding: 10px 20px; }

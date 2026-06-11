@@ -1,9 +1,29 @@
 (function () {
   'use strict';
 
-  var BASE_KEY = 'fp_journal_';
+  var NOTES_KEY   = 'fp_notes_general';
+  var JOURNAL_PFX = 'fp_journal_';
 
-  /* ── Storage key ─────────────────────────────────────────── */
+  /* Study color map — keeps tabs consistent with the TOC page */
+  var STUDY_COLORS = {
+    'seeking-god':         '#c0392b',
+    'word':                '#e67e22',
+    'discipleship':        '#c9a007',
+    'kingdom':             '#1d8348',
+    'sin-repentance':      '#717d7e',
+    'light-darkness':      '#1a6fa8',
+    'cross':               '#7d3c98',
+    'church':              '#148f77',
+    'holy-spirit-baptism': '#154360',
+    'holy-spirit-gifts':   '#884ea0',
+    'nt-conversion':       '#922b21',
+    'after-baptism':       '#196f3d',
+    'christ-is-your-life': '#935116',
+    'best-friends':        '#0e6655',
+    'the-mission':         '#4a235a',
+  };
+
+  /* ── Storage key helpers ──────────────────────────────────── */
   function getSlug() {
     var path = window.location.pathname.replace(/\/$/, '');
     var parts = path.split('/');
@@ -13,7 +33,9 @@
     return 'unknown';
   }
 
-  function storageKey() { return BASE_KEY + getSlug(); }
+  function journalKey() { return JOURNAL_PFX + getSlug(); }
+
+  function studyColor() { return STUDY_COLORS[getSlug()] || '#2c6e49'; }
 
   function storageAvailable() {
     try {
@@ -31,22 +53,21 @@
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
   }
 
-  /* ── Multi-entry CRUD ────────────────────────────────────── */
-  function loadEntries() {
+  /* ── Multi-entry CRUD ─────────────────────────────────────── */
+  function loadEntries(key) {
     if (!HAS_STORAGE) return [];
     try {
-      var raw = localStorage.getItem(storageKey());
+      var raw = localStorage.getItem(key);
       if (!raw) return [];
       var parsed = JSON.parse(raw);
       if (!Array.isArray(parsed)) {
         if (parsed && (parsed.text || '').trim()) {
           var migrated = [{
-            id: genId(),
-            text: parsed.text,
+            id: genId(), text: parsed.text,
             createdAt: parsed.createdAt || new Date().toISOString(),
             updatedAt: parsed.updatedAt || new Date().toISOString()
           }];
-          _writeEntries(migrated);
+          _writeEntries(key, migrated);
           return migrated;
         }
         return [];
@@ -55,13 +76,13 @@
     } catch (e) { return []; }
   }
 
-  function _writeEntries(entries) {
-    try { localStorage.setItem(storageKey(), JSON.stringify(entries)); } catch (e) {}
+  function _writeEntries(key, entries) {
+    try { localStorage.setItem(key, JSON.stringify(entries)); } catch (e) {}
   }
 
-  function upsertEntry(id, text) {
+  function upsertEntry(key, id, text, extra) {
     if (!HAS_STORAGE) return null;
-    var entries = loadEntries();
+    var entries = loadEntries(key);
     var now = new Date().toISOString();
     var idx = -1;
     for (var i = 0; i < entries.length; i++) {
@@ -70,24 +91,24 @@
     var entry;
     if (idx === -1) {
       entry = { id: id, text: text, createdAt: now, updatedAt: now };
+      if (extra) { for (var k in extra) entry[k] = extra[k]; }
       entries.unshift(entry);
     } else {
-      entries[idx].text = text;
+      entries[idx].text    = text;
       entries[idx].updatedAt = now;
       entry = entries.splice(idx, 1)[0];
       entries.unshift(entry);
     }
-    _writeEntries(entries);
+    _writeEntries(key, entries);
     return entry;
   }
 
-  function deleteEntryById(id) {
+  function deleteEntryById(key, id) {
     if (!HAS_STORAGE) return;
-    var entries = loadEntries().filter(function (e) { return e.id !== id; });
-    _writeEntries(entries);
+    _writeEntries(key, loadEntries(key).filter(function (e) { return e.id !== id; }));
   }
 
-  /* ── Formatters ──────────────────────────────────────────── */
+  /* ── Formatters ───────────────────────────────────────────── */
   function formatDate(iso) {
     if (!iso) return '';
     try {
@@ -98,15 +119,19 @@
     } catch (e) { return iso; }
   }
 
+  /* Date line: shows "Study Name · date" for Notes entries from a study page */
+  function entryDateLine(entry) {
+    var date = formatDate(entry.updatedAt || entry.createdAt);
+    return entry.studyName ? entry.studyName + ' \u00b7 ' + date : date;
+  }
+
   function wordCount(text) {
     var t = (text || '').trim();
     return t ? t.split(/\s+/).length : 0;
   }
 
-  function charCount(text) { return (text || '').length; }
-
   function countLabel(text) {
-    var w = wordCount(text), c = charCount(text);
+    var w = wordCount(text), c = (text || '').length;
     if (!c) return '';
     return w + (w === 1 ? ' word' : ' words') + ' \u00b7 ' + c + ' chars';
   }
@@ -117,7 +142,7 @@
     return t.length > max ? t.slice(0, max) + '\u2026' : t;
   }
 
-  /* ── Title detection ─────────────────────────────────────── */
+  /* ── Title detection ──────────────────────────────────────── */
   function getStudyTitle() {
     var h1 = document.querySelector('header h1');
     if (h1 && h1.innerText && h1.innerText.trim()) return h1.innerText.trim();
@@ -125,17 +150,24 @@
     return getSlug().replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
   }
 
-  /* ── State ───────────────────────────────────────────────── */
-  var drawer, tabBtn, badge, inlineBanner;
+  /* Extra fields stored when saving a Note from a study page */
+  function notesExtra() {
+    return { studySlug: getSlug(), studyName: getStudyTitle() };
+  }
+
+  /* ── State ────────────────────────────────────────────────── */
+  var tabCol, journalBadge, notesBadge;
+  var drawer, inlineBanner;
   var textarea, statusEl, metaEl, titleEl, countEl;
   var listPanel, editPanel, entriesListEl;
-  var isOpen = false;
-  var currentMode = 'list';
+  var isOpen        = false;
+  var currentMode   = 'list';
+  var activeKey     = null;   /* which storage key the open drawer is using */
   var currentEntryId = null;
-  var saveTimer = null;
+  var saveTimer      = null;
   var deleteConfirmTimer = null;
 
-  /* ── Inline "Continue" banner ───────────────────────────── */
+  /* ── Inline "Continue" banner ─────────────────────────────── */
   function buildInlineBanner() {
     inlineBanner = document.createElement('section');
     inlineBanner.id = 'journal-inline-banner';
@@ -153,20 +185,20 @@
       '</div>';
 
     var footer = document.querySelector('.master-container > footer');
-    if (footer) {
-      footer.parentNode.insertBefore(inlineBanner, footer);
-    } else {
-      document.body.appendChild(inlineBanner);
-    }
-    inlineBanner.querySelector('.jib-btn').addEventListener('click', openJournal);
+    if (footer) footer.parentNode.insertBefore(inlineBanner, footer);
+    else document.body.appendChild(inlineBanner);
+
+    inlineBanner.querySelector('.jib-btn').addEventListener('click', function () {
+      openJournal(journalKey());
+    });
   }
 
   function refreshInlineBanner() {
     if (!inlineBanner) return;
-    var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
+    var entries = loadEntries(journalKey()).filter(function (e) { return (e.text || '').trim(); });
     if (!entries.length) { inlineBanner.style.display = 'none'; return; }
 
-    var count = entries.length;
+    var count  = entries.length;
     var newest = entries[0];
     inlineBanner.querySelector('.jib-heading').textContent =
       count === 1 ? 'Continue your study notes' : count + ' saved journal entries';
@@ -176,44 +208,64 @@
     inlineBanner.style.display = '';
   }
 
-  function refreshBadge() {
-    if (!badge) return;
-    var count = loadEntries().filter(function (e) { return (e.text || '').trim(); }).length;
-    if (count > 0) {
-      badge.textContent = count;
-      badge.classList.add('visible');
-    } else {
-      badge.classList.remove('visible');
+  function refreshTabBadges() {
+    var jc = loadEntries(journalKey()).filter(function (e) { return (e.text || '').trim(); }).length;
+    if (journalBadge) {
+      journalBadge.textContent = jc;
+      journalBadge.style.display = jc > 0 ? '' : 'none';
+    }
+    var nc = loadEntries(NOTES_KEY).filter(function (e) { return (e.text || '').trim(); }).length;
+    if (notesBadge) {
+      notesBadge.textContent = nc;
+      notesBadge.style.display = nc > 0 ? '' : 'none';
     }
   }
 
-  /* ── Build UI ────────────────────────────────────────────── */
+  /* ── Build UI ─────────────────────────────────────────────── */
+  function makeTab(label, color, badgeRef) {
+    var btn = document.createElement('button');
+    btn.className = 'journal-side-tab';
+    btn.style.background = color;
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+
+    var badge = document.createElement('span');
+    badge.className = 'journal-side-tab-badge';
+    badge.style.display = 'none';
+    badgeRef.el = badge;
+
+    var labelEl = document.createElement('span');
+    labelEl.className = 'journal-side-tab-label';
+    labelEl.setAttribute('aria-hidden', 'true');
+    labelEl.textContent = label;
+
+    btn.appendChild(badge);
+    btn.appendChild(labelEl);
+    return btn;
+  }
+
   function buildUI() {
     buildInlineBanner();
     refreshInlineBanner();
 
-    /* Tab button — injected into <header> */
-    tabBtn = document.createElement('button');
-    tabBtn.id = 'journal-tab-btn';
-    tabBtn.setAttribute('aria-label', 'Open Study Journal');
-    tabBtn.title = 'Study Journal';
-    tabBtn.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">' +
-        '<path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>' +
-        '<path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>' +
-        '<path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>' +
-      '</svg>' +
-      '<span>Journal</span>' +
-      '<span id="journal-tab-badge"></span>';
+    /* Side tab column */
+    tabCol = document.createElement('div');
+    tabCol.id = 'journal-tab-col';
 
-    var header = document.querySelector('header');
-    if (header) {
-      header.appendChild(tabBtn);
-    } else {
-      document.body.appendChild(tabBtn);
-    }
-    badge = document.getElementById('journal-tab-badge');
-    refreshBadge();
+    var jRef = {}, nRef = {};
+
+    var jTab = makeTab('Journal', studyColor(), jRef);
+    journalBadge = jRef.el;
+    jTab.addEventListener('click', function () { openJournal(journalKey()); });
+
+    var nTab = makeTab('Notes', '#1a5f4a', nRef);
+    notesBadge = nRef.el;
+    nTab.addEventListener('click', function () { openJournal(NOTES_KEY); });
+
+    tabCol.appendChild(jTab);
+    tabCol.appendChild(nTab);
+    document.body.appendChild(tabCol);
+    refreshTabBadges();
 
     /* Backdrop */
     var backdrop = document.createElement('div');
@@ -231,13 +283,14 @@
       '<div id="journal-no-storage">&#9888; Notes cannot be saved &mdash; storage is unavailable in this browser.</div>';
 
     drawer.innerHTML =
-      /* Swipe-right grip on left edge */
       '<div id="journal-drag-handle"><span></span></div>' +
 
       '<div id="journal-header">' +
         '<div class="journal-header-left">' +
           '<button id="journal-back" type="button" aria-label="Back to entries" style="display:none">' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">' +
+              '<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>' +
+            '</svg>' +
           '</button>' +
           '<span id="journal-icon" aria-hidden="true">&#128211;</span>' +
           '<span id="journal-heading">Study Journal</span>' +
@@ -245,7 +298,6 @@
         '<button id="journal-close" aria-label="Close journal" type="button">&times;</button>' +
       '</div>' +
 
-      /* List panel */
       '<div id="journal-list-panel">' +
         '<div id="journal-list-title"></div>' +
         '<ul id="journal-entries-list" role="list"></ul>' +
@@ -254,7 +306,6 @@
         '</div>' +
       '</div>' +
 
-      /* Edit panel */
       '<div id="journal-edit-panel" style="display:none;flex-direction:column;flex:1;min-height:0;overflow:hidden;">' +
         '<div id="journal-meta">' +
           '<div id="journal-study-title"></div>' +
@@ -282,17 +333,16 @@
 
     document.body.appendChild(drawer);
 
-    listPanel     = document.getElementById('journal-list-panel');
-    editPanel     = document.getElementById('journal-edit-panel');
-    entriesListEl = document.getElementById('journal-entries-list');
-    titleEl       = document.getElementById('journal-study-title');
-    metaEl        = document.getElementById('journal-dates');
-    textarea      = document.getElementById('journal-textarea');
-    statusEl      = document.getElementById('journal-status');
-    countEl       = document.getElementById('journal-wordcount');
+    listPanel      = document.getElementById('journal-list-panel');
+    editPanel      = document.getElementById('journal-edit-panel');
+    entriesListEl  = document.getElementById('journal-entries-list');
+    titleEl        = document.getElementById('journal-study-title');
+    metaEl         = document.getElementById('journal-dates');
+    textarea       = document.getElementById('journal-textarea');
+    statusEl       = document.getElementById('journal-status');
+    countEl        = document.getElementById('journal-wordcount');
 
     /* Events */
-    tabBtn.addEventListener('click', openJournal);
     backdrop.addEventListener('click', closeJournal);
     document.getElementById('journal-close').addEventListener('click', closeJournal);
     document.getElementById('journal-back').addEventListener('click', showListMode);
@@ -309,18 +359,20 @@
     setupDrag();
   }
 
-  /* ── Open / close drawer ────────────────────────────────── */
-  function openJournal() {
-    isOpen = true;
+  /* ── Open / close drawer ──────────────────────────────────── */
+  function openJournal(key) {
+    activeKey = key;
+    isOpen    = true;
     drawer.classList.add('open');
     document.getElementById('journal-backdrop').classList.add('visible');
 
-    var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
-    if (entries.length > 0) {
-      showListMode();
-    } else {
-      openEditMode(null);
-    }
+    var isNotes = (key === NOTES_KEY);
+    document.getElementById('journal-heading').textContent =
+      isNotes ? 'General Notes' : getStudyTitle();
+
+    var entries = loadEntries(activeKey).filter(function (e) { return (e.text || '').trim(); });
+    if (entries.length > 0) showListMode();
+    else openEditMode(null);
   }
 
   function closeJournal() {
@@ -330,7 +382,7 @@
     drawer.classList.remove('open');
     document.getElementById('journal-backdrop').classList.remove('visible');
     refreshInlineBanner();
-    refreshBadge();
+    refreshTabBadges();
   }
 
   function flushPendingSave() {
@@ -338,18 +390,19 @@
       clearTimeout(saveTimer);
       saveTimer = null;
       if (currentMode === 'edit' && textarea && textarea.value.trim()) {
-        upsertEntry(currentEntryId || (currentEntryId = genId()), textarea.value);
+        var extra = (activeKey === NOTES_KEY) ? notesExtra() : null;
+        upsertEntry(activeKey, currentEntryId || (currentEntryId = genId()), textarea.value, extra);
       }
     }
   }
 
-  /* ── List mode ───────────────────────────────────────────── */
+  /* ── List mode ────────────────────────────────────────────── */
   function showListMode() {
     currentMode = 'list';
     flushPendingSave();
 
-    document.getElementById('journal-back').style.display = 'none';
-    document.getElementById('journal-icon').style.display = '';
+    document.getElementById('journal-back').style.display  = 'none';
+    document.getElementById('journal-icon').style.display  = '';
     listPanel.style.display = 'flex';
     editPanel.style.display = 'none';
 
@@ -357,9 +410,9 @@
   }
 
   function renderEntriesList() {
-    var entries = loadEntries().filter(function (e) { return (e.text || '').trim(); });
+    var entries = loadEntries(activeKey).filter(function (e) { return (e.text || '').trim(); });
     var titleDiv = document.getElementById('journal-list-title');
-    titleDiv.textContent = getStudyTitle();
+    titleDiv.textContent = (activeKey === NOTES_KEY) ? 'General Notes' : getStudyTitle();
 
     entriesListEl.innerHTML = '';
 
@@ -379,7 +432,7 @@
 
       var date = document.createElement('div');
       date.className = 'journal-entry-date';
-      date.textContent = formatDate(entry.updatedAt || entry.createdAt);
+      date.textContent = entryDateLine(entry);
 
       var preview = document.createElement('div');
       preview.className = 'journal-entry-preview';
@@ -398,24 +451,24 @@
     });
   }
 
-  /* ── Edit mode ───────────────────────────────────────────── */
+  /* ── Edit mode ────────────────────────────────────────────── */
   function openEditMode(entryId) {
-    currentMode = 'edit';
+    currentMode    = 'edit';
     currentEntryId = entryId || genId();
 
-    var hasMultiple = loadEntries().filter(function (e) { return (e.text || '').trim(); }).length > 0;
-    document.getElementById('journal-back').style.display = hasMultiple ? '' : 'none';
-    document.getElementById('journal-icon').style.display = hasMultiple ? 'none' : '';
+    var hasEntries = loadEntries(activeKey).filter(function (e) { return (e.text || '').trim(); }).length > 0;
+    document.getElementById('journal-back').style.display  = hasEntries ? '' : 'none';
+    document.getElementById('journal-icon').style.display  = hasEntries ? 'none' : '';
 
     listPanel.style.display = 'none';
     editPanel.style.display = 'flex';
 
-    titleEl.textContent = getStudyTitle();
+    titleEl.textContent = (activeKey === NOTES_KEY) ? 'General Notes' : getStudyTitle();
     statusEl.textContent = '';
 
     var entry = null;
     if (entryId) {
-      var all = loadEntries();
+      var all = loadEntries(activeKey);
       for (var i = 0; i < all.length; i++) {
         if (all[i].id === entryId) { entry = all[i]; break; }
       }
@@ -436,36 +489,39 @@
     setTimeout(function () { textarea.focus(); }, 300);
   }
 
-  /* ── Save button ─────────────────────────────────────────── */
+  /* ── Save ─────────────────────────────────────────────────── */
   function onSaveClick() {
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
-    upsertEntry(currentEntryId, textarea.value);
+    var extra = (activeKey === NOTES_KEY) ? notesExtra() : null;
+    upsertEntry(activeKey, currentEntryId, textarea.value, extra);
     statusEl.textContent = '';
     closeJournal();
   }
 
-  /* ── Meta / counts ───────────────────────────────────────── */
+  /* ── Meta / counts ────────────────────────────────────────── */
   function renderMeta(entry) {
-    if (entry && entry.updatedAt) {
-      var label = 'Last edited: ' + formatDate(entry.updatedAt);
-      if (entry.createdAt && entry.createdAt !== entry.updatedAt) {
-        label += ' \u00b7 Created: ' + formatDate(entry.createdAt);
-      }
-      metaEl.textContent = label;
-    } else {
-      metaEl.textContent = '';
+    var parts = [];
+    if (entry && entry.studyName && activeKey === NOTES_KEY) {
+      parts.push('Study: ' + entry.studyName);
     }
+    if (entry && entry.updatedAt) {
+      var s = 'Last edited: ' + formatDate(entry.updatedAt);
+      if (entry.createdAt && entry.createdAt !== entry.updatedAt) {
+        s += ' \u00b7 Created: ' + formatDate(entry.createdAt);
+      }
+      parts.push(s);
+    }
+    metaEl.textContent = parts.join(' \u00b7 ');
   }
 
   function updateCount() {
     if (!countEl) return;
-    var text = textarea ? textarea.value : '';
-    var label = countLabel(text);
+    var label = countLabel(textarea ? textarea.value : '');
     countEl.textContent = label;
     countEl.style.display = label ? '' : 'none';
   }
 
-  /* ── Auto-save on input ──────────────────────────────────── */
+  /* ── Auto-save ────────────────────────────────────────────── */
   function onInput() {
     updateCount();
     var helper = document.getElementById('journal-helper');
@@ -477,11 +533,12 @@
 
   function doAutoSave(text) {
     saveTimer = null;
-    var entry = upsertEntry(currentEntryId, text);
+    var extra = (activeKey === NOTES_KEY) ? notesExtra() : null;
+    var entry = upsertEntry(activeKey, currentEntryId, text, extra);
     if (entry) {
       renderMeta(entry);
       statusEl.textContent = '\u2713 Saved';
-      refreshBadge();
+      refreshTabBadges();
       setTimeout(function () {
         if (statusEl.textContent === '\u2713 Saved') statusEl.textContent = '';
       }, 2000);
@@ -490,14 +547,14 @@
     }
   }
 
-  /* ── Copy ────────────────────────────────────────────────── */
+  /* ── Copy ─────────────────────────────────────────────────── */
   function copyNotes() {
     var text = textarea.value.trim();
     if (!text) { flash('Nothing to copy.'); return; }
     var title = (titleEl.textContent || getStudyTitle()).trim();
-    var full = title ? (title + '\n\n' + text) : text;
+    var full  = title ? (title + '\n\n' + text) : text;
     function ok()   { flash('\u2713 Copied!'); }
-    function fail() { flash('Copy failed.'); }
+    function fail() { flash('Copy failed.');   }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(full).then(ok, function () { fallbackCopy(full, ok, fail); });
     } else {
@@ -523,7 +580,7 @@
     setTimeout(function () { if (statusEl.textContent === msg) statusEl.textContent = ''; }, 2500);
   }
 
-  /* ── Delete ──────────────────────────────────────────────── */
+  /* ── Delete ───────────────────────────────────────────────── */
   function resetDeleteBtn() {
     if (deleteConfirmTimer) { clearTimeout(deleteConfirmTimer); deleteConfirmTimer = null; }
     var btn = document.getElementById('journal-delete');
@@ -545,18 +602,15 @@
     }
     resetDeleteBtn();
     if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
-    deleteEntryById(currentEntryId);
-    var remaining = loadEntries().filter(function (e) { return (e.text || '').trim(); });
-    if (remaining.length > 0) {
-      showListMode();
-    } else {
-      closeJournal();
-    }
+    deleteEntryById(activeKey, currentEntryId);
+    var remaining = loadEntries(activeKey).filter(function (e) { return (e.text || '').trim(); });
+    if (remaining.length > 0) showListMode();
+    else closeJournal();
     refreshInlineBanner();
-    refreshBadge();
+    refreshTabBadges();
   }
 
-  /* ── Touch swipe-right to close ──────────────────────────── */
+  /* ── Touch swipe-right to close ───────────────────────────── */
   function setupDrag() {
     var handle = document.getElementById('journal-drag-handle');
     var startX = null;
@@ -580,7 +634,7 @@
     });
   }
 
-  /* ── Boot ────────────────────────────────────────────────── */
+  /* ── Boot ─────────────────────────────────────────────────── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', buildUI);
   } else {
