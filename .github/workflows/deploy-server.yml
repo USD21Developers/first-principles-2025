@@ -1,0 +1,43 @@
+name: Deploy to app.usd21.org
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "artifacts/first-principles/public/**"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-server
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install rsync
+        run: sudo apt-get install -y rsync
+
+      - name: Write SSH key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_deploy
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
+          printf 'Host %s\n  IdentityFile ~/.ssh/id_deploy\n  StrictHostKeyChecking no\n  Port %s\n' \
+            "${{ secrets.DEPLOY_HOST }}" \
+            "${{ secrets.DEPLOY_SSH_PORT || '22' }}" > ~/.ssh/config
+
+      - name: Sync fp/ directory
+        run: |
+          rsync -az --delete \
+            --exclude='.git' \
+            artifacts/first-principles/public/fp/ \
+            usd21@${{ secrets.DEPLOY_HOST }}:/home/usd21/www/app.usd21.org/fp/
+
+      - name: Sync root index.html
+        run: |
+          rsync -az \
+            artifacts/first-principles/public/index.html \
+            usd21@${{ secrets.DEPLOY_HOST }}:/home/usd21/www/app.usd21.org/index.html
