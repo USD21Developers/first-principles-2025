@@ -1,0 +1,134 @@
+[
+  {
+    "key": "p1",
+    "text": {
+      "original": "First Principles",
+      "translated": "根本原则"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-seeking-god",
+    "text": {
+      "original": "Seeking God",
+      "translated": "寻求神"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-word",
+    "text": {
+      "original": "The Word of God",
+      "translated": "神的话语"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": {
+      "original": "Discipleship",
+      "translated": "门徒训练"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": {
+      "original": "disciples",
+      "translated": "门徒"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-kingdom",
+    "text": {
+      "original": "The Coming of the Kingdom",
+      "translated": "天国的降临"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-sin-repentance",
+    "text": {
+      "original": "Sin &amp; Repentance",
+      "translated": "罪与悔改"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-light-darkness",
+    "text": {
+      "original": "Light &amp; Darkness",
+      "translated": "光明与黑暗"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-cross",
+    "text": {
+      "original": "The Cross",
+      "translated": "十字架"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-1",
+    "text": {
+      "original": "Sin Definitions",
+      "translated": "罪的定义"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-2",
+    "text": {
+      "original": "Medical Account of the Crucifixion",
+      "translated": "受难的医学记载"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

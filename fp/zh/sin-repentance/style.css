@@ -1,0 +1,109 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+
+.master-container {
+  background-color: #f4f4f4;
+  margin: auto;
+  width: 100%;
+}
+
+@media (min-width: 991px) {
+  .master-container {
+    width: clamp(991px, 80vw, 1536px);
+  }
+}
+
+
+header {
+  background-color: #251c17;
+  background-image: url(img/masthead-sin-repentance.avif);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18vh;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+}
+
+header div.col-12 h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 344px) and (max-width: 575px) {
+  header {
+    background-position-x: calc(100% + 110px);
+  }
+
+  header div.col-12 h1 {
+    bottom: 1.5rem;
+    font-size: 1.4rem;
+    left: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 768px) {
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 992px) {
+  header {
+    height: 25vh;
+  }
+
+  header div.col-12 h1 {
+    left: 2.3vw;
+  }
+}
+
+@media (orientation: landscape) {
+  header {
+    height: 45vh;
+    max-height: 250px;
+  }
+}
+
+.darknessLight {
+  max-width: 310px;
+  width: 100%;
+}
+
+.sinPiles {
+  max-width: 480px;
+  width: 100%;
+}
+
+.wagesGift {
+  max-width: 430px;
+  width: 100%;
+}

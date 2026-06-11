@@ -1,0 +1,354 @@
+[
+  {
+    "key": "inTheTime",
+    "text": {
+      "original": "verse 44",
+      "translated": "verset 44"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Daniel,2,44\" data-scripture-title=\"Daniel 2:44\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-3-1-2-description-3",
+    "text": {
+      "original": "Question #4",
+      "translated": "question n° 4"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question4\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-4",
+    "text": {
+      "original": "1 Corinthians 3:11",
+      "translated": "1 Corinthiens 3.11"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"1 Corinthians,3,11\" data-scripture-title=\"1 Corinthians 3:11\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "john-3-1-7-description-1",
+    "text": {
+      "original": "Question #3",
+      "translated": "question n° 3"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question3\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-1-1-26-description-3",
+    "text": {
+      "original": "Mark 9:1",
+      "translated": "Marc 9.1"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Mark,9,1\" data-scripture-title=\"Mark 9:1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1",
+    "text": {
+      "original": "Luke 24:44-49",
+      "translated": "Luc 24.44-49"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,24,44,49\" data-scripture-title=\"Luke 24:44-49\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1a",
+    "text": {
+      "original": "verses 1-4",
+      "translated": "versets 1-4"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,1,4\" data-scripture-title=\"Acts 2:1-4\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1a",
+    "text": {
+      "original": "Mark 9:1",
+      "translated": "Marc 9.1"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Mark,9,1\" data-scripture-title=\"Mark 9:1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1b",
+    "text": {
+      "original": "verse 5",
+      "translated": "verset 5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,5\" data-scripture-title=\"Acts 2:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1b",
+    "text": {
+      "original": "Isaiah 2:3",
+      "translated": "Ésaïe 2.3"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,2,3\" data-scripture-title=\"Isaiah 2:3\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1c",
+    "text": {
+      "original": "verse 5",
+      "translated": "verset 5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,5\" data-scripture-title=\"Acts 2:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1c",
+    "text": {
+      "original": "Isaiah 2:2",
+      "translated": "Ésaïe 2.2"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,2,2\" data-scripture-title=\"Isaiah 2:2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-2",
+    "text": {
+      "original": "verse 17",
+      "translated": "verset 17"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,17\" data-scripture-title=\"Acts 2:17\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-2",
+    "text": {
+      "original": "Isaiah 2:2",
+      "translated": "Ésaïe 2.2"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,2,2\" data-scripture-title=\"Isaiah 2:2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-22-24-description-1",
+    "text": {
+      "original": "John 3:5",
+      "translated": "Jean 3.5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"John,3,5\" data-scripture-title=\"John 3:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-1",
+    "text": {
+      "original": "verse 38",
+      "translated": "verset 38"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,38\" data-scripture-title=\"Acts 2:38\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-1",
+    "text": {
+      "original": "Luke 24:44-49",
+      "translated": "Luc 24.44-49"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,24,44,49\" data-scripture-title=\"Luke 24:44-49\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-3",
+    "text": {
+      "original": "verse 46",
+      "translated": "verset 46"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,46\" data-scripture-title=\"Acts 2:46\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-3",
+    "text": {
+      "original": "Matthew 26:55",
+      "translated": "Matthieu 26.55"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Matthew,26,55\" data-scripture-title=\"Matthew 26:55\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-4",
+    "text": {
+      "original": "Question #6",
+      "translated": "question n° 6"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question6\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"3\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-6-33-description-1",
+    "text": {
+      "original": "Question #5",
+      "translated": "question n° 5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question5\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"4\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

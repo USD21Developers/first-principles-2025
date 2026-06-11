@@ -1,0 +1,23 @@
+{
+  "display": "Actes 2:1-4",
+  "slug": "acts-2-1-4",
+  "language": "fr",
+  "version": "SG21",
+  "book": "Acts",
+  "chapter": 2,
+  "verses": [
+    [1, "Quand le jour de la Pentecôte arriva, ils étaient tous ensemble au même endroit."],
+    [
+      2,
+      "Tout à coup il vint du ciel un bruit comme celui d'un vent violent, qui remplit toute la maison où ils étaient assis."
+    ],
+    [
+      3,
+      "Des langues qui semblaient de feu leur apparurent, séparées les unes des autres, et elles se posèrent sur chacun d'eux."
+    ],
+    [
+      4,
+      "Ils furent tous remplis du Saint-Esprit et se mirent à parler en d'autres langues, comme l'Esprit leur donnait de s'exprimer."
+    ]
+  ]
+}
