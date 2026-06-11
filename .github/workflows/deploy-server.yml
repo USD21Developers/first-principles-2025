@@ -1,4 +1,4 @@
-name: Deploy to app.usd21.org
+name: Publish dist branch for server pull
 
 on:
   push:
@@ -7,37 +7,48 @@ on:
       - "artifacts/first-principles/public/**"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 concurrency:
-  group: deploy-server
+  group: deploy-dist
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  publish-dist:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install rsync
-        run: sudo apt-get install -y rsync
-
-      - name: Write SSH key
+      - name: Push public/ content to dist branch
         run: |
-          install -m 600 -D /dev/null ~/.ssh/id_deploy
-          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
-          printf 'Host %s\n  IdentityFile ~/.ssh/id_deploy\n  StrictHostKeyChecking no\n  Port %s\n' \
-            "${{ secrets.DEPLOY_HOST }}" \
-            "${{ secrets.DEPLOY_SSH_PORT || '22' }}" > ~/.ssh/config
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
 
-      - name: Sync fp/ directory
-        run: |
-          rsync -az --delete \
-            --exclude='.git' \
-            artifacts/first-principles/public/fp/ \
-            usd21@${{ secrets.DEPLOY_HOST }}:/home/usd21/www/app.usd21.org/fp/
+          # Work in a temp dir so we don't disturb the checkout
+          CONTENT_DIR="$(pwd)/artifacts/first-principles/public"
+          WORK_DIR="$(mktemp -d)"
 
-      - name: Sync root index.html
-        run: |
-          rsync -az \
-            artifacts/first-principles/public/index.html \
-            usd21@${{ secrets.DEPLOY_HOST }}:/home/usd21/www/app.usd21.org/index.html
+          # Seed the work dir as an orphan repo pointing at origin
+          cd "$WORK_DIR"
+          git init
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+
+          # Try to fetch the existing dist branch so we only push a delta
+          git fetch origin dist --depth=1 2>/dev/null && \
+            git checkout -b dist FETCH_HEAD || \
+            git checkout --orphan dist
+
+          # Replace everything with the fresh public/ content
+          git rm -rf . --quiet 2>/dev/null || true
+          cp -r "$CONTENT_DIR"/. .
+
+          # Keep a breadcrumb so it's clear where this came from
+          echo "Built from main@$(git -C "$GITHUB_WORKSPACE" rev-parse --short HEAD)" > .build-info
+
+          git add -A
+          git diff --cached --quiet && echo "No changes — dist branch already up to date." && exit 0
+
+          git commit -m "dist: $(git -C "$GITHUB_WORKSPACE" log -1 --format='%s')"
+          git push origin HEAD:dist

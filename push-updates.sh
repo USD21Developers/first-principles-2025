@@ -93,6 +93,6 @@ echo "==> Pushing to GitHub..."
 git push "$REPO" HEAD:main
 
 echo ""
-echo "Done. GitHub Actions runs two deploy jobs in ~1 minute:"
-echo "  GitHub Pages  → https://usd21developers.github.io/first-principles-2025/fp/"
-echo "  app.usd21.org → https://app.usd21.org/fp/  (requires DEPLOY_SSH_KEY secret set up)"
+echo "Done. GitHub Actions runs in ~1 minute:"
+echo "  GitHub Pages → https://usd21developers.github.io/first-principles-2025/fp/"
+echo "  dist branch  → git pull on your server to pick up the changes"
