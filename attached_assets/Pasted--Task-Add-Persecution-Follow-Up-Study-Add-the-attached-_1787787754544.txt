@@ -1,0 +1,215 @@
+# Task — Add “Persecution” Follow-Up Study
+
+Add the attached **Follow-Up Study 5 — Persecution** to the First Principles application.
+
+## Repository / Existing Pattern
+
+Repository:
+
+`USD21Developers/first-principles-2025`
+
+The English studies live under:
+
+`artifacts/first-principles/public/fp/en/`
+
+Existing follow-up studies include:
+
+* `after-baptism/`
+* `christ-is-your-life/`
+* `best-friends/`
+* `the-mission/`
+
+Use the existing follow-up studies — particularly `after-baptism/` — as the structural and visual template.
+
+Do not redesign the application or introduce a new study-page architecture.
+
+## New Study
+
+Create:
+
+`artifacts/first-principles/public/fp/en/persecution/`
+
+The visible study title should be:
+
+**Persecution**
+
+This is **Follow-Up Study 5**.
+
+Use the attached PDF, `Follow_Up_Study-05-Persecution.pdf`, as the authoritative source for the study content.
+
+Preserve the study's wording, scripture references, hierarchy, and teaching structure as closely as practical while adapting it to the application's existing HTML presentation.
+
+Do not rewrite, summarize, soften, expand, or doctrinally reinterpret the source material.
+
+## Study Structure
+
+The study contains:
+
+1. Introduction — 2 Timothy 3:12
+2. Jesus was persecuted
+
+   * Family
+   * Gossip and slander
+   * Scope of persecution
+3. The First Century Church was persecuted
+4. Causes of persecution
+
+   * Life
+   * Doctrine
+   * Preaching the Word
+   * Narrow Road of Salvation
+   * Doctrine of discipling
+5. Our attitude about persecution
+6. Conclusion
+
+Preserve the nested outlines and scripture references from the PDF.
+
+## Scripture Integration
+
+Use the application's existing scripture-popup mechanism.
+
+For scripture references, follow the existing convention such as:
+
+`<span data-scripture="Acts,9,1,22" data-scripture-title="Acts 9:1-22">Acts 9:1-22</span>`
+
+Convert the Persecution study's scripture references into this format where appropriate.
+
+References include, among others:
+
+* 2 Timothy 3:12
+* Mark 3:20-21
+* Mark 3:31-35
+* Acts 1:12-14
+* John 7:12-13
+* John 10:19-21
+* Luke 23:1-5
+* Acts 5:17-18, 38-42
+* Acts 28:21-22
+* 1 Timothy 4:16
+* 1 Peter 4:3-4
+* 1 Peter 4:12-16
+* John 15:18-20
+* John 16:1-4
+* Matthew 7:13-14
+* Acts 4:12
+* Acts 2:36-38
+* Matthew 28:19-20
+* Matthew 5:10-12
+* Matthew 5:43-44
+* Ephesians 6:10-18
+
+For split ranges such as `Acts 5:17-18, 38-42`, use the application's existing scripture conventions rather than inventing a new parser format.
+
+## Navigation / Table of Contents
+
+Add **Persecution** under the existing **FOLLOW UP STUDIES** section of the table of contents.
+
+Current order:
+
+1. After Baptism, Now What
+2. Christ Is Your Life
+3. Best Friends Of All Time
+4. The Mission
+
+Change it to:
+
+1. After Baptism, Now What
+2. Christ Is Your Life
+3. Best Friends Of All Time
+4. The Mission
+5. Persecution
+
+The link should resolve to:
+
+`../persecution/`
+
+Also add Persecution anywhere the application's common study navigation or footer maintains the follow-up-study list.
+
+Do not add duplicate navigation mechanisms.
+
+## Journal / Notes Integration
+
+The application already provides the Journal and Notes tabs on study pages.
+
+Make sure Persecution participates in that same system.
+
+Use the normal study slug:
+
+`persecution`
+
+Journal and Notes entries should therefore remain isolated to this study in the same manner as the existing studies.
+
+Do not build a separate storage mechanism.
+
+## Translation / i18n
+
+Follow the existing study i18n pattern.
+
+At minimum, English must work completely.
+
+If page titles/header strings are stored in study-local i18n files, add the corresponding English values for:
+
+* page title
+* header / study name
+
+Do not translate the entire study into other languages as part of this task.
+
+Do not break the application's existing translation behavior.
+
+## Styling
+
+Use the existing First Principles visual system.
+
+The Persecution study should visually resemble the other follow-up studies:
+
+* same header
+* same typography
+* same scripture interaction
+* same spacing conventions
+* same footer
+* same Journal / Notes behavior
+* responsive on desktop and mobile
+
+Only add study-specific CSS if actually required.
+
+Prefer reuse of existing global styles.
+
+## Acceptance Tests
+
+Verify:
+
+1. `/fp/en/persecution/` loads successfully.
+2. Page title/header displays **Persecution**.
+3. The full PDF study content is represented.
+4. Scripture references open using the existing scripture modal.
+5. Home icon returns to the TOC.
+6. Persecution appears as the fifth item under FOLLOW UP STUDIES.
+7. Clicking Persecution opens the new study.
+8. Journal tab works for Persecution.
+9. Notes tab works for Persecution.
+10. Notes saved on Persecution are associated with the `persecution` study rather than another study.
+11. Existing studies and navigation still work.
+12. No console errors are introduced.
+13. Mobile layout remains usable.
+
+## Scope
+
+Keep this narrowly scoped.
+
+Do not:
+
+* redesign the TOC
+* refactor the study architecture
+* replace the journal/notes implementation
+* rewrite existing studies
+* change unrelated translation infrastructure
+* alter the doctrinal content from the supplied PDF
+
+When complete, summarize:
+
+* files created
+* files modified
+* how the study was integrated into TOC/navigation
+* how scripture references were encoded
+* tests performed
+* any source text that could not be represented exactly
