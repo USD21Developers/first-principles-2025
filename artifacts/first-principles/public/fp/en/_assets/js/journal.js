@@ -21,6 +21,7 @@
     'christ-is-your-life': '#935116',
     'best-friends':        '#0e6655',
     'the-mission':         '#4a235a',
+    'persecution':         '#922b21',
   };
 
   /* ── Storage key helpers ──────────────────────────────────── */

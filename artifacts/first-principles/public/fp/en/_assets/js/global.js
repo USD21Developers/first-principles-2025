@@ -42,12 +42,34 @@ function linkifyScriptures() {
           .replaceAll(" ", "-")
       : `${book}-${chapter}-${verseFrom}`.toLowerCase().replaceAll(" ", "-");
 
-    item.addEventListener("click", () => showLocalScripture(slug));
+    item.addEventListener("click", () =>
+      showLocalScripture(
+        slug,
+        item.getAttribute("data-scripture-title"),
+        item.getAttribute("data-scripture-offline") !== "false",
+      ),
+    );
     item.classList.add("scriptureLink");
   });
 }
 
-function showLocalScripture(slug) {
+function showUnavailableScripture(reference) {
+  const scriptureModal = document.querySelector("#scriptureModal");
+  const title = scriptureModal?.querySelector(".modal-title");
+  const body = scriptureModal?.querySelector(".modal-body");
+  if (title) title.textContent = reference || "Scripture reference";
+  if (body) body.textContent = "This passage is not available in the offline scripture library.";
+  if (scriptureModal && window.bootstrap) {
+    new bootstrap.Modal(scriptureModal).show();
+  }
+}
+
+function showLocalScripture(slug, reference, hasLocalText = true) {
+  if (!hasLocalText) {
+    showUnavailableScripture(reference);
+    return Promise.resolve();
+  }
+
   return new Promise((resolve, reject) => {
     const htmlEl = document.querySelector("html");
     const lang = htmlEl.getAttribute("lang");
@@ -55,6 +77,10 @@ function showLocalScripture(slug) {
     const endpoint = `../_assets/scriptures/${lang}/${slug}.json`;
 
     fetch(endpoint)
+      .then((res) => {
+        if (!res.ok) throw new Error(`Scripture passage unavailable: ${slug}`);
+        return res;
+      })
       .then((res) => res.json())
       .then((data) => {
         document.querySelector("#scriptureModal .modal-title").innerHTML =
@@ -122,6 +148,10 @@ function showLocalScripture(slug) {
         );
 
         scriptureModal.show();
+      })
+      .catch(() => {
+        showUnavailableScripture(reference);
+        resolve();
       });
   });
 }
@@ -190,8 +220,8 @@ function translate() {
         endpoint = `${root}i18n/${lang}.json`;
         break;
       default:
-        root = `https://${window.location.host}${window.location.pathname}`;
-        globalRoot = `https://${window.location.host}/fp/${lang}`;
+        root = new URL("./", window.location.href).href;
+        globalRoot = `${window.location.origin}/fp/${lang}`;
         endpoint = `${root}i18n/${lang}.json`;
     }
 
