@@ -1,0 +1,1 @@
+- [Service-worker navigation requests](service-worker-navigation-requests.md) — normalize navigation cache keys without cloning navigate-mode requests; preload may resolve empty.

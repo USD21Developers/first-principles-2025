@@ -3,27 +3,14 @@ import path from "path";
 import { readFileSync } from "node:fs";
 import type { ViteDevServer } from "vite";
 
-const rawPort = process.env.PORT;
-
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
-}
-
+const rawPort = process.env.PORT || "21405";
 const port = Number(rawPort);
 
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
-  throw new Error(
-    "BASE_PATH environment variable is required but was not provided.",
-  );
-}
+const basePath = process.env.BASE_PATH || "/";
 
 function readCss(filePath: string): string {
   try {
@@ -43,13 +30,19 @@ export default defineConfig({
       name: "inline-css-dev",
       apply: "serve",
       configureServer(server: ViteDevServer) {
-        server.middlewares.use((_req, res, next) => {
-          res.setHeader(
-            "Cache-Control",
-            "no-cache, no-store, must-revalidate",
-          );
-          res.setHeader("Pragma", "no-cache");
-          res.setHeader("Expires", "0");
+        server.middlewares.use((req, res, next) => {
+          const pathname = (req.url || "").split("?")[0];
+          const isWorker = pathname === "/fp/sw.js" || /^\/fp\/[^/]+\/sw\.js$/.test(pathname);
+          const isHtml = pathname.endsWith("/") || pathname.endsWith(".html");
+
+          if (isWorker || isHtml) {
+            res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            res.setHeader("Pragma", "no-cache");
+            res.setHeader("Expires", "0");
+          } else {
+            res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+          }
+          if (isWorker) res.setHeader("Service-Worker-Allowed", "/fp/");
           next();
         });
       },
@@ -69,7 +62,7 @@ export default defineConfig({
     },
   ],
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(import.meta.dirname, "dist", "public"),
     emptyOutDir: true,
   },
   server: {
