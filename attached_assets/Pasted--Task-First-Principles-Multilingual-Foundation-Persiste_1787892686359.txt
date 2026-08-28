@@ -1,0 +1,651 @@
+# Task — First Principles Multilingual Foundation: Persistent Language Selection and In-App Language Switching
+
+## Context
+
+First Principles is currently organized as one web application containing multiple language trees:
+
+```text
+/fp/en/
+/fp/es/
+/fp/fr/
+/fp/pt/
+/fp/pt-eu/
+/fp/zh/
+```
+
+Recent PWA cleanup has already consolidated service-worker control under:
+
+```text
+/fp/sw.js
+scope: /fp/
+```
+
+Do **not** undo or redesign that service-worker architecture.
+
+The application is beginning a transition from separate language-specific app experiences toward one multilingual First Principles application.
+
+This task is **Phase 1 only**.
+
+The goal of Phase 1 is to create a reliable shared language-selection/navigation layer while preserving the existing language manifests and existing store packaging for now.
+
+Do not yet consolidate or delete the language-specific manifests.
+
+---
+
+# Current Problems
+
+## 1. Root language selector redirects mobile users to app stores
+
+`/fp/index.html` currently contains language links such as:
+
+```text
+English
+Español
+Français
+Português (Brasil)
+Português (Portugal)
+汉语
+```
+
+Some entries have `data-android` and/or `data-apple` attributes.
+
+JavaScript currently detects Android/iOS and replaces the normal language URL with the corresponding app-store URL.
+
+Example behavior:
+
+```text
+/fp/ → select Español
+```
+
+may send the user to an app store instead of:
+
+```text
+/fp/es/
+```
+
+This behavior must stop.
+
+Language selection should always mean **change the content language**.
+
+Store installation must remain a separate concern.
+
+---
+
+## 2. There is no persistent preferred language
+
+The application should remember the language explicitly chosen by the user.
+
+Use:
+
+```javascript
+localStorage["fpLanguage"]
+```
+
+or an equivalently clear constant-backed implementation.
+
+Supported values are:
+
+```text
+en
+es
+fr
+pt
+pt-eu
+zh
+```
+
+An explicit user selection always wins over browser/device language.
+
+---
+
+## 3. Users cannot switch languages while reading a study
+
+Study pages currently contain a home icon in the header followed by the study title.
+
+Add a compact language control next to the home icon.
+
+Use a **globe / language / translation icon**, not a national flag.
+
+Languages are not equivalent to countries, and Portuguese already has separate Brazil and Portugal variants.
+
+---
+
+# Phase 1 Goals
+
+Implement a shared multilingual navigation layer that provides:
+
+1. persistent preferred-language storage;
+2. language selection from `/fp/`;
+3. an in-app language selector available from language content;
+4. preservation of the user's current logical page when changing languages whenever possible;
+5. sensible fallback behavior when the same page does not exist in the destination language;
+6. optional browser-language suggestion/defaulting for users who have never explicitly selected a language;
+7. no regression to PWA service-worker behavior, journal data, notes, appearance preferences, or offline support.
+
+---
+
+# Required Behavior
+
+## A. Root `/fp/` language selection
+
+Retain the existing visual language-selection page unless a small refactor is necessary.
+
+Remove the Android/iOS behavior that changes language links into App Store / Play Store links.
+
+Selecting:
+
+```text
+Español
+```
+
+must navigate to:
+
+```text
+/fp/es/
+```
+
+Selecting:
+
+```text
+Français
+```
+
+must navigate to:
+
+```text
+/fp/fr/
+```
+
+etc.
+
+Before navigation, save the explicit choice:
+
+```javascript
+localStorage.setItem("fpLanguage", languageCode);
+```
+
+Do not automatically send users to a store listing.
+
+---
+
+## B. Preferred-language behavior
+
+When the user arrives at `/fp/`:
+
+### If an explicit saved preference exists
+
+For example:
+
+```javascript
+fpLanguage = "es"
+```
+
+the application may offer or perform navigation to:
+
+```text
+/fp/es/
+```
+
+Prefer a behavior that does not trap a user who intentionally navigated to the language selector.
+
+A good implementation would allow `/fp/` itself to remain the language chooser while visually marking or prioritizing the saved language.
+
+Do not create an unavoidable redirect loop.
+
+### If no explicit preference exists
+
+Inspect browser language information such as:
+
+```javascript
+navigator.languages
+navigator.language
+```
+
+Map supported languages sensibly.
+
+Examples:
+
+```text
+en-*    → en
+es-*    → es
+fr-*    → fr
+pt-BR   → pt
+pt-PT   → pt-eu
+zh-*    → zh
+```
+
+Unsupported languages fall back to:
+
+```text
+en
+```
+
+Browser/device language is only an initial suggestion.
+
+It must **not** overwrite an explicit user choice.
+
+---
+
+# C. In-App Language Selector
+
+Create a reusable language selector available throughout the language-based application.
+
+For study pages, position the control near the existing home icon.
+
+Desired conceptual header:
+
+```text
+[ Home ] [ Globe ]   Seeking God
+```
+
+The exact responsive spacing should follow the existing design.
+
+Use the existing Bootstrap implementation where practical.
+
+The selector may be:
+
+* Bootstrap dropdown;
+* compact modal;
+* popover/menu;
+
+but should work well on mobile.
+
+Display human-readable language names:
+
+```text
+English
+Español
+Français
+Português (Brasil)
+Português (Portugal)
+汉语
+```
+
+Indicate the currently selected language.
+
+The control must be accessible:
+
+* real button/control;
+* useful `aria-label`;
+* keyboard accessible;
+* reasonable focus handling;
+* adequate tap target on mobile.
+
+Do not use country flags.
+
+---
+
+# D. Preserve the Current Page When Switching Languages
+
+When the user switches languages, preserve the logical page slug whenever an equivalent page exists.
+
+Example:
+
+```text
+/fp/en/seeking-god/
+```
+
+switching to Spanish should attempt:
+
+```text
+/fp/es/seeking-god/
+```
+
+Likewise:
+
+```text
+/fp/en/cross/
+→
+/fp/fr/cross/
+```
+
+when the destination exists.
+
+Do not hardcode only the core studies if this can be implemented generically.
+
+Determine the current route relative to the language root.
+
+For example:
+
+```text
+/fp/en/seeking-god/
+```
+
+has logical route:
+
+```text
+seeking-god/
+```
+
+and therefore candidate Spanish route:
+
+```text
+/fp/es/seeking-god/
+```
+
+---
+
+# E. Missing Destination Pages
+
+The language trees are not guaranteed to contain identical content.
+
+Changing language must never leave the user on a 404 merely because a corresponding translated page is absent.
+
+Before final navigation, determine whether the destination route exists.
+
+A reasonable strategy is:
+
+1. construct destination URL;
+2. verify availability using a lightweight same-origin request;
+3. if available, navigate there;
+4. otherwise fall back to the destination language's table of contents:
+
+```text
+/fp/{language}/toc/
+```
+
+If that is unavailable, fall back to:
+
+```text
+/fp/{language}/
+```
+
+Do not create noticeable long delays.
+
+The language preference should still be saved even if fallback is required.
+
+---
+
+# F. Shared Implementation
+
+Avoid implementing six unrelated copies of language-switching logic.
+
+Create a shared, maintainable implementation.
+
+Because current language directories contain duplicated `_assets`, inspect the existing architecture and choose the least disruptive shared location.
+
+Possible approaches include a root-level shared module such as:
+
+```text
+/fp/_assets/js/language.js
+```
+
+or another clearly shared path.
+
+The important requirement is:
+
+**one authoritative language-navigation implementation**, not six diverging implementations.
+
+Existing language-specific translation files/content may remain where they are.
+
+Do not perform a broad asset-directory consolidation as part of this task.
+
+---
+
+# G. Determine Current Language From URL First
+
+The application's active language should be derived primarily from the `/fp/{lang}/...` path.
+
+For example:
+
+```text
+/fp/es/seeking-god/
+```
+
+means:
+
+```text
+es
+```
+
+Do not blindly render a saved `fpLanguage` value as the active language if the current URL is actually another supported language.
+
+When users intentionally navigate directly to a different language tree, allow that page to load.
+
+An explicit selection through the language selector should update the stored preference.
+
+---
+
+# H. Existing Data Must Be Preserved
+
+Do not clear, rename, migrate, or recreate unrelated browser storage.
+
+In particular, do not delete or reset:
+
+```text
+localStorage
+IndexedDB
+journal data
+notes
+appearance/theme preferences
+session data unrelated to language selection
+```
+
+Only add the language preference needed for this feature.
+
+---
+
+# I. Service Worker Must Remain Consolidated
+
+The recent service-worker cleanup is intentional.
+
+The authoritative worker remains:
+
+```text
+/fp/sw.js
+```
+
+with scope:
+
+```text
+/fp/
+```
+
+Do not recreate language-scoped service workers.
+
+Do not restore old Workbox-generated workers.
+
+Do not register:
+
+```text
+/fp/en/sw.js
+/fp/es/sw.js
+/fp/fr/sw.js
+...
+```
+
+as controlling service workers.
+
+Ensure any new shared language JavaScript/assets are included appropriately in the existing build/service-worker generation process so they work after deployment and, where appropriate, offline.
+
+---
+
+# J. Do Not Consolidate Manifests Yet
+
+For this task, leave existing manifests operational.
+
+Examples currently include:
+
+```text
+/fp/en/manifest.json
+/fp/es/manifest.json
+...
+```
+
+Do not:
+
+* delete them;
+* change their IDs to a shared ID;
+* move manifest ownership to `/fp/`;
+* change Android package IDs;
+* change Apple app identity;
+* remove existing store metadata.
+
+That will be handled in a separate migration phase after multilingual navigation is verified.
+
+---
+
+# K. Existing Store Links
+
+Remove the behavior that hijacks language selection and redirects to language-specific stores.
+
+However, do not necessarily delete the store URLs from the repository if they are used elsewhere legitimately.
+
+If they are only used by the root language-selector hijack, remove the obsolete attributes/logic cleanly.
+
+Do not introduce a replacement store-install workflow in this phase unless required to keep an already-existing install button working.
+
+---
+
+# Testing
+
+Test at minimum:
+
+### Root selector
+
+```text
+/fp/
+```
+
+Selecting each language saves the correct preference and enters the corresponding content tree.
+
+### English → Spanish
+
+```text
+/fp/en/seeking-god/
+```
+
+Choose Español.
+
+Expected:
+
+```text
+localStorage["fpLanguage"] === "es"
+```
+
+and navigation to:
+
+```text
+/fp/es/seeking-god/
+```
+
+if that page exists.
+
+### Spanish → English
+
+Perform the reverse switch.
+
+### Missing translation
+
+Open an English-only or otherwise untranslated study and switch to a language where that slug does not exist.
+
+Expected:
+
+```text
+/fp/{language}/toc/
+```
+
+or the language home page.
+
+No 404.
+
+### Portuguese variants
+
+Verify that:
+
+```text
+pt-BR → pt
+pt-PT → pt-eu
+```
+
+for initial browser-language suggestion.
+
+Manual selection of either Portuguese variant must persist independently.
+
+### Chinese
+
+Confirm Unicode labels and navigation work correctly.
+
+### Direct URL
+
+With:
+
+```text
+fpLanguage = es
+```
+
+navigate directly to:
+
+```text
+/fp/en/seeking-god/
+```
+
+The English page must still load.
+
+Do not forcibly redirect merely because the saved preference differs.
+
+### PWA
+
+Verify only the root `/fp/` service worker controls the application.
+
+### Persistence
+
+Select Spanish, close/reopen or reload, and verify the preference remains.
+
+### Existing user data
+
+Verify notes/journal/appearance data survives language changes and this deployment.
+
+---
+
+# Build / Regression Checks
+
+Run the project's normal build.
+
+Confirm:
+
+* service-worker generation succeeds;
+* `/fp/sw.js` remains generated;
+* no legacy Workbox artifacts are recreated;
+* no broken asset paths;
+* no console errors caused by the language selector;
+* language pages still load translations and scripture data normally;
+* responsive mobile layouts remain usable.
+
+---
+
+# Important Constraints
+
+Do not rewrite the application framework.
+
+Do not perform unrelated cleanup.
+
+Do not change study content or translations.
+
+Do not modify theological content.
+
+Do not consolidate manifests/store identities yet.
+
+Do not create new language-specific service workers.
+
+Do not clear user data.
+
+Prefer a small shared language module and minimal HTML/CSS integration.
+
+---
+
+# Before Finishing
+
+Please report:
+
+1. files changed;
+2. where the authoritative language configuration now lives;
+3. how active language is detected;
+4. how preference is persisted;
+5. how equivalent-page routing works;
+6. how missing-page fallback works;
+7. how browser-language matching works;
+8. whether any existing store-link code remains and why;
+9. confirmation that the `/fp/` service-worker architecture was preserved;
+10. build/test results;
+11. anything discovered that should influence Phase 2, where we will consolidate the PWA manifest and store identity.
