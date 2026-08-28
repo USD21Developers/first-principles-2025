@@ -1,0 +1,37 @@
+#3 - Persistent Language Navigation
+What & Why
+Create the Phase 1 multilingual navigation layer for First Principles so users can choose a language from the root selector, keep that preference across visits, and switch languages without losing their place in the study tree.
+
+Done looks like
+Selecting any language from /fp/ always enters that language tree and saves localStorage["fpLanguage"]
+The root selector no longer changes language links into App Store or Play Store links on mobile
+A reusable accessible globe/language control appears throughout language content and sits beside the existing home control on study pages
+Switching languages preserves the current logical route when the destination page exists
+Missing destination pages fall back quickly to the destination TOC, then destination language home, without a 404
+URL language is authoritative for the currently displayed page; saved preference is not allowed to redirect intentional direct URLs
+Browser language is used only as an initial suggestion when no explicit preference exists, including the pt-BR and pt-PT distinction
+Journal, Notes, appearance preferences, unrelated storage, manifests, store identities, translations, study content, and the consolidated /fp/sw.js service-worker architecture remain intact
+Normal build, offline loading, responsive layouts, root selection, language switching, fallback routing, and persistence checks pass
+Out of scope
+Consolidating or changing the six language manifests
+Changing Android package IDs, Apple identities, store metadata, or adding a new install flow
+Consolidating duplicated language asset directories
+Rewriting the application framework
+Changing study content or translations
+Creating language-specific service workers or restoring Workbox-generated workers
+Steps
+Create the shared language-navigation layer -- Add one authoritative module and minimal styles under the shared First Principles asset root. Define supported language codes/names, URL-first language detection, explicit preference persistence, browser-language matching, accessible menu behavior, and same-origin destination probing with short fallback handling.
+Integrate the root selector -- Remove the mobile user-agent store-link hijack and wire every root language choice to its local language route while saving the explicit selection. Keep legitimate store metadata untouched unless it is only used by the removed hijack.
+Integrate language content pages -- Load the shared layer across the existing language trees, place the control beside .home_icon when present, and provide a sensible compact placement for TOC/content entry pages without changing the existing visual language. Preserve the current URL language when rendering direct links.
+Preserve the PWA and existing data contract -- Ensure new shared files are included by the existing worker-generation/build copy process, do not clear or rename existing storage, and leave manifests and service-worker registration consolidated at /fp/sw.js with /fp/ scope.
+Verify multilingual flows -- Test every root language, English↔Spanish route preservation, missing-page fallback, Portuguese browser-language mapping, Chinese labels, direct URLs with a different saved preference, storage persistence, PWA registration, offline representative pages, desktop/mobile layouts, and build/type/syntax checks.
+Relevant files
+artifacts/first-principles/public/fp/index.html
+artifacts/first-principles/public/fp/en/index.html
+artifacts/first-principles/public/fp/en/toc/index.html
+artifacts/first-principles/public/fp/en/seeking-god/index.html
+artifacts/first-principles/public/fp/en/_assets/css/global.css
+artifacts/first-principles/public/fp/en/_assets/js/global.js
+artifacts/first-principles/public/fp/en/_assets/js/study-nav.js
+artifacts/first-principles/scripts/generate-fp-service-worker.mjs
+artifacts/first-principles/package.json

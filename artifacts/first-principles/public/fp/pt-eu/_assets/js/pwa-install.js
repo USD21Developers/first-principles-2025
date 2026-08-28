@@ -1,3 +1,9 @@
+(() => {
+  const languageScript = document.createElement("script");
+  languageScript.src = "/fp/_assets/js/language.js";
+  document.head.appendChild(languageScript);
+})();
+
 let deferredPrompt = null;
 
 const fpServiceWorker = (() => {

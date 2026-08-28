@@ -103,23 +103,18 @@
                 <a
                   href="en/"
                   class="list-group-item list-group-item-action"
-                  data-apple="https://apps.apple.com/us/app/first-principles-usd21/id6755126580"
-                  data-android="https://play.google.com/store/apps/details?id=en.fp.app.usd21.twa"
                 >
                   English
                 </a>
                 <a
                   href="es/"
                   class="list-group-item list-group-item-action"
-                  data-apple="https://apps.apple.com/us/app/principios-b%C3%A1sicos-usd21/id6761739052"
-                  data-android="https://play.google.com/store/apps/details?id=app.usd21.fp.es.twa"
                 >
                   Español
                 </a>
                 <a
                   href="fr/"
                   class="list-group-item list-group-item-action"
-                  data-android="https://play.google.com/store/apps/details?id=app.usd21.fp.fr.twa"
                 >
                   Français
                 </a>
@@ -139,48 +134,5 @@
       </main>
     </div>
 
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("./sw.js").catch((error) => {
-          console.error("Error in registering service worker:", error);
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const checkAndroid = () => {
-          const userAgent = window.navigator.userAgent.toLowerCase();
-
-          return userAgent.includes("android");
-        };
-
-        const checkIOS = () => {
-          const userAgent = window.navigator.userAgent;
-          const maxTouchPoints = window.navigator.maxTouchPoints || 0;
-          const isAppleDevice = /iPhone|iPod|iPad/i.test(userAgent);
-          const isMacintosh = /Macintosh/i.test(userAgent);
-          const isIpadOS =
-            isMacintosh && maxTouchPoints > 1 && !window.MSStream;
-
-          return isAppleDevice || isIpadOS;
-        };
-
-        const isIOS = checkIOS();
-        const isAndroid = checkAndroid();
-
-        if (!isIOS && !isAndroid) {
-          return;
-        }
-
-        if (isAndroid) {
-          document.querySelectorAll("[data-android]").forEach((item) => {
-            item.setAttribute("href", item.getAttribute("data-android"));
-          });
-        } else if (isIOS) {
-          document.querySelectorAll("[data-apple]").forEach((item) => {
-            item.setAttribute("href", item.getAttribute("data-apple"));
-          });
-        }
-      });
-    </script>
   </body>
 </html>

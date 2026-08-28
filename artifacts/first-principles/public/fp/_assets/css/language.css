@@ -1,0 +1,99 @@
+.fp-language-switcher {
+  color: var(--bs-white);
+  position: absolute;
+  left: 62px;
+  top: 13px;
+  z-index: 3;
+}
+
+.fp-language-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  padding: 3px;
+  width: 30px;
+}
+
+.fp-language-button svg {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .8));
+  height: 23px;
+  opacity: .72;
+  width: 23px;
+}
+
+.fp-language-button:hover svg,
+.fp-language-button:focus-visible svg,
+.fp-language-button[aria-expanded="true"] svg {
+  opacity: 1;
+}
+
+.fp-language-button:focus-visible,
+.fp-language-option:focus-visible {
+  outline: 2px solid var(--bs-warning);
+  outline-offset: 2px;
+}
+
+.fp-language-menu {
+  background: #212529;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: .25rem;
+  box-shadow: 0 .35rem 1rem rgba(0, 0, 0, .35);
+  min-width: 11rem;
+  padding: .25rem 0;
+  position: absolute;
+  left: 0;
+  top: 2.25rem;
+}
+
+.fp-language-option {
+  color: #fff;
+  display: block;
+  padding: .45rem .75rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.fp-language-option:hover,
+.fp-language-option.is-current {
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  text-decoration: none;
+}
+
+.fp-language-selected {
+  box-shadow: inset 4px 0 0 var(--bs-primary);
+}
+
+.fp-language-switcher--floating {
+  position: fixed;
+  left: auto;
+  right: 1rem;
+  top: 1rem;
+}
+
+.fp-language-switcher--floating .fp-language-menu {
+  left: auto;
+  right: 0;
+}
+
+@media (max-width: 575px) {
+  .fp-language-switcher {
+    left: 56px;
+    top: 12px;
+  }
+
+  .fp-language-switcher--floating {
+    left: auto;
+    right: .75rem;
+    top: .75rem;
+  }
+
+  .fp-language-menu {
+    min-width: 10rem;
+  }
+}
