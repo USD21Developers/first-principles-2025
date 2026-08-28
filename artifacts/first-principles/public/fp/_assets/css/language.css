@@ -43,11 +43,15 @@
   border: 1px solid rgba(255, 255, 255, .25);
   border-radius: .25rem;
   box-shadow: 0 .35rem 1rem rgba(0, 0, 0, .35);
+  left: 62px;
+  max-height: calc(100vh - 4rem);
+  max-height: calc(100dvh - 4rem);
   min-width: 11rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: .25rem 0;
-  position: absolute;
-  left: 0;
-  top: 2.25rem;
+  position: fixed;
+  top: 3rem;
 }
 
 .fp-language-option {
@@ -78,7 +82,8 @@
 
 .fp-language-switcher--floating .fp-language-menu {
   left: auto;
-  right: 0;
+  right: 1rem;
+  top: 3.5rem;
 }
 
 @media (max-width: 575px) {
@@ -94,6 +99,36 @@
   }
 
   .fp-language-menu {
+    left: 56px;
+    max-height: calc(100vh - 3.75rem);
+    max-height: calc(100dvh - 3.75rem);
     min-width: 10rem;
+    top: 2.75rem;
+  }
+
+  .fp-language-switcher--floating .fp-language-menu {
+    left: auto;
+    right: .75rem;
+    top: 3.25rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .fp-language-switcher {
+    left: 68px;
+  }
+
+  .fp-language-menu {
+    left: 68px;
+  }
+}
+
+@media (min-width: 992px) {
+  .fp-language-switcher {
+    left: 80px;
+  }
+
+  .fp-language-menu {
+    left: 80px;
   }
 }

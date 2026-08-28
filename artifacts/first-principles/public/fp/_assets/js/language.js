@@ -63,11 +63,19 @@
     var path = window.location.pathname.replace(/\/+$/, "");
     var match = path.match(/^\/fp\/(en|es|fr|pt-eu|pt|zh)(?:\/(.*))?$/);
     if (!match) {
-      return { language: null, route: "" };
+      return { language: null, route: "", search: "", hash: "" };
+    }
+    var route = (match[2] || "").replace(/^\/+|\/+$/g, "");
+    if (route === "index.html") {
+      route = "";
+    } else {
+      route = route.replace(/\/index\.html$/, "");
     }
     return {
       language: match[1],
-      route: match[2] || "",
+      route: route,
+      search: window.location.search,
+      hash: window.location.hash,
     };
   }
 
@@ -75,9 +83,10 @@
     return "/fp/" + code + "/";
   }
 
-  function getCandidateUrl(code, route) {
+  function getCandidateUrl(code, route, search, hash) {
     var root = getLanguageRoot(code);
-    return root + (route ? route.replace(/^\/+/, "") + "/" : "");
+    var path = root + (route ? route.replace(/^\/+/, "") + "/" : "");
+    return path + (search || "") + (hash || "");
   }
 
   function addStylesheet() {
@@ -109,20 +118,31 @@
     });
   }
 
-  function closeMenu(switcher) {
+  function closeMenu(switcher, restoreFocus) {
     var button = switcher.querySelector(".fp-language-button");
     var menu = switcher.querySelector(".fp-language-menu");
     if (!button || !menu) return;
     menu.hidden = true;
     button.setAttribute("aria-expanded", "false");
+    if (restoreFocus) button.focus();
   }
 
-  function openMenu(switcher) {
+  function getMenuOptions(switcher) {
+    return Array.prototype.slice.call(
+      switcher.querySelectorAll(".fp-language-option"),
+    );
+  }
+
+  function openMenu(switcher, focusLast) {
     var button = switcher.querySelector(".fp-language-button");
     var menu = switcher.querySelector(".fp-language-menu");
     if (!button || !menu) return;
     menu.hidden = false;
     button.setAttribute("aria-expanded", "true");
+    var options = getMenuOptions(switcher);
+    var current = menu.querySelector(".is-current");
+    var target = focusLast ? options[options.length - 1] : current || options[0];
+    if (target) target.focus();
   }
 
   function makeGlobeIcon() {
@@ -135,7 +155,7 @@
     var switcher = document.createElement("div");
     switcher.className = "fp-language-switcher";
     switcher.innerHTML =
-      '<button type="button" class="fp-language-button" aria-label="Change language" aria-haspopup="true" aria-expanded="false">' +
+      '<button type="button" class="fp-language-button" aria-label="Change language" aria-haspopup="menu" aria-expanded="false">' +
       makeGlobeIcon() +
       '<span class="visually-hidden">Change language</span>' +
       "</button>" +
@@ -144,7 +164,12 @@
     var menu = switcher.querySelector(".fp-language-menu");
     LANGUAGES.forEach(function (language) {
       var link = document.createElement("a");
-      link.href = getCandidateUrl(language.code, pathInfo.route);
+      link.href = getCandidateUrl(
+        language.code,
+        pathInfo.route,
+        pathInfo.search,
+        pathInfo.hash,
+      );
       link.className = "fp-language-option";
       link.setAttribute("role", "menuitem");
       link.textContent = language.name;
@@ -155,7 +180,7 @@
       link.addEventListener("click", function (event) {
         event.preventDefault();
         saveLanguage(language.code);
-        resolveDestination(language.code, pathInfo.route).then(function (destination) {
+        resolveDestination(language.code, pathInfo).then(function (destination) {
           window.location.assign(destination);
         });
       });
@@ -167,41 +192,88 @@
       if (menu.hidden) {
         openMenu(switcher);
       } else {
-        closeMenu(switcher);
+        closeMenu(switcher, true);
       }
     });
     button.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeMenu(switcher);
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        openMenu(switcher, event.key === "ArrowUp");
+      } else if (event.key === "Escape") {
+        closeMenu(switcher, true);
+      }
+    });
+    menu.addEventListener("keydown", function (event) {
+      var options = getMenuOptions(switcher);
+      var index = options.indexOf(document.activeElement);
+      var nextIndex = null;
+      if (event.key === "ArrowDown") {
+        nextIndex = index < options.length - 1 ? index + 1 : 0;
+      } else if (event.key === "ArrowUp") {
+        nextIndex = index > 0 ? index - 1 : options.length - 1;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = options.length - 1;
+      } else if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenu(switcher, true);
+        return;
+      }
+      if (nextIndex !== null && options[nextIndex]) {
+        event.preventDefault();
+        options[nextIndex].focus();
+      }
     });
     document.addEventListener("click", function (event) {
-      if (!switcher.contains(event.target)) closeMenu(switcher);
-    });
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeMenu(switcher);
+      if (!switcher.contains(event.target)) closeMenu(switcher, false);
     });
     return switcher;
   }
 
+  function normalizedDocumentPath(url) {
+    var parsed = new URL(url, window.location.origin);
+    var path = parsed.pathname;
+    return path.endsWith("/") ? path + "index.html" : path;
+  }
+
   function requestExists(url) {
-    return fetch(url, {
-      method: "HEAD",
-      cache: "no-store",
+    var probeUrl = new URL(url, window.location.origin);
+    probeUrl.search = "";
+    probeUrl.hash = "";
+    return fetch(probeUrl.href, {
+      method: "GET",
+      cache: "no-cache",
       credentials: "same-origin",
     }).then(function (response) {
-      return response.ok;
+      return response.ok &&
+        normalizedDocumentPath(response.url) ===
+          normalizedDocumentPath(probeUrl.href);
     }).catch(function () {
       return false;
     });
   }
 
-  function resolveDestination(language, route) {
-    var candidate = getCandidateUrl(language, route);
-    if (!route) return Promise.resolve(candidate);
+  function resolveDestination(language, pathInfo) {
+    var candidate = getCandidateUrl(
+      language,
+      pathInfo.route,
+      pathInfo.search,
+      pathInfo.hash,
+    );
+    if (!pathInfo.route) return Promise.resolve(candidate);
     return requestExists(candidate).then(function (exists) {
       if (exists) return candidate;
-      var toc = getCandidateUrl(language, "toc");
+      var toc = getCandidateUrl(
+        language,
+        "toc",
+        pathInfo.search,
+        pathInfo.hash,
+      );
       return requestExists(toc).then(function (tocExists) {
-        return tocExists ? toc : getLanguageRoot(language);
+        return tocExists
+          ? toc
+          : getCandidateUrl(language, "", pathInfo.search, pathInfo.hash);
       });
     });
   }
