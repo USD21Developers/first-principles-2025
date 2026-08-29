@@ -1,0 +1,568 @@
+# #4 — Missing Translation UX + Language Control Cleanup
+
+## What & Why
+
+Finish the First Principles language navigation UX so the language selector is visually clear, consistently positioned, accessible, and handles missing translations gracefully.
+
+The current language switching is mostly working, but three issues remain:
+
+1. Some logical study routes do not exist in every language. For example, "Persecution" currently exists only in English. If a user viewing that study selects another language, we need to clearly explain that the translation is not yet available rather than sending them somewhere unexpected or allowing a 404.
+
+2. On TOC pages such as `/fp/en/toc/`, the language trigger appears in the upper-left, but the language dropdown opens on the far right side of the viewport. The trigger and its dropdown need to remain visually associated.
+
+3. The language trigger is currently rendered as a black dot. It should be a recognizable globe/language icon with localized hover and accessibility text.
+
+The goal is to make language switching feel deliberate and predictable without changing the existing URL-authoritative language behavior or saved-language preference logic.
+
+---
+
+## Done Looks Like
+
+- Replace the black language-selector dot everywhere with a proper globe icon.
+
+- Use a real SVG/icon implementation rather than a Unicode emoji so it renders consistently across browsers, mobile devices, and installed PWA contexts.
+
+- The globe control has localized help/accessibility text equivalent to "Select Language."
+
+- Its desktop hover text comes from `title`.
+
+- Its screen-reader label comes from `aria-label`.
+
+- The language trigger and dropdown are implemented as one reusable component so the dropdown is always positioned relative to the trigger.
+
+- On TOC pages such as `/fp/en/toc/`, the dropdown opens beside/below the upper-left globe instead of on the far right side of the viewport.
+
+- On study pages, preserve the existing upper-left Home + Language control arrangement. The language control should remain visually associated with the Home control.
+
+- Switching languages from a content page checks whether the equivalent logical route exists in the requested destination language BEFORE navigating.
+
+- If the destination page exists, navigate normally.
+
+- If the equivalent translated page does not exist, remain on the current page and show a localized modal rather than navigating to a 404 or silently falling back somewhere else.
+
+- The missing-translation modal is written in the REQUESTED DESTINATION LANGUAGE, because that is the language the user has just asked to use.
+
+- The modal clearly names the unavailable content and requested language.
+
+- The modal provides:
+  - a link/button to that language's TOC;
+  - a clickable `support@usd21.org` email address;
+  - a dismiss/close action.
+
+- "Home" in this context means the destination language's TOC, e.g. `/fp/es/toc/`, NOT the root `/fp/` language selector.
+
+- If no translated title exists for the requested content, use the source/content title as-is rather than inventing a translation.
+
+- Missing-route handling happens before navigation and does not rely on observing a resulting 404.
+
+- Direct URLs remain authoritative.
+
+- Existing `localStorage["fpLanguage"]`, browser-language suggestion behavior, `pt-BR` / `pt-PT` distinction, Journal/Notes data, appearance settings, service-worker behavior, manifests, and study content are not otherwise changed.
+
+---
+
+## Missing Translation UX
+
+For example, suppose the user is viewing:
+
+`/fp/en/persecution/`
+
+and chooses Español.
+
+There is currently no Spanish Persecution study, so DO NOT navigate away from the English page.
+
+Instead, display a modal in Spanish explaining that the requested translation is unavailable.
+
+The English equivalent of the modal should read approximately:
+
+**Translation not yet available**
+
+We're sorry, "Persecution" is not yet available in Español.
+
+Please check back soon, or send a translation request to support@usd21.org.
+
+**Go to Español Home**
+
+For Spanish, the equivalent should be approximately:
+
+**Traducción aún no disponible**
+
+Lo sentimos, "Persecution" aún no está disponible en Español.
+
+Vuelva a consultar pronto o envíe una solicitud de traducción a support@usd21.org.
+
+**Ir al inicio en Español**
+
+The exact typography should match the existing First Principles design.
+
+The important behavior is:
+
+- Explain what happened.
+- Name the content.
+- Name the requested language.
+- Provide `support@usd21.org` as a clickable mailto link.
+- Provide a clear action to go to the requested language's TOC.
+- Allow the user to dismiss the modal and remain on the current page.
+
+Do not invent a translated content title if one does not already exist.
+
+For example, if "Persecution" has no Spanish title because there is no Spanish translation, it is acceptable and preferable for the Spanish message to still refer to the study as "Persecution."
+
+---
+
+## Centralize Language-Control UI Strings
+
+Do not duplicate these strings across individual study pages.
+
+Extend or introduce the shared language-navigation configuration so UI strings can be retrieved by locale.
+
+A structure similar to this is acceptable:
+
+const languageUi = {
+    en: {
+        selectLanguage: "Select Language",
+        unavailableTitle: "Translation not yet available",
+        unavailableMessage:
+            'We’re sorry, "{content}" is not yet available in {language}.',
+        unavailableRequest:
+            "Please check back soon, or send a translation request to support@usd21.org.",
+        goHome: "Go to {language} Home",
+        close: "Close"
+    },
+
+    es: {
+        selectLanguage: "Seleccionar idioma",
+        unavailableTitle: "Traducción aún no disponible",
+        unavailableMessage:
+            'Lo sentimos, "{content}" aún no está disponible en {language}.',
+        unavailableRequest:
+            "Vuelva a consultar pronto o envíe una solicitud de traducción a support@usd21.org.",
+        goHome: "Ir al inicio en {language}",
+        close: "Cerrar"
+    },
+
+    fr: {
+        selectLanguage: "Choisir la langue"
+    },
+
+    "pt-BR": {
+        selectLanguage: "Selecionar idioma"
+    },
+
+    "pt-PT": {
+        selectLanguage: "Selecionar idioma"
+    },
+
+    zh: {
+        selectLanguage: "选择语言"
+    }
+};
+
+Complete the missing modal strings for ALL currently supported languages rather than falling back to English where reasonable.
+
+Use the project's existing language configuration if there is already an appropriate centralized location rather than creating an unnecessary second source of truth.
+
+---
+
+## Globe / Language Trigger
+
+Replace the current black-dot trigger with a recognizable globe icon.
+
+Prefer an inline SVG or an icon already available in the project rather than a Unicode globe emoji.
+
+The final implementation should provide accessibility semantics equivalent to:
+
+<button
+    type="button"
+    class="fp-language-trigger"
+    aria-label="Select Language"
+    title="Select Language"
+    aria-haspopup="menu"
+    aria-expanded="false"
+>
+    <!-- globe SVG -->
+</button>
+
+The actual `aria-label` and `title` MUST be generated from the current UI language.
+
+Examples:
+
+English:
+    Select Language
+
+Spanish:
+    Seleccionar idioma
+
+French:
+    Choisir la langue
+
+Portuguese:
+    Selecionar idioma
+
+Chinese:
+    选择语言
+
+When the language menu opens and closes, keep `aria-expanded` accurate.
+
+The title attribute is important because currently there is no help text when a desktop user holds the mouse over the language control.
+
+---
+
+## Language Menu Positioning
+
+The trigger and dropdown should NOT be independently positioned against different viewport edges.
+
+The current TOC behavior appears to have the trigger positioned on the left while the menu itself is positioned against the right side of the viewport.
+
+Make the language control a single reusable component/wrapper that owns both the trigger and its menu.
+
+A structure similar to this is appropriate:
+
+<div class="fp-language-control">
+    <button class="fp-language-trigger">
+        <!-- globe -->
+    </button>
+
+    <div class="fp-language-menu">
+        ...
+    </div>
+</div>
+
+Then anchor the dropdown to the wrapper rather than the viewport.
+
+For example:
+
+.fp-language-control {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+}
+
+.fp-language-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: auto;
+}
+
+These exact dimensions are NOT mandatory.
+
+Adjust positioning and spacing to fit the existing First Principles design and responsive behavior.
+
+The important requirement is:
+
+THE DROPDOWN MUST BE POSITIONED RELATIVE TO THE LANGUAGE TRIGGER.
+
+Do not separately position the trigger at the left and the dropdown at the right.
+
+On study pages where Home and Language controls coexist, preserve the existing upper-left control cluster and sensible spacing between the Home icon and globe.
+
+On TOC pages where there is no Home control, the globe should remain in that same upper-left control area.
+
+---
+
+## Route Availability
+
+Do NOT determine whether a translation exists by navigating to the URL and waiting for the browser/server to return a 404.
+
+The language-navigation layer should have a reliable way to answer:
+
+"Does logical route X exist in language Y?"
+
+BEFORE navigation.
+
+Use the project's existing route/content structure if there is already enough information to determine this.
+
+If needed, introduce a small centralized route-availability manifest or equivalent derived structure.
+
+Do not create unnecessary duplicated route metadata if the existing project structure can reliably provide this information.
+
+Conceptually, the behavior should be similar to:
+
+const destination = resolveLocalizedRoute(
+    currentLogicalRoute,
+    requestedLanguage
+);
+
+if (destination.exists) {
+    saveLanguagePreference(requestedLanguage);
+    window.location.href = destination.url;
+} else {
+    showMissingTranslationModal({
+        content: currentContentTitle,
+        language: requestedLanguage,
+        tocUrl: getLanguageTocUrl(requestedLanguage)
+    });
+}
+
+This is conceptual code only. Adapt it to the existing architecture rather than forcing these exact function names.
+
+Do not save a broken/nonexistent URL as application state.
+
+It is okay to save the user's language preference when they explicitly select a language, but doing so must NOT cause the current source page to unexpectedly redirect behind the missing-translation modal.
+
+---
+
+## Important Distinction: Existing Translation vs Missing Translation
+
+Example A — translation exists:
+
+User is viewing:
+
+`/fp/en/seeking-god/`
+
+They select Español.
+
+If the corresponding Spanish Seeking God study exists, navigate directly to that Spanish study.
+
+There should be NO missing-translation modal.
+
+Example B — translation does not exist:
+
+User is viewing:
+
+`/fp/en/persecution/`
+
+They select Español.
+
+If no corresponding Spanish Persecution study exists:
+
+1. Do NOT navigate away from `/fp/en/persecution/`.
+2. Show the missing-translation modal in Spanish.
+3. Explain that "Persecution" is not yet available in Español.
+4. Provide the support email.
+5. Provide an action to go to `/fp/es/toc/`.
+6. Allow dismissal so the user can continue reading the English page.
+
+The same behavior should work for French, Portuguese (Brazil), Portuguese (Portugal), Chinese, and every other currently supported language.
+
+---
+
+## Modal Accessibility and Behavior
+
+The missing-translation modal must be accessible.
+
+It should:
+
+- use an appropriate dialog role;
+- use `aria-modal="true"` where appropriate;
+- have an accessible title;
+- receive keyboard focus when opened;
+- allow Escape to close;
+- provide a clearly identifiable close control;
+- return focus to the language trigger when dismissed;
+- prevent accidental interaction with obscured background controls while the modal is active, as appropriate;
+- work with keyboard-only navigation;
+- work on desktop;
+- work at mobile widths;
+- work in installed PWA mode.
+
+Do not introduce a large UI framework just to implement this modal.
+
+Use the existing application architecture/styles whenever possible.
+
+---
+
+## Destination Home / TOC Behavior
+
+The modal's Home action should take the user directly to the requested language's Table of Contents.
+
+For example, assuming these are the project's canonical locale paths:
+
+English:
+`/fp/en/toc/`
+
+Spanish:
+`/fp/es/toc/`
+
+French:
+`/fp/fr/toc/`
+
+Portuguese (Brazil):
+`/fp/pt-BR/toc/`
+
+Portuguese (Portugal):
+`/fp/pt-PT/toc/`
+
+Chinese:
+`/fp/zh/toc/`
+
+Use the project's ACTUAL canonical language codes and paths if they differ.
+
+Do not hard-code paths that conflict with the existing routing configuration.
+
+---
+
+## Regression Requirements
+
+Verify at minimum:
+
+1. `/fp/en/toc/`
+
+   - Globe appears in upper-left.
+   - No black dot remains.
+   - Hovering the globe shows "Select Language."
+   - Opening the menu places it beside/below the globe, not on the right side of the viewport.
+
+2. A normal English study such as:
+
+   `/fp/en/seeking-god/`
+
+   - Home and globe controls remain correctly positioned.
+   - Globe hover help works.
+   - Language menu opens beside the globe.
+
+3. Switching between two languages where the equivalent study exists.
+
+   - Equivalent logical route is preserved.
+   - No modal appears.
+   - Navigation works normally.
+
+4. English-only Persecution study.
+
+   Test switching from Persecution to EVERY currently supported non-English language.
+
+   - No 404.
+   - No silent TOC redirect.
+   - Remain on the English Persecution page.
+   - Localized missing-translation modal appears.
+   - Correct destination language is named.
+   - Correct destination-language TOC action is provided.
+   - `support@usd21.org` is clickable.
+
+5. Direct navigation to a non-default language page.
+
+   - URL language remains authoritative.
+   - Saved preference does not redirect an intentional direct URL.
+
+6. Reload after selecting a preferred language.
+
+   - Existing preference behavior remains correct.
+
+7. Mobile-width behavior.
+
+   - Globe remains usable.
+   - Menu remains attached to globe.
+   - Menu does not overflow the viewport.
+   - Modal remains usable.
+
+8. Desktop behavior.
+
+   - Mouse hover displays localized help text.
+   - Menu positioning is correct.
+
+9. Keyboard navigation.
+
+   - Globe can be focused and activated.
+   - Menu is usable.
+   - Modal can be dismissed.
+   - Escape closes the modal.
+   - Focus returns appropriately.
+
+10. Installed/PWA context if supported by the existing test workflow.
+
+---
+
+## Do Not Regress Existing Phase 1 Language Navigation
+
+Preserve the guarantees from the existing Persistent Language Navigation work:
+
+- Selecting any language from `/fp/` enters that language tree and saves `localStorage["fpLanguage"]`.
+
+- Root language links must not revert to App Store or Play Store links on mobile.
+
+- URL language remains authoritative for the currently displayed page.
+
+- Saved language preference must not redirect intentional direct URLs.
+
+- Browser language is used only as an initial suggestion when no explicit preference exists.
+
+- `pt-BR` and `pt-PT` remain distinct.
+
+- Language switching preserves the current logical route when the destination exists.
+
+- Existing fallback/navigation architecture should only be changed as necessary to support the explicit missing-translation UX described here.
+
+- Do not alter Journal behavior.
+
+- Do not alter Notes behavior.
+
+- Do not delete or migrate unrelated localStorage.
+
+- Do not delete or migrate IndexedDB data.
+
+- Do not alter appearance preferences.
+
+- Do not change manifests or store identities.
+
+- Do not modify translations or study content except for the new shared language-control/modal UI strings required by this task.
+
+- Do not unnecessarily modify service-worker architecture or caching behavior.
+
+---
+
+## Expected Final Result
+
+After this change:
+
+A user viewing:
+
+`/fp/en/persecution/`
+
+who selects Español should REMAIN on the English Persecution page and immediately see a Spanish-language "translation not yet available" dialog.
+
+That dialog should explain that "Persecution" is not yet available in Español, provide `support@usd21.org`, allow dismissal, and provide an action to:
+
+`/fp/es/toc/`
+
+A user viewing:
+
+`/fp/en/seeking-god/`
+
+who selects Español, where the equivalent Spanish study exists, should navigate directly to the Spanish Seeking God study with NO modal.
+
+A user viewing:
+
+`/fp/en/toc/`
+
+should see a recognizable globe in the upper-left.
+
+Hovering over that globe should show:
+
+"Select Language"
+
+Opening it should display the language menu immediately beside/below the globe in the upper-left — NOT on the far-right side of the screen.
+
+The same control and behavior should be shared consistently across the First Principles application.
+
+---
+
+## Before Implementing
+
+First inspect the existing language-navigation implementation from the previous Phase 1 work.
+
+Identify:
+
+- where the language trigger is created;
+- why it is currently rendering as a black dot;
+- how the dropdown is positioned on TOC pages versus study pages;
+- how logical route preservation currently works;
+- how missing destination routes are currently detected/fallback-handled;
+- where supported languages and their display names are defined;
+- whether there is already a centralized route/content manifest that can determine translation availability;
+- where shared localized UI strings should live.
+
+Reuse and extend the existing implementation rather than creating a parallel language-navigation system.
+
+Then implement the smallest coherent change that satisfies the requirements above.
+
+When finished, report:
+
+1. Root cause of the black-dot rendering.
+2. Root cause of the TOC dropdown appearing on the opposite side of the viewport.
+3. How translation availability is now determined before navigation.
+4. How the missing-translation modal works.
+5. Where the localized UI strings are stored.
+6. Files changed.
+7. Tests performed and results.
+8. Any supported-language routes that currently lack translations and therefore exercise the new modal behavior.
