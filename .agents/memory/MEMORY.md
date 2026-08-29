@@ -1,1 +1,2 @@
 - [Service-worker navigation requests](service-worker-navigation-requests.md) — normalize navigation cache keys without cloning navigate-mode requests; preload may resolve empty.
+- [Shared icon visual checks](shared-icon-visual-checks.md) — DOM assertions can pass while SVG artwork renders as a dot; inspect pixels at actual control size.

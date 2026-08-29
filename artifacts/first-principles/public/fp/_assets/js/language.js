@@ -13,9 +13,127 @@
     return language.code;
   });
   var LANGUAGE_STORAGE_KEY = "fpLanguage";
+  var LANGUAGE_UI = {
+    en: {
+      selectLanguage: "Select Language",
+      unavailableTitle: "Translation not yet available",
+      unavailableMessage: 'We’re sorry, "{content}" is not yet available in {language}.',
+      unavailableRequest:
+        "Please check back soon, or send a translation request to support@usd21.org.",
+      goHome: "Go to {language} Home",
+      close: "Close",
+    },
+    es: {
+      selectLanguage: "Seleccionar idioma",
+      unavailableTitle: "Traducción aún no disponible",
+      unavailableMessage:
+        'Lo sentimos, "{content}" aún no está disponible en {language}.',
+      unavailableRequest:
+        "Vuelva a consultar pronto o envíe una solicitud de traducción a support@usd21.org.",
+      goHome: "Ir al inicio en {language}",
+      close: "Cerrar",
+    },
+    fr: {
+      selectLanguage: "Choisir la langue",
+      unavailableTitle: "Traduction pas encore disponible",
+      unavailableMessage:
+        'Désolé, « {content} » n’est pas encore disponible en {language}.',
+      unavailableRequest:
+        "Veuillez revenir bientôt ou envoyer une demande de traduction à support@usd21.org.",
+      goHome: "Aller à l’accueil en {language}",
+      close: "Fermer",
+    },
+    pt: {
+      selectLanguage: "Selecionar idioma",
+      unavailableTitle: "Tradução ainda não disponível",
+      unavailableMessage:
+        'Desculpe, “{content}” ainda não está disponível em {language}.',
+      unavailableRequest:
+        "Volte em breve ou envie uma solicitação de tradução para support@usd21.org.",
+      goHome: "Ir para o início em {language}",
+      close: "Fechar",
+    },
+    "pt-eu": {
+      selectLanguage: "Selecionar idioma",
+      unavailableTitle: "Tradução ainda não disponível",
+      unavailableMessage:
+        'Lamentamos, “{content}” ainda não está disponível em {language}.',
+      unavailableRequest:
+        "Volte em breve ou envie um pedido de tradução para support@usd21.org.",
+      goHome: "Ir para o início em {language}",
+      close: "Fechar",
+    },
+    zh: {
+      selectLanguage: "选择语言",
+      unavailableTitle: "翻译尚未提供",
+      unavailableMessage:
+        '很抱歉，“{content}”目前还没有{language}版本。',
+      unavailableRequest:
+        "请稍后再来，或发送翻译请求至 support@usd21.org。",
+      goHome: "前往{language}主页",
+      close: "关闭",
+    },
+  };
+  var AVAILABLE_ROUTES = {
+    en: [
+      "about-fp", "about-us", "additional-studies", "after-baptism",
+      "best-friends", "christ-is-your-life", "church", "cross",
+      "discipleship", "find-a-church", "holy-spirit-baptism",
+      "holy-spirit-gifts", "kingdom", "license", "light-darkness",
+      "medical-account", "nt-conversion", "persecution", "privacy",
+      "seeking-god", "sin-definitions", "sin-repentance", "support",
+      "the-mission", "toc", "word",
+    ],
+    es: [
+      "about-fp", "about-us", "church", "cross", "discipleship", "kingdom",
+      "license", "light-darkness", "medical-account", "privacy",
+      "seeking-god", "sin-definitions", "sin-repentance", "support", "toc",
+      "word",
+    ],
+    fr: [
+      "about-fp", "about-us", "church", "cross", "discipleship", "kingdom",
+      "license", "light-darkness", "medical-account", "privacy",
+      "seeking-god", "sin-definitions", "sin-repentance", "support", "toc",
+      "word",
+    ],
+    pt: [
+      "about-fp", "about-us", "church", "cross", "discipleship", "kingdom",
+      "license", "light-darkness", "medical-account", "seeking-god",
+      "sin-definitions", "sin-repentance", "toc", "word",
+    ],
+    "pt-eu": [
+      "about-fp", "about-us", "church", "cross", "discipleship", "kingdom",
+      "license", "light-darkness", "medical-account", "seeking-god",
+      "sin-definitions", "sin-repentance", "toc", "word",
+    ],
+    zh: [
+      "about-fp", "about-us", "church", "cross", "discipleship", "kingdom",
+      "license", "light-darkness", "medical-account", "seeking-god",
+      "sin-definitions", "sin-repentance", "toc", "word",
+    ],
+  };
 
   function isSupportedLanguage(code) {
     return LANGUAGE_CODES.indexOf(code) !== -1;
+  }
+
+  function getLanguageUi(code) {
+    return LANGUAGE_UI[code] || LANGUAGE_UI.en;
+  }
+
+  function getLanguageName(code) {
+    var language = LANGUAGES.find(function (item) {
+      return item.code === code;
+    });
+    return language ? language.name : code;
+  }
+
+  function formatUiText(template, values) {
+    return template.replace(/\{(\w+)\}/g, function (match, key) {
+      return Object.prototype.hasOwnProperty.call(values, key)
+        ? values[key]
+        : match;
+    });
   }
 
   function saveLanguage(code) {
@@ -89,12 +207,30 @@
     return path + (search || "") + (hash || "");
   }
 
-  function addStylesheet() {
-    if (document.querySelector('link[data-fp-language-style="true"]')) return;
+  function addStylesheet(onReady) {
+    var existing = document.querySelector(
+      'link[data-fp-language-style="true"]',
+    );
+    if (existing) {
+      if (
+        existing.sheet ||
+        existing.getAttribute("data-fp-language-style-loaded") === "true"
+      ) {
+        if (onReady) onReady();
+      } else if (onReady) {
+        existing.addEventListener("load", onReady, { once: true });
+      }
+      return;
+    }
+
     var stylesheet = document.createElement("link");
     stylesheet.rel = "stylesheet";
     stylesheet.href = "/fp/_assets/css/language.css";
     stylesheet.setAttribute("data-fp-language-style", "true");
+    stylesheet.addEventListener("load", function () {
+      stylesheet.setAttribute("data-fp-language-style-loaded", "true");
+      if (onReady) onReady();
+    }, { once: true });
     document.head.appendChild(stylesheet);
   }
 
@@ -146,22 +282,29 @@
   }
 
   function makeGlobeIcon() {
-    return '<svg aria-hidden="true" viewBox="0 0 16 16" focusable="false">' +
-      '<path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM2.06 7h2.02c.08-1.38.45-2.64 1.04-3.57A5.03 5.03 0 0 0 2.06 7Zm0 2a5.03 5.03 0 0 0 3.06 3.57C4.53 11.64 4.16 10.38 4.08 9H2.06Zm4.02 0c.1 1.54.8 3.25 1.92 3.83C9.12 12.25 9.82 10.54 9.92 9H6.08Zm0-2h3.84C9.82 4.46 9.12 2.75 8 2.17 6.88 2.75 6.18 4.46 6.08 7Zm5.86 0a5.03 5.03 0 0 0-3.06-3.57c.59.93.96 2.19 1.04 3.57h2.02Zm0 2H9.92c-.08 1.38-.45 2.64-1.04 3.57A5.03 5.03 0 0 0 13.94 9Z"></path>' +
+    return '<svg class="fp-language-globe" aria-hidden="true" viewBox="0 0 16 16" focusable="false" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">' +
+      '<circle cx="8" cy="8" r="6.5"></circle>' +
+      '<path d="M1.5 8h13M2.75 4.5h10.5M2.75 11.5h10.5M8 1.5c2 1.8 3 4 3 6.5s-1 4.7-3 6.5c-2-1.8-3-4-3-6.5s1-4.7 3-6.5Z"></path>' +
       "</svg>";
   }
 
   function createSwitcher(pathInfo) {
+    var currentUi = getLanguageUi(pathInfo.language);
     var switcher = document.createElement("div");
     switcher.className = "fp-language-switcher";
     switcher.innerHTML =
-      '<button type="button" class="fp-language-button" aria-label="Change language" aria-haspopup="menu" aria-expanded="false">' +
+      '<button type="button" class="fp-language-button" aria-haspopup="menu" aria-expanded="false">' +
       makeGlobeIcon() +
-      '<span class="visually-hidden">Change language</span>' +
+      '<span class="visually-hidden"></span>' +
       "</button>" +
       '<div class="fp-language-menu" role="menu" hidden></div>';
 
     var menu = switcher.querySelector(".fp-language-menu");
+    var button = switcher.querySelector(".fp-language-button");
+    var hiddenLabel = button.querySelector(".visually-hidden");
+    button.setAttribute("aria-label", currentUi.selectLanguage);
+    button.setAttribute("title", currentUi.selectLanguage);
+    hiddenLabel.textContent = currentUi.selectLanguage;
     LANGUAGES.forEach(function (language) {
       var link = document.createElement("a");
       link.href = getCandidateUrl(
@@ -180,14 +323,21 @@
       link.addEventListener("click", function (event) {
         event.preventDefault();
         saveLanguage(language.code);
-        resolveDestination(language.code, pathInfo).then(function (destination) {
-          window.location.assign(destination);
+        var destination = resolveDestination(language.code, pathInfo);
+        if (destination.exists) {
+          window.location.assign(destination.url);
+          return;
+        }
+        closeMenu(switcher, false);
+        showMissingTranslationModal({
+          requestedLanguage: language.code,
+          pathInfo: pathInfo,
+          trigger: button,
         });
       });
       menu.appendChild(link);
     });
 
-    var button = switcher.querySelector(".fp-language-button");
     button.addEventListener("click", function () {
       if (menu.hidden) {
         openMenu(switcher);
@@ -231,29 +381,6 @@
     return switcher;
   }
 
-  function normalizedDocumentPath(url) {
-    var parsed = new URL(url, window.location.origin);
-    var path = parsed.pathname;
-    return path.endsWith("/") ? path + "index.html" : path;
-  }
-
-  function requestExists(url) {
-    var probeUrl = new URL(url, window.location.origin);
-    probeUrl.search = "";
-    probeUrl.hash = "";
-    return fetch(probeUrl.href, {
-      method: "GET",
-      cache: "no-cache",
-      credentials: "same-origin",
-    }).then(function (response) {
-      return response.ok &&
-        normalizedDocumentPath(response.url) ===
-          normalizedDocumentPath(probeUrl.href);
-    }).catch(function () {
-      return false;
-    });
-  }
-
   function resolveDestination(language, pathInfo) {
     var candidate = getCandidateUrl(
       language,
@@ -261,21 +388,159 @@
       pathInfo.search,
       pathInfo.hash,
     );
-    if (!pathInfo.route) return Promise.resolve(candidate);
-    return requestExists(candidate).then(function (exists) {
-      if (exists) return candidate;
-      var toc = getCandidateUrl(
-        language,
-        "toc",
-        pathInfo.search,
-        pathInfo.hash,
-      );
-      return requestExists(toc).then(function (tocExists) {
-        return tocExists
-          ? toc
-          : getCandidateUrl(language, "", pathInfo.search, pathInfo.hash);
-      });
+    return {
+      exists: !pathInfo.route ||
+        AVAILABLE_ROUTES[language].indexOf(pathInfo.route) !== -1,
+      url: candidate,
+    };
+  }
+
+  function getContentTitle(pathInfo) {
+    var heading = document.querySelector("h1");
+    var headingText = heading ? heading.textContent.trim() : "";
+    if (headingText) return headingText;
+
+    var pageTitle = document.title.trim();
+    if (pageTitle) return pageTitle;
+
+    return pathInfo.route
+      .split("-")
+      .map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+  }
+
+  function appendSupportRequest(paragraph, requestText) {
+    var supportAddress = "support@usd21.org";
+    var parts = requestText.split(supportAddress);
+    paragraph.appendChild(document.createTextNode(parts[0]));
+
+    var supportLink = document.createElement("a");
+    supportLink.href = "mailto:" + supportAddress;
+    supportLink.textContent = supportAddress;
+    paragraph.appendChild(supportLink);
+
+    if (parts[1]) {
+      paragraph.appendChild(document.createTextNode(parts[1]));
+    }
+  }
+
+  function showMissingTranslationModal(options) {
+    var requestedLanguage = options.requestedLanguage;
+    var pathInfo = options.pathInfo;
+    var trigger = options.trigger;
+    var ui = getLanguageUi(requestedLanguage);
+    var languageName = getLanguageName(requestedLanguage);
+    var existing = document.querySelector(".fp-language-modal");
+    if (existing) existing.remove();
+
+    var modal = document.createElement("div");
+    modal.className = "fp-language-modal";
+
+    var dialog = document.createElement("div");
+    dialog.className = "fp-language-dialog";
+    dialog.setAttribute("role", "dialog");
+    dialog.setAttribute("aria-modal", "true");
+    dialog.setAttribute("aria-labelledby", "fp-language-dialog-title");
+    dialog.tabIndex = -1;
+
+    var header = document.createElement("div");
+    header.className = "fp-language-dialog-header";
+
+    var title = document.createElement("h2");
+    title.id = "fp-language-dialog-title";
+    title.textContent = ui.unavailableTitle;
+    header.appendChild(title);
+
+    var closeIcon = document.createElement("button");
+    closeIcon.type = "button";
+    closeIcon.className = "fp-language-dialog-close";
+    closeIcon.setAttribute("aria-label", ui.close);
+    closeIcon.setAttribute("title", ui.close);
+    closeIcon.textContent = "×";
+    header.appendChild(closeIcon);
+    dialog.appendChild(header);
+
+    var message = document.createElement("p");
+    message.textContent = formatUiText(ui.unavailableMessage, {
+      content: getContentTitle(pathInfo),
+      language: languageName,
     });
+    dialog.appendChild(message);
+
+    var request = document.createElement("p");
+    appendSupportRequest(request, ui.unavailableRequest);
+    dialog.appendChild(request);
+
+    var actions = document.createElement("div");
+    actions.className = "fp-language-dialog-actions";
+
+    var homeLink = document.createElement("a");
+    homeLink.className = "fp-language-dialog-primary";
+    homeLink.href = getCandidateUrl(requestedLanguage, "toc", "", "");
+    homeLink.textContent = formatUiText(ui.goHome, { language: languageName });
+    actions.appendChild(homeLink);
+
+    var closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "fp-language-dialog-secondary";
+    closeButton.textContent = ui.close;
+    actions.appendChild(closeButton);
+    dialog.appendChild(actions);
+    modal.appendChild(dialog);
+
+    var background = document.querySelector(".master-container");
+    var backgroundWasInert = background
+      ? background.hasAttribute("inert")
+      : false;
+    var previousOverflow = document.body.style.overflow;
+
+    function closeDialog() {
+      modal.remove();
+      document.body.style.overflow = previousOverflow;
+      if (background && !backgroundWasInert) {
+        background.removeAttribute("inert");
+      }
+      if (trigger) trigger.focus();
+    }
+
+    closeIcon.addEventListener("click", closeDialog);
+    closeButton.addEventListener("click", closeDialog);
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) closeDialog();
+    });
+    modal.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDialog();
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      var focusable = Array.prototype.slice.call(
+        dialog.querySelectorAll("a[href], button:not([disabled]), [tabindex]"),
+      );
+      if (!focusable.length) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    if (background) background.setAttribute("inert", "");
+    document.body.style.overflow = "hidden";
+    document.body.appendChild(modal);
+    dialog.focus();
   }
 
   function addContentSwitcher(pathInfo) {
@@ -293,13 +558,14 @@
   }
 
   function initialize() {
-    addStylesheet();
     var pathInfo = getPathInfo();
     if (document.body.id === "pg_selectlang") {
       markRootSelection();
       return;
     }
-    addContentSwitcher(pathInfo);
+    addStylesheet(function () {
+      addContentSwitcher(pathInfo);
+    });
   }
 
   addStylesheet();
