@@ -1,0 +1,14 @@
+{
+  "display": "John 3:5",
+  "slug": "john-3-5",
+  "language": "en",
+  "version": "NIV",
+  "book": "John",
+  "chapter": 3,
+  "verses": [
+    [
+      5,
+      "Jesus answered, “Very truly I tell you, no one can enter the kingdom of God unless they are born of water and the Spirit."
+    ]
+  ]
+}

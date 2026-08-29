@@ -1,0 +1,499 @@
+/* ============================================================
+   Study Journal — bible-style side tabs + right-side drawer
+   ============================================================ */
+
+/* ── Side tab column (fixed, right edge, near study title) ── */
+#journal-tab-col {
+  position: fixed;
+  right: 0;
+  top: 14px;
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* ── Individual side tab ──────────────────────────────────── */
+.journal-side-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30px;
+  min-height: 52px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: inherit;
+  padding: 8px 0 6px;
+  gap: 5px;
+  box-shadow: -3px 1px 8px rgba(0, 0, 0, .28);
+  transition: width 0.15s, box-shadow 0.15s;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.journal-side-tab:hover,
+.journal-side-tab:focus-visible {
+  width: 36px;
+  box-shadow: -5px 2px 16px rgba(0, 0, 0, .38);
+  outline: none;
+}
+
+.journal-side-tab:active { opacity: 0.85; }
+
+/* Entry-count badge */
+.journal-side-tab-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 99px;
+  padding: 1px 5px;
+  flex-shrink: 0;
+}
+
+/* Vertical label — reads bottom-to-top */
+.journal-side-tab-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 0.92;
+}
+
+/* ── Backdrop ─────────────────────────────────────────────── */
+#journal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+  z-index: 1046;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+#journal-backdrop.visible { opacity: 1; pointer-events: auto; }
+
+/* ── Right-side drawer ────────────────────────────────────── */
+#journal-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1047;
+  background: #ffffff;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -6px 0 40px rgba(0, 0, 0, .22);
+  display: flex;
+  flex-direction: column;
+  width: min(400px, 92vw);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 1.1, 0.64, 1);
+  overflow: hidden;
+}
+
+#journal-drawer.open { transform: translateX(0) !important; }
+
+/* ── Left-edge swipe grip ─────────────────────────────────── */
+#journal-drag-handle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+#journal-drag-handle span {
+  width: 4px;
+  height: 36px;
+  background: #d1d5db;
+  border-radius: 2px;
+  display: block;
+}
+
+/* ── Drawer header ────────────────────────────────────────── */
+#journal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 12px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.journal-header-left { display: flex; align-items: center; gap: 8px; }
+#journal-icon         { font-size: 1.2rem; }
+
+#journal-heading {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: #111827;
+  margin: 0;
+}
+
+#journal-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+#journal-close:hover { color: #111827; }
+
+/* Back button */
+#journal-back {
+  background: none;
+  border: none;
+  color: #1a5f4a;
+  cursor: pointer;
+  padding: 2px 4px 2px 0;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#journal-back:hover { color: #155240; }
+
+/* ── List panel ───────────────────────────────────────────── */
+#journal-list-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#journal-list-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1a5f4a;
+  padding: 10px 16px 6px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+#journal-entries-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.journal-entry-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.12s;
+}
+
+.journal-entry-item:last-child { border-bottom: none; }
+
+.journal-entry-item:hover,
+.journal-entry-item:focus {
+  background: #f0fdf8;
+  outline: none;
+}
+
+.journal-entry-item:active { background: #dcfce7; }
+
+.journal-entry-date {
+  font-size: 0.72rem;
+  color: #6b7280;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.journal-entry-preview {
+  font-size: 0.85rem;
+  color: #1f2937;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.journal-entry-empty {
+  padding: 20px 16px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+}
+
+#journal-list-footer {
+  padding: 10px 16px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom, 14px));
+  border-top: 1px solid #f3f4f6;
+  flex-shrink: 0;
+}
+
+#journal-new-entry {
+  width: 100%;
+  padding: 10px 16px;
+  background: #1a5f4a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#journal-new-entry:hover  { background: #155240; }
+#journal-new-entry:active { opacity: 0.85; }
+
+/* ── Edit panel ───────────────────────────────────────────── */
+#journal-edit-panel {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Meta ─────────────────────────────────────────────────── */
+#journal-meta {
+  padding: 10px 16px 8px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+#journal-study-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1a5f4a;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+#journal-dates {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+/* ── No-storage warning ───────────────────────────────────── */
+#journal-no-storage {
+  padding: 8px 16px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* ── Body ─────────────────────────────────────────────────── */
+#journal-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px 4px;
+  gap: 6px;
+}
+
+#journal-helper {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.45;
+  font-style: italic;
+}
+
+#journal-textarea {
+  flex: 1;
+  width: 100%;
+  min-height: 140px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1f2937;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  background: #f9fafb;
+  box-sizing: border-box;
+}
+
+#journal-textarea:focus {
+  border-color: #1a5f4a;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(26, 95, 74, .14);
+}
+
+#journal-textarea:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+#journal-wordcount {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  text-align: right;
+  min-height: 1em;
+  margin-top: 2px;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+#journal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom, 14px));
+  flex-shrink: 0;
+  border-top: 1px solid #f3f4f6;
+  gap: 8px;
+}
+
+#journal-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#journal-status {
+  font-size: 0.78rem;
+  color: #059669;
+  font-weight: 500;
+  min-width: 60px;
+  white-space: nowrap;
+}
+
+#journal-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.journal-btn {
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.journal-btn:hover { background: #e5e7eb; }
+
+.journal-btn-primary {
+  background: #1a5f4a;
+  color: #ffffff;
+  border-color: #1a5f4a;
+}
+
+.journal-btn-primary:hover { background: #155240; border-color: #155240; }
+
+.journal-btn-danger {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fff5f5;
+}
+
+.journal-btn-danger:hover { background: #fee2e2; }
+
+.journal-btn-armed {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+.journal-btn-armed:hover { background: #b91c1c; border-color: #b91c1c; }
+
+/* ── Inline "Continue" banner ─────────────────────────────── */
+#journal-inline-banner {
+  margin: 0;
+  padding: 16px;
+  background: #f0fdf8;
+  border-top: 2px solid #1a5f4a;
+  border-bottom: 2px solid #1a5f4a;
+}
+
+.jib-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.jib-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.jib-content { flex: 1; min-width: 0; }
+
+.jib-heading {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a5f4a;
+  margin-bottom: 3px;
+}
+
+.jib-preview {
+  font-size: 0.82rem;
+  color: #374151;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+
+.jib-meta { font-size: 0.7rem; color: #9ca3af; }
+
+.jib-btn {
+  flex-shrink: 0;
+  padding: 9px 20px;
+  background: #1a5f4a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jib-btn:hover  { background: #155240; }
+.jib-btn:active { opacity: 0.85; }
+
+/* ── Touch targets ────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .journal-btn      { padding: 9px 12px; font-size: 0.85rem; }
+  .jib-btn          { padding: 10px 20px; }
+  #journal-textarea { font-size: 1rem; }
+}

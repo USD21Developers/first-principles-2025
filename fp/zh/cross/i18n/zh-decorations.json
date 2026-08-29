@@ -1,0 +1,162 @@
+[
+  {
+    "key": "matthew-26-57-68-description-3",
+    "text": {
+      "original": "John 2:18-21",
+      "translated": "约翰福音 2:18-21"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"John,2,18,21\" data-scripture-title=\"John 2:18-21\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-26-69-75-description-4",
+    "text": {
+      "original": "Matthew 16:18-19",
+      "translated": "马太福音 16:18-19"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Matthew,16,18,19\" data-scripture-title=\"Matthew 16:18-19\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-27-45-56-description-1",
+    "text": {
+      "original": "Mark 15:25",
+      "translated": "马可福音 15:25"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Mark,15,25\" data-scripture-title=\"Mark 15:25\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-27-45-56-description-3",
+    "text": {
+      "original": "Isaiah 59:1-2",
+      "translated": "以赛亚书 59:1-2"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,59,1,2\" data-scripture-title=\"Isaiah 59:1-2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-27-57-61-description-1",
+    "text": {
+      "original": "Isaiah 53:9",
+      "translated": "以赛亚书 53:9"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,53,9\" data-scripture-title=\"Isaiah 53:9\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "isaiah-53-4-6-description-2",
+    "text": {
+      "original": "Proverbs 13:5",
+      "translated": "箴言 13:5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Proverbs,13,5\" data-scripture-title=\"Proverbs 13:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "challenge",
+    "text": {
+      "original": "Challenge:",
+      "translated": "挑战："
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "challenge",
+    "text": {
+      "original": "Take time for confession and develop a plan for repentance. Read Appendix B — The Medical Account of Jesus' crucifixion or watch the Cross Video.",
+      "translated": "花时间认罪，并制定悔改的计划。阅读附录B—耶稣被钉十字架的医学记载，或观看十字架视频。"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "challenge",
+    "text": {
+      "original": "The Medical Account of Jesus' crucifixion",
+      "translated": "耶稣被钉十字架的医学记载"
+    },
+    "decorations": {
+      "link": {
+        "href": "../medical-account/",
+        "attributes": ""
+      }
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

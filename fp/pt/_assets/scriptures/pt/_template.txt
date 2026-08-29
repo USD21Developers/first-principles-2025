@@ -1,0 +1,12 @@
+{
+  "display": "",
+  "slug": "",
+  "language": "pt",
+  "version": "NVI-PT",
+  "book": "",
+  "chapter": ,
+  "verses": [
+    [, ""],
+    [, ""]
+  ]
+}

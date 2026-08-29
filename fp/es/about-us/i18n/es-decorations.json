@@ -1,0 +1,122 @@
+[
+  {
+    "key": "aboutUsP1",
+    "text": {
+      "original": "International Christian Church",
+      "translated": "Iglesia Cristiana Internacional"
+    },
+    "decorations": {
+      "bold": true,
+      "link": {
+        "href": "https://usd21.org/",
+        "attributes": "target='_blank' rel='noopener nofollow'"
+      }
+    }
+  },
+  {
+    "key": "aboutUsP1",
+    "text": {
+      "original": "(The SoldOut Movement)",
+      "translated": "(El Movimiento SoldOut)"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "ourFoundation-description-1",
+    "text": {
+      "original": "all of Scripture",
+      "translated": "toda la Escritura"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "distinctiveApproach-description-1",
+    "text": {
+      "original": "Be silent where the Bible speaks, and speak where the Bible is silent.",
+      "translated": "Calla donde la Biblia habla, y habla donde la Biblia calla."
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "missionThruDiscipleship-description-1",
+    "text": {
+      "original": "discipleship is not optional",
+      "translated": "el discipulado no es opcional"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "missionThruDiscipleship-description-1",
+    "text": {
+      "original": "Matthew 28:18-20",
+      "translated": "Mateo 28:18-20"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "leadershipStructure-description-1",
+    "text": {
+      "original": "central leadership with a central leader",
+      "translated": "liderazgo central con un líder central"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "ourIDHeartbeat-description-1",
+    "text": {
+      "original": "non-denominational, Bible-based movement",
+      "translated": "movimiento no denominacional y basado en la Biblia"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "summary-description-1",
+    "text": {
+      "original": "Bible-Centered",
+      "translated": "Centrado en la Biblia"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "summary-description-2",
+    "text": {
+      "original": "Great Commission Focused",
+      "translated": "Enfocado en la Gran Comisión"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": { "href": "", "attributes": "" },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "key": "p1",
+    "text": {
+      "original": "Princípios Básicos",
+      "translated": "Princípios Básicos"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-seeking-god",
+    "text": {
+      "original": "Seeking God",
+      "translated": "Buscando a Deus"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-word",
+    "text": {
+      "original": "The Word of God",
+      "translated": "A Palavra de Deus"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": {
+      "original": "Discipleship",
+      "translated": "Discipulado"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-discipleship",
+    "text": {
+      "original": "disciples",
+      "translated": "discípulos"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-kingdom",
+    "text": {
+      "original": "The Coming of the Kingdom",
+      "translated": "A Vinda do Reino"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-sin-repentance",
+    "text": {
+      "original": "Sin &amp; Repentance",
+      "translated": "Pecado e Arrependimento"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-light-darkness",
+    "text": {
+      "original": "Light &amp; Darkness",
+      "translated": "Luz e Trevas"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "studiesAtGlance-cross",
+    "text": {
+      "original": "The Cross",
+      "translated": "A Cruz"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-1",
+    "text": {
+      "original": "Sin Definitions",
+      "translated": "Definições de Pecado"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "appendices-description-2",
+    "text": {
+      "original": "Medical Account of the Crucifixion",
+      "translated": "Relato Médico da Crucificação"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]
