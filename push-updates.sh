@@ -5,82 +5,11 @@
 
 set -euo pipefail
 
-REPO="https://${GITHUB_TOKEN}@github.com/USD21Developers/first-principles-2025.git"
-SW="artifacts/first-principles/public/fp/en/sw.js"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
 echo "==> Refreshing service worker precache hashes..."
-
-python3 - <<'PY'
-import re, hashlib, os, sys
-
-base = "artifacts/first-principles/public/fp/en/"
-sw_path = base + "sw.js"
-
-with open(sw_path, "r") as f:
-    content = f.read()
-
-entries = re.findall(r'\{url:"([^"]+)",revision:"([^"]+)"\}', content)
-if not entries:
-    print("ERROR: no precache entries found in sw.js", file=sys.stderr)
-    sys.exit(1)
-
-# Add new shared-asset files here if they are not yet in the precache.
-extra_files = [
-    "_assets/css/journal.css",
-    "_assets/js/journal.js",
-    "_assets/js/study-nav.js",
-    "find-a-church/index.html",
-    "find-a-church/style.css",
-    "find-a-church/logic.js",
-    "find-a-church/i18n/en.json",
-    "toc/toc-journal.css",
-    "toc/toc-journal.js",
-]
-
-existing_urls = {url for url, _ in entries}
-updated = added = missing = 0
-new_entries = []
-
-for url, old_rev in entries:
-    path = base + url
-    if os.path.exists(path):
-        new_rev = hashlib.md5(open(path, "rb").read()).hexdigest()
-        new_entries.append((url, new_rev))
-        if new_rev != old_rev:
-            updated += 1
-    else:
-        new_entries.append((url, old_rev))
-        missing += 1
-        print(f"  WARNING: precached file not found on disk: {url}")
-
-for url in extra_files:
-    if url not in existing_urls:
-        path = base + url
-        if os.path.exists(path):
-            rev = hashlib.md5(open(path, "rb").read()).hexdigest()
-            new_entries.append((url, rev))
-            added += 1
-            print(f"  Added to precache: {url}")
-        else:
-            print(f"  Skipped (not found): {url}")
-
-print(f"  Hashes refreshed: {updated}  |  New entries: {added}  |  Missing: {missing}")
-
-new_precache = "[" + ",".join(
-    f'{{url:"{u}",revision:"{r}"}}' for u, r in new_entries
-) + "]"
-
-match = re.search(r'\[(\{url:"[^"]+",revision:"[^"]+"\},?)+\]', content)
-if not match:
-    print("ERROR: could not locate precache array in sw.js", file=sys.stderr)
-    sys.exit(1)
-
-new_content = content[:match.start()] + new_precache + content[match.end():]
-with open(sw_path, "w") as f:
-    f.write(new_content)
-
-print("  sw.js written.")
-PY
+pnpm --filter @workspace/first-principles run generate:sw
 
 echo "==> Staging all changes..."
 git add -A
@@ -90,7 +19,27 @@ git -c user.email="agent@replit.com" -c user.name="Replit Agent" \
   commit -m "Update content + refresh precache hashes" || echo "  Nothing new to commit."
 
 echo "==> Pushing to GitHub..."
-git push "$REPO" HEAD:main
+if git remote get-url upstream >/dev/null 2>&1; then
+  REMOTE="upstream"
+else
+  REMOTE="origin"
+fi
+
+if [[ -n "${GITHUB_PERSONAL_ACCESS_TOKEN:-}" ]]; then
+  TOKEN="$GITHUB_PERSONAL_ACCESS_TOKEN"
+elif [[ -n "${GITHUB_TOKEN:-}" ]]; then
+  TOKEN="$GITHUB_TOKEN"
+else
+  TOKEN=""
+fi
+
+if [[ -n "$TOKEN" ]]; then
+  AUTH_HEADER="$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)"
+  git -c "http.extraheader=AUTHORIZATION: basic $AUTH_HEADER" \
+    push "$REMOTE" HEAD:main
+else
+  git push "$REMOTE" HEAD:main
+fi
 
 echo ""
 echo "Done. GitHub Actions runs in ~1 minute:"
