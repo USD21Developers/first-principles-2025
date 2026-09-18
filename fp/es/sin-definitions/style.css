@@ -1,0 +1,117 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+.master-container {
+  background-color: #f4f4f4;
+  margin: auto;
+  max-width: 991px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+header {
+  background: linear-gradient(to bottom right, #3d71aa, #091018) !important;
+  /* background-color: #251c17; */
+  /* background-image: url(img/masthead-church.avif); */
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18vh;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+}
+
+header div.col-12 h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 344px) and (max-width: 575px) {
+  header {
+    background-position-x: calc(100% + 110px);
+  }
+
+  header div.col-12 h1 {
+    bottom: 1.5rem;
+    font-size: 1.4rem;
+    left: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 768px) {
+  header div.col-12 h1 {
+    left: 5vw;
+  }
+}
+
+@media (min-width: 992px) {
+  header {
+    height: 25vh;
+  }
+
+  header div.col-12 h1 {
+    left: 2.3vw;
+  }
+}
+
+@media (orientation: landscape) {
+  header {
+    height: 45vh;
+    max-height: 250px;
+  }
+}
+
+dl {
+  margin-left: 2rem;
+}
+
+dt::after {
+  content: " - ";
+}
+
+dl div {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+dt,
+dd {
+  display: inline;
+}
+
+.greekterm {
+  font-weight: normal;
+}
+
+i[lang="grc-Latn"] {
+  color: darkslategrey;
+  font-family: monospace;
+  font-size: 0.9rem;
+}

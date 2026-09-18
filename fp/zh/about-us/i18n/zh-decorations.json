@@ -1,0 +1,128 @@
+[
+  {
+    "key": "aboutUsP1",
+    "text": {
+      "original": "International Christian Church",
+      "translated": "国际基督教会"
+    },
+    "decorations": {
+      "bold": true,
+      "link": {
+        "href": "https://usd21.org/",
+        "attributes": "target='_blank' rel='noopener nofollow'"
+      }
+    }
+  },
+  {
+    "key": "aboutUsP1",
+    "text": {
+      "original": "(The SoldOut Movement)",
+      "translated": "(售罄运动)"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "ourFoundation-description-1",
+    "text": {
+      "original": "all of Scripture",
+      "translated": "全部圣经"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "distinctiveApproach-description-1",
+    "text": {
+      "original": "Be silent where the Bible speaks, and speak where the Bible is silent.",
+      "translated": "圣经说话之处就说话，圣经沉默之处就沉默。"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "missionThruDiscipleship-description-1",
+    "text": {
+      "original": "discipleship is not optional",
+      "translated": "门徒训练不是可有可无的"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "missionThruDiscipleship-description-1",
+    "text": {
+      "original": "Matthew 28:18-20",
+      "translated": "马太福音 28:18-20"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "leadershipStructure-description-1",
+    "text": {
+      "original": "central leadership with a central leader",
+      "translated": "以核心领袖为中心的领导层"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "ourIDHeartbeat-description-1",
+    "text": {
+      "original": "non-denominational, Bible-based movement",
+      "translated": "非宗派、以圣经为基础的运动"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "summary-description-1",
+    "text": {
+      "original": "Bible-Centered",
+      "translated": "以圣经为中心"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "summary-description-2",
+    "text": {
+      "original": "Great Commission Focused",
+      "translated": "以大使命为焦点"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

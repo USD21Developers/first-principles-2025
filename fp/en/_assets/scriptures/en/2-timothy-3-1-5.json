@@ -1,0 +1,27 @@
+{
+  "display": "2 Timothy 3:1-5",
+  "slug": "2-timothy-3-1-5",
+  "language": "en",
+  "version": "NIV",
+  "book": "2 Timothy",
+  "chapter": 3,
+  "verses": [
+    [1, "But mark this: There will be terrible times in the last days."],
+    [
+      2,
+      "People will be lovers of themselves, lovers of money, boastful, proud, abusive, disobedient to their parents, ungrateful, unholy,"
+    ],
+    [
+      3,
+      "without love, unforgiving, slanderous, without self-control, brutal, not lovers of the good,"
+    ],
+    [
+      4,
+      "treacherous, rash, conceited, lovers of pleasure rather than lovers of God—"
+    ],
+    [
+      5,
+      "having a form of godliness but denying its power. Have nothing to do with such people."
+    ]
+  ]
+}

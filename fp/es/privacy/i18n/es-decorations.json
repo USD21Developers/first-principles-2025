@@ -1,0 +1,42 @@
+[
+  {
+    "key": "lastUpdated",
+    "text": {
+      "original": "Last updated:",
+      "translated": "Última actualización:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p2",
+    "text": {
+      "original": "No personal data collected:",
+      "translated": "No se recopilan datos personales:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p3",
+    "text": {
+      "original": "No tracking:",
+      "translated": "Sin seguimiento:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p4",
+    "text": {
+      "original": "No permissions required:",
+      "translated": "No se requieren permisos:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  }
+]

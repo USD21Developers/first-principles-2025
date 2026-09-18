@@ -1,0 +1,786 @@
+[
+  {
+    "key": "purpose",
+    "text": {
+      "original": "Propósito:",
+      "translated": "Propósito:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "isaiah-2-1-4-description-1",
+    "text": {
+      "original": "Nos últimos dias,",
+      "translated": "Nos últimos dias,"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "isaiah-2-1-4-description-2",
+    "text": {
+      "original": "Todas as nações",
+      "translated": "Todas as nações"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "isaiah-2-1-4-description-3",
+    "text": {
+      "original": "pessoas serão ensinadas",
+      "translated": "pessoas serão ensinadas"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "isaiah-2-1-4-description-4",
+    "text": {
+      "original": "Jerusalém.",
+      "translated": "Jerusalém."
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "inTheTime",
+    "text": {
+      "original": "verse 44",
+      "translated": "v. 44"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Daniel,2,44\" data-scripture-title=\"Daniel 2:44\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "meaningOfVision",
+    "text": {
+      "original": "durante o reinado romano!",
+      "translated": "durante o reinado romano!"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-3-1-2-description-3",
+    "text": {
+      "original": "Question #4",
+      "translated": "pergunta #4"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question4\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-1",
+    "text": {
+      "original": "chaves do Reino.",
+      "translated": "chaves do Reino."
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-2",
+    "text": {
+      "original": "petros",
+      "translated": "petros"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-3",
+    "text": {
+      "original": "petros",
+      "translated": "petros"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-4",
+    "text": {
+      "original": "1 Corinthians 3:11",
+      "translated": "1 Coríntios 3:11"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"1 Corinthians,3,11\" data-scripture-title=\"1 Corinthians 3:11\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-6",
+    "text": {
+      "original": "A igreja é o reino de Deus na terra!",
+      "translated": "A igreja é o reino de Deus na terra!"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-6",
+    "text": {
+      "original": "(Resposta à pergunta #1)",
+      "translated": "(Resposta à pergunta #1)"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "matthew-16-13-19-description-6",
+    "text": {
+      "original": "pergunta #1",
+      "translated": "pergunta #1"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question1\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "mark-9-1-description-2",
+    "text": {
+      "original": "alguns",
+      "translated": "alguns"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "mark-9-1-description-3",
+    "text": {
+      "original": "com poder",
+      "translated": "com poder"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "john-3-1-7-description-1",
+    "text": {
+      "original": "nascer da água e do Espírito",
+      "translated": "nascer da água e do Espírito"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "john-3-1-7-description-1",
+    "text": {
+      "original": "Pergunta #3",
+      "translated": "Pergunta #3"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question3\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "luke-24-44-49-description-2",
+    "text": {
+      "original": "quatro pistas",
+      "translated": "quatro pistas"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-24-44-49-description-2a",
+    "text": {
+      "original": "Arrependimento",
+      "translated": "Arrependimento"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-24-44-49-description-2a",
+    "text": {
+      "original": "perdão dos pecados",
+      "translated": "perdão dos pecados"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-24-44-49-description-2b",
+    "text": {
+      "original": "A todas as nações;",
+      "translated": "A todas as nações;"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-24-44-49-description-2c",
+    "text": {
+      "original": "Jerusalém;",
+      "translated": "Jerusalém;"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "luke-24-44-49-description-2d",
+    "text": {
+      "original": "Poder do alto.",
+      "translated": "Poder do alto."
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-1-1-26-description-3",
+    "text": {
+      "original": "morte de Judas",
+      "translated": "morte de Judas"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-1-1-26-description-3",
+    "text": {
+      "original": "Mark 9:1",
+      "translated": "Marcos 9:1"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Mark,9,1\" data-scripture-title=\"Mark 9:1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1",
+    "text": {
+      "original": "Luke 24:44-49",
+      "translated": "Lucas 24:44-49"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,24,44,49\" data-scripture-title=\"Luke 24:44-49\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1a",
+    "text": {
+      "original": "Poder de alto",
+      "translated": "Poder do alto"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1a",
+    "text": {
+      "original": "verses 1-4",
+      "translated": "v. 1-4"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,1,4\" data-scripture-title=\"Acts 2:1-4\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1a",
+    "text": {
+      "original": "Mark 9:1",
+      "translated": "Marcos 9:1"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Mark,9,1\" data-scripture-title=\"Mark 9:1\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1b",
+    "text": {
+      "original": "Jerusalém",
+      "translated": "Jerusalém"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1b",
+    "text": {
+      "original": "v. 5",
+      "translated": "v. 5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,5\" data-scripture-title=\"Acts 2:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1b",
+    "text": {
+      "original": "Isaiah 2:3",
+      "translated": "Isaías 2:3"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,2,3\" data-scripture-title=\"Isaiah 2:3\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1c",
+    "text": {
+      "original": "Todas as nações",
+      "translated": "Todas as nações"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1c",
+    "text": {
+      "original": "(v. 5",
+      "translated": "(v. 5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,5\" data-scripture-title=\"Acts 2:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-1c",
+    "text": {
+      "original": "Isaiah 2:2",
+      "translated": "Isaías 2:2"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,2,2\" data-scripture-title=\"Isaiah 2:2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-2",
+    "text": {
+      "original": "últimos dias",
+      "translated": "últimos dias"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-2",
+    "text": {
+      "original": "verse 17",
+      "translated": "v. 17"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,17\" data-scripture-title=\"Acts 2:17\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-1-17-description-2",
+    "text": {
+      "original": "Isaiah 2:2",
+      "translated": "Isaías 2:2"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Isaiah,2,2\" data-scripture-title=\"Isaiah 2:2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-22-24-description-1",
+    "text": {
+      "original": "\"chaves\" do Reino",
+      "translated": "\"chaves\" do Reino"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-22-24-description-1",
+    "text": {
+      "original": "Mateus 16:13-19",
+      "translated": "Mateus 16:13-19"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-22-24-description-1",
+    "text": {
+      "original": "Mateus 16:13-19",
+      "translated": "Mateus 16:13-19"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Matthew,16,13,19\" data-scripture-title=\"Matthew 16:13-19\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-1",
+    "text": {
+      "original": "Arrependimento",
+      "translated": "Arrependimento"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-1",
+    "text": {
+      "original": "perdão dos pecados",
+      "translated": "perdão dos pecados"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-1",
+    "text": {
+      "original": "v. 38",
+      "translated": "v. 38"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,38\" data-scripture-title=\"Acts 2:38\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-1",
+    "text": {
+      "original": "Luke 24:44-49",
+      "translated": "Lucas 24:44-49"
+    },
+    "decorations": {
+      "bold": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Luke,24,44,49\" data-scripture-title=\"Luke 24:44-49\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-2",
+    "text": {
+      "original": "nasceram de novo da água e do Espírito!",
+      "translated": "nasceram de novo da água e do Espírito!"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-2",
+    "text": {
+      "original": "João 3:5",
+      "translated": "João 3:5"
+    },
+    "decorations": {
+      "bold": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"John,3,5\" data-scripture-title=\"John 3:5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-36-41-description-2",
+    "text": {
+      "original": "pergunta #2",
+      "translated": "pergunta #2"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question2\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"2\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-1",
+    "text": {
+      "original": "modelo",
+      "translated": "modelo"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-3",
+    "text": {
+      "original": "v. 46",
+      "translated": "v. 46"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Acts,2,46\" data-scripture-title=\"Acts 2:46\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-3",
+    "text": {
+      "original": "Matthew 26:55",
+      "translated": "Mateus 26:55"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Matthew,26,55\" data-scripture-title=\"Matthew 26:55\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-4",
+    "text": {
+      "original": "onde",
+      "translated": "onde"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-4",
+    "text": {
+      "original": "Sim!",
+      "translated": "Sim!"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "acts-2-42-47-description-4",
+    "text": {
+      "original": "Question #6",
+      "translated": "Pergunta #6"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question6\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"3\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-6-33-description-1",
+    "text": {
+      "original": " ir ",
+      "translated": " ir "
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-6-33-description-1",
+    "text": {
+      "original": "Sim!",
+      "translated": "Sim!"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-6-33-description-1",
+    "text": {
+      "original": "Question #5",
+      "translated": "pergunta #5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"#\" class=\"question5\" data-bs-toggle=\"popover\" data-bs-custom-class=\"custom-popover\" data-bs-trigger=\"focus\" tabindex=\"4\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "matthew-6-33-description-3",
+    "text": {
+      "original": "sacrificar",
+      "translated": "sacrificar"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "matthew-6-33-description-3",
+    "text": {
+      "original": "o Reino de Deus na terra",
+      "translated": "o Reino de Deus na terra"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "challenge-description",
+    "text": {
+      "original": "primeiro lugar",
+      "translated": "primeiro lugar"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "challenge-description",
+    "text": {
+      "original": "comunhão dos discípulos",
+      "translated": "comunhão dos discípulos"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

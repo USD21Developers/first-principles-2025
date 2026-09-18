@@ -1,0 +1,7 @@
+The software code in this project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+See https://www.gnu.org/licenses/gpl-3.0.txt for the full license text.
+
+The content (including but not limited to text, images, and data) is proprietary and may not be copied or redistributed without permission.
+
+Full licensing details are available at:
+https://usd21.app/fp/pt/license/
