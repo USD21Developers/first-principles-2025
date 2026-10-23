@@ -11,6 +11,6 @@ The user states that production runs at `usd21.app` on an AlmaLinux server in sh
 
 Retain a migration-only worker at the legacy root worker URL; the application worker must remain scoped to `/fp/`. Do not remove the migration endpoint just because current clients no longer register a root worker.
 
-**Why:** Dormant installations can retain an old root-scoped worker that intercepts the entry page before new page logic runs. Revalidation headers on current HTML do not bypass that worker, and a broken legacy worker endpoint prevents its replacement.
+**Why:** Dormant installations can retain an old root-scoped worker that intercepts the entry page before new page logic runs. Revalidation headers on current HTML do not bypass that worker, and a broken legacy worker endpoint prevents its replacement. The user confirmed that restoring the migration endpoint through the refreshed server pull script resolved the stale entry behavior after closing and reopening the browser; no hard refresh was needed.
 
 **How to apply:** Keep migration responses reachable as JavaScript, preserve user storage, and include root migration assets in the external server pull process without overwriting its server-specific Apache configuration.
