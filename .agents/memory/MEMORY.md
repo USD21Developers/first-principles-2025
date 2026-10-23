@@ -2,3 +2,4 @@
 - [Shared icon visual checks](shared-icon-visual-checks.md) — DOM assertions can pass while SVG artwork renders as a dot; inspect pixels at actual control size.
 - [Hosting context](hosting-context.md) — production uses external AlmaLinux/cPanel hosting; app-store distribution and no-login requirements.
 - [Legacy study sources](legacy-study-sources.md) — preserve supplied legacy PDF wording and diagrams separately from the current study.
+- [NIV offline permission](niv-offline-permission.md) — user confirmed permission for NIV scripture text in this app's offline library.

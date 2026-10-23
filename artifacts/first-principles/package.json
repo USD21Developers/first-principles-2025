@@ -7,6 +7,7 @@
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
     "build": "node scripts/generate-fp-service-worker.mjs && vite build --config vite.config.ts && node scripts/copy-fp-static.mjs",
     "generate:sw": "node scripts/generate-fp-service-worker.mjs",
+    "audit:scriptures": "node scripts/audit-scriptures.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

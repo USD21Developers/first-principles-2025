@@ -55,19 +55,25 @@ test("Local page dependencies and internal navigation resolve", () => {
   }
 });
 
-test("Scripture links use local text or explicit existing unavailable behavior", () => {
-  let unavailable = 0;
+test("Every Legacy scripture link has its complete verse range available locally", () => {
   for (const [tag, reference] of page.matchAll(/<span data-scripture="([^"]+)"[^>]*>/g)) {
-    if (tag.includes('data-scripture-offline="false"')) {
-      assert.equal(reference, "Romans,3,23,25");
-      unavailable++;
-      continue;
-    }
+    assert.ok(!tag.includes('data-scripture-offline="false"'), reference);
     const slug = reference.toLowerCase().replaceAll(",", "-").replaceAll(" ", "-");
     const data = JSON.parse(read(`en/_assets/scriptures/en/${slug}.json`));
-    assert.ok(data.verses.length > 0, slug);
+    const [, , first, last = first] = reference.split(",");
+    assert.deepEqual(data.verses.map(([v]) => v),
+      Array.from({length: Number(last) - Number(first) + 1}, (_, i) => Number(first) + i), slug);
   }
-  assert.equal(unavailable, 1);
+});
+
+test("Romans 3:23-25 includes verse 24 and preserves existing NIV verses verbatim", () => {
+  const range = JSON.parse(read("en/_assets/scriptures/en/romans-3-23-25.json"));
+  assert.equal(range.version, "NIV");
+  assert.match(range.source, /^https:\/\/www\.biblegateway\.com\//);
+  for (const number of [23, 24, 25]) {
+    const single = JSON.parse(read(`en/_assets/scriptures/en/romans-3-${number}.json`));
+    assert.deepEqual(range.verses.find(([v]) => v === number), single.verses[0]);
+  }
 });
 
 test("New scripture ranges reuse the existing library verbatim", () => {
@@ -111,7 +117,7 @@ test("Generated offline worker includes the study, all diagrams and local script
     "index.html", "style.css", "logic.js", "i18n/en.json", "i18n/en-decorations.json",
     "img/wall-of-sin.png", "img/all-have-sinned.png", "img/wages-and-gift.png", "img/baptism.png",
   ]) assert.ok(worker.includes(`"url":"en/${study}/${suffix}"`), suffix);
-  for (const slug of ["acts-2-36-37", "romans-6-1-4", "colossians-2-12"]) {
+  for (const slug of ["acts-2-36-37", "romans-6-1-4", "colossians-2-12", "romans-3-24", "romans-3-23-25"]) {
     assert.ok(worker.includes(`"url":"en/_assets/scriptures/en/${slug}.json"`), slug);
   }
 });
