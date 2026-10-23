@@ -32,7 +32,8 @@ export default defineConfig({
       configureServer(server: ViteDevServer) {
         server.middlewares.use((req, res, next) => {
           const pathname = (req.url || "").split("?")[0];
-          const isWorker = pathname === "/fp/sw.js" || /^\/fp\/[^/]+\/sw\.js$/.test(pathname);
+          const isRootWorker = pathname === "/sw.js";
+          const isWorker = isRootWorker || pathname === "/fp/sw.js" || /^\/fp\/[^/]+\/sw\.js$/.test(pathname);
           const isHtml = pathname.endsWith("/") || pathname.endsWith(".html");
 
           if (isWorker || isHtml) {
@@ -42,7 +43,7 @@ export default defineConfig({
           } else {
             res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
           }
-          if (isWorker) res.setHeader("Service-Worker-Allowed", "/fp/");
+          if (isWorker) res.setHeader("Service-Worker-Allowed", isRootWorker ? "/" : "/fp/");
           next();
         });
       },

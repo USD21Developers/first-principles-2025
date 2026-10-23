@@ -13,4 +13,11 @@ await cp(source, destination, {
   filter: (sourcePath) => !sourcePath.split(path.sep).includes("node_modules"),
 });
 
+// Vite does not copy unreferenced public files in this MPA configuration.
+// Existing root worker registrations must still be able to request this URL.
+await cp(
+  path.join(artifactRoot, "public", "sw.js"),
+  path.join(artifactRoot, "dist", "public", "sw.js"),
+);
+
 console.log("Copied First Principles static files to dist/public/fp.");

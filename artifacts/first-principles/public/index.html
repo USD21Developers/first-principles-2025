@@ -21,10 +21,41 @@
       content="First Principles Bible Study Series"
     />
     <meta name="google" content="notranslate" />
-    <meta http-equiv="refresh" content="0; url=fp/" />
     <script type="text/javascript">
-      window.location.replace("fp/");
+      (function () {
+        var supported = ["en", "es", "fr", "pt", "pt-eu", "zh"];
+        var language = null;
+        try {
+          language = window.localStorage.getItem("fpLanguage");
+        } catch (error) {
+          // Storage may be unavailable; retain the explicit language selector.
+        }
+
+        // Replace only a legacy root-scoped registration, never the /fp/ worker.
+        // New visitors do not need a root service worker.
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function (registrations) {
+            var hasLegacyRoot = registrations.some(function (registration) {
+              return registration.scope === window.location.origin + "/";
+            });
+            if (hasLegacyRoot) {
+              return navigator.serviceWorker.register("sw.js", {
+                scope: "./",
+                updateViaCache: "none",
+              });
+            }
+          }).catch(function (error) {
+            console.warn("Legacy root worker migration could not start:", error);
+          });
+        }
+
+        var destination = supported.indexOf(language) !== -1
+          ? "fp/" + language + "/toc/"
+          : "fp/";
+        window.location.replace(destination + window.location.search + window.location.hash);
+      })();
     </script>
+    <noscript><meta http-equiv="refresh" content="0; url=fp/" /></noscript>
   </head>
   <body></body>
 </html>
