@@ -21,6 +21,7 @@
     { slug: 'best-friends',        name: 'Best Friends',                color: '#0e6655' },
     { slug: 'the-mission',         name: 'The Mission',                 color: '#4a235a' },
     { slug: 'persecution',         name: 'Persecution',                  color: '#922b21' },
+    { slug: 'light-darkness-legacy', name: 'Light And Darkness (Legacy)', color: '#1a6fa8' },
   ];
 
   /* ── Storage helpers ─────────────────────────────────────── */

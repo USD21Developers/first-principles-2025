@@ -80,6 +80,7 @@
       "best-friends", "christ-is-your-life", "church", "cross",
       "discipleship", "find-a-church", "holy-spirit-baptism",
       "holy-spirit-gifts", "kingdom", "license", "light-darkness",
+      "light-darkness-legacy",
       "medical-account", "nt-conversion", "persecution", "privacy",
       "seeking-god", "sin-definitions", "sin-repentance", "support",
       "the-mission", "toc", "word",

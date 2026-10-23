@@ -1,0 +1,80 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+.master-container {
+  background-color: #f4f4f4;
+  margin: auto;
+  width: 100%;
+}
+
+@media (min-width: 991px) {
+  .master-container {
+    width: clamp(991px, 80vw, 1536px);
+  }
+}
+
+header {
+  background-color: #1a1a1a;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+h2.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.study-figure {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.study-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.compare-table {
+  width: 100%;
+  max-width: 640px;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  background: #e2e2e2;
+  font-size: 0.85rem;
+}
+
+.compare-table th,
+.compare-table td {
+  border: 2px solid #1a1a1a;
+  padding: 0.4rem 0.6rem;
+  vertical-align: top;
+}
+
+.compare-table .light-col {
+  text-align: right;
+}
+
+.baptism-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.sinful-note {
+  border-top: 2px solid #555;
+  padding-top: 1rem;
+}

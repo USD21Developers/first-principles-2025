@@ -22,6 +22,7 @@
     'best-friends':        '#0e6655',
     'the-mission':         '#4a235a',
     'persecution':         '#922b21',
+    'light-darkness-legacy': '#1a6fa8',
   };
 
   /* ── Storage key helpers ──────────────────────────────────── */
