@@ -1,0 +1,324 @@
+/* ============================================================
+   Study Comments
+   Mobile-first; mirrors journal drawer style
+   ============================================================ */
+
+/* ── Highlighted (commented) elements ────────────────────── */
+[data-cid].fp-has-comment {
+  background-color: rgba(250, 204, 21, 0.25);
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  position: relative;
+}
+
+[data-cid].fp-has-comment::after {
+  content: '💬';
+  font-size: 0.7em;
+  margin-left: 4px;
+  vertical-align: middle;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+[data-cid].fp-has-comment:hover,
+[data-cid].fp-has-comment:focus {
+  background-color: rgba(250, 204, 21, 0.45);
+  outline: none;
+}
+
+/* Subtle hint cursor on all commentable elements */
+[data-cid]:not(.fp-has-comment) {
+  cursor: text;
+}
+
+/* ── Legend pill ──────────────────────────────────────────── */
+#fp-comment-legend {
+  position: fixed;
+  bottom: 96px;
+  left: 16px;
+  z-index: 1044;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 10px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(250, 204, 21, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .14);
+  font-size: 0.72rem;
+  color: #374151;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.fp-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(250, 204, 21, 0.85);
+  border: 1px solid #d97706;
+  flex-shrink: 0;
+}
+
+/* ── Backdrop ─────────────────────────────────────────────── */
+#fp-comment-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+  z-index: 1048;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+#fp-comment-backdrop.visible { opacity: 1; pointer-events: auto; }
+
+/* ── Drawer ───────────────────────────────────────────────── */
+#fp-comment-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1049;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -4px 32px rgba(0, 0, 0, .20);
+  display: flex;
+  flex-direction: column;
+  max-height: 78vh;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 1.3, 0.64, 1);
+  overflow: hidden;
+}
+
+#fp-comment-drawer.open { transform: translateY(0) !important; }
+
+/* ── Drag handle ──────────────────────────────────────────── */
+#fp-comment-handle {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 4px;
+  flex-shrink: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+#fp-comment-handle span {
+  width: 40px;
+  height: 4px;
+  background: #d1d5db;
+  border-radius: 2px;
+  display: block;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+#fp-comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 16px 12px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.fp-comment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fp-comment-hicon { font-size: 1.2rem; }
+
+#fp-comment-heading {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+#fp-comment-close {
+  background: none;
+  border: none;
+  font-size: 1.65rem;
+  line-height: 1;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+#fp-comment-close:hover { color: #111827; }
+
+/* ── Context (quoted study text) ─────────────────────────── */
+#fp-comment-context {
+  padding: 8px 16px 10px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-style: italic;
+  line-height: 1.45;
+  border-bottom: 1px solid #f3f4f6;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#fp-comment-context::before {
+  content: '\201C';
+  color: #d97706;
+  font-style: normal;
+  margin-right: 1px;
+}
+
+#fp-comment-context::after {
+  content: '\201D';
+  color: #d97706;
+  font-style: normal;
+  margin-left: 1px;
+}
+
+/* ── Body ─────────────────────────────────────────────────── */
+#fp-comment-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px 4px;
+  gap: 6px;
+}
+
+#fp-comment-ta {
+  flex: 1;
+  width: 100%;
+  min-height: 120px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1f2937;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  background: #fffef5;
+  box-sizing: border-box;
+}
+
+#fp-comment-ta:focus {
+  border-color: #d97706;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, .13);
+}
+
+#fp-comment-ta:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+#fp-comment-wc {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  text-align: right;
+  min-height: 1em;
+  margin-top: 2px;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+#fp-comment-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom, 14px));
+  flex-shrink: 0;
+  border-top: 1px solid #f3f4f6;
+  gap: 8px;
+}
+
+#fp-comment-fleft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#fp-comment-fright {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+#fp-comment-status {
+  font-size: 0.78rem;
+  color: #059669;
+  font-weight: 500;
+  min-width: 60px;
+  white-space: nowrap;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.fp-btn {
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fp-btn:hover { background: #e5e7eb; }
+
+.fp-btn-primary {
+  background: #d97706;
+  color: #ffffff;
+  border-color: #d97706;
+}
+
+.fp-btn-primary:hover { background: #b45309; border-color: #b45309; }
+
+.fp-btn-danger {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fff5f5;
+}
+
+.fp-btn-danger:hover { background: #fee2e2; }
+
+/* ============================================================
+   Desktop: floating panel, bottom-right (offset from journal)
+   ============================================================ */
+@media (min-width: 640px) {
+  #fp-comment-backdrop { display: none !important; }
+
+  #fp-comment-drawer {
+    left: auto;
+    right: 28px;
+    bottom: 28px;
+    width: 420px;
+    max-width: 92vw;
+    border-radius: 16px;
+    max-height: 72vh;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, .22);
+    transform: translateY(calc(100% + 50px));
+  }
+
+  #fp-comment-handle { display: none; }
+
+  #fp-comment-legend { bottom: 76px; }
+}
+
+/* ── Larger touch targets for mobile ─────────────────────── */
+@media (max-width: 639px) {
+  .fp-btn       { padding: 9px 11px; font-size: 0.83rem; }
+  #fp-comment-ta { font-size: 1rem; }
+}

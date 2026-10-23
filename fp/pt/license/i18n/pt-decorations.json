@@ -1,0 +1,131 @@
+[
+  {
+    "key": "sec1",
+    "text": {
+      "original": "(Code)",
+      "translated": "(Código)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec1p1",
+    "text": {
+      "original": "in this repository",
+      "translated": "neste repositório"
+    },
+    "decorations": {
+      "link": {
+        "href": "https://github.com/USD21Developers/first-principles-2025",
+        "attributes": "target=\"_blank\" rel=\"noopener nofollow\""
+      }
+    }
+  },
+  {
+    "key": "sec1p3",
+    "text": {
+      "original": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "translated": "https://www.gnu.org/licenses/gpl-3.0.html"
+    },
+    "decorations": {
+      "link": {
+        "href": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "attributes": "class=\"d-block\" target=\"_blank\" rel=\"noopener nofollow\""
+      }
+    }
+  },
+  {
+    "key": "sec2",
+    "text": {
+      "original": "(Non-Code Materials)",
+      "translated": "(Materiais Não-Código)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec2",
+    "text": {
+      "original": "(Non-Code Materials)",
+      "translated": "(Materiais Não-Código)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "sec2p1",
+    "text": {
+      "original": "https://usd21.org",
+      "translated": "https://usd21.org"
+    },
+    "decorations": {
+      "link": {
+        "href": "https://usd21.org/",
+        "attributes": "target=\"_blank\" rel=\"noopener nofollow\""
+      }
+    }
+  },
+  {
+    "key": "sec4p1",
+    "text": {
+      "original": "Code",
+      "translated": "Código"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "sec4p2",
+    "text": {
+      "original": "Content:",
+      "translated": "Conteúdo:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "sec4p3",
+    "text": {
+      "original": "Code, Techniques and Style:",
+      "translated": "Código, Técnicas e Estilo:"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "sec5",
+    "text": {
+      "original": "(GPLv3)",
+      "translated": "(GPLv3)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"notbold\""
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USD21</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta property="og:title" content="First Principles" />
+    <meta property="og:description" content="Bible Study Series" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://usd21.app/" />
+    <meta
+      property="og:image"
+      content="https://usd21.app/fp/en/_assets/img/opengraph.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="First Principles Bible Study Series"
+    />
+    <meta name="google" content="notranslate" />
+    <script type="text/javascript">
+      (function () {
+        var supported = ["en", "es", "fr", "pt", "pt-eu", "zh"];
+        var language = null;
+        try {
+          language = window.localStorage.getItem("fpLanguage");
+        } catch (error) {
+          // Storage may be unavailable; retain the explicit language selector.
+        }
+
+        // Replace only a legacy root-scoped registration, never the /fp/ worker.
+        // New visitors do not need a root service worker.
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function (registrations) {
+            var hasLegacyRoot = registrations.some(function (registration) {
+              return registration.scope === window.location.origin + "/";
+            });
+            if (hasLegacyRoot) {
+              return navigator.serviceWorker.register("sw.js", {
+                scope: "./",
+                updateViaCache: "none",
+              });
+            }
+          }).catch(function (error) {
+            console.warn("Legacy root worker migration could not start:", error);
+          });
+        }
+
+        var destination = supported.indexOf(language) !== -1
+          ? "fp/" + language + "/toc/"
+          : "fp/";
+        window.location.replace(destination + window.location.search + window.location.hash);
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=fp/" /></noscript>
+  </head>
+  <body></body>
+</html>

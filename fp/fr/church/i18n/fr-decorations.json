@@ -1,0 +1,264 @@
+[
+  {
+    "key": "ephesians-2-19-22-description-1",
+    "text": {
+      "original": "1 Timothy 3:15",
+      "translated": "1 Timothée 3.15"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"1 Timothy,3,15\" data-scripture-title=\"1 Timothy 3:15\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "ephesians-4-4-6-description-1",
+    "text": {
+      "original": "Romans 12:4-5",
+      "translated": "Romains 12.4-5"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Romans,12,4,5\" data-scripture-title=\"Romans 12:4-5\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "ephesians-4-4-6-description-1",
+    "text": {
+      "original": "1 Corinthians 12:12-13",
+      "translated": "1 Corinthiens 12.12-13"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"1 Corinthians,12,12,13\" data-scripture-title=\"1 Corinthians 12:12-13\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-1",
+    "text": {
+      "original": "(Acts 13:47)",
+      "translated": "(Actes 13.47)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-nowrap\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-1",
+    "text": {
+      "original": "Acts 13:47",
+      "translated": "Actes 13.47"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"acts,13,47\" data-scripture-title=\"Acts 13:47\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-2",
+    "text": {
+      "original": "(Matthew 28:18-20)",
+      "translated": "(Matthieu 28.18-20)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-nowrap\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-2",
+    "text": {
+      "original": "Matthew 28:18-20",
+      "translated": "Matthieu 28.18-20"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Matthew,28,18,20\" data-scripture-title=\"Matthew 28:18-20\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-3",
+    "text": {
+      "original": "(Numbers 27:12-18; 1 Corinthians 4:15-17)",
+      "translated": "(Nombres 27.12-18 ; 1 Corinthiens 4.15-17)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-nowrap\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-3",
+    "text": {
+      "original": "Numbers 27:12-18",
+      "translated": "Nombres 27.12-18"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Numbers,27,12,18\" data-scripture-title=\"Numbers 27:12-18\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-3",
+    "text": {
+      "original": "1 Corinthians 4:15-17",
+      "translated": "1 Corinthiens 4.15-17"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"1 Corinthians,4,15,17\" data-scripture-title=\"1 Corinthians 4:15-17\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-4",
+    "text": {
+      "original": "(2 Timothy 3:14-17)",
+      "translated": "(2 Timothée 3.14-17)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-nowrap\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-4",
+    "text": {
+      "original": "2 Timothy 3:14-17",
+      "translated": "2 Timothée 3.14-17"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"2 Timothy,3,14,17\" data-scripture-title=\"2 Timothy 3:14-17\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-5",
+    "text": {
+      "original": "(Genesis 2:19)",
+      "translated": "(Genèse 2.19)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": " class=\"text-nowrap\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "fiveConvictions-description-5",
+    "text": {
+      "original": "Genesis 2:19",
+      "translated": "Genèse 2.19"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"Genesis,2,19\" data-scripture-title=\"Genesis 2:19\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "1-corinthians-7-39-description-2",
+    "text": {
+      "original": "(2 Corinthians 6:14-18)",
+      "translated": "(2 Corinthiens 6.14-18)"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-nowrap\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "1-corinthians-7-39-description-2",
+    "text": {
+      "original": "2 Corinthians 6:14-18",
+      "translated": "2 Corinthiens 6.14-18"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "data-scripture=\"2 Corinthians,6,14,18\" data-scripture-title=\"2 Corinthians 6:14-18\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

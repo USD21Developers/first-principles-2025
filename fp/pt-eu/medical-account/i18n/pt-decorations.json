@@ -1,0 +1,247 @@
+[
+  {
+    "key": "p2",
+    "text": {
+      "original": "The Day Christ Died",
+      "translated": "O Dia Em Que Cristo Morreu"
+    },
+    "decorations": {
+      "italic": true
+    }
+  },
+  {
+    "key": "p26",
+    "text": {
+      "original": "primeira",
+      "translated": "primeira"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p26",
+    "text": {
+      "original": "«Pai, perdoa-lhes, porque não sabem o que fazem.»",
+      "translated": "«Pai, perdoa-lhes, porque não sabem o que fazem.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p27",
+    "text": {
+      "original": "segunda",
+      "translated": "segunda"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p27",
+    "text": {
+      "original": "«Digo-te hoje: estarás comigo no paraíso.»",
+      "translated": "«Digo-te hoje: estarás comigo no paraíso.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p28",
+    "text": {
+      "original": "terceira",
+      "translated": "terceira"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p28",
+    "text": {
+      "original": "«Mulher, eis o teu filho.»",
+      "translated": "«Mulher, eis o teu filho.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p28",
+    "text": {
+      "original": "«Eis a tua mãe.»",
+      "translated": "«Eis a tua mãe.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p29",
+    "text": {
+      "original": "quarta",
+      "translated": "quarta"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p29",
+    "text": {
+      "original": "«Meu Deus, meu Deus, porque me abandonaste?»",
+      "translated": "«Meu Deus, meu Deus, porque me abandonaste?»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p32",
+    "text": {
+      "original": "quinta",
+      "translated": "quinta"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p32",
+    "text": {
+      "original": "«Tenho sede.»",
+      "translated": "«Tenho sede.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p34",
+    "text": {
+      "original": "sexta",
+      "translated": "sexta"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p34",
+    "text": {
+      "original": "«Tudo está consumado.»",
+      "translated": "«Tudo está consumado.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "p35",
+    "text": {
+      "original": "sétima",
+      "translated": "sétima"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "p35",
+    "text": {
+      "original": "«Pai, nas tuas mãos entrego o meu espírito.»",
+      "translated": "«Pai, nas tuas mãos entrego o meu espírito.»"
+    },
+    "decorations": {
+      "italic": true,
+      "tags": [
+        {
+          "name": "span",
+          "attributes": "class=\"text-danger\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "span",
+          "attributes": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": {
+      "original": "",
+      "translated": ""
+    },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": {
+        "href": "",
+        "attributes": ""
+      },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

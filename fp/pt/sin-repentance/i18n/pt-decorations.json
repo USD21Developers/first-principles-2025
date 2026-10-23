@@ -1,0 +1,140 @@
+[
+  {
+    "key": "purpose",
+    "text": { "original": "Propósito:", "translated": "Propósito:" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "galatians-5-19-21-description-1",
+    "text": {
+      "original": "Sin Definitions",
+      "translated": "Definições de Pecado"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"../sin-definitions/\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "1-timothy-3-1-5-description-1",
+    "text": {
+      "original": "Sin Definitions",
+      "translated": "Definições de Pecado"
+    },
+    "decorations": {
+      "tags": [
+        {
+          "name": "a",
+          "attributes": "href=\"../sin-definitions/\""
+        }
+      ]
+    }
+  },
+  {
+    "key": "romans-6-23-description-1",
+    "text": { "original": "morte eterna.", "translated": "morte eterna." },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "romans-6-23-description-2",
+    "text": { "original": "vida eterna!", "translated": "vida eterna!" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "2-corinthians-7-8-11-description-1",
+    "text": {
+      "original": "tristeza segundo Deus",
+      "translated": "tristeza segundo Deus"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "2-corinthians-7-8-11-description-2",
+    "text": {
+      "original": "mudança de mente",
+      "translated": "mudança de mente"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "2-corinthians-7-8-11-description-4",
+    "text": {
+      "original": "tristeza mundana",
+      "translated": "tristeza mundana"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "2-corinthians-7-8-11-description-4",
+    "text": {
+      "original": "tristeza segundo Deus",
+      "translated": "tristeza segundo Deus"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "challengeText",
+    "text": {
+      "original": "claro de arrependimento,",
+      "translated": "claro de arrependimento,"
+    },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "bold": true
+    }
+  },
+  {
+    "key": "SAMPLE (full)",
+    "text": { "original": "", "translated": "" },
+    "decorations": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "link": { "href": "", "attributes": "" },
+      "tags": [
+        {
+          "name": "",
+          "attributes": ""
+        }
+      ]
+    }
+  }
+]

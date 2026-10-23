@@ -1,0 +1,7 @@
+FOR SIMPLE TRANSLATION (zh.json):
+
+In the JSON below, translate the values from English to Chinese (simplified). Leave the keys unchanged.
+
+FOR DECORATIONS (zh-decorations.json):
+
+In the JSON below, for the entire array, translate the value of "text.translated" from English to Chinese (simplified) and replace it.

@@ -1,0 +1,33 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #555;
+  margin: 0;
+  padding: 0;
+}
+
+.master-container {
+  background-color: #f4f4f4;
+  margin: auto;
+  width: 100%;
+}
+
+@media (min-width: 991px) {
+  .master-container {
+    width: clamp(991px, 80vw, 1536px);
+  }
+}
+
+header {
+  background-color: #1a1a1a;
+  background-image: url(img/masthead-after-baptism.avif);
+  background-position: top center;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
